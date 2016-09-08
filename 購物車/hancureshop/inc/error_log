@@ -1,0 +1,2 @@
+[01-Dec-2015 08:45:42 Europe/London] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'goodsdes_hanadm'@'localhost' (using password: YES) in /home/goodsdes/public_html/hancure_shop/inc/db.php on line 12
+[01-Dec-2015 08:47:03 Europe/London] PHP Warning:  mysql_connect() [<a href='function.mysql-connect'>function.mysql-connect</a>]: Access denied for user 'goodsdes_hanadm'@'localhost' (using password: YES) in /home/goodsdes/public_html/hancure_shop/inc/db.php on line 12

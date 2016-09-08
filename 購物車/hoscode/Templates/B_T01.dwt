@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<?php require_once('meta.php'); ?>
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>BOBOSA 波波薩休閒小館 台灣茶專門店</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<style type="text/css">
+<!--
+body {
+	margin-top: 0px;
+	background-image: url();
+	background-repeat: repeat;
+	margin-bottom: 0px;
+}
+.f015 {
+	font-family: "新細明體";
+	font-size: 15px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+}
+.style4 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 25px;
+}
+.f011 {
+	font-size: 13px;
+	font-family: "新細明體";
+	font-style: normal;
+	line-height: 16px;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+}
+.style6 {font-size: 13px; font-family: "新細明體"; font-style: normal; line-height: 16px; font-weight: normal; font-variant: normal; text-transform: none; color: #666666; }
+.F016 {
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: normal;
+	line-height: 14px;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #666666;
+}
+.F016 a:link{
+	font-size: 11px;
+	line-height: 14px;
+	text-transform: none;
+	color: #666666;
+	text-decoration: none;
+}
+.F016 a:visited{
+	font-size: 11px;
+	line-height: 14px;
+	text-transform: none;
+	color: #666666;
+	text-decoration: none;
+}
+.F016 a:hover{
+	font-size: 11px;
+	line-height: 14px;
+	text-transform: none;
+	color: #666666;
+	text-decoration: none;
+}
+.F016 a:active{
+	font-size: 11px;
+	line-height: 14px;
+	text-transform: none;
+	color: #666666;
+	text-decoration: none;
+}
+-->
+</style></head>
+
+<body>
+<!-- TemplateBeginEditable name="EditRegion3" -->
+<p>&nbsp;</p>
+<!-- TemplateEndEditable -->
+<table width="1022" height="91" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <th width="18" align="left" valign="top" bgcolor="#FFFFFF" scope="row"><img src="../04_new/Cimage_line_03.jpg" width="18" height="8" /></th>
+    <th width="1004" align="left" valign="top" background="../02_about/AA.jpg" scope="row"><table width="1004" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <th height="31" align="left" valign="top" scope="row"><img src="../04_new/Cimage_line_03.jpg" width="1004" height="8" /></th>
+        </tr>
+    </table>      
+    <?php require_once('footer.php'); ?>
+    </th>
+  </tr>
+</table>
+</body>
+</html>

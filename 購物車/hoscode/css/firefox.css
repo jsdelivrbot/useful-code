@@ -1,0 +1,28 @@
+
+.about_en_btn{
+	transform:rotate(90deg);
+	left: 41px !important;
+	top: 248px !important;
+}
+.about_en_btn2{
+	transform:rotate(90deg);
+	left: -4px !important;
+	top:90px !important;
+}
+.about_btn2{
+	width: 1em;
+    word-break: break-all;
+}
+
+#right_menu .menu li .en{
+	transform:rotate(90deg);
+	font-size: 10px;
+	height: 10px;
+	letter-spacing: 0;
+	margin-bottom: 7px;
+	padding-top: 8px;
+	width: 0;
+	word-break: break-all;
+}
+#right_menu .menu li .ch{ margin-bottom: 5px !important;}
+#right_menu .menu li.current .cross{margin-top: 50px;}

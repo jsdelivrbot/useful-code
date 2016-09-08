@@ -1,0 +1,86 @@
+@import "css/reset.css";
+// @import "ryder970cm.css" screen and (max-width: 970px);
+
+@ch-family:"メイリオ",Meiryo,"STXihei", HEITI TC, "HEITI TC", "黑體-繁", "微軟正黑體", "黑體", sans-serif;
+@content-family: "STXihei", HEITI TC, "HEITI TC", "黑體-繁", "微軟正黑體", "黑體", sans-serif;
+@en-family:Arial, Helvetica, sans-serif;
+@foot-family:"Gill Sans MT", Arial, Helvetica, sans-serif;
+@jpch:"Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "小塚明朝 Pro EL", "Kozuka Mincho Pro", Georgia, Century, "Times New Roman", Times, "ＭＳ 明朝", serif;
+@jpen:"Times New Roman", Times;
+@trajan: 'Trajan pro', Cinzel, Arial, Helvetica, sans-serif;
+@qqen:DINNextRoundedLTW01-Lig, 'Helvetica Neue', 'Helvetica, Arial', sans-serif;
+
+// 好神奇之這樣就可以抓到 height:100%
+html,body{
+	margin:0;
+	height:100%;
+	width:100%;
+	-webkit-text-size-adjust:100%;   // for mobile fontsize
+}
+
+.flexbox{
+	display: flex;
+	display: -ms-flexbox;
+}
+.flexCenter{
+	display: -webkit-box;
+	display: -moz-box;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	-webkit-justify-content:center;
+	-webkit-align-items:center;
+	-ms-flex-align:center;
+	-ms-flex-pack:center;
+}
+.autoright{margin-right: auto;}
+.clearfix{clear: both;}
+
+a{
+	text-decoration: none;
+	color: inherit;
+	img{border: 0;}
+}
+
+input:focus , select:focus , textarea:focus, button:focus{
+	outline: 0;
+}
+button{
+	background-color: transparent;
+	border: 0;
+}
+
+*{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+img{vertical-align: middle;}
+
+/* 侯留肯！阿噠噠噠噠～*/
+.css_mover{
+	cursor: pointer;
+	img:nth-child(1){display:inline; }
+	img:nth-child(2){display:none; }
+	&.current img:nth-child(1){display:none; }
+	&.current img:nth-child(2){display:inline; }
+}
+.css_active , .css_mover:hover{
+	img:nth-child(1){display:none; }
+	img:nth-child(2){display:inline; }
+	&.current img:nth-child(1){display:none; }
+	&.current img:nth-child(2){display:inline; }
+}
+.mr (@marginR){
+	margin-right: @marginR;
+	&:last-child{margin-right: 0;}
+}
+.mb (@marginB){
+	margin-bottom: @marginB;
+	&:last-child{margin-bottom: 0;}
+}
+//--------------------------- 我是分隔線 ------------------------------------
+

@@ -1,0 +1,27 @@
+[
+
+{"keys": ["ctrl+shift+k"], "command": "expand_selection", "args": {"to": "tag"} },
+{ "keys": ["ctrl+shift+l"], "command": "expand_selection", "args": {"to": "scope"} },
+{ "keys": ["ctrl+1"], "command": "fold_by_level", "args": {"level": 1} },
+{ "keys": ["ctrl+2"], "command": "fold_by_level", "args": {"level": 2} },
+{ "keys": ["ctrl+3"], "command": "fold_by_level", "args": {"level": 3} },
+{ "keys": ["ctrl+4"], "command": "fold_by_level", "args": {"level": 4} },
+{ "keys": ["ctrl+5"], "command": "fold_by_level", "args": {"level": 5} },
+
+{"keys": ["alt+right"],
+"args": {"action": "select_next_item"},
+"command": "run_emmet_action",
+"context": [{"key": "emmet_action_enabled.select_next_item"} ]},
+
+{"keys": ["alt+left"],
+"args": {"action": "select_previous_item"},
+"command": "run_emmet_action",
+"context": [{"key": "emmet_action_enabled.select_previous_item"} ] },
+
+{ "keys": ["ctrl+shift+f8"], "command": "split_selection_into_lines" },
+
+{"keys": ["alt+enter"], "command": "emmet_css_from_one_line"},
+
+]
+
+

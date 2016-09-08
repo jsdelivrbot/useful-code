@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_RecOrderItem" value="name:oi_id;datatype:int,name:o_id;datatype:int,name:d_id;datatype:int,name:d_class;datatype:int,name:d_name;datatype:blob,name:price_status;datatype:blob,name:serial_num;datatype:string,name:qty;datatype:int,name:d_price1;datatype:int,name:d_price2;datatype:int,name:d_price3;datatype:int,name:d_sale;datatype:int,name:d_price4;datatype:int,name:unit;datatype:blob,name:perUnit;datatype:int,name:pic;datatype:blob,name:d_new_p;datatype:int,name:subtotal;datatype:int" />
+</info>

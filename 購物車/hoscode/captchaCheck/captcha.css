@@ -1,0 +1,61 @@
+@charset "utf-8";
+/* CSS Document */
+
+.reservation-detail-container .reservation-detail .reservation-content .reservation-form-container form{
+	margin: 15px auto;
+}
+
+.inputarea{
+	height: 42px;
+}
+#captcha{
+	width: 85px;
+	padding: 0 5px;
+}
+
+#captchaTitle, .checkNumImg, .checkNumData, .reCheckNumData{
+	display: inline-block;
+	float: left;
+	height: 37px;
+}
+
+#captchaTitle{
+	margin: 0 10px;
+	line-height: 37px;
+}
+.checkNumData{
+	margin-right: 10px;
+}
+
+.checkNumImg{
+	display: inline-block;
+	margin-right: 10px;
+}
+.reCheckNumData{
+	line-height: 37px;
+}
+.checkNumImg a,.reCheckNumData a{
+	display: inline-block;
+	height: 100%;
+	color: #a5a5a5;
+}
+.checkNumImg a:hover,.reCheckNumData a:hover{
+	color: #4c4c4c;
+}
+
+.checkNumImg img{
+	border: 1px solid #9E9E9E;
+}
+
+
+
+.inputarea label.error{
+	display: block;
+	float: none;
+	margin-left: 10px;
+	margin-top: 0;
+}
+
+.cake-reservation-detail-container .cake-reservation-detail h1{
+	margin-top: 50px;
+}

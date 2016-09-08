@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TemplateBeginEditable name="doctitle" -->
+<title>bobosa台灣茶專門店</title>
+<!-- TemplateEndEditable -->
+<!-- TemplateBeginEditable name="head" --><!-- TemplateEndEditable -->
+<style type="text/css">
+<!--
+body {
+	margin-top: 0px;
+	background-image: url();
+	background-repeat: repeat;
+}
+.f015 {
+	font-family: "新細明體";
+	font-size: 15px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+}
+.style4 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 25px;
+}
+.f011 {
+	font-size: 13px;
+	font-family: "新細明體";
+	font-style: normal;
+	line-height: 16px;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+}
+.style6 {font-size: 13px; font-family: "新細明體"; font-style: normal; line-height: 16px; font-weight: normal; font-variant: normal; text-transform: none; color: #666666; }
+.F016 {
+	font-size: 11px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: normal;
+	line-height: 12px;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	color: #666666;
+}
+-->
+</style></head>
+
+<body>
+<!-- TemplateBeginEditable name="EditRegion3" -->
+<p>&nbsp;</p>
+<!-- TemplateEndEditable -->
+<table width="1022" height="91" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <th width="18" align="left" valign="top" bgcolor="#FFFFFF" scope="row">&nbsp;</th>
+    <th width="1004" align="left" valign="top" background="../02_about/AA.jpg" scope="row"><table width="980" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <th width="92" height="31" scope="row">&nbsp;</th>
+        <th width="888" align="left" scope="row"><span class="style6">中山店／07-7901345　熱河店／07-3110566　陽明店／07-3945578　九如店／07-3893636　覺民店／07-3950333　自立店／07-2856908　明誠店／07-5566869</span></th>
+      </tr>
+    </table>
+      <table width="995" height="33" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <th width="32" height="23" align="left" valign="top" scope="row">&nbsp;</th>
+        <th width="231" align="left" valign="middle" scope="row"><object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,19,0" width="211" height="33">
+          <param name="movie" value="../BOBO_LOGO.swf" />
+          <param name="quality" value="high" />
+          <param name="wmode" value="transparent" />
+          <embed src="../BOBO_LOGO.swf" width="211" height="33" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" wmode="transparent"></embed>
+        </object></th>
+        <th width="77" align="left" valign="middle" class="f015" scope="row">客服專線：</th>
+        <th width="140" align="left" valign="middle" scope="row"><span class="style4">07-3893671</span></th>
+        <th width="515" align="left" valign="middle" scope="row"><span class="F016">Espresso Con Panna, Cappuccino 
+          Mocha Cafe, Americano, Black Tea, 
+          Green Tea, Oolong Tea, Espresso 
+          Con Panna, Cappuccino, Mocha Cafe 
+          Americano, Black tea, Green Tea,</span></th>
+      </tr>
+    </table></th>
+  </tr>
+</table>
+<p>&nbsp;</p>
+</body>
+</html>

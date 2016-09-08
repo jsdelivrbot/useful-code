@@ -1,0 +1,11 @@
+<snippet>
+  <!-- Example: Hello, ${1:this} is a ${2:snippet}. -->
+  <content><![CDATA[
+<?= ${0:var} ?>
+]]></content>
+  <!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+  <tabTrigger>echo</tabTrigger>
+  <description>ryder-snippet</description>
+  <!-- Optional: Set a scope to limit where the snippet will trigger -->
+  <scope>embedding.php, text.html.basic, meta.embedded.line.php, punctuation.section.embedded.begin.php, source.js, meta.function-call.js, meta.group.js, meta.block.js, storage.type.js</scope>
+</snippet>

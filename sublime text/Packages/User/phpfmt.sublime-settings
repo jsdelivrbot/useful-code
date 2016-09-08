@@ -1,0 +1,9 @@
+{
+	"autocomplete": true,
+	"indent_with_space": 4,
+	"psr1": true,
+	"psr2": true,
+	"version": 1,
+	"php_bin":"D:/AppServ/php5/php.exe",
+
+}

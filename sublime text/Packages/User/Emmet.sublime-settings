@@ -13,9 +13,12 @@
 				"nth":"&:nth-child($1){\n	$0\n}",
 				"first":"&:first-child{\n	$0\n}",
 				"last":"&:last-child{\n	$0\n}",
-				"ffch":"font-family: @ch-family;$0",
-				"ffen":"font-family: @en-family;$0",
-				"ffc":"font-family: @content-family;$0",
+				"@ch":"@ch-family$0",
+				"@en":"@en-family$0",
+				"@c":"@content-family$0",
+				"$ch":"\\$ch-family$0",
+				"$en":"\\$en-family$0",
+				"$c":"\\$content-family$0",
 			}
 		}
 		,

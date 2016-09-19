@@ -56,7 +56,7 @@ e.stopPropagation();
 	ul{
 		text-align: justify;
 		&:after{
-			contents: '';
+			content: '';
 			width: 100%;
 			height: 0;
 			display: inline-block;

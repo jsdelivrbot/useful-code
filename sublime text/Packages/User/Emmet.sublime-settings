@@ -19,6 +19,7 @@
 				"$ch":"\\$ch-family$0",
 				"$en":"\\$en-family$0",
 				"$c":"\\$content-family$0",
+				"font":"font: ${1:italic} ${2:bold} ${3:12px}/${4:30px} ${5:\\$content-family};$0",
 			}
 		}
 		,

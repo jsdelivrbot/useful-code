@@ -1,3 +1,18 @@
+<!--===========================================================================
+=            git一些設定 (桌面右鍵 → setting → edit global .gitconfig)            =
+============================================================================-->
+[user]
+	name = qwe123qa
+	email = ts01173166@gmail.com
+[core]
+	quotepath = false
+[gui]
+	encoding = utf-8
+[i18n "commit"]
+	encoding = utf-8
+[i18n]
+	logoutputencoding = utf-8
+
 <!--======================================
 =            find plugin here            =
 =======================================-->

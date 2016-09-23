@@ -559,11 +559,6 @@ $(document).ready(function() {
 	$('#select1').change(function() {
 		//alert($(this).val());
 		window.location.href = "news_list.php?selected1="+$(this).val();
-		//hlghdkljfhgsdlfkghsdkjlhdfglkjdfg
-		//hlghdkljfhgsdlfkghsdkjlhdfglkjdfg
-		//hlghdkljfhgsdlfkghsdkjlhdfglkjdfg
-		//hlghdkljfhgsdlfkghsdkjlhdfglkjdfg
-		//hlghdkljfhgsdlfkghsdkjlhdfglkjdfg
 	});
 
 });

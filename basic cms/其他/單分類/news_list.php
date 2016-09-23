@@ -2,7 +2,7 @@
 <?php require_once('../Connections/connect2data.php'); ?>
 <?php
 if (!function_exists("GetSQLValueString")) {
-function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "") 
+function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "")
 {
   if (PHP_VERSION < 6) {
     $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
@@ -13,7 +13,7 @@ function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDe
   switch ($theType) {
     case "text":
       $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;    
+      break;
     case "long":
     case "int":
       $theValue = ($theValue != "") ? intval($theValue) : "NULL";
@@ -55,7 +55,7 @@ $G_selected1 = '';
 if(isset($_GET['selected1']))
 {
 	$_SESSION['selected_newsC'] = $G_selected1 = $_GET['selected1'];
-}else 
+}else
 {
 	$G_selected1 = $_SESSION['selected_newsC'] = $row_RecNewsC['c_id'];
 }
@@ -67,14 +67,14 @@ $RecNews = mysql_query($query_limit_RecNews, $connect2data) or die(mysql_error()
 $row_RecNews = mysql_fetch_assoc($RecNews);
 //$_SESSION['selected_news']=$G_selected2;
 //echo $query_RecNews;
-	
+
 	$S_original_selected='';
 	if(isset($_SESSION['original_selected'])){
   		$S_original_selected = $_SESSION['original_selected'];
   	}
   	$all_RecNews = mysql_query($query_RecNews);
  	$totalRows = mysql_num_rows($all_RecNews);
-	
+
 	$all_RecNews = mysql_query($query_RecNews);
  	$totalRows = mysql_num_rows($all_RecNews);
 	$totalPages_RecNews = ceil($totalRows/$maxRows_RecNews)-1;
@@ -85,7 +85,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
   $params = explode("&", $_SERVER['QUERY_STRING']);
   $newParams = array();
   foreach ($params as $param) {
-    if (stristr($param, "pageNum") == false && 
+    if (stristr($param, "pageNum") == false &&
         stristr($param, "totalRows") == false) {
       array_push($newParams, $param);
     }
@@ -96,18 +96,18 @@ if (!empty($_SERVER['QUERY_STRING'])) {
 }
 $queryString_RecNews = sprintf("&totalRows=%d%s", $totalRows, $queryString_RecNews);
  $menu_is="news";?>
- <?php 
+ <?php
     $R_pageNum = 0;
- if (isset($_REQUEST["pageNum"])) 
+ if (isset($_REQUEST["pageNum"]))
  {
  	$R_pageNum = $_REQUEST["pageNum"];
  }
-      if (! isset($R_pageNum)) 
+      if (! isset($R_pageNum))
       {
 	  	$_SESSION["ToPage"]=0;
 	  }
  	  //若指定分頁數小於1則預設顯示第一頁
-  	  else if ($R_pageNum<0) 
+  	  else if ($R_pageNum<0)
       {
 	  	$_SESSION["ToPage"]=0;
       }
@@ -128,7 +128,7 @@ $queryString_RecNews = sprintf("&totalRows=%d%s", $totalRows, $queryString_RecNe
 		header("Location:news_list.php?pageNum=".$totalPages_RecNews);
 	}
 
-	
+
 ?>
   <?php
 //修改排序
@@ -142,18 +142,18 @@ if (isset($_GET['delchangeSort']))
 {
 	$G_delchangeSort = $_GET['delchangeSort'];
 }
-if ($G_changeSort==1||$G_delchangeSort==1) 
+if ($G_changeSort==1||$G_delchangeSort==1)
 {
 	$sort_num=1;
-	
+
 	//echo "now_d_id=".$_GET['now_d_id'];
 	//echo "change_num=".$_GET['change_num'];
-	
+
 	mysql_select_db($database_connect2data, $connect2data);
-	
+
 	$query_RecNews = "SELECT data_set.*, class_set.c_title as c_title FROM data_set LEFT JOIN class_set ON data_set.d_class2 =class_set.c_id WHERE d_class1 = 'news' AND d_class2='".$G_selected1."' ORDER BY d_sort ASC, d_date DESC";
 	$_SESSION['selected_newsC']=$G_selected1;
-	
+
 	$RecNews = mysql_query($query_RecNews, $connect2data) or die(mysql_error());
 	$row_RecNews = mysql_fetch_assoc($RecNews);
 	//echo '<br>query 2 = '.$query_RecNews.'<br>';
@@ -163,21 +163,21 @@ if ($G_changeSort==1||$G_delchangeSort==1)
 		if($row_RecNews['d_sort']==0)
 		{}
 		else if($row_RecNews['d_id']==$_GET['now_d_id'])
-		{	
+		{
 			//echo 'sort_num(now_d_id) = '.$sort_num."<br/>";
-			
+
 		}else if($sort_num==$_GET['change_num'])
 		{
 			//echo 'sort_num(change_num) = '.$sort_num."<br/>";
 			$sort_num++;
-			
+
 			$updateSQL = sprintf("UPDATE data_set SET d_sort=%s WHERE d_id=%s ",
 			   GetSQLValueString($sort_num, "int"),
 			   GetSQLValueString($row_RecNews['d_id'], "int"));
 
 			mysql_select_db($database_connect2data, $connect2data);
 			$Result1 = mysql_query($updateSQL, $connect2data) or die(mysql_error());
-			
+
 			$sort_num++;
 		}
 		else
@@ -188,25 +188,25 @@ if ($G_changeSort==1||$G_delchangeSort==1)
 
 			mysql_select_db($database_connect2data, $connect2data);
 			$Result1 = mysql_query($updateSQL, $connect2data) or die(mysql_error());
-			
+
 			echo $sort_num."<br/>";
 			echo $row_RecNews['d_title']."->".$sort_num."<br/>";
-			
-			$sort_num++;		
+
+			$sort_num++;
 		}
-		
-		
+
+
 	//echo " ".$row_RecNews['d_sort'].'<br>';
 	}while ($row_RecNews = mysql_fetch_assoc($RecNews));
-	
-	
+
+
 			$updateSQL = sprintf("UPDATE data_set SET d_sort=%s WHERE d_id=%s",
 			   GetSQLValueString($_GET['change_num'], "int"),
 			   GetSQLValueString($_GET['now_d_id'], "int"));
 
 			mysql_select_db($database_connect2data, $connect2data);
 			$Result1 = mysql_query($updateSQL, $connect2data) or die(mysql_error());
-			
+
 			//echo $updateSQL;
 	if($G_changeSort==1)
 	{
@@ -222,7 +222,7 @@ if ($G_changeSort==1||$G_delchangeSort==1)
 		{
 			header("Location:news_list.php?selected1=".$row_RecNewsC['c_id']."&pageNum=".$_GET['pageNum']."&totalRows=".$_GET['totalRows']);
 		}*/
-	
+
 	}else if($G_delchangeSort==1)
 	{
 		/*if(isset($_GET['selected2']))
@@ -238,7 +238,7 @@ if ($G_changeSort==1||$G_delchangeSort==1)
 //echo 'selected_newsC = '.$_SESSION['selected_newsC'];
 
 ?>
-<?php 
+<?php
 require_once('display_page.php');
 require_once('../js/fun_moneyFormat.php');
 ?>
@@ -261,7 +261,7 @@ require_once('../js/fun_moneyFormat.php');
 	padding: 0;
 	width: 100%;
 	height: auto !important;
-	height: 1%;	
+	height: 1%;
 }
 .chosen-choices li.search-choice {
 	position: relative;
@@ -335,7 +335,7 @@ function changeSort(pageNum, totalRows, now_d_id, change_num, selected1) { //v1.
 <label>
 <select name="select1" id="select1">
 <?php
-do {  
+do {
 ?>
 <option value="<?php echo $row_RecNewsC['c_id']?>"<?php if (!(strcmp($row_RecNewsC['c_id'], $G_selected1))) {echo "selected=\"selected\"";} ?>><?php echo $row_RecNewsC['c_title']?><?php //echo $row_RecNewsC['c_id']?></option>
 <?php
@@ -360,7 +360,7 @@ do {
     	<tr>
             <td width="739" align="right" class="page_display">
             <!-------顯示頁選擇與分頁設定開始---------->
-            <?php 	
+            <?php
 	displayPages($pageNum, $queryString_RecNews, $totalPages_RecNews, $totalRows, $currentPage);
 	?>
 <!-------顯示頁選擇與分頁設定結束---------->
@@ -393,13 +393,13 @@ do {
             <td width="40" align="center" class="table_title">刪除</td>
             <?php } ?>
           </tr>
-          <?php 
+          <?php
     	$i=0;//加上i
-  		do { 
+  		do {
   		if ($i%2==0)
 		{
 		$i=$i+1;
-		echo "<tr>";} 
+		echo "<tr>";}
 		else
 		{
 		$i=$i+1;
@@ -413,10 +413,10 @@ do {
 		$totalRows_RecImage = mysql_num_rows($RecImage);
 		//echo 'totalRows_RecImage'.$totalRows_RecImage;
 		?>
-  
-    
+
+
       <td align="center" class="table_data" >
-      
+
       <?php
           if(in_array(5,$_SESSION['MM_Limit']['a3'])){
 			  echo '<a href="news_edit.php?d_id='.$row_RecNews['d_id'].'">'.$row_RecNews['d_date'].'</a>';
@@ -424,10 +424,10 @@ do {
 			  echo $row_RecNews['d_date'];
 		  }
 		  ?>
-      
+
       </td>
   <td align="center" class="table_data" >
-  
+
   <?php
           if(in_array(5,$_SESSION['MM_Limit']['a3'])){
 			  ?>
@@ -435,7 +435,7 @@ do {
         <select name="d_sort" id="d_sort" onchange="changeSort('<?php echo $pageNum; ?>','<?php echo $totalRows; ?>','<?php echo $row_RecNews['d_id']; ?>',this.options[this.selectedIndex].value)">
           <option value="0" <?php if (!(strcmp(0, $row_RecNews['d_sort']))) {echo "selected=\"selected\"";} ?>>至頂</option>
           <?php
-		 		
+
           for($j=1;$j<=($totalRows);$j++)
           {
           	echo "<option value=\"".$j."\" ";
@@ -451,11 +451,11 @@ do {
 			}else{
 				echo $row_RecNews['d_sort'];
 			}
-			
+
 		} ?>
 		<?php $_SESSION['totalRows']=$totalRows; ?></td>
       <td align="center" class="table_data" >
-      
+
        <?php
           if(in_array(5,$_SESSION['MM_Limit']['a3'])){
 			  echo '<a href="news_edit.php?d_id='.$row_RecNews['d_id'].'">'.$row_RecNews['d_title'].'</a>';
@@ -463,14 +463,14 @@ do {
 			  echo $row_RecNews['d_title'];
 		  }
 		  ?>
-      
-      
-      
+
+
+
       </td>
-     
+
     <td align="center"  class="table_data">
     <a name="<?php echo $row_RecNews['d_id']; ?>" id="<?php echo $row_RecNews['d_id']; ?>"></a>
-    
+
     <?php
           if(in_array(5,$_SESSION['MM_Limit']['a3'])){
 			  echo '<a href="news_edit.php?d_id='.$row_RecNews['d_id'].'">';
@@ -492,11 +492,11 @@ do {
 			  echo '" alt="" class="image_frame" />';
 		  }
 		  ?>
-    
-   
+
+
     </td>
     <td align="center"  class="table_data">
-	
+
 	<?php
           if(in_array(5,$_SESSION['MM_Limit']['a3'])){
 			  if($row_RecNews['d_active']){
@@ -513,7 +513,7 @@ do {
 		  }
 		  ?>
           </td>
-          
+
           <?php if(in_array(5,$_SESSION['MM_Limit']['a3'])){ ?>
     <td align="center" class="table_data"><a href="news_edit.php?d_id=<?php echo $row_RecNews['d_id']; ?>"><img src="image/pencil.png" width="16" height="16" /></a></td>
     	<?php } ?>
@@ -529,7 +529,7 @@ do {
         <tr>
             <td width="739" align="right" class="page_display">
             <!-------顯示頁選擇與分頁設定開始---------->
-            <?php 	
+            <?php
 	displayPages($pageNum, $queryString_RecNews, $totalPages_RecNews, $totalRows, $currentPage);
 	?>
 <!-------顯示頁選擇與分頁設定結束---------->
@@ -559,7 +559,12 @@ $(document).ready(function() {
 	$('#select1').change(function() {
 		//alert($(this).val());
 		window.location.href = "news_list.php?selected1="+$(this).val();
+		//hlghdkljfhgsdlfkghsdkjlhdfglkjdfg
+		//hlghdkljfhgsdlfkghsdkjlhdfglkjdfg
+		//hlghdkljfhgsdlfkghsdkjlhdfglkjdfg
+		//hlghdkljfhgsdlfkghsdkjlhdfglkjdfg
+		//hlghdkljfhgsdlfkghsdkjlhdfglkjdfg
 	});
-  
+
 });
 </script>

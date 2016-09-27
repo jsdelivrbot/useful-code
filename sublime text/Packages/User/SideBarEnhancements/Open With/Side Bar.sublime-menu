@@ -12,7 +12,7 @@
 				"args": {
 
 					"paths": [],
-									"application": "D:\\Adobe\\Adobe Photoshop CS6 (64 Bit)\\Photoshop.exe", // OSX
+									"application": "E:\\Adobe\\Adobe Photoshop CC 2015\\Photoshop.exe", // OSX
 									"extensions":"psd|png|jpg|jpeg",  //any file with these extensions
 									"args":[]
 									},

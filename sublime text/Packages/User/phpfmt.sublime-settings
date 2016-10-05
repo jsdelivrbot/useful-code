@@ -1,8 +1,0 @@
-{
-	"autocomplete": true,
-	"indent_with_space": 4,
-	"php_bin": "D:/wamp/bin/php/php7.0.4/php.exe",
-	"psr1": false,
-	"psr2": false,
-	"version": 1
-}

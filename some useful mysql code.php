@@ -101,6 +101,17 @@ while (list($key) = each($ryder_d_class3)) {
 ?>
 
 
+<!-- like -->
+<?php
+$colname_Recclass = "";
+if (isset($_GET['class'])) {
+  $colname_Recclass = "d_class".$_GET['class']." like '%".$_GET['cat']."%' AND";
+}
+?>
+
+
+
+
 <?php
 require_once 'Connections/connect2data.php';
 // require_once('paginator.class.php');
@@ -111,8 +122,14 @@ $colname_Reccat = "";
 if (isset($_GET['cat'])) {
     $colname_Reccat = "TR.term_taxonomy_id =" . $_GET['cat'] . " AND";
 }
+
+// sprintf帶字串參數用法(用%s)
+$query_RecWork = sprintf("SELECT * FROM data_set, file_set
+  WHERE %s d_class1='works' AND d_id=file_d_id AND file_type='image' AND d_active='1'
+  ORDER BY d_sort ASC", $colname_Reccat);
+
 $ryder_cat = (isset($_GET['cat'])) ? $_GET['cat'] : 0;
-$ryder_url = (isset($_GET['cat'])) ? "&cat=" . $_GET['cat'] : '';
+$ryder_url = (isset($_GET['cat'])) ? "&cat=".$_GET['cat'] : '';
 
 $colname_Recwork = "-1";
 if (isset($_GET['d_id'])) {
@@ -120,7 +137,7 @@ if (isset($_GET['d_id'])) {
 }
 
 $query_RecWork = sprintf("SELECT * FROM data_set
-  WHERE d_id= '" . $colname_Recwork . "'
+  WHERE d_id= '".$colname_Recwork."'
   ORDER BY d_sort ASC");
 $RecWork = mysql_query($query_RecWork, $connect2data) or die(mysql_error());
 $row_RecWork = mysql_fetch_assoc($RecWork);

@@ -1,10 +1,10 @@
 <!-- 依序列出資料 -->
-
-<?php while ($row = mysql_fetch_assoc($next)) {
+<?php
+while ($row = mysql_fetch_assoc($next)) {
     print_r($row);
     echo '<br>';
-    # code...
-}?>
+}
+?>
 
 <!-- 另外存一個陣列 -->
 <?php
@@ -50,7 +50,6 @@ $a = $row[0]
 
 <!-- 取得下一筆資料 -->
 <?php
-
 $data = array();
 for ($i = 0; $i < $totalRows_fornext; $i++) {
 //依資料數做for
@@ -77,6 +76,29 @@ if ($newid == $totalRows_Recget_next) {
 
 <!-- 將指針指回第一筆 -->
 <?php mysql_data_seek($RecWork, 0);?>
+
+
+<!-- foreach用法 -->
+<?php
+$cat=explode(",", $row_RecWork['d_tag']);
+
+foreach ($cat as $value) {
+    $query_Reccat =sprintf("SELECT * FROM terms
+      WHERE term_id='".$value."'");
+    $Reccat = mysql_query($query_Reccat, $connect2data) or die(mysql_error());
+    $row_Reccat = mysql_fetch_assoc($Reccat);
+}
+
+
+$ryder_d_class3=explode(",",$row_Recwork['d_class3']);
+
+while (list($key) = each($ryder_d_class3)) {
+    $query_RecWriter_1 =sprintf("SELECT * FROM class_set
+      WHERE c_id='".$ryder_d_class3[$key]."'");
+    $RecWriter_1 = mysql_query($query_RecWriter_1, $connect2data) or die(mysql_error());
+    $row_RecWriter_1 = mysql_fetch_assoc($RecWriter_1);
+}
+?>
 
 
 <?php

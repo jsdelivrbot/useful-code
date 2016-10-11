@@ -1,6 +1,0 @@
-[
-{ "keys": ["f4"], "command": "notes_new"    },
-{ "keys": ["super+f4"],       "command": "notes_list"   },
-{ "keys": ["ctrl+f4"],  "command": "notes_buffer" },
-{ "keys": ["f1"],       "command": "jotter"       },
-]

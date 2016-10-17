@@ -29,3 +29,27 @@
 		})
 	})
 </script>
+
+
+
+<script>
+	function RyderProgress (options) {
+		$.extend(this, options || {});
+		radius = options.radius || this.radius;
+		border = options.border || this.border;
+		padding = options.padding || this.padding;
+		startPercent = options.startPercent || this.startPercent;
+		endPercent = options.endPercent || this.endPercent;
+	}
+
+	// Defaults
+	RyderProgress.prototype.radius = 62;
+	RyderProgress.prototype.border = 1;
+	RyderProgress.prototype.padding = 2;
+	RyderProgress.prototype.startPercent = 0;
+	RyderProgress.prototype.endPercent = 0.25;
+
+	var test_1= new RyderProgress({
+		radius: '70',
+	});
+</script>

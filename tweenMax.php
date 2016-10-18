@@ -4,6 +4,7 @@ https://ihatetomatoes.net/wp-content/uploads/2015/08/GreenSock-Cheatsheet-2.pdf
 https://greensock.com/docs/#/HTML5/Animation/TweenMax/staggerTo/
 
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 <script>
 // stop looping
 TweenMax.killTweensOf($(".element"));

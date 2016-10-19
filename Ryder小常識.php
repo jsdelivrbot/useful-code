@@ -2,6 +2,8 @@
 =            html5教學 包括canvas svg等            =
 =================================================-->
 http://techbrood.com/h5b2a?p=html-canvas-drawimage
+<!-- 各種公式 -->
+https://segmentfault.com/a/1190000006192477
 
 <!--===========================================================
 =            jquery some way instead of javascript            =

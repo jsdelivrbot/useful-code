@@ -1,6 +1,10 @@
+<!--===================================
+=            scss parallax            =
+====================================-->
+http://codepen.io/scottkellum/pen/bHEcA
+
+
 https://github.com/rorymurphy/scrollit?utm_source=jquer.in&utm_medium=website&utm_campaign=content-curation
-
-
 <script src="js/scrollit.js"></script>
 
 <div class="news-detail-leaf-1">

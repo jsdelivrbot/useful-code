@@ -17,8 +17,8 @@ http://www.oxxostudio.tw/articles/201406/social-meta.html
 <link rel="apple-touch-icon" sizes="120x120" href="img/fav.png">
 <link rel="apple-touch-icon" sizes="152x152" href="img/fav.png">
 
-<link rev="made" href="mailto:pcnettw@yahoo.com.tw">
-<link rev="made" href="http://www.pcnet.idv.tw/">
+<link rel="author" href="mailto:ts01173166@gmail.com">
+<link rel="author" href="tel:+886987710168">
 
 <meta name="robots" content="all">
 <meta name="Author" content="作者姓名">

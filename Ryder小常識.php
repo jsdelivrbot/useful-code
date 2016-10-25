@@ -1,3 +1,14 @@
+<!--==============================================
+=            mobile input text shadow            =
+===============================================-->
+<style>
+	input[type='text'], textarea{
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+</style>
+
 <!--================================================
 =            html5教學 包括canvas svg等            =
 =================================================-->

@@ -1,6 +1,7 @@
 <!-- mixItUp -->
 https://mixitup.kunkalabs.com/learn/tutorial/get-started/
 
+<script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
 <script src="js/jquery.mixitup.js"></script>
 
 <style>

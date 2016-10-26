@@ -10,11 +10,8 @@
 
 <!-- 字串各別wrap -->
 <script>
-	$(".ib-innerWrap .banner-en").contents().each(function() {
-        if (this.nodeType == 3) {
-            $(this).replaceWith($(this).text().replace(/(\S)/g, '<div class="o"><span>$1</span></div>'));
-        }
-    });
+	var wrap_el=$(".ib-innerWrap .banner-en");
+ 	wrap_el.html(wrap_el.text().replace(/(\S)/g, '<div class="o"><span>$1</span></div>'));
 </script>
 
 <script>

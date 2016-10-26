@@ -10,6 +10,14 @@
 
 <!-- 字串各別wrap -->
 <script>
+	$(".ib-innerWrap .banner-en").contents().each(function() {
+        if (this.nodeType == 3) {
+            $(this).replaceWith($(this).text().replace(/(\S)/g, '<div class="o"><span>$1</span></div>'));
+        }
+    });
+</script>
+
+<script>
 	$(".teacher-list li .name").each(function () {
 		var $str=$(this).text();
 		var $len=$str.length;

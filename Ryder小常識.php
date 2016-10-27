@@ -1,3 +1,8 @@
+<!--============================================
+=            酷酷的效果(那個橫躺的)            =
+=============================================-->
+http://www.w3cschool.cn/jquerygroup/qty419wl.html
+
 <!--==============================================
 =            mobile input text shadow            =
 ===============================================-->
@@ -39,6 +44,7 @@ http://youmightnotneedjquery.com/
 <!--======================================
 =            find plugin here            =
 =======================================-->
+http://123.w3cschool.cn/freejquery
 http://jquer.in/
 http://www.unheap.com/
 http://www.jqueryrain.com/

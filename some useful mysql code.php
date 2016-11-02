@@ -124,22 +124,22 @@ if (isset($_GET['cat'])) {
 }
 
 // sprintf帶字串參數用法(用%s)
-$query_RecWork = sprintf("SELECT * FROM data_set, file_set
+$query_RecWorks = sprintf("SELECT * FROM data_set, file_set
   WHERE %s d_class1='works' AND d_id=file_d_id AND file_type='image' AND d_active='1'
   ORDER BY d_sort ASC", $colname_Reccat);
 
 $ryder_cat = (isset($_GET['cat'])) ? $_GET['cat'] : 0;
 $ryder_url = (isset($_GET['cat'])) ? "&cat=".$_GET['cat'] : '';
 
-$colname_Recwork = "-1";
+$colname_Recworks = "-1";
 if (isset($_GET['d_id'])) {
-    $colname_Recwork = $_GET['d_id'];
+    $colname_Recworks = $_GET['d_id'];
 }
 
-$query_RecWork = sprintf("SELECT * FROM data_set
-  WHERE d_id= '".$colname_Recwork."'
+$query_RecWorks = sprintf("SELECT * FROM data_set
+  WHERE d_id= '".$colname_Recworks."'
   ORDER BY d_sort ASC");
-$RecWork = mysql_query($query_RecWork, $connect2data) or die(mysql_error());
-$row_RecWork = mysql_fetch_assoc($RecWork);
-$totalRows_RecWork = mysql_num_rows($RecWork);
+$RecWorks = mysql_query($query_RecWorks, $connect2data) or die(mysql_error());
+$row_RecWorks = mysql_fetch_assoc($RecWorks);
+$totalRows_RecWorks = mysql_num_rows($RecWorks);
 ?>

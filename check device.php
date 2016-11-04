@@ -14,7 +14,11 @@
 	} else {
 	    alert("i don't konw!");
 	}
+</script>
 
+
+<!-- 不需include -->
+<script>
 	function checkDevice() {
 	    if (/ipad/i.test(navigator.userAgent.toLowerCase())) {
 	        return "ipad";    // 目前是用ipad瀏覽

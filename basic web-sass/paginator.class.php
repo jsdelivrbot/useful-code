@@ -12,6 +12,8 @@ class Paginator{
 	var $return;
 	var $default_ipp = 20;
 	var $querystring;
+	var $prevpage;
+	var $nextpage;
 
 	function Paginator()
 	{
@@ -121,5 +123,19 @@ class Paginator{
 	function display_pages()
 	{
 		return $this->return;
+	}
+
+	function prevpage()
+	{
+		$prev_page = $this->current_page-1;
+		$this->prevpage="$_SERVER[PHP_SELF]?page=$prev_page&ipp=$this->items_per_page$this->querystring";
+		return $this->prevpage;
+	}
+
+	function nextpage()
+	{
+		$next_page = $this->current_page+1;
+		$this->nextpage="$_SERVER[PHP_SELF]?page=$next_page&ipp=$this->items_per_page$this->querystring";
+		return $this->nextpage;
 	}
 }

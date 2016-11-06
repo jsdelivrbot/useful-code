@@ -33,11 +33,11 @@ $pages->paginate();
 //page end
  ?>
 
-  <?php echo $pages->display_pages(); ?>
+<?php echo $pages->display_pages(); ?>
 
 <!-- page箭頭 -->
-  <?php if($page!=1) {?> <a href="index.php?page=<?php echo $page-1 ?>"><img src="images/pre.png"></a> <?php } ?>
+<?php if($page!=1) {?> <a href="<?= $pages->prevpage(); ?>"><img src="images/pager-prev.png"><img src="images/pager-prev@2x.png" width="11"></a> <?php } ?>
 
-    <?php echo $pages->display_pages(); ?>
+<?php echo $pages->display_pages(); ?>
 
-  <?php if($page!=$totalpage) {?> <a href="index.php?page=<?php echo $page+1 ?>"><img src="images/next.png"></a> <?php } ?>
+<?php if($page!=$totalpage) {?> <a href="<?= $pages->nextpage(); ?>"><img src="images/pager-next.png"><img src="images/pager-next@2x.png" width="11"></a> <?php } ?>

@@ -1,3 +1,19 @@
+<!-- 轉json -->
+<?php
+$query_RecWorks = sprintf("SELECT * FROM ask
+  ORDER BY ask_date DESC", $_SESSION['client_id']);
+$RecWorks = mysql_query($query_RecWorks, $connect2data) or die(mysql_error());
+// $row_RecWorks = mysql_fetch_assoc($RecWorks);
+$totalRows_RecWorks = mysql_num_rows($RecWorks);
+
+$emparray = array();
+while($row = mysql_fetch_assoc($RecWorks)) {
+    $emparray[] = $row;
+}
+
+echo json_encode($emparray, JSON_UNESCAPED_UNICODE);
+?>
+
 <!-- 依序列出資料 -->
 <?php
 while ($row = mysql_fetch_assoc($next)) {

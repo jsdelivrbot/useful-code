@@ -3,6 +3,43 @@
 =============================-->
 
 <style type="text/css">
+	/*偽元素式*/
+	input[type='radio']{
+		display: none;
+	}
+	input[type='radio'] + label{
+		position: relative;
+		padding-left: 24px;
+		&:before{
+			content: '';
+			display: block;
+			width: 12px;
+			height: 12px;
+			border: 1px solid $orange;
+			border-radius: 50%;
+			margin-right: 10px;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0;
+		}
+	}
+	input[type='radio']:checked + label{
+		&:after{
+			content: '';
+			display: block;
+			width: 8px;
+			height: 8px;
+			background-color: $orange;
+			border-radius: 50%;
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 3px;
+		}
+	}
+
+	/*圖片式*/
 	input[type="radio"]{
 		display: none;
 	}

@@ -19,31 +19,34 @@ https://github.com/garand/sticky
 		$w=$(window),
 		$sec=$("#infoAnchor"),
 		$stick=$(".applyNow"),
-		_trigger=$sec.offset().top - $w.height()/2,
-		_trigger_end=$sec.offset().top + $sec.height() - $w.height(),
-		_st=$stick.offset().top - _trigger,
+		_st=$w.height()/2;
 		_sl=$stick.offset().left;
+		_trigger=$sec.offset().top - _st;
+		_trigger_end=$sec.offset().top + $sec.height()-_st-139;
 
 	$w.on("scroll", function () {
 		_scrollTop=	$(this).scrollTop();
 
-		if (_scrollTop>_trigger && _trigger_end>_scrollTop) {
-			$stick.css({
-				position: 'fixed',
-				top: _st,
-				left: _sl
-			})
-		}else if(_scrollTop<_trigger){
+		if(_trigger>_scrollTop){
 			$stick.css({
 				position: 'absolute',
 				top: 0,
-				left: 'calc(100% + 40px)'
+				bottom: 'auto',
+				left: 'calc(100% + 25px)'
 			})
-		}else if(_trigger_end<_scrollTop){
+		}else if(_scrollTop>_trigger_end){
 			$stick.css({
 				position: 'absolute',
-				top: _trigger_end - $sec.offset().top + _st,
-				left: 'calc(100% + 40px)'
+				top: 'auto',
+				bottom: 0,
+				left: 'calc(100% + 25px)'
+			})
+		}else{
+			$stick.css({
+				position: 'fixed',
+				top: _st,
+				bottom: 'auto',
+				left: _sl
 			})
 		}
 	}).trigger("scroll");

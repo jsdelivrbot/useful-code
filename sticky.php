@@ -20,7 +20,7 @@ https://github.com/garand/sticky
 		$sec=$("#infoAnchor"),
 		$stick=$(".applyNow"),
 		_st=$w.height()/2;
-		_sl=$stick.offset().left;
+		_sl=$sec.width()+$sec.offset().left+25;
 		_trigger=$sec.offset().top - _st;
 		_trigger_end=$sec.offset().top + $sec.height()-_st-139;
 

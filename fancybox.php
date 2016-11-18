@@ -1,3 +1,30 @@
+<!-- 自製 -->
+<style>
+  .m-fancyWrap{
+    width: calc(100% + 19px);
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 50px 19px 50px 0;
+  }
+</style>
+
+<script>
+  $(".videoList li").on("click", function() {
+    $("body").css({
+      position: 'fixed',
+      top: _scrollTop*-1,
+      'overflow-y': 'scroll'
+    });
+  })
+  $("#videoClose").on("click", function () {
+    $("body").scrollTop(parseInt($("body").css("top"), 10)*-1).css({
+      position: 'static'
+    });
+  })
+</script>
+
+
 <script type="text/javascript">
     $(document).ready(function() {
         $(".fancybox").click(function() {
@@ -9,10 +36,7 @@
     });
 </script>
 
-<!-- ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd -->
 <!-- 全畫面 -->
-<script type="text/javascript" src="js/jquery/1.11.1/jquery.min.js"></script>
-
 <script src="js/fancyapps-fancyBox/source/jquery.fancybox.js"></script>
 <link rel="stylesheet" href="js/fancyapps-fancyBox/source/jquery.fancybox.css">
 

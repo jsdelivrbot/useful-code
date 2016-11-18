@@ -31,25 +31,23 @@
 </script>
 
 
-
 <script>
-	function RyderProgress (options) {
-		$.extend(this, options || {});
-		radius = options.radius || this.radius;
-		border = options.border || this.border;
-		padding = options.padding || this.padding;
-		startPercent = options.startPercent || this.startPercent;
-		endPercent = options.endPercent || this.endPercent;
-	}
+	$(window).on("scroll", function () {
+		$('.closed').each(function(){
+			var scrollTop = $(window).scrollTop(),
+			elementOffset = $(this).offset().top,
+			distance      = (elementOffset - scrollTop),
+			windowHeight  = $(window).height(),
+			breakPoint    = windowHeight*0.9;
 
-	// Defaults
-	RyderProgress.prototype.radius = 62;
-	RyderProgress.prototype.border = 1;
-	RyderProgress.prototype.padding = 2;
-	RyderProgress.prototype.startPercent = 0;
-	RyderProgress.prototype.endPercent = 0.25;
+			if(distance > breakPoint) {
+				$(this).removeClass("open");
 
-	var test_1= new RyderProgress({
-		radius: '70',
-	});
+			}  if(distance < breakPoint) {
+				$(this).delay(400).addClass("open");
+			}  if(distance < 0) {
+				$(this).removeClass("open");
+			}
+		});
+	})
 </script>

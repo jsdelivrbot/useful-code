@@ -7,12 +7,16 @@
 	var month = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 	var day = ["日","一","二","三","四","五","六"];
 
-	$dt=new Date(_now_year, _now_month, _now_date+a*_time);
-	for (var i = 1; i <= _time; i++){
-		_html+='<span class="col" data-date="'+$dt.getDate()+'" data-day="'+$dt.getDay()+'">';
-		_html+=day[$dt.getDay()];
-		_html+='</span>';
-		$dt.setDate($dt.getDate() + 1);
+	for (var a = 0; a < _loop; a++){
+		_html+='<div class="row is-black date">';
+		$dt=new Date(_now_year, _now_month, _now_date+a*_time);
+		for (var i = 1; i <= _time; i++){
+			_html+='<span class="col" data-date="'+$dt.getDate()+'" data-day="'+$dt.getDay()+'">';
+			_html+=day[$dt.getDay()];
+			_html+='</span>';
+			$dt.setDate($dt.getDate() + 1);
+		}
+		_html+='</div>';
 	}
 
 	// 求兩個時間的天數差 日期格式為 YYYY-MM-dd

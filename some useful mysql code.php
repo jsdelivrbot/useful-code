@@ -17,8 +17,8 @@ echo json_encode($emparray, JSON_UNESCAPED_UNICODE);
 <!-- 依序列出資料 -->
 <?php
 while ($row = mysql_fetch_assoc($next)) {
+    echo "<pre>";
     print_r($row);
-    echo '<br>';
 }
 ?>
 

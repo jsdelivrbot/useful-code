@@ -17,8 +17,8 @@ echo json_encode($emparray, JSON_UNESCAPED_UNICODE);
 <!-- 依序列出資料 -->
 <?php
 while ($row = mysql_fetch_assoc($next)) {
+    echo "<pre>";
     print_r($row);
-    echo '<br>';
 }
 ?>
 
@@ -45,6 +45,15 @@ while ($row = mysql_fetch_array($RecProjects)) {
 
 <!-- 取出第三筆的內容 -->
 <?php echo mysql_result($result, 2); ?>
+
+<!-- 取得最後一次的id 用mysql_insert_id() -->
+<?php
+$insertSQL_client = sprintf("INSERT INTO client (address_id, name, phone, address, client_created_date, client_date) VALUES (%s, %s, %s, %s, NOW(), NOW())",
+      GetSQLValueString(mysql_insert_id(), "int"),
+      GetSQLValueString($_POST['name'], "text"),
+      GetSQLValueString($_POST['phone'], "text"),
+      GetSQLValueString($_POST['address'], "text"));
+?>
 
 <!-- mysql_fetch_array   mysql_fetch_assoc   mysql_fetch_row 分別 -->
 <?php

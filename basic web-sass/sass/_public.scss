@@ -52,7 +52,7 @@
 }
 
 @mixin breakpoint($point){
-    @if $point == mac {
+    @if $point == laptop {
         @media screen and (max-width: 1366px) {
             @content
         }

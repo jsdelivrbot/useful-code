@@ -1,6 +1,5 @@
 <!-- Ryder再進化之用正規式 -->
 <?php
-strip_tags($row_RecProjects['d_content']);
 preg_match('/.{0,80}/u', strip_tags($row_RecProjects['d_content']), $d_content);
 echo implode($d_content);
 echo "...";

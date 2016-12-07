@@ -18,9 +18,7 @@
     });
   })
   $("#videoClose").on("click", function () {
-    $("body").scrollTop(parseInt($("body").css("top"), 10)*-1).css({
-      position: 'static'
-    });
+    $("body").css('position','static').scrollTop(parseInt($("body").css("top"), 10)*-1);
   })
 </script>
 

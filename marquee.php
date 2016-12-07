@@ -1,3 +1,26 @@
+<!-- 自製marquee -->
+<script>
+	$(function () {
+		window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+		var $marquee=$(".store-marqueeList");
+		var _restart=$marquee.width()/2;
+
+		(function move() {
+			var _l=Math.abs(parseInt($marquee.css("left")));
+
+			if (_l>=_restart) {
+				$marquee.css("left",0);
+			}
+
+			$marquee.css("left","-=1");
+
+			requestAnimationFrame(move);
+		})();
+	})
+</script>
+
+
 <!-- plugin 1 -->
 https://github.com/aamirafridi/jQuery.Marquee
 

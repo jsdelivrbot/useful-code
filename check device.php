@@ -18,6 +18,24 @@
 
 
 <!-- 不需include -->
+<!-- 改良版 -->
+<script>
+	function check_device() {
+		var url = window.location.pathname;
+		var filename = url.substring(url.lastIndexOf('/')+1);
+		var check_w = document.body.clientWidth;
+
+		if (/ipad/i.test(navigator.userAgent.toLowerCase()) || check_w<1024) {
+			window.location = 'mobile/' + filename;
+		} else if (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()) || check_w<1024) {
+			window.location = 'mobile/' + filename;
+		} else {
+			return false;
+		}
+	}
+</script>
+
+<!-- 原版 -->
 <script>
 	function checkDevice() {
 	    if (/ipad/i.test(navigator.userAgent.toLowerCase())) {

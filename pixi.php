@@ -1,0 +1,1 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.2.3/pixi.min.js"></script>

@@ -90,13 +90,13 @@
 		nextSelector: '#sliderNext',
 		prevText: '<img src="images/slider-prev.png" width="44">',
 		nextText: '<img src="images/slider-next.png" width="44">',
-		onSlideBefore: function  () {
+		onSlideBefore: function () {
 			var current = slider.getCurrentSlide();
 			$(".banner").vegas('jump' , current);
 		}
 	});
 
-	$(".banner").on("vegaswalk",function  () {
+	$(".banner").on("vegaswalk",function () {
 		var t=$(".banner").vegas('current');
 		slider.goToSlide(t);
 	})

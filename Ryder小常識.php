@@ -80,6 +80,32 @@ http://www.jqueryscript.net/
 ======================================================-->
 $._data(($0), 'events');
 
+<!--===================================
+=            jquery 強delay            =
+====================================-->
+<script>
+	var $rains=[
+			$(".enter-rain-1"),
+			$(".enter-rain-3"),
+			$(".enter-rain-4"),
+			$(".enter-rain-2"),
+			$(".enter-rain-6"),
+			$(".enter-rain-7"),
+			$(".enter-rain-5"),
+		];
+
+	for (i = 0; i < $rains.length; i++) {
+    	$rains[i].delay(delay*i).queue(function(next){
+    	    if (Math.random()>0.6) {
+    	    	$(this).addClass("rain-animate-left");
+    	    }else{
+    	    	$(this).addClass("rain-animate-top");
+    	    }
+    	    next();
+    	});
+	}
+</script>
+
 <!--========================================
 =            delete final string            =
 =========================================-->

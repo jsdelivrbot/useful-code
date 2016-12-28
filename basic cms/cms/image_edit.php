@@ -86,6 +86,18 @@ if (isset($_REQUEST['type']) && $_REQUEST['type']=='teamMemberList'){
 	$not		 = $imagesSize['newsCover']['note'];
 	$IWidth		= $imagesSize['newsCover']['IW'];
 	$IHeight	= $imagesSize['newsCover']['IH'];
+}elseif (isset($_REQUEST['type']) && $_REQUEST['type']=='menuC'){
+	$type = $_REQUEST['type'];
+	$fileType 	= "file_type='menuC' AND";
+	$not		 = $imagesSize['menuC']['note'];
+	$IWidth		= $imagesSize['menuC']['IW'];
+	$IHeight	= $imagesSize['menuC']['IH'];
+}elseif (isset($_REQUEST['type']) && $_REQUEST['type']=='menuC_mobile'){
+	$type = $_REQUEST['type'];
+	$fileType 	= "file_type='menuC_mobile' AND";
+	$not		 = $imagesSize['menuC']['note'];
+	$IWidth		= $imagesSize['menuC']['IW'];
+	$IHeight	= $imagesSize['menuC']['IH'];
 }elseif (isset($_REQUEST['type']) && $_REQUEST['type']=='reportingVideoCover'){
 
 	$type = $_REQUEST['type'];
@@ -359,8 +371,8 @@ $_SESSION["change_image"]=1;
 
 	}*/
 	//$updateGoTo = $_SESSION['nowPage']."?d_id=" . $_POST['file_d_id'] . "";
-	if($_SESSION['nowMenu']=="farmer"){
-		$updateGoTo = $_SESSION['nowPage']."?m_id=" . $_POST['file_d_id'] . "";
+	if($_REQUEST['type']=='menuC' || $_REQUEST['type']=='menuC_mobile'){
+		$updateGoTo = $_SESSION['nowPage']."?c_id=" . $_POST['file_d_id'] . "";
 	}else{
 		$updateGoTo = $_SESSION['nowPage']."?d_id=" . $_POST['file_d_id'] . "#imageEdit";
 	}

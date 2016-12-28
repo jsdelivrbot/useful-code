@@ -54,6 +54,12 @@ if (isset($_REQUEST['type']) && ($_REQUEST['type']=="teamMemberList")){
 if (isset($_REQUEST['type']) && ($_REQUEST['type']=="roomsCover")){
 	$fileType = "file_type='roomsCover' AND";
 }
+if (isset($_REQUEST['type']) && ($_REQUEST['type']=="menuC")){
+	$fileType = "file_type='menuC' AND";
+}
+if (isset($_REQUEST['type']) && ($_REQUEST['type']=="menuC_mobile")){
+	$fileType = "file_type='menuC_mobile' AND";
+}
 if (isset($_REQUEST['type']) && ($_REQUEST['type']=="newsCover")){
 	$fileType = "file_type='newsCover' AND";
 }
@@ -233,8 +239,8 @@ if ((isset($_POST['file_id'])) && ($_POST['file_id'] != "") && (isset($_POST['de
 		$deleteGoTo = $_SESSION['nowPage']."?d_id=" . $row_RecImage['file_d_id'] . "";
 	}*/
 
-	if($_SESSION['nowMenu']=="farmer"){
-		$deleteGoTo = $_SESSION['nowPage']."?m_id=" . $row_RecImage['file_d_id'] . "";
+	if($_REQUEST['type']=="menuC" || $_REQUEST['type']=='menuC_mobile'){
+		$deleteGoTo = $_SESSION['nowPage']."?c_id=" . $row_RecImage['file_d_id'] . "";
 	}else{
 		$deleteGoTo = $_SESSION['nowPage']."?d_id=" . $row_RecImage['file_d_id'] . "";
 	}

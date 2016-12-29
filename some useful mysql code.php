@@ -100,7 +100,7 @@ if ($newid == $totalRows_Recget_next) {
 
 
 <!-- 將指針指回第一筆 -->
-<?php mysql_data_seek($RecWork, 0);?>
+<?php mysql_data_seek($RecWork, 0); ?>
 
 
 <!-- foreach用法 -->

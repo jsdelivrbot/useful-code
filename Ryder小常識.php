@@ -80,6 +80,15 @@ http://www.jqueryscript.net/
 ======================================================-->
 $._data(($0), 'events');
 
+<!--==========================================
+=            css animate callback            =
+===========================================-->
+<script>
+	$(".element").on('oanimationend animationend webkitAnimationEnd', function() {
+	   console.log("fin");
+	});
+</script>
+
 <!--===================================
 =            jquery 強delay            =
 ====================================-->

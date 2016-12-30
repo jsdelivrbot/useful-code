@@ -136,6 +136,7 @@ if (isset($_GET['class'])) {
 
 
 <!-- left join (可用在不一定有圖片的時候)-->
+<!-- ps. on 是left join的條件 取出來的資料才會進入where -->
 <?php
 $query_RecNews = sprintf("SELECT * FROM class_set, data_set LEFT JOIN file_set
   ON d_id=file_d_id

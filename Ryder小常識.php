@@ -1,3 +1,8 @@
+<!--==================================
+=            圓形角度計算            =
+===================================-->
+http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/
+
 <!--================================
 =            找顏色好用            =
 =================================-->
@@ -134,24 +139,24 @@ $._data(($0), 'events');
 =============================================-->
 <style>
 	.ryderCustomLeft{
-			height: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			background: url(../images/team/fancy-1.png) no-repeat;
-			background-size: cover;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: url(../images/team/fancy-1.png) no-repeat;
+		background-size: cover;
 
-			// ie firefox
-			width: 50%;
-			animation: ryderSliderAnimate-left-not-chrome 0.7s;
+		// ie firefox
+		width: 50%;
+		animation: ryderSliderAnimate-left-not-chrome 0.7s;
 
-			// chrome
-			@supports (-webkit-appearance:none){
-				width: 60%;
-				-webkit-clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
-				animation: ryderSliderAnimate-left 0.7s;
-			}
+		// chrome
+		@supports (-webkit-appearance:none){
+			width: 60%;
+			-webkit-clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+			animation: ryderSliderAnimate-left 0.7s;
 		}
+	}
 </style>
 
 <!--==================================

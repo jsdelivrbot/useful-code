@@ -1,3 +1,15 @@
+<!-- 反過來排 -->
+<script>
+	function _reverse () {
+		$fry.children().each(function () {
+			var _copy=$(this).clone();
+			_copy.prependTo($(this).parent());
+			$(this).remove();
+		})
+	}
+</script>
+
+<!-- 隨機排 -->
 <script>
 	$.fn.randomOrder = function() {
 		function randOrd() {

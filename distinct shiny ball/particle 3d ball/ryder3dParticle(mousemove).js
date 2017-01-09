@@ -38,7 +38,7 @@ function Ryder3dParticle(option) {
         _m_angleX = 0,
         _m_angleY = 0;
 
-    $(canvas).parent().parent().on("mousemove", function(e) {
+    $("body").on("mousemove", function(e) {
         _mx = e.pageX;
         _my = e.pageY - $(this).offset().top;
         _m_angleX = (_my - vpY) * 0.00005;

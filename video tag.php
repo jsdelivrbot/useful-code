@@ -1,7 +1,5 @@
 <li data-src="images/video/video-5.mp4"></li>
 
-
-
 <style>
 	/*video tag 滿版*/
 	#video{
@@ -32,6 +30,10 @@
 		$(".videoFancy").fadeIn(600, function () {
 			video.currentTime = 0;    //restart
 			video.play();
+
+			$(video).on("ended", function () {
+				$("#videoClose").trigger("click");
+			})
 		});
 	})
 	$("#videoClose").on("click", function () {

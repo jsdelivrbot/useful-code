@@ -1,3 +1,24 @@
+<!--==============================
+=            改變this            =
+===============================-->
+http://andyyou.logdown.com/posts/233010-understanding-javascript-functionprototypebind
+
+<script>
+	function Ryder3dParticle(option) {
+		var requestanimation = null;
+
+		this.UpdateParticles = function () {
+		    canvas_ctx.clearRect(0, 0, canvas.width, canvas.height);
+		    for (var index in particles) {
+		        particles[index].Move(_m_angleX, _m_angleY);
+		        DrawParticle(particles[index]);
+		    }
+
+		    requestanimation = window.requestAnimationFrame(this.UpdateParticles.bind(this));
+		}
+	}
+</script>
+
 <!--==================================
 =            圓形角度計算            =
 ===================================-->

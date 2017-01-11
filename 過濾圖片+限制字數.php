@@ -11,6 +11,8 @@ echo "...";
 <!-- filter html tag -->
 <?php echo mb_substr(strip_tags($row_Recwork['d_content']) ,0,25,"utf-8"); ?>
 
-
 <!-- 濾圖 -->
 <?php echo mb_substr(preg_replace('~<img(.*?)>~s','',$row_Recwork['d_content']),0,150,"utf-8");?>
+
+<!-- 瀘空白 -->
+<?= preg_replace("/\s/","",trim($row_RecWorks['d_content'])) ?>

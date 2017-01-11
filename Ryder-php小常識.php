@@ -10,3 +10,9 @@
 
 <!-- 1,2,3 變 01,02,03 -->
 <?php str_pad($row_RecWorks['d_sort'], 2, "0", STR_PAD_LEFT) ?>
+
+<!--============================
+=            瀘空白            =
+=============================-->
+
+<?= preg_replace("/\s/","",trim($row_RecWorks['d_content'])) ?>

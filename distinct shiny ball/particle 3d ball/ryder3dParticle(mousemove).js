@@ -75,13 +75,20 @@ function Ryder3dParticle(option) {
         }
     }
 
-    function UpdateParticles() {
+    var requestanimation = null;
+
+    this.UpdateParticles = function () {
         canvas_ctx.clearRect(0, 0, canvas.width, canvas.height);
         for (var index in particles) {
             particles[index].Move(_m_angleX, _m_angleY);
             DrawParticle(particles[index]);
         }
-        window.requestAnimationFrame(UpdateParticles);
+
+        requestanimation = window.requestAnimationFrame(this.UpdateParticles.bind(this));
+    }
+
+    this.cancelanimation = function () {
+        cancelAnimationFrame(requestanimation);
     }
 
     function DrawParticle(particle) {
@@ -95,7 +102,7 @@ function Ryder3dParticle(option) {
         for (var i = 0; i < num_particles; i++) {
             particles.push(new Particle());
         }
-        UpdateParticles();
+        this.UpdateParticles();
     }
 
     this.GenerateParticles(particle_number);

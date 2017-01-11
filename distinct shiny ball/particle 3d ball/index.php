@@ -7,4 +7,9 @@
 		horizon: 150,
 		verticle: 500
 	});
+
+	// 使用
+	is2_particle.UpdateParticles();
+	// 停止
+	is2_particle.cancelanimation();
 </script>

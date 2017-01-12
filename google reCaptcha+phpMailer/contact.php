@@ -301,7 +301,7 @@ $message = "";
 		}
 	})
 
-	function refresh_code(){
-		document.getElementById("imgcode").src="captcha.php";
-	}
+	// function refresh_code(){
+	// 	document.getElementById("imgcode").src="captcha.php";
+	// }
 </script>

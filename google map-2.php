@@ -1,3 +1,9 @@
+<div class="googleMapFilterWrap">
+	<div class="item" data-cat="1">總公司</div>
+	<div class="item" data-cat="2">專賣店</div>
+	<div class="item" data-cat="3">經銷商</div>
+</div>
+
 <script>
 	$(function() {
 		var markers;

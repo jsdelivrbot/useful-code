@@ -1,6 +1,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.2.3/pixi.min.js"></script>
 
 <script>
+	var renderer = PIXI.autoDetectRenderer(800, 600, {
+		antialias: false,
+		transparent: true,
+		resolution: 1
+	});
+
+	document.body.appendChild(renderer.view);
+
 	PIXI.loader
 		.add("house", "images/pixi/is1-house-1.png")
 		.add("cookie_man", "images/pixi/cookie-man.png")

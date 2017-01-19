@@ -1,3 +1,4 @@
+<!-- div專用區 -->
 <!-- 反過來排 -->
 <script>
 	function _reverse () {
@@ -38,4 +39,15 @@
 			}
 		}));
 	}
+</script>
+
+
+<!-- array專用區 -->
+<!-- 隨機排 -->
+<script>
+	function randomSort(a, b) {
+		return Math.random() > 0.5 ? -1 : 1;
+	};
+
+	$is1_array.sort(randomSort);
 </script>

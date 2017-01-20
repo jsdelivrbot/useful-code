@@ -15,6 +15,12 @@ TweenMax.pauseAll();
 TweenMax.resumeAll();
 
 
+// set
+TweenMax.set(e, {
+	rotationZ: 0,
+	x: 0
+});
+
 // 凸出去
 TweenMax.to(animated, 2, {
 	right: "-80",

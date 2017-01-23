@@ -7,7 +7,12 @@
 		resolution: 1
 	});
 
+	renderer.autoResize = true;
 	document.body.appendChild(renderer.view);
+
+	$(window).on("resize", function () {
+		renderer.resize($is4_ribbon.width(), $is4_ribbon.height());
+	})
 
 	PIXI.loader
 		.add("house", "images/pixi/is1-house-1.png")

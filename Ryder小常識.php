@@ -100,11 +100,12 @@ http://youmightnotneedjquery.com/
 	logoutputencoding = utf-8
 
 <!--======================================
-=            find plugin here            =
+=            find jquery plugin here            =
 =======================================-->
 http://123.w3cschool.cn/freejquery
 http://jquer.in/
 http://www.unheap.com/
+http://www.htmleaf.com/
 http://www.jqueryrain.com/
 http://www.jqueryscript.net/
 

@@ -53,7 +53,7 @@
 
 @mixin breakpoint($point){
     @if $point == laptop {
-        @media screen and (max-width: 1366px) {
+        @media screen and (max-width: 1366px) ,screen and (max-height: 800px){
             @content
         }
     }@else if $point == pad {

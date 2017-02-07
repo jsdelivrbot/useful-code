@@ -61,6 +61,15 @@ http://j796160836.pixnet.net/blog/post/27937262-%5Bmysql%5D-%E8%A7%A3%E6%B1%BA%E
 =============================================-->
 http://www.w3cschool.cn/jquerygroup/qty419wl.html
 
+<!--============================================================
+=            bg image and color both (要用gradient)            =
+=============================================================-->
+<style>
+	.element{
+		background: linear-gradient(rgba(#3e3a39, 0.4), rgba(#3e3a39, 0.4)), url(../images/projects/self-bg-1.jpg) no-repeat;
+	}
+</style>
+
 <!--==============================================
 =            mobile input text shadow            =
 ===============================================-->

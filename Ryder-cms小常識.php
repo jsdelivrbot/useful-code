@@ -1,3 +1,16 @@
+<!--=========================================================
+=            內層編輯器抓到source (改tinymce.php)           =
+==========================================================-->
+<script>
+	//指向網址後需改成 external_filemanager_path:"/filemanager/",
+	external_filemanager_path: "/keller/filemanager/",
+	filemanager_title: "Filemanager",
+	//指向網址後需改成 external_plugins: { "filemanager" : "/filemanager/plugin.min.js"},
+	external_plugins: {
+	    "filemanager": "/keller/filemanager/plugin.min.js"
+	},
+</script>
+
 <!--====================================================
 =            解決編輯器表情符號前台顯示失敗            =
 =====================================================-->

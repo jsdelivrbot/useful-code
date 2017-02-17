@@ -1,7 +1,26 @@
+<?php
+require_once 'Connections/connect2data.php';
+mysql_select_db($database_connect2data, $connect2data);
+
+$query_RecKeywords = sprintf("SELECT * FROM data_set
+  WHERE d_class1='keywords' AND d_active='1'
+  ORDER BY d_sort ASC");
+$RecKeywords = mysql_query($query_RecKeywords, $connect2data) or die(mysql_error());
+$row_RecKeywords = mysql_fetch_assoc($RecKeywords);
+$totalRows_RecKeywords = mysql_num_rows($RecKeywords);
+?>
+
+<?php if ($totalRows_RecKeywords): ?>
+	<meta name="Kyewords" Content="<?= $row_RecKeywords['d_class2'] ?>">
+	<meta name="Description" content="<?= $row_RecKeywords['d_class3'] ?>">
+<?php else: ?>
+	<meta name="Kyewords" Content="Intelligent酵素牙膏 Toothpaste, 口腔環保系列Oral Care, 牙周病,酵素,矯正牙齒,蛀牙,嘴破,口腔癌初期症狀,牙齒美白,牙齒痛,口腔癌,口臭,口腔潰瘍,漱口水,固齒器,乳鐵蛋白,生物類黃酮,膠原蛋白,珍珠,素葡萄胺,葉黃素,山桑子,檸檬">
+	<meta name="Description" content="牙周病,酵素,矯正牙齒,蛀牙,嘴破,口腔癌初期症狀,牙齒美白,牙齒痛,口腔癌,口臭,口腔潰瘍,漱口水,固齒器,乳鐵蛋白,生物類黃酮,膠原蛋白,珍珠,素葡萄胺,葉黃素,山桑子,檸檬">
+<?php endif ?>
+
 
 <!-- 參考 (og tag + itemprop...etc.)-->
 http://www.oxxostudio.tw/articles/201406/social-meta.html
-
 
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

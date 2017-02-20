@@ -1,3 +1,7 @@
+<!-- 自訂404 -->
+ErrorDocument 404 /error404.php
+
+
 RewriteEngine On
 RewriteBase /
 

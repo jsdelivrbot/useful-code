@@ -56,6 +56,12 @@ http://www.oxxostudio.tw/articles/201406/social-meta.html
 <meta name="og:description" content="很好設計於LIKMEETUP2016.5.15講述網頁工程師與設計師的溝通以及設計師注重的細節">
 <meta name="og:type" content="website">
 
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@artem_tabalin">
+<meta name="twitter:title" content="Demos - jsSocials">
+<meta name="twitter:description" content="Simple Social Network Sharing Plugin">
+<meta name="twitter:image" content="">
+
 <!-- <link rel="stylesheet/less" type="text/css" href="style_ryder.less"> -->
 <!-- <script src="js/less-1.3.0.min.js" type="text/javascript"></script> -->
 

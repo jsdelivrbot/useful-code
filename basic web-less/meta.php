@@ -7,8 +7,8 @@
 <link rel="apple-touch-icon" sizes="152x152" href="images/fav.ico">
 
 <meta name="robots" content="all">
-<meta name="Author" content="作者姓名">
+<meta name="author" content="作者姓名">
 <meta name="company" content="公司名稱">
 <meta name="copyright" content="本網頁著作權屬XXX, All Rights Reserved">
-<meta name="Kyewords" Content="關鍵詞1, 關鍵詞2, 關鍵詞3,">
-<meta name="Description" content="網站簡述">
+<meta name="kyewords" Content="關鍵詞1, 關鍵詞2, 關鍵詞3,">
+<meta name="description" content="網站簡述">

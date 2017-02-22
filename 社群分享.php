@@ -3,7 +3,7 @@ https://shareaholic.com/
 
 
 
-<!-- jsSocials -->
+<!-- jsSocials (可自訂圖) -->
 http://js-socials.com/start-using/
 
 <!-- 要圖片需載入font-aweason -->

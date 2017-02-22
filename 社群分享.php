@@ -1,4 +1,4 @@
-<!-- shareaholic 比較完整 全部的都有(包括line) -->
+<!-- shareaholic 比較完整 全部的都有 -->
 https://shareaholic.com/
 
 

@@ -1,3 +1,7 @@
+中文教學
+https://supermrji.gitbooks.io/pixi-js/content/create_render_and_stage.html
+
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.2.3/pixi.min.js"></script>
 
 <script>

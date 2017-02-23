@@ -1,4 +1,4 @@
-<script src="js/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
 <!-- 轉頁特效 -->
 <div class="page-transition">
 	<svg xmlns="http://www.w3.org/2000/svg" version="1.1" id="svg-1">

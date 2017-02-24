@@ -17,6 +17,7 @@ RewriteRule (.*) $1.php
 
 <!-- 自訂404 -->
 RewriteEngine On
+#RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME}.php -f
 RewriteRule ^(.*)$ $1.php [NC,L]

@@ -83,15 +83,15 @@ $message = "";
 	<script src="js/less-1.3.0.min.js"></script>
 
 	<style type="text/css">
-		#g-recaptcha{
-			display: inline-block;
-		}
-		#hiddenRecaptcha{
+		.googleCaptchaWrap{position: relative;}
+		#g-recaptcha{margin-top: 30px;}
+		#hiddenRecaptcha{	/* 調位置for必填提示 */
 			position: absolute;
-			z-index: -1;
-			left: 80px;
-			/*opacity: 0;*/
+			top: 0;
+			left: 0;
+			visibility: hidden;
 		}
+
 		.err, .succ{
 			font-family: MHeiHK, "STXihei", HEITI TC, "HEITI TC", "黑體-繁", "微軟正黑體", "黑體", sans-serif;
 			font-size: 15px;
@@ -153,8 +153,10 @@ $message = "";
 					<span class="textWrap" style="position: relative;">
 						<span class="title" style="vertical-align: top;">驗證</span>
 
-						<div class="g-recaptcha" id="g-recaptcha"></div>
-						<input type="text" class="hiddenRecaptcha" name="hiddenRecaptcha" id="hiddenRecaptcha">
+						<div class="googleCaptchaWrap">
+							<div class="g-recaptcha" id="g-recaptcha"></div>
+							<input type="text" class="hiddenRecaptcha" name="hiddenRecaptcha" id="hiddenRecaptcha">
+						</div>
 						<!-- recaptcha-anchor -->
 
 						<!-- <img id="imgcode" src="captcha.php" onclick="refresh_code()" /><span class="ryder-form-note">點擊圖片可以更換驗證碼</span>

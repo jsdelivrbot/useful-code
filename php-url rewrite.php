@@ -1,6 +1,4 @@
-<!-- 自訂404 -->
-ErrorDocument 404 /error404.php
-
+https://blog.hinablue.me/apache-note-about-some-rewrite-note-2011-05/
 
 RewriteEngine On
 RewriteBase /
@@ -15,6 +13,18 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !^.*(.css|.js|.gif|.png|.jpg|.jpeg)$
 
 RewriteRule (.*) $1.php
+
+
+<!-- 自訂404 -->
+RewriteEngine On
+#RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*) error404.php [L]
 
 
 <!-- lets do it -->

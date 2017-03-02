@@ -1,3 +1,8 @@
+<!--=============================================
+=            iphone 選單滿版需要空間            =
+==============================================-->
+<div class="forspace" style="height: 69px;"></div>
+
 <!-- fb分享偵錯 -->
 https://developers.facebook.com/tools/debug/sharing/
 

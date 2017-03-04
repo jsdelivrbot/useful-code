@@ -85,14 +85,16 @@ for ($i = 0; $i < $totalRows_RecEvents; $i++) {
         $previd = $i - 1;
     }
 }
-$nextid = $data[$nextid];
-$previd = $data[$previd];
 // 輪回
 if ($ryder_id == $data[$totalRows_RecEvents-1]) {
     $nextid = $data[0];
+}else{
+  $nextid = $data[$next];
 }
 if ($ryder_id == $data[0]) {
     $previd = $data[$totalRows_RecEvents-1];
+}else{
+  $previd = $data[$prev];
 }
 ?>
 

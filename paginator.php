@@ -1,5 +1,6 @@
 <?php
 require_once('paginator.class.php');
+mysql_select_db($database_connect2data, $connect2data);
 
 //page start
 $page=(isset($_GET['page'])) ? $_GET['page']:1;
@@ -7,7 +8,6 @@ $page_count=9;
 $init_count=($page-1)*$page_count;
 
 //使用
-mysql_select_db($database_connect2data, $connect2data);
 $query_RecProjects = "SELECT * FROM data_set, file_set
   WHERE d_class1='house' AND d_id=file_d_id AND file_type='houseCover' AND d_active='1'
   ORDER BY d_sort ASC limit $init_count,$page_count";
@@ -16,7 +16,6 @@ $RecProjects = mysql_query($query_RecProjects, $connect2data) or die(mysql_error
 $totalRows_RecProjects = mysql_num_rows($RecProjects);
 
 //$totalRows_RecProjects_count拿來計算全部有幾則
-mysql_select_db($database_connect2data, $connect2data);
 $query_RecProjects_count = "SELECT * FROM data_set, file_set
   WHERE d_class1='house' AND d_id=file_d_id AND file_type='houseCover' AND d_active='1'
   ORDER BY d_sort ASC";

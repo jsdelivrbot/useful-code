@@ -149,8 +149,8 @@ $totalRows_RecProjects = mysql_num_rows($RecProjects);
 <!-- left join (可用在不一定有圖片的時候)-->
 <!-- ps. on 是left join的條件 取出來的資料才會進入where -->
 <?php
-$query_RecNews = sprintf("SELECT * FROM class_set, data_set LEFT JOIN file_set
-  ON d_id=file_d_id
+$query_RecNews = sprintf("SELECT * FROM class_set, data_set
+  LEFT JOIN file_set ON d_id=file_d_id
   WHERE d_class1='news' AND d_class2=c_id AND d_active='1'
   ORDER BY d_sort ASC");
 $RecNews = mysql_query($query_RecNews, $connect2data) or die(mysql_error());

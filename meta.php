@@ -60,7 +60,7 @@ http://www.oxxostudio.tw/articles/201406/social-meta.html
 <meta name="twitter:site" content="@artem_tabalin">
 <meta name="twitter:title" content="Demos - jsSocials">
 <meta name="twitter:description" content="Simple Social Network Sharing Plugin">
-<meta name="twitter:image" content="">
+<meta name="twitter:image" content="<?= 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] ?>images/share-image.png">
 
 <!-- <link rel="stylesheet/less" type="text/css" href="style_ryder.less"> -->
 <!-- <script src="js/less-1.3.0.min.js" type="text/javascript"></script> -->

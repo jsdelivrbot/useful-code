@@ -73,28 +73,26 @@ $a = $row[0]
 ;?>
 
 
-<!-- 取得下一筆資料 -->
+<!-- 取得上下一筆資料 -->
 <?php
+$ryder_id = (isset($_GET['id'])) ? $_GET['id'] : '-1';
+
 $data = array();
-for ($i = 0; $i < $totalRows_fornext; $i++) {
-//依資料數做for
-    $data[$i] = mysql_result($Recnext, $i);
-    //把d_id存進新陣列
-    if ($colname_nextD == $data[$i]) {
-        //比對現在的d_id
-        // echo $i;
-        $newid = $i + 1;
-        //+1取下一筆id       -1取上一筆   排序不需改變
+for ($i = 0; $i < $totalRows_RecEvents; $i++) {
+    $data[$i] = mysql_result($RecEvents, $i);
+    if ($ryder_id == $data[$i]) {
+        $nextid = $i + 1;
+        $previd = $i - 1;
     }
 }
-$next_id = $data[$newid];
-//echo $next_id;
-
-// 最後一筆就傳第一筆的id
-if ($newid == $totalRows_Recget_next) {
-    $next_id = $row_Recget_next['d_id'];
-} else {
-    $next_id = $data[$newid];
+$nextid = $data[$nextid];
+$previd = $data[$previd];
+// 輪回
+if ($ryder_id == $data[$totalRows_RecEvents-1]) {
+    $nextid = $data[0];
+}
+if ($ryder_id == $data[0]) {
+    $previd = $data[$totalRows_RecEvents-1];
 }
 ?>
 

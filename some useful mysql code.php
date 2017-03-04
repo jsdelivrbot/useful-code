@@ -136,10 +136,10 @@ if (isset($_GET['class'])) {
 
 <!-- 兩個%讓%跳脫自己 -->
 <?php
-$query_RecProjects = sprintf("SELECT * FROM class_set, data_set LEFT JOIN file_set
-  ON d_id=file_d_id AND file_type='image'
-  WHERE d_class2=c_id AND d_title like '%%%s%%' OR d_content like '%%%s%%' OR c_title like '%%%s%%' AND c_active='1' AND d_active='1'
-  ORDER BY d_sort", $ryder_s, $ryder_s, $ryder_s);
+$query_RecProjects = sprintf("SELECT * FROM class_set, data_set
+  LEFT JOIN file_set ON d_id=file_d_id AND file_type='image'
+  WHERE d_class2=c_id AND (d_title like '%%%s%%' OR d_content like '%%%s%%' OR c_title like '%%%s%%') AND c_active='1' AND d_active='1'
+  ORDER BY d_date DESC", $ryder_s, $ryder_s, $ryder_s);
 $RecProjects = mysql_query($query_RecProjects, $connect2data) or die(mysql_error());
 // $row_RecProjects = mysql_fetch_assoc($RecProjects);
 $totalRows_RecProjects = mysql_num_rows($RecProjects);

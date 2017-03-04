@@ -1,60 +1,50 @@
-<!-- 附加動畫 (利用亂數的classname)-->
+<!-- 電腦一次LOAD全部，手機先LOAD 20個，按MORE一次LOAD 8個 -->
 <script>
-	// ajax
-	var $init_count=3;
-	var $check_cat="<?= $_GET['cat'] ?>";
-	var _class_random;
-	$('.watchMore').on('click', function() {
-		var _cat= ($check_cat=='') ? -1: $check_cat;
-		$.ajax({
-			data: {init_count: $init_count, cat: _cat},
-			url: "investors_data.php",
-			type:"GET",
-			success: function(msg){
-				_class_random = 1 + Math.floor(Math.random() * 99999);
+	var _counts = 20;
+	var _total = <?= $totalRows_RecEvents ?>;
+	var $el;
 
-				// url那頁須外包一層
-				$(msg).find('li').each(function(){
-					var $html=$(this).html();
-					$("<li class='ryder-"+_class_random+"'></li>").html($html).appendTo(".m-newsList");
-				});
-				if (msg=='') {
-					alert("已經沒有更多資訊了");
-				}
+	if (/ipad/i.test(navigator.userAgent.toLowerCase())) {
+	    get_events(0, 20);    // 目前是用ipad瀏覽
+	}
+	else if (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase())) {
+	    get_events(0, 20);   // 目前是用手機瀏覽
+	}
+	else {
+	    get_events(0, _total);      // 目前是用電腦瀏覽
+	}
+
+	$(".eventsPicWrap .more").on("click", function () {
+		if (_counts >= _total) {
+			alert("已經是最後一筆資料了。");
+		}else{
+			get_events(_counts, 8);
+		}
+	})
+
+	function get_events (counts, total) {
+		$.ajax({
+			data: {
+				counts: counts,
+				total: total
+			},
+			url: "events_data.php",
+			type: "GET",
+			success: function(res){
+				$el = $(res).find("li")
+				$el.appendTo($(".eventsPicList"));
 			},
 			complete: function () {
-				$init_count+=3;
-				$(".ryder-"+_class_random+"").stop(true).hide().fadeIn(800);
+				_counts = counts + 8;
+
+				TweenMax.staggerTo($el, 0.5, {
+					opacity: 1,
+					top: 0,
+					left: 0
+				}, 0.01);
 			}
 		});
-	});
-</script>
-
-
-<script>
-	$('.watchMore').on('click', function() {
-		var $init_count=3;
-		var $check_cat="<?= $_GET['cat'] ?>";
-		$('.watchMore').on('click', function() {
-			var _cat= ($check_cat=='') ? -1: $check_cat;
-			$.ajax({
-				data: {init_count: $init_count, cat: _cat},
-				url: "news_data.php",
-				type:"GET",
-				success: function(msg){
-					$(".m-newsList").append(msg);
-
-					//url那頁不能有空行才可用
-					if (msg=='') {
-						alert("已經沒有更多資訊了");
-					}
-				},
-				complete: function () {
-					$init_count+=3;
-				}
-			});
-		});
-	});
+	}
 </script>
 
 

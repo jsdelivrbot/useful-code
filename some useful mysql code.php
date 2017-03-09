@@ -81,8 +81,8 @@ $data = array();
 for ($i = 0; $i < $totalRows_RecEvents; $i++) {
     $data[$i] = mysql_result($RecEvents, $i);
     if ($ryder_id == $data[$i]) {
-        $nextid = $i + 1;
-        $previd = $i - 1;
+        $next = $i + 1;
+        $prev = $i - 1;
     }
 }
 // 輪回

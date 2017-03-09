@@ -27,7 +27,20 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule (.*) error404.php [L]
 
 
-<!-- lets do it -->
+<!-- 這個好用 (title-id) -->
+<!-- <a href="<?= $row_RecWorks['d_title'] ?>-<?= $row_RecWorks['d_id'] ?>"> -->
+RewriteEngine On
+#RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*)(-([0-9]+))$ events_detail.php?id=$3 [L]
+
+
+<!-- 硬寫也行 -->
 RewriteEngine On
 #RewriteBase /
 

@@ -1,3 +1,17 @@
+<!--====================================================
+=            find找不到第一層，用filter即可            =
+=====================================================-->
+<script>
+	$.ajax({
+		url: "topmenu.php",
+		type: "GET",
+		success: function(res){
+			$(res).filter(".mobile-topmenuWrap").addClass("is-index").appendTo($("body"))
+		},
+		complete: function () {}
+	})
+</script>
+
 <!--=================================
 =            sftp ignore            =
 ==================================-->

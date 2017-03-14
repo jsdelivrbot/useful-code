@@ -27,7 +27,20 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule (.*) error404.php [L]
 
 
-<!-- lets do it -->
+<!-- 這個好用 (title(要去空白for好看 去斜線for路徑 去中文for我爽)-id) -->
+<!-- <a href="<?= preg_replace('/[^\w]/', '', $row_RecWorks['d_title']) ?>-<?= $row_RecWorks['d_id'] ?>"> -->
+RewriteEngine On
+#RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*)(-([0-9]+))$ events_detail.php?id=$3 [L]
+
+
+<!-- 硬寫也行 -->
 RewriteEngine On
 #RewriteBase /
 

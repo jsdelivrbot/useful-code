@@ -46,6 +46,11 @@ $_SESSION['checkPost'] = 0;
 	<?php include('meta.php') ?>
 
 	<link rel="stylesheet" href="stylesheets/style.css">
+
+	<style>
+		/*右下角還是會出現所以隱藏掉*/
+		#recaptcha{display: none;}
+	</style>
 </head>
 
 <body>

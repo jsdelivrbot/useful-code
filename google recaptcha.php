@@ -11,14 +11,19 @@
 	window.contactRecaptcha;
 	window.footerRecaptcha;
 
+	var url = window.location.pathname;
+	var filename = url.substring(url.lastIndexOf('/')+1);
+
 	onloadCallback = function() {
-		contactRecaptcha = grecaptcha.render('recaptcha', {
-			'sitekey' : '6Lc-OBkUAAAAAMCeet8dB6h81_63l01prRKOb9sV',
-			'size' : 'invisible',
-			'callback' : function () {
-				$("#contactForm").submit();
-			}
-		});
+		if (filename == 'contact') {
+			contactRecaptcha = grecaptcha.render('recaptcha', {
+				'sitekey' : '6Lc-OBkUAAAAAMCeet8dB6h81_63l01prRKOb9sV',
+				'size' : 'invisible',
+				'callback' : function () {
+					$("#contactForm").submit();
+				}
+			});
+		}
 
 		footerRecaptcha = grecaptcha.render('footer-recaptcha', {
 			'sitekey' : '6Lc-OBkUAAAAAMCeet8dB6h81_63l01prRKOb9sV',

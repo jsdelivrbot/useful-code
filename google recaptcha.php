@@ -1,5 +1,9 @@
+<!-- invisible recaptcha -->
 <div id='recaptcha' class="g-recaptcha" style="display: none;"></div>
+
+<!-- invisible recaptcha -->
 <div id='footer-recaptcha' class="g-recaptcha" style="display: none;"></div>
+
 
 <script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer></script>
 

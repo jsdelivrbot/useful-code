@@ -1,3 +1,13 @@
+<!-- 在原來的資料上更新 -->
+<?php
+// CONCAT_WS(',',address_id,%s)  一是用什麼來分隔  二是原本的值  三是要新增的值
+$updateSQL = sprintf("UPDATE client SET address_id=CONCAT_WS(',',address_id,%s) WHERE client_id=%s",
+                     GetSQLValueString(mysql_insert_id(), "text"),
+                     GetSQLValueString($_SESSION['client_id'], "int"));
+
+$Result2 = mysql_query($updateSQL, $connect2data) or die(mysql_error());
+?>
+
 <!-- 轉json -->
 <?php
 $query_RecWorks = sprintf("SELECT * FROM ask

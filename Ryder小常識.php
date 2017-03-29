@@ -1,9 +1,15 @@
+<!--==================================
+=            form二度確認            =
+===================================-->
+<form action="client_process.php" method="POST" enctype="multipart/form-data" onSubmit="return(confirm('確認要送出本表單嗎？'))">
+
 <!--======================================
 =            重整時回到最上面            =
 =======================================-->
 <script>
 	window.onbeforeunload = function() {window.scrollTo(0,0);}
 </script>
+
 
 <!--====================================================
 =            find找不到第一層，用filter即可            =

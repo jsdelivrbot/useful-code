@@ -5,4 +5,8 @@
 
 // custom faoundation settings here
 
-@include foundation-everything;
+@include foundation-grid;
+@include foundation-table;
+@include foundation-media-object;
+@include foundation-responsive-embed;
+@include foundation-visibility-classes;

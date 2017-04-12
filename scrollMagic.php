@@ -4,6 +4,9 @@ https://cdnjs.com/libraries/ScrollMagic
 <!-- example -->
 http://scrollmagic.io/examples/index.html
 
+<!-- cheatsheet -->
+https://ihatetomatoes.net/wp-content/uploads/2016/07/ScrollMagic-CheatsheetV1.pdf
+
 
 <!-- 基本引用(順序很講究低) -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>

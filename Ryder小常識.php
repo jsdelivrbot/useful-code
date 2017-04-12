@@ -28,7 +28,7 @@
 <!--=================================
 =            sftp ignore            =
 ==================================-->
-,"/Connections/","/upload_image/","/thumbs/","/source/","\\.zip","\\.rar"
+,"/.sass-cache/","/node_modules/","/Connections/","/upload_image/","/thumbs/","/source/","\\.zip","\\.rar"
 
 <!--=============================================
 =            iphone 選單滿版需要空間            =

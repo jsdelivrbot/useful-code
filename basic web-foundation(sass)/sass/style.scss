@@ -13,7 +13,7 @@
 .column, .columns{
 	@include grid-column-margin(
 		$margins: (
-			medium: 26px,
+			small: 26px,
 			large: 0
 		)
 	);

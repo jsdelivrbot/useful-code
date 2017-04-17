@@ -10,3 +10,11 @@
 @include foundation-media-object;
 @include foundation-responsive-embed;
 @include foundation-visibility-classes;
+.column, .columns{
+	@include grid-column-margin(
+		$margins: (
+			medium: 26px,
+			large: 0
+		)
+	);
+}

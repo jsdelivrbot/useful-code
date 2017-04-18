@@ -4,6 +4,11 @@
 @import "foundation";
 
 // custom faoundation settings here
+$grid-row-width: 1280px;
+$grid-column-gutter: (
+	small: 40px,
+	medium: 60px,
+);
 
 @include foundation-grid;
 @include foundation-table;
@@ -13,7 +18,7 @@
 .column, .columns{
 	@include grid-column-margin(
 		$margins: (
-			small: 26px,
+			medium: 26px,
 			large: 0
 		)
 	);

@@ -47,6 +47,7 @@ http://alvarotrigo.com/fullPage/examples/autoHeight.html#3rdPage
 
 <script>
 	$('#fullpage').fullpage({
+		scrollBar: true,
 		scrollingSpeed: 1200
 	});
 </script>

@@ -1,1 +1,0 @@
-https://developers.facebook.com/tools/debug/og/object?q=http%3A%2F%2Fwww.goods-design.com.tw%2Fwordpress%2F13-wives-posters%2F

@@ -78,11 +78,6 @@ http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animat
 =================================-->
 color.hailpixel.com
 
-<!--============================================
-=            css perspective 3d介紹            =
-=============================================-->
-http://www.zhangxinxu.com/wordpress/2012/09/css3-3d-transform-perspective-animate-transition/
-
 <!--===================================
 =            regex線上測試            =
 ====================================-->
@@ -279,18 +274,9 @@ e.stopPropagation();
 =====================================-->
 http://blog.gtwang.org/web-development/css-font-face/
 
-<!--================================
-=            神奇小教室            =
-=================================-->
-
-左邊用 float: left;
-右邊用 display: inline-block;
-
-
 <!--================================================
 =            make yourself color scheme            =
 ==================================================-->
-
 http://tmtheme-editor.herokuapp.com/#!/editor/local/3024%20(Night)
 
 <!--==================================
@@ -299,27 +285,7 @@ http://tmtheme-editor.herokuapp.com/#!/editor/local/3024%20(Night)
 <!-- 內有plugin -->
 http://blog.webgolds.com/view/198
 <script>
-	var _now= document.location.pathname.match(/[^\/]+$/)[0];    //index.php
-</script>
-
-<!--===========================================
-=            tweenMax ease凸出去唷            =
-============================================-->
-<script>
-	var tween = TweenMax.to($(".cupid"), 1, {
-		ease: Back.easeOut.config(1.7)
-	});
-</script>
-
-<!--===========================================
-=            jquery after animated            =
-============================================-->
-<script>
-	var effect=showid.fadeOut(500);
-
-	$.when(effect).done(function() {
-		// code here
-	});
+	var _now = document.location.pathname.match(/[^\/]+$/)[0];    //index.php
 </script>
 
 <!--=================================

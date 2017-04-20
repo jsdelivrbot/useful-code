@@ -25,7 +25,7 @@ TweenMax.set(e, {
 TweenMax.to(animated, 2, {
 	right: "-80",
 	ease: Back.easeOut.config(1.7),
-	onComplete: function  () {
+	onComplete: function() {
 		// code
 	}
 });

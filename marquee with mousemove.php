@@ -1,15 +1,15 @@
 <style>
 	.marqueeWrap{
-		position: fixed;
-		top: 200px;
-		left: 0;
-		width: 100%;
 		overflow: hidden;
 	}
 	.marqueeList{
+		display: inline-block;
+		white-space: nowrap;
 		li{
-			float: left;
+			display: inline-block;
+			vertical-align: top;
 			padding: 0 100px;
+			margin-right: -4px;
 		}
 	}
 </style>
@@ -36,10 +36,8 @@
 	var $wrap = $(".marqueeWrap");
 	var $ul = $(".marqueeList");
 	var $li = $(".marqueeList li");
-	var _$window = $(window);
 
 	window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
-	window.cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
 
 	var $firstItem, margin, windowWidth, $container, containerWidth, containerWidthHalf, mouseX, vector, dstMargin, nowMargin;
 	var _defaultMargin = 0;
@@ -53,11 +51,8 @@
 
 	var _adjustSlideMargin = function() {
 	    $firstItem = $li.first();
-	    $wrap.height($firstItem.height());
 	    _itemWidth = $firstItem.outerWidth();
-	    $ul.width(_itemWidth * $li.length);
-	    windowWidth = _$window.width();
-	    margin = (windowWidth - _itemWidth) / 2;
+	    margin = ($wrap.width() - _itemWidth) / 2;
 	    _defaultMargin = parseInt(margin - (_itemWidth * _half));
 	    $ul.css('margin-left', _defaultMargin);
 	}
@@ -85,10 +80,9 @@
 	        }
 	        _scrollDst = parseFloat(_scrollDst * 0.98);
 	        _scrollAccelerator = _scrollDst;
-	        if ((-0.01 < _scrollDst && _scrollDst < 0.01)) {
+	        if (-1 < _scrollDst && _scrollDst < 1) {
 	            _scrollDst = 0;
 	            _scrollAccelerator = _scrollDst;
-	            cancelAnimationFrame(_enterFrameID);
 	            clearInterval(_brakeScroll.timerID);
 	        }
 	    }, 5);
@@ -97,7 +91,7 @@
 	var _mouseMoveHandler = function(event) {
 	    $container = $(event.currentTarget);
 	    if (!_isBrakeScroll) {
-	        mouseX = event.pageX;
+	        mouseX = event.pageX - $wrap.offset().left;
 	        containerWidth = $container.width();
 	        containerWidthHalf = containerWidth / 2;
 	        vector = parseFloat((mouseX - containerWidthHalf) / containerWidthHalf);
@@ -113,11 +107,11 @@
 
 	var _mouseEnterHander = function(event) {
 	    _isBrakeScroll = false;
-	    _scroll()
 	};
 
 	$wrap.on('mousemove', _mouseMoveHandler);
 	$wrap.on('mouseleave', _mouseLeaveHandler);
 	$wrap.on('mouseenter', _mouseEnterHander);
 	_adjustSlideMargin();
+	_scroll();
 </script>

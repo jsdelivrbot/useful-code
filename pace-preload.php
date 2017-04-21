@@ -1,4 +1,4 @@
-line 296 add this line:
+add down below at line 296:
 Pace.trigger('update', this.progress);
 
 <script src="js/pace.js"></script>

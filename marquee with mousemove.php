@@ -1,20 +1,15 @@
 <style>
 	.marqueeWrap{
-		position: fixed;
-		top: 200px;
-		left: 0;
-		width: 100%;
 		overflow: hidden;
 	}
 	.marqueeList{
-		&:after{
-			content: "";
-		    display: block;
-		    clear: both;
-		}
+		display: inline-block;
+		white-space: nowrap;
 		li{
-			float: left;
+			display: inline-block;
+			vertical-align: top;
 			padding: 0 100px;
+			margin-right: -4px;
 		}
 	}
 </style>
@@ -56,11 +51,8 @@
 
 	var _adjustSlideMargin = function() {
 	    $firstItem = $li.first();
-	    $wrap.height($firstItem.height());
 	    _itemWidth = $firstItem.outerWidth();
-	    $ul.width(_itemWidth * $li.length);
-	    windowWidth = $(window).width();
-	    margin = (windowWidth - _itemWidth) / 2;
+	    margin = ($wrap.width() - _itemWidth) / 2;
 	    _defaultMargin = parseInt(margin - (_itemWidth * _half));
 	    $ul.css('margin-left', _defaultMargin);
 	}

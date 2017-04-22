@@ -23,7 +23,7 @@
 			width: 100%;
 			height: 100%;
 			margin-bottom: 0;
-			.bx-viewport{height: 100%;}
+			.bx-viewport{height: 100% !important;}
 		}
 	}
 </style>
@@ -34,17 +34,8 @@
 	</ul>
 </div>
 
-<script>
-	$(window).resize(function () {
-		$(".ryder-sliderWrap .bx-wrapper .bx-viewport").css({
-			height: $(window).height() + "px"
-		})
-	})
-</script>
-
 
 <!-- 調整位置似乎要包個父元素然後訂width height...有點鳥 -->
-
 <ul class="bxslider-banner">
 	<li>
 		<div class="bb-ch">都市旅行</div>

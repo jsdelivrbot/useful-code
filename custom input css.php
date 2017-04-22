@@ -147,7 +147,7 @@ http://www.jqueryrain.com/?1FAAtZGJ
 			font-size: 12px;
 			color: #fff;
 
-			float: initial;       /*重點*/
+			float: none;       /* 重點 */
 			width: 100%;
 			height: 25px;
 			line-height: 25px;
@@ -156,17 +156,19 @@ http://www.jqueryrain.com/?1FAAtZGJ
 			border: 0;
 			border-radius: 0;
 		}
-		/*點開的選單*/
+		/* 點開的選單 */
 		.list{
 			width: 100%;
 			border: 2px solid #997d2a;
 			background-color: #130506;
 		}
-		/*三角形*/
-		&:after{
-			border-color: #997d2a;
+		/* 三角形 */
+		.nice-select:after{
+			border-color: #fff;
 		}
-		/*.option.focus{background-color: #000;}*/
+		.nice-select.open:after{}
+		/* select */
+		.option.focus{background-color: #000;}
 	}
 </style>
 

@@ -167,8 +167,13 @@ http://www.jqueryrain.com/?1FAAtZGJ
 			border-color: #fff;
 		}
 		.nice-select.open:after{}
-		/* select */
-		.option.focus{background-color: #000;}
+		/* hover and select */
+		.nice-select .option:hover,
+		.nice-select .option.focus,
+		.nice-select .option.selected.focus{
+			background-color: #42bfea;
+			color: #fff;
+		}
 	}
 </style>
 

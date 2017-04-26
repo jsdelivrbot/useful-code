@@ -57,7 +57,7 @@ http://www.oxxostudio.tw/articles/201406/social-meta.html
 <meta name="og:type" content="website">
 
 <meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="@artem_tabalin">
+<meta name="twitter:url" content="http://likmeetup.goods-design.com.tw/">
 <meta name="twitter:title" content="Demos - jsSocials">
 <meta name="twitter:description" content="Simple Social Network Sharing Plugin">
 <meta name="twitter:image" content="<?= 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'] ?>images/share-image.png">

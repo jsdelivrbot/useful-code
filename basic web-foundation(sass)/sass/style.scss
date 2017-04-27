@@ -15,14 +15,6 @@ $grid-column-gutter: (
 @include foundation-table;
 @include foundation-responsive-embed;
 @include foundation-visibility-classes;
-.column, .columns{
-	@include grid-column-margin(
-		$margins: (
-			medium: 26px,
-			large: 0
-		)
-	);
-}
 
 .m-pic{
 	img{

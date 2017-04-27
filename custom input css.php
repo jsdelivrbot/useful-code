@@ -141,21 +141,18 @@ http://www.jqueryrain.com/?1FAAtZGJ
 <link rel="stylesheet" href="css/nice-select.css">
 
 <style>
-	.element{
-		.select{
-			font-family: @content-family;
-			font-size: 12px;
-			color: #fff;
-
-			float: none;       /* 重點 */
-			width: 100%;
-			height: 25px;
-			line-height: 25px;
-			background-color: #8b189b;
-			text-align: center;
-			border: 0;
-			border-radius: 0;
-		}
+	.cart-select{
+		font-family: @content-family;
+		font-size: 12px;
+		color: #fff;
+		float: none;       /* 重點 */
+		width: 100%;
+		height: 25px;
+		line-height: 25px;
+		background-color: #8b189b;
+		text-align: center;
+		border: 0;
+		border-radius: 0;
 		/* 點開的選單 */
 		.list{
 			width: 100%;
@@ -163,14 +160,12 @@ http://www.jqueryrain.com/?1FAAtZGJ
 			background-color: #130506;
 		}
 		/* 三角形 */
-		.nice-select:after{
+		&:after{
 			border-color: #fff;
 		}
-		.nice-select.open:after{}
+		&.open:after{}
 		/* hover and select */
-		.nice-select .option:hover,
-		.nice-select .option.focus,
-		.nice-select .option.selected.focus{
+		.option:hover, .option.focus, .option.selected.focus{
 			background-color: #42bfea;
 			color: #fff;
 		}

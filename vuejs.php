@@ -93,7 +93,6 @@ https://cn.vuejs.org/v2/guide/
 			});
 
 			this.$on('totalMinor', function(value){
-				console.log(value)
 				this.total -= value
 			});
 		}

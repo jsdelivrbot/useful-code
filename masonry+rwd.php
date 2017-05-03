@@ -1,9 +1,57 @@
-<!-- 3col一定要這樣? width: 33.3333%; -->
+<!-- vgrid -->
+<script src="js/jquery.vgrid.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
 
+<style>
+	#artMasonry{
+		width: 70% !important;
+		margin: 0 auto;
+		.grid-sizer, .grid-item{
+			width: calc(33.3333% - 10px);
+			margin: 0 5px 10px;
+			overflow: hidden;
+		}
+	}
+</style>
+
+<div id="artMasonry">
+	<div class="grid-item"><img src="images/1.jpg"></div>
+	<div class="grid-item"><img src="images/2.jpg"></div>
+	<div class="grid-item"><img src="images/3.jpg"></div>
+	<div class="grid-item"><img src="images/1.jpg"></div>
+	<div class="grid-item"><img src="images/4.jpg"></div>
+	<div class="grid-item"><img src="images/5.jpg"></div>
+	<div class="grid-item"><img src="images/1.jpg"></div>
+	<div class="grid-item"><img src="images/4.jpg"></div>
+	<div class="grid-item"><img src="images/3.jpg"></div>
+</div>
+
+<script>
+	var vg = $("#artMasonry").vgrid({
+		useLoadImageEvent: true,
+		useFontSizeListener: true,
+		easing: "easeOutQuint",
+		time: 500,
+		delay: 100,
+		wait: 0,
+		fadeIn: {
+			time: 300,
+			delay: 50
+		},
+		onStart: function(){},
+		onFinish: function(){}
+	});
+
+	$(window).on("load", function (){
+		vg.vgrefresh();
+	})
+</script>
+
+
+<!-- masonry -->
 <script src="js/masonry.pkgd.min.js"></script>
 
-
-<!-- percetage -->
+<!-- 3col一定要這樣? width: 33.3333%; -->
 <style>
 	#artMasonry{
 		.grid-sizer, .grid-item{
@@ -34,50 +82,6 @@
 		columnWidth: '.grid-sizer',
 		itemSelector: '.grid-item',
 		percentPosition: true,
-		"gutter": 10
-	});
-</script>
-
-
-<!-- px -->
-<style type="text/css">
-	#container{
-		.w1{width: 244px;}
-		.w2{width: 493px;}
-		.h1{height: 244px;}
-		.h2{height: 493px;}
-		.sizer{width: 244px;}
-		.gutter-sizer{width: 5px;}
-	}
-
-	@media screen and (max-width: 970px) {
-		#container{
-			.w1{width: 160px; img{width: 160px;}}
-			.w2{width: 320px; img{width: 320px;}}
-			.h1{height: 160px; img{height: 160px;}}
-			.h2{height: 320px; img{height: 320px;}}
-			.sizer{width: 160px;}
-			.gutter-sizer{width: 0;}
-		}
-	}
-</style>
-
-<div id="container" class="not320">
-	<div class="sizer"></div>
-	<div class="gutter-sizer"></div>
-
-	<div class="item w1"><img src="images/art-item-width1.png"></div>
-	<div class="item w2"><img src="images/art-item-width2.png"></div>
-</div>
-
-<script>
-	$(function(){
-		$('#container').masonry({
-		    // options
-		    itemSelector : '.item',
-		    columnWidth : '.sizer',
-		    // isFitWidth: true,
-		    "gutter": '.gutter-sizer',
-		});
+		gutter: 10
 	});
 </script>

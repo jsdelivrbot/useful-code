@@ -30,11 +30,11 @@
 
 <script>
 	$('#artMasonry').masonry({
-	  // options
-	  columnWidth: '.grid-sizer',
-	  itemSelector: '.grid-item',
-	  percentPosition: true,
-	  "gutter": 10
+		// options
+		columnWidth: '.grid-sizer',
+		itemSelector: '.grid-item',
+		percentPosition: true,
+		"gutter": 10
 	});
 </script>
 
@@ -73,11 +73,11 @@
 <script>
 	$(function(){
 		$('#container').masonry({
-	    // options
-	    itemSelector : '.item',
-	    columnWidth : '.sizer',
-	    // isFitWidth: true,
-	    "gutter": '.gutter-sizer',
-	});
+		    // options
+		    itemSelector : '.item',
+		    columnWidth : '.sizer',
+		    // isFitWidth: true,
+		    "gutter": '.gutter-sizer',
+		});
 	});
 </script>

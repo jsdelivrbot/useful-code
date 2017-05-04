@@ -8,7 +8,7 @@ $breakpoint-classes: (small medium large xlarge xxlarge);
 $grid-row-width: 1280px;
 $grid-column-gutter: (
 	small: 40px,
-	medium: 60px,
+	large: 60px,
 );
 
 @include foundation-grid;

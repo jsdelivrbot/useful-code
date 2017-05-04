@@ -91,7 +91,7 @@ https://developers.google.com/youtube/player_parameters#start
 	var players = new Array();
 	var _nowPlayer;
 
-	window.onYouTubePlayerAPIReady = function(){
+	function onYouTubePlayerAPIReady () {
 		if (typeof playerInfoList === 'undefined') return;
 
 		for (var i = 0; i < playerInfoList.length; i++) {

@@ -15,10 +15,3 @@ $grid-column-gutter: (
 @include foundation-table;
 @include foundation-responsive-embed;
 @include foundation-visibility-classes;
-
-.m-pic{
-	img{
-		width: 100%;
-		height: auto;
-	}
-}

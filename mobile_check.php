@@ -4,30 +4,21 @@ http://detectmobilebrowsers.com/
 
 <?php require_once('mobileCheck.php'); ?>
 
-<!-- mobileCheck.php -->
+<!-- 以下另存成 mobileCheck.php -->
 <?php
 require_once 'js/MobileDetect/Mobile_Detect.php';
 
 $detect = new Mobile_Detect;
 $deviceType = ($detect->isMobile() ? ($detect->isTablet() ? 'tablet' : 'phone') : 'computer');
 
+$nowPage = $_SERVER['REQUEST_URI'];  //now page
+$nowDir = dirname($_SERVER['PHP_SELF']);  //footdisc
+$computerPage = str_replace('/mobile', '', $nowPage);
+$mobilePage = str_replace($nowDir, $nowDir.'/mobile', $nowPage);
+
 if($deviceType=='computer'){
-	$_SESSION["mobile"] = 0;
-		//echo 'SERVER_NAME - '.$_SERVER['SERVER_NAME'].'<br>';
-		//echo 'HTTP_HOST = '.$_SERVER['HTTP_HOST'].'<br>';
+	// header('location:'.$computerPage);
 }else{
-	if(isset($_SESSION["mobile"]) && $_SESSION["mobile"]==1){
-			//echo $_SESSION["mobile"].'<br>';
-	}else{
-		$_SESSION["mobile"] = 1;
-		//$urln = "http://".$_SERVER['SERVER_NAME']."/mobile/";
-
-		echo '<script>
-			window.location = "mobile/";
-			</script>';
-
-		// header('Location: mobile/');
-
-	}
+	header('location:'.$mobilePage);
 }
 ?>

@@ -274,14 +274,6 @@ http://blog.gtwang.org/web-development/css-font-face/
 ==================================================-->
 http://tmtheme-editor.herokuapp.com/#!/editor/local/3024%20(Night)
 
-<!--==================================
-=            jquery取網址            =
-===================================-->
-<!-- 內有plugin -->
-http://blog.webgolds.com/view/198
-<script>
-	var _now = document.location.pathname.match(/[^\/]+$/)[0];    //index.php
-</script>
 
 <!--=================================
 =            less % - px            =

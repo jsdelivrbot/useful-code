@@ -1,3 +1,15 @@
+<!-- 取特定時間 -->
+<?php
+$ryder_y = (isset($_GET['y'])) ? "DATE_FORMAT(d_date, '%Y') = '".$_GET['y']."' AND" : '';
+
+$query_RecWorks = sprintf("SELECT * FROM data_set, file_set, class_set
+  WHERE %s d_class1='news' AND d_id=file_d_id AND file_type='image' AND d_class2=c_id AND c_parent='newsC' AND c_active='1' AND d_active='1'
+  ORDER BY c_sort ASC, d_sort ASC", $ryder_y);
+$RecWorks = mysql_query($query_RecWorks, $connect2data) or die(mysql_error());
+// $row_RecWorks = mysql_fetch_assoc($RecWorks);
+$totalRows_RecWorks = mysql_num_rows($RecWorks);
+?>
+
 <!-- 在原來的資料上更新 -->
 <?php
 // CONCAT_WS(',',address_id,%s)  一是用什麼來分隔  二是原本的值  三是要新增的值
@@ -140,7 +152,7 @@ while (list($key) = each($ryder_d_class3)) {
 <?php
 $colname_Recclass = "";
 if (isset($_GET['class'])) {
-  $colname_Recclass = "d_class".$_GET['class']." like '%".$_GET['cat']."%' AND";
+  $colname_Recclass = "d_class".$_GET['class']." LIKE '%".$_GET['cat']."%' AND";
 }
 ?>
 
@@ -148,7 +160,7 @@ if (isset($_GET['class'])) {
 <?php
 $query_RecProjects = sprintf("SELECT * FROM class_set, data_set
   LEFT JOIN file_set ON d_id=file_d_id AND file_type='image'
-  WHERE d_class2=c_id AND (d_title like '%%%s%%' OR d_content like '%%%s%%' OR c_title like '%%%s%%') AND c_active='1' AND d_active='1'
+  WHERE d_class2=c_id AND (d_title LIKE '%%%s%%' OR d_content LIKE '%%%s%%' OR c_title LIKE '%%%s%%') AND c_active='1' AND d_active='1'
   ORDER BY d_date DESC", $ryder_s, $ryder_s, $ryder_s);
 $RecProjects = mysql_query($query_RecProjects, $connect2data) or die(mysql_error());
 // $row_RecProjects = mysql_fetch_assoc($RecProjects);

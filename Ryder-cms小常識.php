@@ -1,3 +1,18 @@
+<!--=================================
+=            tiny plugin            =
+==================================-->
+plugins: [
+    /*"advlist autolink lists link image charmap print preview anchor",
+    "searchreplace visualblocks code fullscreen",
+    "insertdatetime media table contextmenu paste moxiemanager"*/
+    "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+    "searchreplace wordcount visualblocks visualchars insertdatetime nonbreaking",
+    "table contextmenu directionality emoticons textcolor responsivefilemanager image media",    <!-- 新增 responsivefilemanager image media -->
+    "insertdatetime nonbreaking save table contextmenu directionality",
+    "emoticons template paste textcolor colorpicker textpattern code"
+],
+ps.可加在toolbar讓使用者點喔
+
 <!--========================================
 =            tiny編輯器沒有觸發            =
 =========================================-->

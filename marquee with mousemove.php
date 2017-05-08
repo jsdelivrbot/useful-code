@@ -55,6 +55,13 @@
 	    margin = ($wrap.width() - _itemWidth) / 2;
 	    _defaultMargin = parseInt(margin - (_itemWidth * _half));
 	    $ul.css('margin-left', _defaultMargin);
+
+	    // 臨時加的 resize  可用
+	    // $(window).on("resize", function (){
+	    // 	_itemWidth = $firstItem.outerWidth();
+	    // 	margin = ($wrap.width() - _itemWidth) / 2;
+	    // 	_defaultMargin = parseInt(margin - (_itemWidth * _half));
+	    // })
 	}
 
 	var _scroll = function() {

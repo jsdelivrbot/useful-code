@@ -1,3 +1,21 @@
+<!-- 無後台版 (新增一個 count.txt 裡面寫數字)-->
+<?php require_once 'sstart.php'; ?>
+<?php
+$fo=fopen("count.txt","r");
+$visitors=fgets($fo,20);
+fclose($fo);
+
+if(!isset($_SESSION['visted'])){
+	$fo=fopen("count.txt","w");
+	$visitors++;
+	fwrite($fo,$visitors);
+	fclose($fo);
+	$_SESSION['visted']="yes";
+}
+
+// echo $visitors;
+?>
+
 <!-- 利用session累加的，就是可開開關關刷人數的意思 -->
 <?php
 /*ob_start();	*/

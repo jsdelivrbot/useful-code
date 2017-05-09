@@ -5,6 +5,17 @@
 <script src="js/jquery.easing.1.3.js"></script>
 
 <!-- basic -->
+<style>
+	.eventsSliderWrap{
+		position: relative;
+		/*more space for overflow*/
+		.slick-slide{
+			margin-top: 10px;
+			margin-bottom: 10px;
+		}
+	}
+</style>
+
 <script>
 	$('.authorSliderList').slick({
 		dots: false,

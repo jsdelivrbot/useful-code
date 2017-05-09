@@ -1,8 +1,23 @@
 <script src="js/slick.min.js"></script>
 <link rel="stylesheet" href="css/slick.css">
 <link rel="stylesheet" href="css/slick-theme.css">
+<!-- option -->
+<script src="js/jquery.easing.1.3.js"></script>
 
-<!-- normal -->
+<!-- basic -->
+<script>
+	$('.authorSliderList').slick({
+		dots: false,
+		infinite: true,
+		speed: 500,
+		prevArrow: ".authorPrev",
+		nextArrow: ".authorNext",
+		focusOnSelect: false,
+		easing: 'easeInOutCubic'
+	});
+</script>
+
+<!-- pager dot -->
 <style>
 	.ryder-dots{
 		text-align: center;
@@ -51,7 +66,7 @@
 </script>
 
 
-
+<!-- 兩個連動 -->
 <style>
 	/*需要reset outline*/
 	.slick-slider{margin-bottom: 0; *:focus{outline: 0;}}

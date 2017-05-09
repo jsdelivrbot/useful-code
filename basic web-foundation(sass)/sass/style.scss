@@ -12,7 +12,9 @@ $grid-column-gutter: (
 	large: 60px,
 );
 
-@include foundation-grid;
+@include foundation-flex-grid;
+@include foundation-flex-classes;
+// @include foundation-grid;
 @include foundation-table;
 @include foundation-responsive-embed;
 @include foundation-visibility-classes;

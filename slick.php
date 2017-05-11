@@ -4,6 +4,11 @@
 <!-- option -->
 <script src="js/jquery.easing.1.3.js"></script>
 
+<!-- reset outline -->
+<style>
+	.slick-slide, .slick-slide *{ outline: none !important; }
+</style>
+
 <!-- basic -->
 <style>
 	.eventsSliderWrap{

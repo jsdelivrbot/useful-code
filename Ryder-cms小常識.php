@@ -2,9 +2,6 @@
 =            tiny plugin            =
 ==================================-->
 plugins: [
-    /*"advlist autolink lists link image charmap print preview anchor",
-    "searchreplace visualblocks code fullscreen",
-    "insertdatetime media table contextmenu paste moxiemanager"*/
     "advlist autolink link image lists charmap print preview hr anchor pagebreak",
     "searchreplace wordcount visualblocks visualchars insertdatetime nonbreaking",
     "table contextmenu directionality emoticons textcolor responsivefilemanager image media",    <!-- 新增 responsivefilemanager image media -->
@@ -25,9 +22,10 @@ ps.可加在toolbar讓使用者點喔
 <!-- 新增一個.htaccess在cms folder -->
 php_value upload_max_filesize 5M
 
-<!--=========================================================
-=            內層編輯器抓到source (改tinymce.php)           =
-==========================================================-->
+<!--=========================================
+=            內層編輯器抓到source           =
+===========================================-->
+<!-- 改tinymce.php -->
 <script>
 	//指向網址後需改成 external_filemanager_path:"/filemanager/",
 	external_filemanager_path: "/keller/filemanager/",
@@ -36,6 +34,14 @@ php_value upload_max_filesize 5M
 	external_plugins: {
 	    "filemanager": "/keller/filemanager/plugin.min.js"
 	},
+</script>
+
+<!-- 改filemanager/config/config.php -->
+<script>
+    $upload_dir = '/keller/source/'; // path from base_url to base of upload folder (with start and final /)
+    $current_path = '../source/'; // relative path from filemanager folder to upload folder (with final /)
+    //thumbs folder can't put inside upload folder
+    $thumbs_base_path = '../thumbs/'; // relative path from filemanager folder to thumbs folder (with final /)
 </script>
 
 <!--========================================

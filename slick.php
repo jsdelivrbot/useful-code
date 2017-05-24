@@ -99,6 +99,38 @@
 </script>
 
 
+<!-- responsive -->
+<script>
+	$('.moreEventsSliderList').slick({
+		autoplay: true,
+		autoplaySpeed: 4000,
+		dots: false,
+		infinite: true,
+		speed: 500,
+		prevArrow: ".moreEventsPrev",
+		nextArrow: ".moreEventsNext",
+		focusOnSelect: false,
+		easing: 'easeInOutCubic',
+		responsive: [{
+			breakpoint: 1920,
+			settings: {
+				slidesToShow: 3
+			}
+		},{
+			breakpoint: 1024,
+			settings: {
+				slidesToShow: 2
+			}
+		},{
+			breakpoint: 640,
+			settings: {
+				slidesToShow: 1
+			}
+		}]
+	});
+</script>
+
+
 <!-- 兩個連動 -->
 <style>
 	/*需要reset outline*/

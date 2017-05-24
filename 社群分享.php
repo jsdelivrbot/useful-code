@@ -17,6 +17,7 @@ http://js-socials.com/start-using/
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-minima.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/jquery.jssocials/1.4.0/jssocials-theme-plain.css">
 
+<!-- 先用 ul>li 排好  再把li刪除 ul改div -->
 <script>
 	$(".socialList").jsSocials({
 		shareIn: "popup",

@@ -33,51 +33,68 @@
 	});
 </script>
 
-<!-- pager dot -->
+<!-- custom dots -->
 <style>
-	.ryder-dots{
-		text-align: center;
+	.mb-dotWrap{
 		position: absolute;
-		bottom: 20px;
 		left: 50%;
 		transform: translateX(-50%);
-		-webkit-transform: translateX(-50%);
+		bottom: 20px;
+	}
+	.mb-dots{
 		li{
 			display: inline-block;
 			vertical-align: top;
-			width: 9px;
-			height: 9px;
+			width: 10px;
+			height: 10px;
 			background-color: #fff;
 			border-radius: 50%;
-			.mr(20px);
-			button{display: none;}
+			position: relative;
 			cursor: pointer;
+			@include mr(14px);
+			&:after{
+				content: '';
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+				width: 5px;
+				height: 5px;
+				border-radius: 50%;
+				background-color: #8c6239;
+				opacity: 0;
+				transition: all 0.3s;
+			}
+			button{display: none;}
 		}
-		.slick-active{background-color: #d82154;}
+		.slick-active{
+			&:after{
+				opacity: 1;
+			}
+		}
 	}
 </style>
 
-<div class="banner-slick">
-	<div class="banner">
-		<img src="images/banner-cover.png" class="cover">
-		<img src="images/banner-1.jpg" class="banner-img">
-		<img src="images/banner-words-1.png" class="words" width="431">
-	</div>
-	<div class="banner">
-		<img src="images/banner-cover.png" class="cover">
-		<img src="images/banner-2.jpg" class="banner-img">
-		<img src="images/banner-words-2.png" class="words" width="438">
-	</div>
+<div class="mb-sliderWrap">
+	<ul class="mb-sliderList">
+		<li><img src="images/index/banner-1.jpg"></li>
+		<li><img src="images/index/banner-2.jpg"></li>
+	</ul>
+
+	<div class="mb-dotWrap"></div>
 </div>
 
 <script>
-	$('.banner-slick').slick({
+	$('.mb-sliderList').slick({
 		autoplay: true,
-		fade: true,
-		speed: 800,
+		autoplaySpeed: 4000,
 		arrows: false,
 		dots: true,
-		dotsClass: 'ryder-dots'
+		dotsClass: 'mb-dots',
+		appendDots: '.mb-dotWrap',
+		infinite: true,
+		speed: 500,
+		easing: 'easeInOutCubic'
 	});
 </script>
 

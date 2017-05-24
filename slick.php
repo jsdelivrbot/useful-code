@@ -111,12 +111,8 @@
 		nextArrow: ".moreEventsNext",
 		focusOnSelect: false,
 		easing: 'easeInOutCubic',
+		slidesToShow: 3,
 		responsive: [{
-			breakpoint: 1920,
-			settings: {
-				slidesToShow: 3
-			}
-		},{
 			breakpoint: 1024,
 			settings: {
 				slidesToShow: 2

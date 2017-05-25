@@ -52,5 +52,23 @@ TweenMax.fromTo($(".test"), 1.5, {
 	"stroke-dashoffset": 0,
 	"stroke": color
 });
+
+// multiple tween
+var phone_5 = new TimelineMax().add([
+	TweenMax.to($(".fixphone .item").eq(4), 2, {
+		width: 500,
+		height: 500,
+		onStart: function () {
+			$(".fixphone .loading").show()
+		},
+		onComplete: function  () {}
+	}),
+	TweenMax.to($(".fixphone .loading span"), 2, {
+		width: '100%',
+		delay: 2,
+		onStart: function () {},
+		onComplete: function  () {}
+	})
+])
 </script>
 

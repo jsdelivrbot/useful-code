@@ -61,13 +61,13 @@ var phone_5 = new TimelineMax().add([
 		onStart: function () {
 			$(".fixphone .loading").show()
 		},
-		onComplete: function  () {}
+		onComplete: function () {}
 	}),
 	TweenMax.to($(".fixphone .loading span"), 2, {
 		width: '100%',
 		delay: 2,
 		onStart: function () {},
-		onComplete: function  () {}
+		onComplete: function () {}
 	})
 ])
 </script>

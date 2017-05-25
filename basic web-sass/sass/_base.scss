@@ -1,5 +1,5 @@
 @import "compass/reset";
-@import "compass/css3/font-face";
+// @import "compass/css3/font-face";
 
 
 // 字型格式						附檔名				format() 指定方式
@@ -10,7 +10,7 @@
 // SVG Font						.svg 或 .svgz		"svg"
 
 
-@include font-face("DIN", font-files("DINPro-Bold.otf","opentype"));
+// @include font-face("DIN", font-files("DINPro-Bold.otf","opentype"));
 
 
 $ch-family: "メイリオ",Meiryo,"STXihei", HEITI TC, "HEITI TC", "黑體-繁", "微軟正黑體", "黑體", sans-serif;
@@ -55,6 +55,7 @@ img{
 	max-width: 100%;
 	height: auto;
 }
+
 
 
 /*

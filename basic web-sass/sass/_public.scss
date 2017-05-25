@@ -49,29 +49,21 @@
     }
 }
 
-@mixin breakpoint($point){
-    @if $point == laptop {
-        @media screen and (max-width: 1440px) ,screen and (max-height: 800px){
-            @content
-        }
-    }@else if $point == pad {
-        @media screen and (max-width: 1024px) {
-            @content
-        }
-    }@else if $point == tiny {
-        @media screen and (max-width: 350px) {
-            @content
-        }
-    }@else if $point == portrait {
-        @media screen and (orientation:portrait) {
-            @content
-        }
-    }@else if $point == landscape {
-        @media screen and (orientation:landscape) {
-            @content
-        }
-    }
-}
+// @mixin breakpoint($point){
+//     @if $point == laptop {
+//         @media screen and (max-width: 1366px) ,screen and (max-height: 800px){
+//             @content
+//         }
+//     }@else if $point == pad {
+//         @media screen and (max-width: 1100px) {
+//             @content
+//         }
+//     }@else if $point == mobile {
+//         @media screen and (max-width: 350px) {
+//             @content
+//         }
+//     }
+// }
 
 @mixin flexBoxCenter($direction) {
     display: -webkit-box;
@@ -106,31 +98,25 @@
     &.current img:nth-child(1){display:none; }
     &.current img:nth-child(2){display:inline; }
 }
-
+.image-2x{
+    @include image-2x;
+}
 
 
 /*
 
-    ┴┬┴┬／￣＼＿／￣＼
-    ┬┴┬┴▏　　▏▔▔▔▔＼
-    ┴┬┴／＼　／　　　　　　﹨
-    ┬┴∕　　　　　　　／　　　）
-    ┴┬▏　　　　　　　　●　　▏
-    ┬┴▏　　　　　　　　　　　▔█
-    ┴◢██◣　　　　　　 ＼＿＿／
-    ┬█████◣　　　　　　　／　　　　
-    ┴█████████████◣
-    ◢██████████████▆▄
-    ◢██████████████▆▄
-    █◤◢██◣◥█████████◤＼
-    ◥◢████　████████◤　　 ＼
-    ┴█████　██████◤　　　　　 ﹨
-    ┬│　　　│█████◤　　　　　　　　▏
-    ┴│　　　│　　　　　　　　　　　　　　▏
-    ┬∕　　　∕　　　　／▔▔▔＼　　　　 ∕
-    *∕＿＿_／﹨　　　∕　　　　　 ＼　　／＼
-    ┬┴┬┴┬┴＼ 　　 ＼_　　　　　﹨／　　﹨
-    ┴┬┴┬┴┬┴ ＼＿＿＿＼　　　　 ﹨／▔＼﹨／▔＼
-    ▲△▲▲╓╥╥╥╥╥╥╥╥＼　　 ∕　 ／▔﹨　／▔﹨                     public.scss end
+        　　　  %%%%%%%%,
+    　　　　　,%%/\%%%%/\%%
+    　　　　,%%%\c　""　J/%%%
+    %.　　　%%%%/　o　o　\%%%
+    `%%.　　%%%%　　 　　|%%%
+    　`%%　　`%%%%(__Y__)%%'
+    　//　　　;%%%%`\-/%%%'
+    ((　　　　/ `%%%%%%%'
+    　\\　　.'　　　　|
+    　\\　　/　　　\　|　|
+    　　\\/　　　　)　|　|
+    　　　\　　　　/　|　|__
+    　　　(___________)))))))         public.scss end
 
 */

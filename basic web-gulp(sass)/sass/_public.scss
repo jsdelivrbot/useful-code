@@ -49,21 +49,21 @@
     }
 }
 
-@mixin breakpoint($point){
-    @if $point == laptop {
-        @media screen and (max-width: 1366px) ,screen and (max-height: 800px){
-            @content
-        }
-    }@else if $point == pad {
-        @media screen and (max-width: 1100px) {
-            @content
-        }
-    }@else if $point == mobile {
-        @media screen and (max-width: 350px) {
-            @content
-        }
-    }
-}
+// @mixin breakpoint($point){
+//     @if $point == laptop {
+//         @media screen and (max-width: 1366px) ,screen and (max-height: 800px){
+//             @content
+//         }
+//     }@else if $point == pad {
+//         @media screen and (max-width: 1100px) {
+//             @content
+//         }
+//     }@else if $point == mobile {
+//         @media screen and (max-width: 350px) {
+//             @content
+//         }
+//     }
+// }
 
 @mixin flexBoxCenter($direction) {
     display: -webkit-box;
@@ -98,29 +98,25 @@
     &.current img:nth-child(1){display:none; }
     &.current img:nth-child(2){display:inline; }
 }
-
+.image-2x{
+    @include image-2x;
+}
 
 
 /*
 
-  .--.
-      /    \
-     ## a  a
-     (   '._)
-      |'-- |
-    _.\___/_   ___pjax___
-  ."\> \Y/|<'.  '._.-'
- /  \ \_\/ /  '-' /
- | --'\_/|/ |   _/
- |___.-' |  |`'`
-   |     |  |
-   |    / './
-  /__./` | |
-     \   | |
-      \  | |
-      ;  | |
-      /  | |
-     |___\_.\_
-     `-"--'---'
+        　　　  %%%%%%%%,
+    　　　　　,%%/\%%%%/\%%
+    　　　　,%%%\c　""　J/%%%
+    %.　　　%%%%/　o　o　\%%%
+    `%%.　　%%%%　　 　　|%%%
+    　`%%　　`%%%%(__Y__)%%'
+    　//　　　;%%%%`\-/%%%'
+    ((　　　　/ `%%%%%%%'
+    　\\　　.'　　　　|
+    　\\　　/　　　\　|　|
+    　　\\/　　　　)　|　|
+    　　　\　　　　/　|　|__
+    　　　(___________)))))))         public.scss end
 
 */

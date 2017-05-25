@@ -38,12 +38,33 @@ TweenMax.to($(".brandDown"), 1.5, {
 	ease: Bounce.easeOut
 })
 
-// staggerTo
+// stagger
 $(".ownerWrap").load(".ownerWrap li",function  () {
 	TweenMax.staggerTo($(".ownerWrap li"), 0.5, {
 		opacity:1
 	}, 0.2);
 })
+
+var c1 = TweenMax.staggerFrom($("#iaw-p2-circle li"), 2, {
+	opacity: 0,
+	scale: 0,
+	transformOrigin:'center',
+	repeat: -1,
+	repeatDelay: 4,
+	onUpdate: function () {
+		if (this.progress() == 1) {
+			$(this.target).animate({
+				opacity: 0
+			}, 300)
+		}
+	}
+}, 0.2);
+
+var green_phone_circle = new TimelineMax({
+	paused: true
+}).add([
+	c1
+])
 
 // from to
 TweenMax.fromTo($(".test"), 1.5, {

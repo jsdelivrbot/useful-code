@@ -10,5 +10,5 @@
 <meta name="author" content="作者姓名">
 <meta name="company" content="公司名稱">
 <meta name="copyright" content="本網頁著作權屬XXX, All Rights Reserved">
-<meta name="kyewords" Content="關鍵詞1, 關鍵詞2, 關鍵詞3,">
+<meta name="keywords" Content="關鍵詞1, 關鍵詞2, 關鍵詞3,">
 <meta name="description" content="網站簡述">

@@ -49,7 +49,12 @@ button{
 	box-sizing: border-box;
 }
 
-img{vertical-align: middle;}
+img{
+	display: inline-block;
+	vertical-align: middle;
+	max-width: 100%;
+	height: auto;
+}
 
 
 

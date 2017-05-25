@@ -3,13 +3,15 @@
 @import "settings/settings";
 @import "foundation";
 
+$space: 64px;
+$spaceMobile: 20px;
 // custom faoundation settings here
 $responsive-embed-margin-bottom: 0;
 $breakpoint-classes: (small medium large xlarge xxlarge);
 $grid-row-width: 1280px;
 $grid-column-gutter: (
-	small: 40px,
-	large: 60px,
+	small: $spaceMobile * 2,
+	large: $space * 2,
 );
 
 @include foundation-flex-grid;

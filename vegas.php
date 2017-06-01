@@ -10,6 +10,11 @@
 </style>
 
 <script>
+    // 讓video支援mobile
+    $.vegas.isVideoCompatible = function () {
+        return true;
+    }
+
     $(window).load(function  () {
         $(".banner").vegas({
             timer: false,

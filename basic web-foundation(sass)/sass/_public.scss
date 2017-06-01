@@ -49,40 +49,16 @@
     }
 }
 
-// @mixin breakpoint($point){
-//     @if $point == laptop {
-//         @media screen and (max-width: 1366px) ,screen and (max-height: 800px){
-//             @content
-//         }
-//     }@else if $point == pad {
-//         @media screen and (max-width: 1100px) {
-//             @content
-//         }
-//     }@else if $point == mobile {
-//         @media screen and (max-width: 350px) {
-//             @content
-//         }
-//     }
-// }
-
-@mixin flexBoxCenter($direction) {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    justify-content:center;
-    align-items:center;
-    -webkit-justify-content:center;
-    -webkit-align-items:center;
-    -ms-flex-align:center;
-    -ms-flex-pack:center;
-    -webkit-flex-direction: $direction;
-    -moz-flex-direction: $direction;
-    -ms-flex-direction: $direction;
-    -o-flex-direction: $direction;
-    flex-direction: $direction;
+@mixin cus-row($column-count) {
+    @include grid-context($column-count){
+        @include -zf-each-breakpoint {
+            @for $i from 1 through $column-count {
+                .#{$-zf-size}-#{$i} {
+                    @include grid-col-size($i);
+                }
+            }
+        }
+    }
 }
 
 .css_mover{

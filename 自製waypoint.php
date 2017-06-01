@@ -38,7 +38,7 @@
 			elementOffset = $(this).offset().top,
 			distance      = (elementOffset - scrollTop),
 			windowHeight  = $(window).height(),
-			breakPoint    = windowHeight*0.9;
+			breakPoint    = windowHeight * 0.9;
 
 			if(distance > breakPoint) {
 				$(this).removeClass("open");

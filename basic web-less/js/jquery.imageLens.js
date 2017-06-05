@@ -19,6 +19,10 @@
         return this.each(function () {
             obj = $(this);
 
+            $(window).on("resize", function (){
+                offset = obj.offset();
+            })
+
             var offset = $(this).offset();
 
             // Creating lens

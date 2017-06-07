@@ -31,10 +31,7 @@ a{
 	img{border: 0;}
 }
 
-input:focus,
-select:focus,
-textarea:focus,
-button:focus{
+:focus{
 	outline: 0;
 }
 

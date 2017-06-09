@@ -1,4 +1,4 @@
-<script src="js/slick.min.js"></script>
+<script src="js/slick.js"></script>
 <link rel="stylesheet" href="css/slick.css">
 <link rel="stylesheet" href="css/slick-theme.css">
 <!-- option -->

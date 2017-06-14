@@ -1,4 +1,4 @@
-<script src="js/slick.min.js"></script>
+<script src="js/slick.js"></script>
 <link rel="stylesheet" href="css/slick.css">
 <link rel="stylesheet" href="css/slick-theme.css">
 <!-- option -->
@@ -9,18 +9,21 @@
 	.slick-slide, .slick-slide *{ outline: none !important; }
 </style>
 
-<!-- basic -->
 <style>
-	.eventsSliderWrap{
-		position: relative;
-		/*more space for overflow*/
-		.slick-slide{
-			margin-top: 10px;
-			margin-bottom: 10px;
-		}
+	/*active css這樣用*/
+	.slick-current{
+		opacity: 1;
+	}
+
+	/*more space for overflow*/
+	.slick-slide{
+		margin-top: 10px;
+		margin-bottom: 10px;
 	}
 </style>
 
+
+<!-- basic -->
 <script>
 	$('.authorSliderList').slick({
 		dots: false,
@@ -32,6 +35,7 @@
 		easing: 'easeInOutCubic'
 	});
 </script>
+
 
 <!-- custom dots -->
 <style>
@@ -122,19 +126,43 @@
 			settings: {
 				slidesToShow: 1
 			}
+		},{
+			breakpoint: 640,
+			settings: "unslick"
+		}]
+	});
+
+	$(window).on("resize", function (){
+		if ($(this).width() > 1024) {
+			$('.moreEventsSliderList').slick('resize');
+		}
+	})
+</script>
+
+
+<!-- center mode -->
+<script>
+	$('.mobile-packageList').slick({
+		autoplay: true,
+		autoplaySpeed: 4000,
+		dots: false,
+		infinite: true,
+		speed: 666,
+		arrows: true,
+		centerMode: true,
+		centerPadding: '78px',
+		focusOnSelect: true,
+		easing: 'easeInOutCubic',
+		slidesToShow: 3,
+		responsive: [{
+			breakpoint: 640,
+			settings: "unslick"
 		}]
 	});
 </script>
 
 
 <!-- 兩個連動 -->
-<style>
-	/*需要reset outline*/
-	.slick-slider{margin-bottom: 0; *:focus{outline: 0;}}
-	/*active css這樣用*/
-	.slick-current{opacity: 1;}
-</style>
-
 <ul class="for-slider-show">
 	<li><img src="images/new-rooms-detail-slider-1.png"></li>
 	<li><img src="images/new-rooms-detail-slider-1.png"></li>
@@ -150,7 +178,6 @@
 	<div id="detail-prev"><img src="images/new-rooms-detail-prev.png" width="43"></div>
 	<div id="detail-next"><img src="images/new-rooms-detail-next.png" width="43"></div>
 </div><!-- new-rooms-detail-slider-wrap end -->
-
 
 <script>
 	$('.for-slider-show').slick({

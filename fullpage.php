@@ -4,6 +4,12 @@ https://github.com/alvarotrigo/fullPage.js#fullpagejs
 <!-- examples -->
 http://alvarotrigo.com/fullPage/examples/autoHeight.html#3rdPage
 
+<!-- scrollOverflowOptions -->
+http://iscrolljs.com/
+
+
+<!-- scroll inside section (要加在前面) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/vendors/scrolloverflow.min.js"></script>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.4/jquery.fullpage.js"></script>
@@ -45,9 +51,24 @@ http://alvarotrigo.com/fullPage/examples/autoHeight.html#3rdPage
 	</div>
 </div>
 
+<!-- basic -->
 <script>
 	$('#fullpage').fullpage({
 		scrollBar: true,
 		scrollingSpeed: 1200
+	});
+</script>
+
+<!-- scroll inside section -->
+<script>
+	$('#fullpage-mobile').fullpage({
+		scrollBar: false,
+		scrollingSpeed: 1200,
+		scrollOverflow: true,
+		scrollOverflowOptions: {
+		    scrollbars: false,
+		    deceleration: 0.003
+		},
+		onLeave: function(index, nextIndex, direction){}
 	});
 </script>

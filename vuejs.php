@@ -1,4 +1,5 @@
-https://cn.vuejs.org/v2/guide/
+<!-- cheetsheet -->
+https://vuejs-tips.github.io/cheatsheet/
 
 <!-- component -->
 <ul class="cartList" id="cart">

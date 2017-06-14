@@ -1,3 +1,4 @@
+.slick-slide, .slick-slide *{ outline: none !important; }
 /* Slider */
 .slick-slider
 {

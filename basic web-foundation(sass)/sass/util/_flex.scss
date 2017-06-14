@@ -33,6 +33,21 @@ $-zf-flex-direction: (
 /*/ @param {Keyword} $y [null] - Vertical alignment to use. Can be `top`, `bottom`, `middle`, or `stretch`. Or, set it to `null` (the default) to not set vertical alignment.*/
 @mixin flex-align($x: null, $y: null) {
   @if $x {
+    @if $x == right {
+      -webkit-box-pack: end;
+      -ms-flex-pack: end;
+    }
+
+    @if $x == justify {
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+    }
+
+    @if $x == spaced {
+      -webkit-box-pack: distribute;
+      -ms-flex-pack: distribute;
+    }
+
     @if map-has-key($-zf-flex-justify, $x) {
       $x: map-get($-zf-flex-justify, $x);
     }
@@ -51,10 +66,9 @@ $-zf-flex-direction: (
   }
 
   -webkit-box-pack: $x;
-
   -ms-flex-pack: $x;
-
   justify-content: $x;
+
   -webkit-box-align: $y;
   -ms-flex-align: $y;
   align-items: $y;
@@ -74,9 +88,7 @@ $-zf-flex-direction: (
   }
 
   -ms-flex-item-align: $y;
-
   -ms-grid-row-align: $y;
-
   align-self: $y;
 }
 

@@ -18,12 +18,10 @@
 					windowHeight = $(window).height(),
 					breakPoint = windowHeight * setting.hook;
 
-				if (distance < breakPoint) {
-					setting.enter($this);
-				}
-
-				if (distance > breakPoint) {
+				if (distance > breakPoint || distance < (breakPoint - windowHeight)) {
 					setting.leave($this);
+				}else if (distance < breakPoint) {
+					setting.enter($this);
 				}
 			}
 

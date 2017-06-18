@@ -65,13 +65,16 @@
 			}
 
 			var infoWindowContent = [
-				['<div class="info_content">' +
+				[
+					'<div class="info_content">' +
 					'<div class="title">INTELLIGENT 因特力淨</div>' +
-					'<div class="content">100台北市中正區衡陽路7號15F<br>02-23817978</div>' + '</div>'
-				],
-				['<div class="info_content">' +
+					'<div class="content">100台北市中正區衡陽路7號15F<br>02-23817978</div>' +
+					'</div>'
+				], [
+					'<div class="info_content">' +
 					'<div class="title">INTELLIGENT 因特力淨22</div>' +
-					'<div class="content">第二間<br>02-23817978</div>' + '</div>'
+					'<div class="content">第二間<br>02-23817978</div>' +
+					'</div>'
 				],
 			];
 

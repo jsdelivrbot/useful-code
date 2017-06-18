@@ -1,3 +1,6 @@
+<!-- for MarkerClusterer -->
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+
 <div class="googleMapFilterWrap">
 	<div class="item" data-cat="1">總公司</div>
 	<div class="item" data-cat="2">專賣店</div>

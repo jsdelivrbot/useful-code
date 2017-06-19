@@ -1,9 +1,158 @@
-<div class="googleMapFilterWrap">
-	<div class="item" data-cat="1">總公司</div>
-	<div class="item" data-cat="2">專賣店</div>
-	<div class="item" data-cat="3">經銷商</div>
-</div>
+<!-- for MarkerClusterer -->
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 
+<!-- 地址轉經緯度 + 地圖計算這區有幾個marker + marker filter + 自訂點了跳出說明框 -->
+<ul class="store-catList row">
+	<li class="column shrink current" data-cat="-1">全部據點</li>
+	<li class="column shrink" data-cat="0">直營服務</li>
+	<li class="column shrink" data-cat="1">合作店家</li>
+</ul>
+
+<script>
+	$(function() {
+		var markerCluster;
+		var map;
+		var markers = [];
+		var geocoder = new google.maps.Geocoder();
+
+		function initMap() {
+			map = new google.maps.Map(document.getElementById('store-googleMap'), {
+				zoom: 4,
+				disableDefaultUI: false,
+				// scrollwheel: false,
+				styles: [{
+				    stylers: [{
+				        saturation: -100
+				    }]
+				}],
+				center: {
+					lat: 23.790390,
+					lng: 121.003835
+				}
+			});
+
+			var infoWindowContent = [
+				[
+					'<div class="info_content">' +
+					'<div class="title">賓尚-大中廠</div>' +
+					'<div class="content">07-3479899<br>高雄市左營區大中二路39之9號</div>' +
+					'</div>'
+				], [
+					'<div class="info_content">' +
+					'<div class="title">鯉魚王-紅色</div>' +
+					'<div class="content">07-3479899<br>高雄市左營區大中二路39之9號</div>' +
+					'</div>'
+				], [
+					'<div class="info_content">' +
+					'<div class="title">賓尚-大中廠</div>' +
+					'<div class="content">07-3479899<br>高雄市左營區大中二路39之9號</div>' +
+					'</div>'
+				]
+			];
+
+			var infoWindow = new google.maps.InfoWindow();
+
+			// set marker image
+			var images = ['images/contact-mapicon-red.png', 'images/contact-mapicon-yellow.png'];
+
+			var locations = [{
+				address: '台北市',
+				lat: 25.0329694,
+				lng: 121.56541770000001,
+				cat: 0
+			}, {
+				address: '台中市',
+				lat: 24.1477358,
+				lng: 120.6736482,
+				cat: 1
+			}, {
+				address: '台南市',
+				lat: 24.1477358,
+				lng: 120.6736482,
+				cat: 1
+			}]
+
+			for (i = 0; i < locations.length; i++) {
+				var _address = locations[i].address;
+				var _image = images[locations[i].cat];
+				var _cat = locations[i].cat;
+				var _index = i;
+				geocodeAddress(geocoder, map, _address, _image, _index, _cat);
+			}
+
+			// 地址轉經緯度
+			function geocodeAddress(geocoder, resultsMap, address, image, index, cat) {
+				geocoder.geocode({'address': address}, function(results, status) {
+					if (status === 'OK') {
+
+						// Add some markers to the map.
+						var marker = new google.maps.Marker({
+							map: resultsMap,
+							icon: image,
+							cat: cat,
+							position: results[0].geometry.location
+						});
+
+						// marker 另存一個陣列
+						markers.push(marker);
+
+						// 計算這區有幾個marker
+						markerCluster.addMarker(marker);
+
+						// Allow each marker to have an info window
+						google.maps.event.addListener(marker, 'click', (function(marker, i) {
+							return function() {
+								infoWindow.setContent(infoWindowContent[i][0]);
+								infoWindow.open(map, marker);
+							}
+						})(marker, index));
+
+					} else {
+						alert('Geocode was not successful for the following reason: ' + status);
+					}
+				});
+			}
+
+			// 計算這區有幾個marker
+			var clusterStyles = [{
+				url: 'images/markerclusterer1.png',
+				height: 30,
+				width: 30
+			}];
+
+			var mcOptions = {
+				styles: clusterStyles,
+			};
+
+			markerCluster = new MarkerClusterer(map, markers, mcOptions);
+		}
+
+		initMap();
+
+		// markers filter
+		function filterMarkers (category) {
+			markerCluster.clearMarkers();
+
+			for (i = 0; i < markers.length; i++) {
+		        if (markers[i].cat == category || category === -1) {
+		        	markers[i].setVisible(true);
+		        	markerCluster.addMarker(markers[i]);
+		        } else {
+		        	markers[i].setVisible(false);
+		        	markerCluster.removeMarker(markers[i]);
+		        }
+		    }
+		}
+
+		$(".store-catList li").on("click", function (){
+			$(this).addClass("current").siblings().removeClass("current")
+			filterMarkers($(this).data("cat"))
+		})
+	})
+</script>
+
+
+<!-- 有自訂的放大縮小 -->
 <script>
 	$(function() {
 		var markers;
@@ -62,13 +211,16 @@
 			}
 
 			var infoWindowContent = [
-				['<div class="info_content">' +
+				[
+					'<div class="info_content">' +
 					'<div class="title">INTELLIGENT 因特力淨</div>' +
-					'<div class="content">100台北市中正區衡陽路7號15F<br>02-23817978</div>' + '</div>'
-				],
-				['<div class="info_content">' +
+					'<div class="content">100台北市中正區衡陽路7號15F<br>02-23817978</div>' +
+					'</div>'
+				], [
+					'<div class="info_content">' +
 					'<div class="title">INTELLIGENT 因特力淨22</div>' +
-					'<div class="content">第二間<br>02-23817978</div>' + '</div>'
+					'<div class="content">第二間<br>02-23817978</div>' +
+					'</div>'
 				],
 			];
 

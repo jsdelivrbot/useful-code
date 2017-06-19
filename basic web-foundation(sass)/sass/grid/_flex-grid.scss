@@ -190,6 +190,9 @@
 
   .flex-container {
     @include flex;
+    >*{
+      -ms-flex: 0 1 auto;
+    }
   }
 
   .flex-child-auto {

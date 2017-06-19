@@ -61,12 +61,6 @@
     }
 }
 
-@mixin flex-center($dir: column) {
-    @include flex;
-    @include flex-align(center, middle);
-    @include flex-direction($dir);
-}
-
 .css_mover{
     cursor: pointer;
     img:nth-child(1){display:inline; }
@@ -83,8 +77,17 @@
 .image-2x{
     @include image-2x;
 }
-.flex-center{
-    @include flex-center;
+
+.flex-center-row {
+    @include flex;
+    @include flex-align(center, middle);
+    @include flex-direction(row);
+}
+
+.flex-center-col {
+    @include flex;
+    @include flex-align(center, middle);
+    @include flex-direction(column);
 }
 
 

@@ -23,3 +23,19 @@ $grid-column-gutter: (
 @include foundation-responsive-embed;
 @include foundation-visibility-classes;
 @include foundation-text-alignment;
+
+.ryder-width{
+	@include grid-row;
+}
+.space{
+	padding-left: $space;
+	padding-right: $space;
+}
+.row-no-space{
+	>.column:first-child{
+		padding-left: 0;
+	}
+	>.column:last-child{
+		padding-right: 0;
+	}
+}

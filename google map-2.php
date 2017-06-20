@@ -107,6 +107,9 @@
 							}
 						})(marker, index));
 
+						// trigger event (let infoWindow open at beginning)
+						// new google.maps.event.trigger( marker, 'click' );
+
 					} else {
 						alert('Geocode was not successful for the following reason: ' + status);
 					}

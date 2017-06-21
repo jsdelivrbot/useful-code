@@ -28,8 +28,7 @@ $grid-column-gutter: (
 	@include grid-row;
 }
 .space{
-	padding-left: $space;
-	padding-right: $space;
+	@include grid-column-gutter;
 }
 .row-no-space{
 	>.column:first-child{

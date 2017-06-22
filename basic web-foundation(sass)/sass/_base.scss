@@ -47,6 +47,8 @@ button{
 }
 
 img{
+	display: inline-block;	//remove bottom space
+	vertical-align: middle;
 	max-width: 100%;
 	height: auto;
 }

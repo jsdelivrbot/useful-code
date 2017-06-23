@@ -8,7 +8,11 @@ plugins: [
     "insertdatetime nonbreaking save table contextmenu directionality",
     "emoticons template paste textcolor colorpicker textpattern code"
 ],
-ps.可加在toolbar讓使用者點喔
+<!-- ps.以上 ↑ 可加在toolbar讓使用者點喔 -->
+
+<!-- 好用的config, 視情況開啟 -->
+resize: 'both',
+nowrap : true,   <!-- x scroll bar -->
 
 <!--========================================
 =            tiny編輯器沒有觸發            =
@@ -43,12 +47,6 @@ php_value upload_max_filesize 5M
     //thumbs folder can't put inside upload folder
     $thumbs_base_path = '../thumbs/'; // relative path from filemanager folder to thumbs folder (with final /)
 </script>
-
-<!--========================================
-=            編輯器x scroll bar            =
-=========================================-->
-<!-- 在tinymce.php設定裡面新增 -->
-nowrap : true,
 
 <!--====================================================
 =            解決編輯器表情符號前台顯示失敗            =

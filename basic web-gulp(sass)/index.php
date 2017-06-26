@@ -1,17 +1,1 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>test</title>
-
-	<?php include('meta.php') ?>
-
-	<link rel="stylesheet" href="stylesheets/style.css">
-</head>
-
-<body>
-
-</body>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-</html>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><title>test</title><?php include 'meta.php'; ?><link rel="stylesheet" href="stylesheets/style.css"></head><body><ul class="row test align-middle"><li class="column">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum earum dolor, maiores natus eum maxime soluta, ex neque corporis voluptate.</li><li class="column">123</li><li class="column">456</li></ul><?php $i = 5; ?><?php while($i--): ?><div class="row"><div class="column"><?php echo htmlspecialchars($i, ENT_QUOTES, 'UTF-8'); ?></div></div><?php endwhile; ?></body><script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script></html>

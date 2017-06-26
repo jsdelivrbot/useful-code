@@ -1,0 +1,37 @@
+@import settings/settings
+@import foundation
+@import base
+@import public
+
+$space: 64px
+$spaceMobile: 20px
+
+// custom faoundation settings here
+$block-grid-max: 10
+$grid-column-count: 12
+$responsive-embed-margin-bottom: 0
+$breakpoint-classes: small medium large xlarge xxlarge
+$grid-row-width: 1280px
+$grid-column-gutter: (small: $spaceMobile * 2, large: $space * 2)
+
++foundation-flex-grid
++foundation-flex-classes
+// @include foundation-grid;
++foundation-table
++foundation-responsive-embed
++foundation-visibility-classes
++foundation-text-alignment
+
+.ryder-width
+	+grid-row
+
+.space
+	+grid-column-gutter
+
+.row-no-space
+	+grid-row
+	> .column:first-child
+		padding-left: 0
+	> .column:last-child
+		padding-right: 0
+

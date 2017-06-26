@@ -37,7 +37,11 @@ or
 </script>
 
 <!-- with waypoint -->
-<!-- 要改js 才能抓到el -->
+<!--
+	有改js
+	1. 回傳值 (line 730, 734)
+	2. refresh後再下面的就觸發 (line 748)
+-->
 <script>
 	$(".ia-article").waypoint({
 		position: $(window).height() * -0.9,

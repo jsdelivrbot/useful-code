@@ -727,9 +727,11 @@
             var scrollLeft = options.$scrollParent.scrollLeft();
 
             if(options.axis === 'y' && t._lastScrollTop < position && scrollTop > position && options.down){
+                // 回傳 element
                 options.down($el);
             }
             if(options.axis === 'y' && t._lastScrollTop > position && scrollTop < position && options.up){
+                // 回傳 element
                 options.up($el);
             }
 
@@ -742,6 +744,13 @@
 
             t._lastScrollTop = scrollTop;
             t._lastScrollLeft = scrollLeft;
+
+            // 讓如果refresh後再下面的就觸發
+            $(window).on("load", function (){
+              if(t._lastScrollTop > position && options.down){
+                options.down($el);
+              }
+            })
         };
 
         var animate = function(){

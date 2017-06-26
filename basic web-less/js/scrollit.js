@@ -727,10 +727,10 @@
             var scrollLeft = options.$scrollParent.scrollLeft();
 
             if(options.axis === 'y' && t._lastScrollTop < position && scrollTop > position && options.down){
-                options.down();
+                options.down($el);
             }
             if(options.axis === 'y' && t._lastScrollTop > position && scrollTop < position && options.up){
-                options.up();
+                options.up($el);
             }
 
             if(options.axis === 'x' && t._lastScrollLeft < position && scrollLeft > position && options.right){

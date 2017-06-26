@@ -37,14 +37,19 @@ or
 </script>
 
 <!-- with waypoint -->
+<!-- 要改js 才能抓到el -->
 <script>
-	$(".m-athletesList").waypoint({
-		position: -$(window).height()*0.8,
-		down: function(e){
-			_step1(e);
+	$(".ia-article").waypoint({
+		position: $(window).height() * -0.9,
+		down: function(el){
+			$(el).stop(true).animate({
+				opacity: 1
+			}, 600)
 		},
-		// up: function(e){
-		// 	_re_step1(e);
-		// }
+		up: function(el){
+			$(el).stop(true).animate({
+				opacity: 0
+			}, 600)
+		}
 	});
 </script>

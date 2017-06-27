@@ -5,6 +5,7 @@ https://greensock.com/docs/#/HTML5/Animation/TweenMax/staggerTo/
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
+
 <script>
 // stop looping
 TweenMax.killTweensOf($(".element"));
@@ -91,5 +92,5 @@ var phone_5 = new TimelineMax().add([
 		onComplete: function () {}
 	})
 ])
-</script>
 
+</script>

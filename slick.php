@@ -36,6 +36,32 @@
 	});
 </script>
 
+<!-- beforeChange -->
+<script>
+	$('.member-sliderList').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+
+		var $current = $(slick.$slides.get(nextSlide));
+		var $el = $(".name-ch span, .name-en span", $current);
+
+		TweenMax.set($el, {
+			opacity: 1,
+			rotationY: 0,
+			x: 0,
+			transformOrigin:'center',
+		});
+
+		TweenMax.staggerFrom($el, 1.5, {
+			opacity: 0,
+			rotationY: -180,
+			x: 20,
+			transformOrigin:'center',
+			onUpdate: function () {
+				if (this.progress() == 1) {}
+			}
+		}, 0.1);
+	});
+</script>
+
 
 <!-- custom dots -->
 <style>

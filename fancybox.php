@@ -1,31 +1,32 @@
 <!-- 自製 -->
 <style>
-  .m-fancyWrap{
-    width: calc(100% + 19px);
-    height: 100%;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 50px 19px 50px 0;
-  }
+    .m-fancyWrap{
+        width: calc(100% + 19px);
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 120px 0;
+    }
 </style>
 
 <script>
-  $(".videoList li").on("click", function() {
-    $("body").css({
-      position: 'fixed',
-      top: _scrollTop*-1,
-      'overflow-y': 'scroll'
-    });
-  })
-  $("#videoClose").on("click", function () {
-    $("body").css('position','static').scrollTop(parseInt($("body").css("top"), 10)*-1);
-  })
+    $(".videoList li").on("click", function() {
+        $("body").css({
+            position: 'fixed',
+            top: _scrollTop * -1,
+            'overflow-y': 'scroll'
+        });
+    })
+
+    $("#videoClose").on("click", function() {
+        $("body").css('position', 'static').scrollTop(parseInt($("body").css("top"), 10) * -1);
+    })
 </script>
 
 
 <!-- ================================================================== -->
 
-<script type="text/javascript">
+<script>
     $(document).ready(function() {
         $(".fancybox").click(function() {
             $.fancybox.open({
@@ -44,18 +45,18 @@
 
 <script>
     $(document).ready(function() {
-       $(".various").fancybox({
-          padding:0,
-          margin:0,
-          width:'100%',
-          height:'100%',
-        'closeBtn' : false ,   //hide close btn
+        $(".various").fancybox({
+            padding: 0,
+            margin: 0,
+            width: '100%',
+            height: '100%',
+            'closeBtn': false, //hide close btn
 
-        helpers:  {
-        overlay : null,  //取消 overlay
-        locked: false,   //鎖住bg
-    }
+            helpers: {
+                overlay: null, //取消 overlay
+                locked: false, //鎖住bg
+            }
 
-});
-   });
+        });
+    });
 </script>

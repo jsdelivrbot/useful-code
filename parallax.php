@@ -40,7 +40,7 @@ or
 <!--
 	有改js
 	1. 回傳值 (line 730, 734)
-	2. refresh後再下面的就觸發 (line 748)
+	2. load完先觸發現在的狀態 (line 748)
 -->
 <script>
 	$(".ia-article").waypoint({

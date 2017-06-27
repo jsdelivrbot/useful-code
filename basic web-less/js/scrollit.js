@@ -745,10 +745,13 @@
             t._lastScrollTop = scrollTop;
             t._lastScrollLeft = scrollLeft;
 
-            // 讓如果refresh後再下面的就觸發
+            // load完先觸發現在的狀態
             $(window).on("load", function (){
               if(t._lastScrollTop > position && options.down){
                 options.down($el);
+              }
+              if(t._lastScrollTop < position && options.up){
+                options.up($el);
               }
             })
         };

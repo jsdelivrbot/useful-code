@@ -5,8 +5,10 @@
   "main": "gulpfile.js",
   "dependencies": {
     "gulp": "^3.9.1",
-    "gulp-jade-php": "^2.0.0-0",
     "gulp-sass": "^3.1.0",
+    "gulp-jade-php": "^2.0.0-0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-autoprefixer": "^4.0.0"
   },
   "devDependencies": {},
   "scripts": {

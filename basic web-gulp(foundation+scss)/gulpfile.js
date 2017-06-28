@@ -1,21 +1,20 @@
 var gulp = require('gulp');
+var gulpSass = require('gulp-sass');
 var gulpAutoprefixer = require('gulp-autoprefixer');
-var gulpBrowserSync = require('browser-sync');
-var gulpCompass = require('gulp-compass');
 var gulpSourcemaps = require('gulp-sourcemaps');
+var gulpBrowserSync = require('browser-sync');
 
 gulp.task('browser-sync', function() {
     gulpBrowserSync.init({
-        proxy: "127.0.0.1/qwe123"
+        proxy: "127.0.0.1/goldenjade"
     });
 });
 
-gulp.task('compass', function() {
+gulp.task('sass', function() {
     gulp.src('sass/*.scss')
-        .pipe(gulpCompass({
-            config_file: './config.rb',
-            sass: 'sass',
-            css: 'stylesheets'
+        .pipe(gulpSass({
+            errLogToConsole: true,
+            // outputStyle: 'compressed'
         }))
         .pipe(gulpSourcemaps.init())
         .pipe(gulpAutoprefixer({
@@ -32,7 +31,7 @@ gulp.task('reload', function() {
 });
 
 gulp.task('watch', function() {
-    gulp.watch('sass/*.scss', ['compass']);
+    gulp.watch('sass/*.scss', ['sass']);
     gulp.watch('./*.php', ['reload']);
 });
 

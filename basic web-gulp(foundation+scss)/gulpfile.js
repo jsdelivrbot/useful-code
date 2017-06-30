@@ -15,14 +15,13 @@ gulp.task('browser-sync', function() {
 
 gulp.task('sass', function() {
     gulp.src('sass/*.scss')
+        .pipe(gulpSourcemaps.init())
         .pipe(gulpSass({
             errLogToConsole: true,
             // outputStyle: 'compressed'
         }))
-        .pipe(gulpSourcemaps.init())
         .pipe(gulpAutoprefixer({
-            browsers: ['last 2 versions'],
-            cascade: false
+            browsers: ['last 2 versions']
         }))
         .pipe(gulpSourcemaps.write('./'))
         .pipe(gulp.dest('stylesheets'))

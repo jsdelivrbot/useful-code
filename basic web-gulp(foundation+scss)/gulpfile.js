@@ -8,6 +8,9 @@ gulp.task('browser-sync', function() {
     gulpBrowserSync.init({
         proxy: "127.0.0.1/goldenjade"
     });
+
+    gulp.watch('sass/*.scss', ['sass']);
+    gulpBrowserSync.watch('./*.php').on('change', gulpBrowserSync.reload);
 });
 
 gulp.task('sass', function() {
@@ -26,13 +29,4 @@ gulp.task('sass', function() {
         .pipe(gulpBrowserSync.stream());
 });
 
-gulp.task('reload', function() {
-    gulpBrowserSync.reload();
-});
-
-gulp.task('watch', function() {
-    gulp.watch('sass/*.scss', ['sass']);
-    gulp.watch('./*.php', ['reload']);
-});
-
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task('default', ['sass', 'browser-sync']);

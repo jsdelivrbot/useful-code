@@ -1,5 +1,5 @@
 var gulp = require('gulp');
-var gulpSass = require('gulp-sass');
+var gulpCompass = require('gulp-compass');
 var gulpAutoprefixer = require('gulp-autoprefixer');
 var gulpSourcemaps = require('gulp-sourcemaps');
 var gulpBrowserSync = require('browser-sync');
@@ -15,13 +15,15 @@ gulp.task('browser-sync', function() {
 
 gulp.task('sass', function() {
     gulp.src('sass/*.scss')
-        .pipe(gulpSourcemaps.init())
-        .pipe(gulpSass({
-            errLogToConsole: true,
-            // outputStyle: 'compressed'
+        .pipe(gulpCompass({
+            config_file: './config.rb',
+            sass: 'sass',
+            css: 'stylesheets'
         }))
+        .pipe(gulpSourcemaps.init())
         .pipe(gulpAutoprefixer({
-            browsers: ['last 2 versions']
+            browsers: ['last 2 versions'],
+            cascade: false
         }))
         .pipe(gulpSourcemaps.write('./'))
         .pipe(gulp.dest('stylesheets'))

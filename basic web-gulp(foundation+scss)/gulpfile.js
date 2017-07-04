@@ -10,7 +10,10 @@ gulp.task('browser-sync', function() {
     });
 
     gulp.watch('sass/*.scss', ['sass']);
+
     gulpBrowserSync.watch('./*.php').on('change', gulpBrowserSync.reload);
+
+    gulpBrowserSync.watch('js/*.js').on('change', gulpBrowserSync.reload);
 });
 
 gulp.task('sass', function() {

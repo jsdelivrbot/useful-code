@@ -6,11 +6,12 @@ mysql_select_db($database_connect2data, $connect2data);
 $page=(isset($_GET['page'])) ? $_GET['page']:1;
 $page_count=9;
 $init_count=($page-1)*$page_count;
+$totalpage=ceil($totalRows_RecProjects_count/9);
 
 //使用
 $query_RecProjects = "SELECT * FROM data_set, file_set
   WHERE d_class1='house' AND d_id=file_d_id AND file_type='houseCover' AND d_active='1'
-  ORDER BY d_sort ASC limit $init_count,$page_count";
+  ORDER BY d_sort ASC LIMIT $init_count,$page_count";
 $RecProjects = mysql_query($query_RecProjects, $connect2data) or die(mysql_error());
 // $row_RecProjects = mysql_fetch_assoc($RecProjects);
 $totalRows_RecProjects = mysql_num_rows($RecProjects);
@@ -22,8 +23,6 @@ $query_RecProjects_count = "SELECT * FROM data_set, file_set
 $RecProjects_count = mysql_query($query_RecProjects_count, $connect2data) or die(mysql_error());
 $row_RecProjects_count = mysql_fetch_assoc($RecProjects_count);
 $totalRows_RecProjects_count = mysql_num_rows($RecProjects_count);
-
-$totalpage=ceil($totalRows_RecProjects_count/9);
 
 $pages = new Paginator;
 $pages->items_total = $totalRows_RecProjects_count;

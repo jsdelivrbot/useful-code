@@ -40,3 +40,10 @@ $pages->paginate();
 <?php echo $pages->display_pages(); ?>
 
 <?php if($page!=$totalpage) {?> <a href="<?= $pages->nextpage(); ?>"><img src="images/pager-next.png"><img src="images/pager-next@2x.png" width="11"></a> <?php } ?>
+
+<!-- 增加錨點 -->
+<script>
+	$('.m-pager a').each(function(i,a){
+		$(a).attr('href',$(a).attr('href')+'#newsAnchor')
+	});
+</script>

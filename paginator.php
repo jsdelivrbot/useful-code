@@ -39,7 +39,7 @@ $pages->paginate();
 
 <?php echo $pages->display_pages(); ?>
 
-<?php if($page!=$totalpage) {?> <a href="<?= $pages->nextpage(); ?>"><img src="images/pager-next.png"><img src="images/pager-next@2x.png" width="11"></a> <?php } ?>
+<?php if($page!=$totalpage && $totalpage>1) {?> <a href="<?= $pages->nextpage(); ?>"><img src="images/pager-next.png"><img src="images/pager-next@2x.png" width="11"></a> <?php } ?>
 
 <!-- 增加錨點 -->
 <script>

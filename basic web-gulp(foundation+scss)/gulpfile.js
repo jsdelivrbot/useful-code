@@ -6,7 +6,7 @@ var gulpBrowserSync = require('browser-sync');
 
 gulp.task('browser-sync', function() {
     gulpBrowserSync.init({
-        proxy: "127.0.0.1/goldenjade"
+        proxy: "127.0.0.1/qwe123"
     });
 
     gulp.watch('sass/*.scss', ['sass']);
@@ -25,7 +25,7 @@ gulp.task('sass', function() {
         }))
         .pipe(gulpSourcemaps.init())
         .pipe(gulpAutoprefixer({
-            browsers: ['last 2 versions'],
+            browsers: ['last 2 versions', 'ie >= 9', 'and_chr >= 2.3'],
             cascade: false
         }))
         .pipe(gulpSourcemaps.write('./'))

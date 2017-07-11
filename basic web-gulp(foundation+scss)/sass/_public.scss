@@ -49,18 +49,6 @@
     }
 }
 
-@mixin cus-row($column-count) {
-    @include grid-context($column-count){
-        @include -zf-each-breakpoint {
-            @for $i from 1 through $column-count {
-                .#{$-zf-size}-#{$i} {
-                    @include grid-col-size($i);
-                }
-            }
-        }
-    }
-}
-
 .css_mover{
     cursor: pointer;
     img:nth-child(1){display:inline; }
@@ -74,20 +62,9 @@
     &.current img:nth-child(1){display:none; }
     &.current img:nth-child(2){display:inline; }
 }
+
 .image-2x{
     @include image-2x;
-}
-
-.flex-center-row {
-    @include flex;
-    @include flex-align(center, middle);
-    @include flex-direction(row);
-}
-
-.flex-center-col {
-    @include flex;
-    @include flex-align(center, middle);
-    @include flex-direction(column);
 }
 
 

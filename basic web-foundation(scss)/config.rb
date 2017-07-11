@@ -21,7 +21,6 @@ line_comments = false
 sourcemap = true
 cache = false
 
-
 # If you prefer the indented syntax, you might want to regenerate this
 # project again passing --syntax sass, or you can uncomment this:
 # preferred_syntax = :sass

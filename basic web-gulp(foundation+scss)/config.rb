@@ -10,6 +10,8 @@ javascripts_dir = "js"
 fonts_dir = "fonts"
 Encoding.default_external = "utf-8"
 
+add_import_path "node_modules/foundation-sites/scss"
+
 # You can select your preferred output style here (can be overridden via the command line):
 # output_style = :expanded or :nested or :compact or :compressed
 output_style = :compressed
@@ -21,7 +23,6 @@ relative_assets = true
 line_comments = false
 sourcemap = true
 cache = false
-
 
 # If you prefer the indented syntax, you might want to regenerate this
 # project again passing --syntax sass, or you can uncomment this:

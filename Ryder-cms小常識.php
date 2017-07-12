@@ -28,6 +28,11 @@ convert_urls : true,
 
 <!-- D:\wamp64\www\stott\cms_admin\tinymce\js\tinymce\plugins\customem\plugin.min.js -->
 <script>
+    function nl2br(str, is_xhtml) {
+        var breakTag = (is_xhtml || typeof is_xhtml === 'undefined') ? '<br />' : '<br>';
+        return (str + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1' + breakTag + '$2');
+    }
+
     tinymce.PluginManager.add('customem', function(editor, url) {
         // Add a button that opens a window
         editor.addButton('customem', {
@@ -37,27 +42,78 @@ convert_urls : true,
                 // Open window
                 editor.windowManager.open({
                     title: '請輸入',
-                    body: [
-                        {type: "filepicker", filetype: "image", name: 'pic', label: 'pic'},
-                        {type: 'textbox', name: 'title', label: 'title'},
-                        {type: 'textbox', name: 'content', label: 'content'}
-                    ],
+                    body: [{
+                        type: 'textbox',
+                        multiline: true,
+                        minWidth: 300,
+                        minHeight: 160,
+                        name: 'title',
+                        label: '大標'
+                    }, {
+                        type: 'textbox',
+                        multiline: true,
+                        minWidth: 300,
+                        minHeight: 160,
+                        name: 'content',
+                        label: '內容'
+                    }, {
+                        type: 'container',
+                        label: '額外資訊',
+                        layout: 'grid',
+                        columns: 2,
+                        spacing: 10,
+                        items: [{
+                            type: 'label',
+                            text: 'pic'
+                        }, {
+                            type: "filepicker",
+                            filetype: "image",
+                            name: 'additional_pic',
+                            label: 'pic'
+                        }, {
+                            type: 'label',
+                            text: 'title'
+                        }, {
+                            type: 'textbox',
+                            name: 'additional_title',
+                            label: 'title'
+                        }, {
+                            type: 'label',
+                            text: 'content'
+                        }, {
+                            type: 'textbox',
+                            name: 'additional_content',
+                            label: 'content'
+                        }]
+                    }],
                     onsubmit: function(e) {
                         // Insert content when the window form is submitted
-                        console.log(e)
 
                         var _html = '';
-                        _html += '<div class="pic">';
-                        _html += '<img src="'+ e.data.pic +'" width="108">';
+
+                        _html += '<div class="title">';
+                        _html += nl2br(e.data.title);
                         _html += '</div>';
-                        _html += '<div class="innerWrap">';
-                        _html += '<div class="additional-title">';
-                        _html += e.data.title;
+
+                        _html += '<div class="content">';
+                        _html += nl2br(e.data.content);
                         _html += '</div>';
-                        _html += '<div class="additional-content">';
-                        _html += e.data.content;
-                        _html += '</div>';
-                        _html += '</div>';
+
+                        if (e.data.additional_pic != '') {
+                            _html += '<div class="additional">';
+                            _html += '<div class="pic">';
+                            _html += '<img src="' + e.data.additional_pic + '" width="108">';
+                            _html += '</div>';
+                            _html += '<div class="innerWrap">';
+                            _html += '<div class="additional-title">';
+                            _html += e.data.additional_title;
+                            _html += '</div>';
+                            _html += '<div class="additional-content">';
+                            _html += e.data.additional_content;
+                            _html += '</div>';
+                            _html += '</div>';
+                            _html += '</div>';
+                        }
 
                         editor.insertContent(_html);
                     }

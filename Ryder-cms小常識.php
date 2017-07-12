@@ -31,27 +31,34 @@ convert_urls : true,
     tinymce.PluginManager.add('customem', function(editor, url) {
         // Add a button that opens a window
         editor.addButton('customem', {
-            text: 'Custom',
+            text: '鍋物自訂',
             icon: false,
             onclick: function() {
                 // Open window
                 editor.windowManager.open({
                     title: '請輸入',
                     body: [
+                        {type: "filepicker", filetype: "image", name: 'pic', label: 'pic'},
                         {type: 'textbox', name: 'title', label: 'title'},
                         {type: 'textbox', name: 'content', label: 'content'}
                     ],
                     onsubmit: function(e) {
                         // Insert content when the window form is submitted
+                        console.log(e)
+
                         var _html = '';
-                        _html += '<li class="row">';
-                        _html += '<div class="columns small-4 material-title">';
+                        _html += '<div class="pic">';
+                        _html += '<img src="'+ e.data.pic +'" width="108">';
+                        _html += '</div>';
+                        _html += '<div class="innerWrap">';
+                        _html += '<div class="additional-title">';
                         _html += e.data.title;
                         _html += '</div>';
-                        _html += '<div class="columns small-8 material-content">';
+                        _html += '<div class="additional-content">';
                         _html += e.data.content;
                         _html += '</div>';
-                        _html += '</li>';
+                        _html += '</div>';
+
                         editor.insertContent(_html);
                     }
                 });

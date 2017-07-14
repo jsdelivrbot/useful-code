@@ -1,6 +1,15 @@
-<!--============================
-=            鎖右鍵            =
-=============================-->
+<!--=======================================
+=            楚止選取 + 鎖右鍵            =
+========================================-->
+<style>
+	body{
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+</style>
+
 <script>
 	$(document).bind("contextmenu", function(event) {
 		return false;

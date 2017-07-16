@@ -1,18 +1,18 @@
 <?php
-require_once 'connections/connect2data.php';
+require_once 'Connections/connect2data.php';
 mysql_select_db($database_connect2data, $connect2data);
 
-$query_reckeywords = sprintf("select * from data_set
+$query_RecKeywords = sprintf("select * from data_set
   where d_class1='keywords' and d_active='1'
   order by d_sort asc");
-$reckeywords = mysql_query($query_reckeywords, $connect2data) or die(mysql_error());
-$row_reckeywords = mysql_fetch_assoc($reckeywords);
-$totalrows_reckeywords = mysql_num_rows($reckeywords);
+$RecKeywords = mysql_query($query_RecKeywords, $connect2data) or die(mysql_error());
+$row_RecKeywords = mysql_fetch_assoc($RecKeywords);
+$totalrows_RecKeywords = mysql_num_rows($RecKeywords);
 ?>
 
-<?php if ($totalrows_reckeywords): ?>
-	<meta name="keywords" content="<?= $row_reckeywords['d_class2'] ?>">
-	<meta name="description" content="<?= $row_reckeywords['d_class3'] ?>">
+<?php if ($totalrows_RecKeywords): ?>
+	<meta name="keywords" content="<?= $row_RecKeywords['d_class2'] ?>">
+	<meta name="description" content="<?= $row_RecKeywords['d_class3'] ?>">
 <?php else: ?>
 	<meta name="keywords" content="intelligent酵素牙膏 toothpaste, 口腔環保系列oral care, 牙周病,酵素,矯正牙齒,蛀牙,嘴破,口腔癌初期症狀,牙齒美白,牙齒痛,口腔癌,口臭,口腔潰瘍,漱口水,固齒器,乳鐵蛋白,生物類黃酮,膠原蛋白,珍珠,素葡萄胺,葉黃素,山桑子,檸檬">
 	<meta name="description" content="牙周病,酵素,矯正牙齒,蛀牙,嘴破,口腔癌初期症狀,牙齒美白,牙齒痛,口腔癌,口臭,口腔潰瘍,漱口水,固齒器,乳鐵蛋白,生物類黃酮,膠原蛋白,珍珠,素葡萄胺,葉黃素,山桑子,檸檬">

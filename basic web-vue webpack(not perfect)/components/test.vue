@@ -1,4 +1,4 @@
-<style lang="scss">
+<style lang="SCSS">
     @import "../sass/base";
     @import "../sass/public";
 

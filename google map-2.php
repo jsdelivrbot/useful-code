@@ -113,7 +113,6 @@
 						// new google.maps.event.trigger( marker, 'click' );
 
 					} else {
-						console.log('Geocode was not successful for the following reason: ' + status)
 
 						if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
 
@@ -126,6 +125,9 @@
 							}, delayGeocodes * 50)
 
 							delayGeocodes += 1;
+
+						}else{
+							console.log('Geocode was not successful for the following reason: ' + status)
 						}
 					}
 				});

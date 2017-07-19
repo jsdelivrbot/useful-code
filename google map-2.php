@@ -80,6 +80,8 @@
 				geocodeAddress(geocoder, map, _address, _image, _index, _cat);
 			}
 
+			var delayGeocodes = 1;
+
 			// 地址轉經緯度
 			function geocodeAddress(geocoder, resultsMap, address, image, index, cat) {
 				geocoder.geocode({'address': address}, function(results, status) {
@@ -111,7 +113,22 @@
 						// new google.maps.event.trigger( marker, 'click' );
 
 					} else {
-						alert('Geocode was not successful for the following reason: ' + status);
+
+						if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+
+							setTimeout(function () {
+								var _address = locations[index].address;
+								var _image = (locations[index].cat == 7) ? images[0] : images[1];
+								var _cat = locations[index].cat;
+								var _index = index;
+								geocodeAddress(geocoder, map, _address, _image, _index, _cat);
+							}, delayGeocodes * 50)
+
+							delayGeocodes += 1;
+
+						}else{
+							console.log('Geocode was not successful for the following reason: ' + status)
+						}
 					}
 				});
 			}

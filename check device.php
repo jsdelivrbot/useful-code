@@ -16,6 +16,16 @@
 	}
 </script>
 
+<!-- 用寬度版 -->
+<script>
+	$(window).on("resize", function (){
+		if ($(this).width() > 1024) {
+			window.device = 'desktop';
+		}else{
+			window.device = 'mobile';
+		}
+	}).trigger("resize")
+</script>
 
 <!-- 不需include -->
 <!-- 改良版 -->

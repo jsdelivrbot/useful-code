@@ -142,15 +142,15 @@ http://www.jqueryrain.com/?1FAAtZGJ
 
 <style>
 	.cart-select{
+		float: none;       /* 重點 */
 		font-family: @content-family;
 		font-size: 12px;
 		color: #fff;
-		float: none;       /* 重點 */
+		text-align: center !important;      /* 要強制 */
 		width: 100%;
 		height: 25px;
 		line-height: 25px;
 		background-color: #8b189b;
-		text-align: center;
 		border: 0;
 		border-radius: 0;
 		/* 點開的選單 */

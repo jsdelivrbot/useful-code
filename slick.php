@@ -15,6 +15,17 @@
 		opacity: 1;
 	}
 
+	/* center mode 的 active css 用這個*/
+	.slick-center{
+		.pic img{
+			-webkit-transform: scale(1);
+	        transform: scale(1);
+		}
+		.en, .ch{
+			opacity: 1;
+		}
+	}
+
 	/*more space for overflow*/
 	.slick-slide{
 		margin-top: 10px;

@@ -182,6 +182,9 @@ http://www.jqueryrain.com/?1FAAtZGJ
 
 <script>
 	$('.select').niceSelect();
+
+	// update niceSelect
+	$(".works-cat-select").val(_goto).niceSelect('update')
 </script>
 
 

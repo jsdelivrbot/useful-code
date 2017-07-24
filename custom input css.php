@@ -137,7 +137,7 @@ http://code.octopuscreative.com/fancyselect/?utm_source=jquer.in&utm_medium=webs
 <!-- nice select -->
 http://www.jqueryrain.com/?1FAAtZGJ
 
-<script src="js/jquery.nice-select.min.js"></script>
+<script src="js/jquery.nice-select.js"></script>
 <link rel="stylesheet" href="css/nice-select.css">
 
 <style>

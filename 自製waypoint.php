@@ -34,3 +34,23 @@
 		leave: function(el) {}
 	})
 </script>
+
+
+<script>
+	$.fn.inScreen = function(option) {
+		var deFault = {
+			offset: 150
+		};
+
+		var setting = $.extend(deFault, option);
+
+		var $t = $(this),
+			$w = $(window),
+			viewTop = $w.scrollTop(),
+			viewBottom = viewTop + $w.height(),
+			_top = $t.offset().top + setting.offset,
+			_bottom = _top + $t.height() + setting.offset
+
+		return ((_top <= viewBottom) && (_bottom >= viewTop));
+	};
+</script>

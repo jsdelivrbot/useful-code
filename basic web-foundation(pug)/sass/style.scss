@@ -1,0 +1,28 @@
+@import 'foundation';
+@import "base";
+@import "public";
+
+$space: 40px;
+$spaceMobile: 20px;
+// custom faoundation settings here
+$prototype-spacing-breakpoints: true;
+$prototype-spacers-count: 5;
+$grid-container: 1280px;
+$responsive-embed-margin-bottom: 0;
+$breakpoint-classes: (small medium large xlarge xxlarge);
+$grid-margin-gutters: (
+	small: $spaceMobile * 2,
+	large: $space * 2,
+);
+$grid-padding-gutters: (
+	small: $spaceMobile * 2,
+	large: $space * 2,
+);
+
+@include foundation-xy-grid-classes;
+@include foundation-prototype-spacing;
+@include foundation-flex-classes;
+@include foundation-responsive-embed;
+@include foundation-visibility-classes;
+@include foundation-text-alignment;
+

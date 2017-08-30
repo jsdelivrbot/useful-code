@@ -3,6 +3,7 @@ var gulpCompass = require('gulp-compass');
 var gulpAutoprefixer = require('gulp-autoprefixer');
 var gulpSourcemaps = require('gulp-sourcemaps');
 var gulpBrowserSync = require('browser-sync');
+var gulpCopy = require('gulp-copy');
 
 gulp.task('browser-sync', function() {
     gulpBrowserSync.init({
@@ -31,6 +32,17 @@ gulp.task('sass', function() {
         .pipe(gulpSourcemaps.write('./'))
         .pipe(gulp.dest('stylesheets'))
         .pipe(gulpBrowserSync.stream());
+});
+
+gulp.task('output', function() {
+    gulp.src([
+            'css/*',
+            'images/*',
+            'js/*',
+            'stylesheets/*.css',
+            '*.php',
+        ])
+        .pipe(gulpCopy('./public/'));
 });
 
 gulp.task('default', ['sass', 'browser-sync']);

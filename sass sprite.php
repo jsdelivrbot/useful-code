@@ -1,3 +1,22 @@
+<!-- retina -->
+<style>
+	@import "compass/utilities/sprites";
+	@import "compass/css3/background-size";
+
+	/*檔名要一樣*/
+	$temporary-sprite-dimensions: true;
+	$temporary-spacing: 20px;
+	@import "temporary/*.png";
+	@include all-temporary-sprites;
+
+	$temporary-sprite-dimensions: true;
+	$temporary-spacing: 20px;
+	@import "temporary2x/*.png";
+	@include all-temporary2x-sprites;
+
+	@include all-retina-sprites($temporary-sprites, $temporary2x-sprites);
+</style>
+
 <style>
 	@import "compass/utilities/sprites";
 

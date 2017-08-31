@@ -9,7 +9,7 @@
 }
 
 @mixin bg-2x($image, $width, $height) {
-    @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6/2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
+    @media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx) {
         background-image: url($image);
         background-size: $width $height;
     }
@@ -18,7 +18,7 @@
 @mixin image-2x {
     img:nth-child(1) {display: inline;}
     img:nth-child(2) {display: none;}
-    @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6/2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
+    @media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx) {
         img:nth-child(1) {display: none;}
         img:nth-child(2) {display: inline;}
     }
@@ -29,7 +29,7 @@
     img:nth-child(2) {display: none;}
     img:nth-child(3) {display: none;}
     img:nth-child(4) {display: none;}
-    @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6/2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
+    @media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx) {
         img:nth-child(1) {display: none;}
         img:nth-child(2) {display: inline;}
         img:nth-child(3) {display: none;}
@@ -40,11 +40,28 @@
         img:nth-child(2) {display: none;}
         img:nth-child(3) {display: inline;}
         img:nth-child(4) {display: none;}
-        @media (min--moz-device-pixel-ratio: 1.3), (-o-min-device-pixel-ratio: 2.6/2), (-webkit-min-device-pixel-ratio: 1.3), (min-device-pixel-ratio: 1.3), (min-resolution: 1.3dppx) {
+        @media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx) {
             img:nth-child(1) {display: none;}
             img:nth-child(2) {display: none;}
             img:nth-child(3) {display: none;}
             img:nth-child(4) {display: inline;}
+        }
+    }
+}
+
+@mixin all-retina-sprites($map, $map2x) {
+    @media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx) {
+        $base-class: sprite-map-name($map);
+        .#{$base-class}-all-retina-sprites {
+            background-image: sprite-url($map2x);
+            @include background-size(ceil(image-width(sprite-path($map2x)) / 2) auto);
+        }
+        @each $sprite in sprite-names($map) {
+            .#{$base-class}-#{$sprite} {
+                @extend .#{$base-class}-all-retina-sprites;
+                $position: sprite-position($map2x, $sprite);
+                background-position: nth($position, 1) nth($position, 2) / 2;
+            }
         }
     }
 }

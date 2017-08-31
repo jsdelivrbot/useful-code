@@ -5,8 +5,10 @@
 $space: 40px;
 $spaceMobile: 20px;
 // custom faoundation settings here
+$global-margin: 22px;
+$global-padding: 22px;
 $prototype-spacing-breakpoints: true;
-$prototype-spacers-count: 5;
+$prototype-spacers-count: 8;
 $grid-container: 1280px;
 $responsive-embed-margin-bottom: 0;
 $breakpoint-classes: (small medium large xlarge xxlarge);

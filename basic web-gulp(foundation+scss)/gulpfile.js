@@ -34,13 +34,13 @@ gulp.task('sass', function() {
 });
 
 gulp.task('copy', function () {
-    gulp.src(['css/*'])
+    gulp.src(['css/**'])
         .pipe(gulp.dest('public/css'));
 
-    gulp.src(['images/*'])
+    gulp.src(['images/**'])
         .pipe(gulp.dest('public/images'));
 
-    gulp.src(['js/*'])
+    gulp.src(['js/**'])
         .pipe(gulp.dest('public/js'));
 
     gulp.src(['stylesheets/*.css'])

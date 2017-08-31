@@ -1,9 +1,10 @@
 <style>
 	@import "compass/utilities/sprites";
 
+	$welcome-sprite-dimensions: true;
+	$welcome-spacing: 20px;
 	@import "welcome/*.png";
 	@include all-welcome-sprites;
-	$welcome-sprite-dimensions: true;
 
 	#welcome{
 		@include welcome-sprite(welcome0001);

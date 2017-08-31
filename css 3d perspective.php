@@ -9,9 +9,18 @@ http://codepen.io/ariona/pen/JopOOr
 https://github.com/ariona/hover3d
 
 <script>
-	$(document).on("mousemove",function(e) {
-		var ax = -($(window).innerWidth()/2- e.pageX)/20;
-		var ay = ($(window).innerHeight()/2- e.pageY)/10;
-		card.attr("style", "transform: rotateY("+ax+"deg) rotateX("+ay+"deg);-webkit-transform: rotateY("+ax+"deg) rotateX("+ay+"deg);-moz-transform: rotateY("+ax+"deg) rotateX("+ay+"deg)");
+	$("body").on("mousemove",function(e) {
+		var ax = -($(window).innerWidth() / 2 - e.pageX);
+		var ay = ($(window).innerHeight() / 2 - e.pageY);
+
+		$(".titleContainer .one").css({
+			'transform': 'rotateY('+ (ax * 0.003) +'deg) rotateX('+ (ay * 0.003) +'deg) translate3d('+ (ax * 0.01) +'px, '+ (ay * 0.01) +'px, '+ (ay * 0.008) +'px)',
+			'-webkit-transform': 'rotateY('+ (ax * 0.003) +'deg) rotateX('+ (ay * 0.003) +'deg) translate3d('+ (ax * 0.01) +'px, '+ (ay * 0.01) +'px, '+ (ay * 0.008) +'px)',
+		})
+
+		$(".titleContainer .two").css({
+			'transform': 'rotateY('+ (ax * 0.003) +'deg) rotateX('+ (ay * 0.003) +'deg) translate3d('+ (ax * 0.02) +'px, '+ (ay * 0.02) +'px, '+ (ay * 0.008) +'px)',
+			'-webkit-transform': 'rotateY('+ (ax * 0.003) +'deg) rotateX('+ (ay * 0.003) +'deg) translate3d('+ (ax * 0.02) +'px, '+ (ay * 0.02) +'px, '+ (ay * 0.008) +'px)',
+		})
 	});
 </script>

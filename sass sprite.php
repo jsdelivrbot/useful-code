@@ -17,6 +17,7 @@
 	@include all-retina-sprites($temporary-sprites, $temporary2x-sprites);
 </style>
 
+<!-- basic -->
 <style>
 	@import "compass/utilities/sprites";
 

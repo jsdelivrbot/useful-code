@@ -3,7 +3,6 @@ var gulpCompass = require('gulp-compass');
 var gulpAutoprefixer = require('gulp-autoprefixer');
 var gulpSourcemaps = require('gulp-sourcemaps');
 var gulpBrowserSync = require('browser-sync');
-var gulpCopy = require('gulp-copy');
 
 gulp.task('browser-sync', function() {
     gulpBrowserSync.init({
@@ -34,15 +33,21 @@ gulp.task('sass', function() {
         .pipe(gulpBrowserSync.stream());
 });
 
-gulp.task('output', function() {
-    gulp.src([
-            'css/*',
-            'images/*',
-            'js/*',
-            'stylesheets/*.css',
-            '*.php',
-        ])
-        .pipe(gulpCopy('./public/'));
+gulp.task('copy', function () {
+    gulp.src(['css/*'])
+        .pipe(gulp.dest('public/css'));
+
+    gulp.src(['images/*'])
+        .pipe(gulp.dest('public/images'));
+
+    gulp.src(['js/*'])
+        .pipe(gulp.dest('public/js'));
+
+    gulp.src(['stylesheets/*.css'])
+        .pipe(gulp.dest('public/stylesheets'));
+
+    gulp.src(['*.php'])
+        .pipe(gulp.dest('public'));
 });
 
 gulp.task('default', ['sass', 'browser-sync']);

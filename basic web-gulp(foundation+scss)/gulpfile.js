@@ -3,6 +3,7 @@ var gulpCompass = require('gulp-compass');
 var gulpAutoprefixer = require('gulp-autoprefixer');
 var gulpSourcemaps = require('gulp-sourcemaps');
 var gulpBrowserSync = require('browser-sync');
+var gulpChanged = require('gulp-changed');
 
 gulp.task('browser-sync', function() {
     gulpBrowserSync.init({
@@ -11,7 +12,7 @@ gulp.task('browser-sync', function() {
 
     gulp.watch('sass/*.scss', ['sass']);
 
-    gulpBrowserSync.watch('./*.php').on('change', gulpBrowserSync.reload);
+    gulpBrowserSync.watch('./*.html').on('change', gulpBrowserSync.reload);
 
     gulpBrowserSync.watch('js/*.js').on('change', gulpBrowserSync.reload);
 });
@@ -38,9 +39,11 @@ gulp.task('copy', function () {
             'css/**',
             'images/**',
             'js/**',
+            'mobile/**',
             'stylesheets/*.css',
             '*.php',
         ], { base: './' })
+        .pipe(gulpChanged('public'))
         .pipe(gulp.dest('public'));
 });
 

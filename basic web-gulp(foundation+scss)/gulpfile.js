@@ -34,19 +34,13 @@ gulp.task('sass', function() {
 });
 
 gulp.task('copy', function () {
-    gulp.src(['css/**'])
-        .pipe(gulp.dest('public/css'));
-
-    gulp.src(['images/**'])
-        .pipe(gulp.dest('public/images'));
-
-    gulp.src(['js/**'])
-        .pipe(gulp.dest('public/js'));
-
-    gulp.src(['stylesheets/*.css'])
-        .pipe(gulp.dest('public/stylesheets'));
-
-    gulp.src(['*.php'])
+    gulp.src([
+            'css/**',
+            'images/**',
+            'js/**',
+            'stylesheets/*.css',
+            '*.php',
+        ], { base: './' })
         .pipe(gulp.dest('public'));
 });
 

@@ -51,7 +51,8 @@
 <!--=================================
 =            sftp ignore            =
 ==================================-->
-,"\\.cache","/sass/","/jade/","/pug/","\\.css.map","/.sass-cache/","/node_modules/","\\.zip","\\.rar"
+,"\\.cache","/sass/","/jade/","/pug/","\\.css.map","/.sass-cache/","/node_modules/","\\.zip","\\.rar","/public/"
+
 ,"/Connections/","/upload_image/","/thumbs/","/source/"
 
 <!--=============================================

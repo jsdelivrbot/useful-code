@@ -1,17 +1,40 @@
 <!-- tilt plugin -->
 https://github.com/gijsroge/tilt.js
+
+<!-- 有改過 多了從移入點開始計算 -->
+<script src="js/tilt.jquery.js"></script>
 <script>
     var tilt = $(".newsList li").tilt({
         maxTilt: 4,
+        speed: 1000,
+        easing: 'cubic-bezier(0, 0, 0.2, 1)',
     });
 
     tilt.on('change', function(e, transforms){
-        var mx = transforms.tiltX;
-        var my = transforms.tiltY;
+        var mx = transforms.relativeFirstX * 0.02;
+        var my = transforms.relativeFirstY * 0.02;
 
         $(".pic", e.target).css({
-            'transform':'translate3d('+ (mx * 10) +'px,'+ (my * 10) +'px,0px)',
-            '-webkit-transform':'translate3d('+ (mx * 10) +'px,'+ (my * 10) +'px,0px)',
+            'transform':'translate3d('+ mx +'px,'+ my +'px,0px)',
+            '-webkit-transform':'translate3d('+ mx +'px,'+ my +'px,0px)',
+            'transition': 'all 0s',
+            '-webkit-transition': 'all 0s',
+        });
+
+        $(".article", e.target).css({
+            'transform':'translate3d('+ -mx +'px,'+ -my +'px,0px)',
+            '-webkit-transform':'translate3d('+ -mx +'px,'+ -my +'px,0px)',
+            'transition': 'all 0s',
+            '-webkit-transition': 'all 0s',
+        });
+    });
+
+    tilt.on('tilt.mouseLeave', function(e){
+        $(".pic", e.target).css({
+            'transform':'translate3d(0px,0px,0px)',
+            '-webkit-transform':'translate3d(0px,0px,0px)',
+            'transition': 'all 0.8s',
+            '-webkit-transition': 'all 0.8s',
         });
     });
 </script>

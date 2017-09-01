@@ -68,6 +68,10 @@
             $(this).css({'will-change': 'transform'});
             setTransition.call(this);
 
+            // ryder 新增從滑鼠移入的點開始算偏移
+            this.firstX = getMousePositions(event).x;
+            this.firstY = getMousePositions(event).y;
+
             // Trigger change event
             $(this).trigger("tilt.mouseEnter");
         };
@@ -118,13 +122,21 @@
             const top = $(this).offset().top;
             const percentageX = (this.mousePositions.x - left) / width;
             const percentageY = (this.mousePositions.y - top) / height;
+
+            // ryder 新增從滑鼠移入的點開始算偏移
+            const relativeFirstX = this.mousePositions.x - this.firstX;
+            const relativeFirstY = this.mousePositions.y - this.firstY;
+
             // x or y position inside instance / width of instance = percentage of position inside instance * the max tilt value
             const tiltX = ((this.settings.maxTilt / 2) - ((percentageX) * this.settings.maxTilt)).toFixed(2);
             const tiltY = (((percentageY) * this.settings.maxTilt) - (this.settings.maxTilt / 2)).toFixed(2);
+
             // angle
             const angle = Math.atan2(this.mousePositions.x - (left+width/2),- (this.mousePositions.y - (top+height/2)) )*(180/Math.PI);
+
             // Return x & y tilt values
-            return {tiltX, tiltY, 'percentageX': percentageX * 100, 'percentageY': percentageY * 100, angle};
+            // ryder 新增從滑鼠移入的點開始算偏移
+            return {relativeFirstX, relativeFirstY, tiltX, tiltY, 'percentageX': percentageX * 100, 'percentageY': percentageY * 100, angle};
         };
 
         /**

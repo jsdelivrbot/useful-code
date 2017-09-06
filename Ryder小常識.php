@@ -56,7 +56,7 @@ https://seo.palada.com.tw/15.html
 <!--=================================
 =            sftp ignore            =
 ==================================-->
-,"\\.cache","/sass/","/jade/","/pug/","\\.css.map","/.sass-cache/","/node_modules/","\\.zip","\\.rar","/public/"
+,"\\.cache","/sass/","/jade/","/pug/","\\.css.map","/.sass-cache/","/node_modules/","\\.zip","\\.rar","/public/","\\.rb","\\.config"
 
 ,"/Connections/","/upload_image/","/thumbs/","/source/"
 

@@ -1,7 +1,16 @@
+<!-- 人工改良版 popup小視窗 -->
+<a href="<?= $url ?>" class="share-to-fb">
+	<div class="fb"><img src="images/fb.png"></div>
+</a>
+
+<script src="js/sharing.jquery.js"></script>
+
+<script>
+	$(".share-to-fb").sharing("facebook");
+</script>
+
 <!-- shareaholic 比較完整 全部的都有 -->
 https://shareaholic.com/
-
-
 
 <!-- jsSocials (可自訂圖) -->
 http://js-socials.com/start-using/
@@ -43,7 +52,7 @@ http://js-socials.com/start-using/
 
 <!-- 人工 old school -->
 <?php
-$url='http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+$url = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 ?>
 
 <meta property="og:title" content="<?php echo $row_Recwork['d_title']; ?>" />

@@ -4,7 +4,7 @@ var gulpAutoprefixer = require('gulp-autoprefixer');
 var gulpSourcemaps = require('gulp-sourcemaps');
 var gulpBrowserSync = require('browser-sync');
 var gulpChanged = require('gulp-changed');
-var gulpSvgSprites = require('gulp-svg-sprites');
+var gulpSvgSprite = require('gulp-svg-sprite');
 
 gulp.task('browser-sync', function() {
     gulpBrowserSync.init({
@@ -12,6 +12,8 @@ gulp.task('browser-sync', function() {
     });
 
     gulp.watch('sass/*.scss', ['sass']);
+
+    gulp.watch('svg/*.svg', ['svg-rebuild']);
 
     gulpBrowserSync.watch('./*.php').on('change', gulpBrowserSync.reload);
 
@@ -35,7 +37,7 @@ gulp.task('sass', function() {
         .pipe(gulpBrowserSync.stream());
 });
 
-gulp.task('copy', function () {
+gulp.task('copy', function() {
     gulp.src([
             'css/**',
             'images/**',
@@ -43,20 +45,29 @@ gulp.task('copy', function () {
             'mobile/**',
             'stylesheets/*.css',
             '*.php',
-        ], { base: './' })
+        ], {
+            base: './'
+        })
         .pipe(gulpChanged('public'))
         .pipe(gulp.dest('public'));
 });
 
-gulp.task('svg', function () {
-    return gulp.src('images/svg/*.svg')
-        .pipe(gulpSvgSprites({
-            cssFile: "stylesheets/sprites.css",
-            svg: {
-                sprite: "images/sprites.symbol.svg"
+gulp.task('svg', function() {
+    return gulp.src('svg/*.svg')
+        .pipe(gulpSvgSprite({
+            mode: {
+                defs: {
+                    dest: './',
+                    sprite: "images/all.defs.svg",
+                    render: {
+                        css: {
+                            dest: 'stylesheets/svg-sprites-dims.css'
+                        }
+                    },
+                    inline: true,
+                    example: false
+                },
             },
-            selector: "svg-%f",
-            preview: false
         }))
         .pipe(gulp.dest("./"));
 });
@@ -65,8 +76,4 @@ gulp.task('svg-rebuild', ['svg'], function() {
     gulpBrowserSync.reload();
 });
 
-gulp.task('watch', function() {
-    gulp.watch('images/svg/*.svg', ['svg-rebuild']);
-});
-
-gulp.task('default', ['svg', 'watch', 'sass', 'browser-sync']);
+gulp.task('default', ['svg', 'sass', 'browser-sync']);

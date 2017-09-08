@@ -69,4 +69,4 @@ gulp.task('watch', function() {
     gulp.watch('images/svg/*.svg', ['svg-rebuild']);
 });
 
-gulp.task('default', ['watch', 'sass', 'browser-sync']);
+gulp.task('default', ['svg', 'watch', 'sass', 'browser-sync']);

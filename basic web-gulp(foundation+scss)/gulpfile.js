@@ -4,6 +4,7 @@ var gulpAutoprefixer = require('gulp-autoprefixer');
 var gulpSourcemaps = require('gulp-sourcemaps');
 var gulpBrowserSync = require('browser-sync');
 var gulpChanged = require('gulp-changed');
+var gulpSvgSprites = require('gulp-svg-sprites');
 
 gulp.task('browser-sync', function() {
     gulpBrowserSync.init({
@@ -12,7 +13,7 @@ gulp.task('browser-sync', function() {
 
     gulp.watch('sass/*.scss', ['sass']);
 
-    gulpBrowserSync.watch('./*.html').on('change', gulpBrowserSync.reload);
+    gulpBrowserSync.watch('./*.php').on('change', gulpBrowserSync.reload);
 
     gulpBrowserSync.watch('js/*.js').on('change', gulpBrowserSync.reload);
 });
@@ -47,4 +48,25 @@ gulp.task('copy', function () {
         .pipe(gulp.dest('public'));
 });
 
-gulp.task('default', ['sass', 'browser-sync']);
+gulp.task('svg', function () {
+    return gulp.src('images/svg/*.svg')
+        .pipe(gulpSvgSprites({
+            cssFile: "stylesheets/sprites.css",
+            svg: {
+                sprite: "images/sprites.symbol.svg"
+            },
+            selector: "svg-%f",
+            preview: false
+        }))
+        .pipe(gulp.dest("./"));
+});
+
+gulp.task('svg-rebuild', ['svg'], function() {
+    gulpBrowserSync.reload();
+});
+
+gulp.task('watch', function() {
+    gulp.watch('images/svg/*.svg', ['svg-rebuild']);
+});
+
+gulp.task('default', ['watch', 'sass', 'browser-sync']);

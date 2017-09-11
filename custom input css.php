@@ -148,11 +148,14 @@ http://www.jqueryrain.com/?1FAAtZGJ
 		color: #fff;
 		text-align: center !important;      /* 要強制 */
 		width: 100%;
-		height: 25px;
-		line-height: 25px;
+		height: auto;
+		line-height: 1;
 		background-color: #8b189b;
-		border: 0;
+		border: 1px solid $blue;
 		border-radius: 0;
+		&:hover, &:focus{
+			border: 1px solid $blue;
+		}
 		/* 點開的選單 */
 		.list{
 			width: 100%;

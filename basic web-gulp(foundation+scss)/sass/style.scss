@@ -2,6 +2,7 @@
 @import "base";
 @import "public";
 
+$width: 1100px;
 $space: 40px;
 $spaceMobile: 20px;
 // custom faoundation settings here
@@ -9,8 +10,8 @@ $global-margin: 22px;
 $global-padding: 22px;
 $prototype-spacing-breakpoints: true;
 $prototype-spacers-count: 8;
-$grid-container: 1100px + $space * 2;
-$grid-container-padding: $space * 2;
+$grid-container: $width + $space * 2;
+// $grid-container-padding: 0;
 $responsive-embed-margin-bottom: 0;
 $breakpoint-classes: (small medium large xlarge xxlarge);
 $grid-margin-gutters: (

@@ -31,6 +31,23 @@
 		margin-top: 10px;
 		margin-bottom: 10px;
 	}
+
+	/*align-center-middle*/
+	.slick-slide {
+	    text-align: center;
+	}
+	.slick-slide::after {
+	    content: '';
+	    display: inline-block;
+	    height: calc(100vh - 240px);
+	    vertical-align: middle;
+	}
+	.slick-slide img {
+	    vertical-align: middle;
+	    display: inline-block;
+	    max-width: 100%;
+	    max-height: calc(100vh - 240px);
+	}
 </style>
 
 

@@ -9,8 +9,15 @@ $global-margin: 22px;
 $global-padding: 22px;
 $prototype-spacing-breakpoints: true;
 $prototype-spacers-count: 8;
-$responsive-embed-margin-bottom: 0;
 $breakpoint-classes: (small medium large xlarge xxlarge);
+$responsive-embed-margin-bottom: 0;
+$responsive-embed-ratios: (
+	default: 16 by 9,
+	vertical: 9 by 16,
+	panorama: 256 by 81,
+	square: 1 by 1,
+	custom: 16 by 7,
+);
 // $grid-container: 1400px;
 // $grid-margin-gutters: (
 // 	small: $spaceMobile * 2,

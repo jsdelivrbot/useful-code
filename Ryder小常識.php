@@ -196,8 +196,12 @@ $._data(($0), 'events');
 =            css animate callback            =
 ===========================================-->
 <script>
-	$(".element").on('oanimationend animationend webkitAnimationEnd', function() {
-	   console.log("fin");
+	$(".element").on('transitionend webkitTransitionEnd mozTransitionEnd webkitTransitionEnd oTransitionEnd', function() {
+		console.log("fin");
+	});
+
+	$(".element").on('animationend webkitAnimationEnd MSAnimationEnd oAnimationEnd', function() {
+		console.log("fin");
 	});
 </script>
 

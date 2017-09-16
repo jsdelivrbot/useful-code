@@ -21,7 +21,6 @@ http://www.w3schools.com/googleapi/google_maps_overlays.asp
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
 
-
         var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
         //googleMap 是div id
 
@@ -32,7 +31,7 @@ http://www.w3schools.com/googleapi/google_maps_overlays.asp
         //     title: 'Hello World!'
         //   });
 
-        // for scale icon
+        // use @2x image marker
         // var image = {
         //     url: 'images/logo_map-1.png',
         //     // This marker is 20 pixels wide by 32 pixels high.
@@ -42,11 +41,23 @@ http://www.w3schools.com/googleapi/google_maps_overlays.asp
         //     // The anchor for this image is the base of the flagpole at (0, 32).
         //     anchor: new google.maps.Point(0, 0)
         //   };
-        var image = 'images/maplogo.png';
+
+        // normal image marker
+        // var image = 'images/maplogo.png';
+
+        // var beachMarker = new google.maps.Marker({
+        //     position: myLatLng,
+        //     map: map,
+        //     icon: image
+        // });
+
+        // use svg marker
+        var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="33.49" height="50.91" viewBox="0 0 33.49 50.91"> <path d="M16.74,0C7.51,0,0,8.41,0,18.74a20.21,20.21,0,0,0,1.46,7.65C5.65,36.64,13.68,47.47,16,50.55a.89.89,0,0,0,.7.36.9.9,0,0,0,.71-.36C19.81,47.47,27.84,36.65,32,26.39a20.13,20.13,0,0,0,1.47-7.65C33.49,8.41,26,0,16.74,0Zm0,28.47c-4.79,0-8.7-4.37-8.7-9.73S11.95,9,16.74,9s8.7,4.37,8.7,9.74-3.9,9.73-8.7,9.73Zm0,0" fill="#950f23" /> <circle cx="16.75" cy="18.75" r="10.64" fill="#fff" /> </svg>';
+
         var beachMarker = new google.maps.Marker({
             position: myLatLng,
             map: map,
-            icon: image
+            icon: { url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg), scaledSize: new google.maps.Size(33, 50) }
         });
     }
 

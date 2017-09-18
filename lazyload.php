@@ -7,5 +7,6 @@ https://github.com/eisbehr-/jquery.lazy/tree/master/plugins
 	$('.lazy').lazy({
 		effect: "fadeIn",
 		effectTime: 1000,
+		defaultImage: 'images/lazy-default.svg',
 	});
 </script>

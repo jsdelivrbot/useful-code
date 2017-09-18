@@ -1,3 +1,39 @@
+<!-- 只觸發一次 -->
+<script>
+	$.fn.ryderWaypoint = function(option) {
+		return this.each(function() {
+			var $this = $(this);
+
+			var deFault = {
+				hook: 0.5,
+				check: 1,
+				enter: function() {},
+				leave: function() {}
+			};
+
+			var setting = $.extend(deFault, option);
+
+			function ryderScrolling() {
+				var scrollTop = $(window).scrollTop(),
+					elementOffset = $this.offset().top,
+					distance = (elementOffset - scrollTop),
+					windowHeight = $(window).height(),
+					breakPoint = windowHeight * setting.hook;
+
+				if (distance > breakPoint || distance < -$this.height()) {
+					setting.check = 1;
+					setting.leave($this);
+				}else if (distance < breakPoint && setting.check == 1) {
+					setting.enter($this);
+					setting.check = 0;
+				}
+			}
+
+			$(window).on("scroll", ryderScrolling).trigger("scroll");
+		});
+	};
+</script>
+
 <script>
 	$.fn.ryderCool = function(option) {
 		return this.each(function() {
@@ -34,7 +70,6 @@
 		leave: function(el) {}
 	})
 </script>
-
 
 <script>
 	$.fn.inScreen = function(option) {

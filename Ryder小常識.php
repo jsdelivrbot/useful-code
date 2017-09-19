@@ -1,3 +1,8 @@
+<!-- 開發專用 - 快速生成圖片 -->
+https://dummyimage.com/
+https://fakeimg.pl/
+http://lorempixel.com/
+
 <!--================================
 =            robots.txt            =
 =================================-->

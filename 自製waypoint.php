@@ -5,10 +5,9 @@
 			var $this = $(this);
 
 			var deFault = {
-				hook: 0.5,
+				hook: 0.8,
 				check: 1,
-				enter: function() {},
-				leave: function() {}
+				enter: function() {}
 			};
 
 			var setting = $.extend(deFault, option);
@@ -20,12 +19,9 @@
 					windowHeight = $(window).height(),
 					breakPoint = windowHeight * setting.hook;
 
-				if (distance > breakPoint || distance < -$this.height()) {
-					setting.check = 1;
-					setting.leave($this);
-				}else if (distance < breakPoint && setting.check == 1) {
-					setting.enter($this);
+				if (distance < breakPoint && setting.check) {
 					setting.check = 0;
+					setting.enter($this);
 				}
 			}
 

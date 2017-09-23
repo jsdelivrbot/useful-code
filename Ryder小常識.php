@@ -1,3 +1,20 @@
+<!-- lock scrollbar -->
+<script>
+	function fancy_open() {
+		$("body").css({
+		    'overflow': 'hidden',
+		    'margin-right': '17px',
+		});
+	}
+
+	function fancy_close() {
+		$("body").css({
+		    'overflow': 'initial',
+		    'margin-right': '0',
+		});
+	}
+</script>
+
 <!-- 開發專用 - 快速生成圖片 -->
 https://dummyimage.com/
 https://fakeimg.pl/

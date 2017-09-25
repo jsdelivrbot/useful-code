@@ -1,3 +1,10 @@
+<!-- library -->
+http://svgjs.com/elements/
+
+有一些plugin好像不錯 ex: svg.topath.js
+http://svgjs.com/plugins/
+
+
 <!-- How SVG Line Animation Works -->
 https://css-tricks.com/svg-line-animation-works/
 

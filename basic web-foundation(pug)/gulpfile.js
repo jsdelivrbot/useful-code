@@ -13,14 +13,30 @@ gulp.task('browser-sync', function() {
     gulpBrowserSync.watch('js/*.js').on('change', gulpBrowserSync.reload);
 });
 
+// gulp.task('sass', function() {
+//     gulp.src('sass/*.scss')
+//         .pipe(gulpCompass({
+//             config_file: './config.rb',
+//             sass: 'sass',
+//             css: 'stylesheets'
+//         }))
+//         .pipe(gulpSourcemaps.init())
+//         .pipe(gulpAutoprefixer({
+//             browsers: ['last 2 versions', 'ie >= 9', 'and_chr >= 2.3'],
+//             cascade: false
+//         }))
+//         .pipe(gulpSourcemaps.write('./'))
+//         .pipe(gulp.dest('stylesheets'))
+//         .pipe(gulpBrowserSync.stream());
+// });
+
 gulp.task('sass', function() {
-    gulp.src('sass/*.scss')
-        .pipe(gulpCompass({
-            config_file: './config.rb',
-            sass: 'sass',
-            css: 'stylesheets'
-        }))
+    return gulp.src('sass/*.scss')
         .pipe(gulpSourcemaps.init())
+        .pipe(gulpSass({
+            includePaths: ['node_modules/foundation-sites/scss'],
+            outputStyle: 'compressed'
+        }).on('error', gulpSass.logError))
         .pipe(gulpAutoprefixer({
             browsers: ['last 2 versions', 'ie >= 9', 'and_chr >= 2.3'],
             cascade: false

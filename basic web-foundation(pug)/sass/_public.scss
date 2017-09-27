@@ -8,44 +8,12 @@
     &:last-child {margin-bottom: 0;}
 }
 
-@mixin bg-2x($image, $width, $height) {
-    @media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx) {
-        background-image: url($image);
-        background-size: $width $height;
-    }
-}
-
 @mixin image-2x {
     img:nth-child(1) {display: inline;}
     img:nth-child(2) {display: none;}
     @media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx) {
         img:nth-child(1) {display: none;}
         img:nth-child(2) {display: inline;}
-    }
-}
-
-@mixin four-image {
-    img:nth-child(1) {display: inline;}
-    img:nth-child(2) {display: none;}
-    img:nth-child(3) {display: none;}
-    img:nth-child(4) {display: none;}
-    @media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx) {
-        img:nth-child(1) {display: none;}
-        img:nth-child(2) {display: inline;}
-        img:nth-child(3) {display: none;}
-        img:nth-child(4) {display: none;}
-    }
-    &:hover, &.active{
-        img:nth-child(1) {display: none;}
-        img:nth-child(2) {display: none;}
-        img:nth-child(3) {display: inline;}
-        img:nth-child(4) {display: none;}
-        @media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx) {
-            img:nth-child(1) {display: none;}
-            img:nth-child(2) {display: none;}
-            img:nth-child(3) {display: none;}
-            img:nth-child(4) {display: inline;}
-        }
     }
 }
 

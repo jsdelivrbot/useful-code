@@ -6,81 +6,49 @@ $().ready(function() {
         // Location of TinyMCE script
         script_url: 'tinymce/js/tinymce/tinymce.min.js',
         language: "zh_TW", // change language here
-        theme: "modern",
+        menubar: false,
         relative_urls: false,
         remove_script_host: false,
         convert_urls: true,
-
-        // General options
-        //selector: "textarea",
-        /* plugins: [
-                 "advlist autolink link image lists charmap print preview hr anchor pagebreak",
-                 "wordcount visualblocks visualchars code fullscreen nonbreaking",
-                 "table contextmenu directionality emoticons template textcolor paste textcolor"
-         ],
-
-         toolbar1: "undo redo | cut copy paste | styleselect formatselect fontselect fontsizeselect",
-         toolbar2: "bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify| bullist numlistoutdent indent | table  | link unlink | image",
-         toolbar3: "subscript superscript | hr removeformat | charmap emoticons | ltr rtl  | visualchars visualblocks nonbreaking | print fullscreen | preview code",*/
+        content_css : "css/tinymceContent.css",
 
         plugins: [
-            /*"advlist autolink lists link image charmap print preview anchor",
-            "searchreplace visualblocks code fullscreen",
-            "insertdatetime media table contextmenu paste moxiemanager"*/
-            "advlist autolink link image lists charmap print preview hr anchor pagebreak",
+            "advlist autolink link lists charmap print preview hr anchor pagebreak",
             "searchreplace wordcount visualblocks visualchars insertdatetime nonbreaking",
-            "table contextmenu directionality emoticons textcolor responsivefilemanager",
+            "table contextmenu directionality emoticons textcolor",
             "insertdatetime nonbreaking save table contextmenu directionality",
-            "emoticons template paste textcolor colorpicker textpattern code"
+            "emoticons template paste textcolor colorpicker textpattern code responsivefilemanager imagetools image media"
         ],
-        /*toolbar1: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image",
-        toolbar2: "print preview media | forecolor backcolor emoticons",*/
-        toolbar1: "styleselect formatselect fontselect fontsizeselect table",
-        toolbar2: "bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify| bullist numlist outdent indent | link unlink | image",
-        toolbar3: "hr removeformat | charmap emoticons | ltr rtl  | visualchars visualblocks nonbreaking | undo redo | cut copy paste | print fullscreen | preview code",
 
-        menubar: false,
-        //toolbar_items_size: 'small',
-        image_advtab: true,
+        toolbar1: "styleselect fontselect fontsizeselect",
+        toolbar2: "removeformat bold italic underline strikethrough | forecolor backcolor | alignleft aligncenter alignright alignjustify| link unlink",
+        toolbar3: "undo redo | cut copy paste | print fullscreen | preview code | image responsivefilemanager",
 
         //base_url: "http://localhost/",
         //指向網址後需改成 external_filemanager_path:"/filemanager/",
-        external_filemanager_path: "/filemanager/",
+        external_filemanager_path: "/lionsport/filemanager/",
         filemanager_title: "Filemanager",
         //指向網址後需改成 external_plugins: { "filemanager" : "/filemanager/plugin.min.js"},
         external_plugins: {
-            "filemanager": "/filemanager/plugin.min.js"
+            "filemanager": "/lionsport/filemanager/plugin.min.js"
         },
 
         style_formats: [{
-            title: 'Bold text',
-            inline: 'b'
-        }, {
-            title: 'Red text',
-            inline: 'span',
+            title: '售票資訊粗體',
+            inline: 'strong',
+            classes: 'tiny-ticket-strong',
             styles: {
-                color: '#ff0000'
+                color: '#d8a10f'
             }
-        }, {
-            title: 'Red header',
-            block: 'h1',
+        },{
+            title: '賽事票價',
+            block: 'span',
             styles: {
-                color: '#ff0000'
+                color: '#fff',
+                'background-color': '#950f23',
+                'border-radius': '10px',
+                padding: '1px 33px'
             }
-        }, {
-            title: 'Example 1',
-            inline: 'span',
-            classes: 'example1'
-        }, {
-            title: 'Example 2',
-            inline: 'span',
-            classes: 'example2'
-        }, {
-            title: 'Table styles'
-        }, {
-            title: 'Table row 1',
-            selector: 'tr',
-            classes: 'tablerow1'
         }]
     });
 });

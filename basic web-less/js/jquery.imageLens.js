@@ -14,7 +14,7 @@
         var lensStyle = "background-position: 0px 0px;width: " + String(options.lensSize) + "px;height: " + String(options.lensSize)
             + "px;float: left;display: none;border-radius: " + String(options.lensSize / 2 + options.borderSize)
             + "px;border: " + String(options.borderSize) + "px solid " + options.borderColor
-            + ";background-repeat: no-repeat;position: absolute; z-index: " + options.zIndex + ";";
+            + ";background-repeat: no-repeat;position: fixed; z-index: " + options.zIndex + ";";
 
         return this.each(function () {
             obj = $(this);

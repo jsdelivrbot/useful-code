@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var gulpPug = require('gulp-pug');
+var gulpSass = require('gulp-sass');
 var gulpCompass = require('gulp-compass');
 var gulpAutoprefixer = require('gulp-autoprefixer');
 var gulpSourcemaps = require('gulp-sourcemaps');

@@ -212,3 +212,13 @@ $RecWorks = mysql_query($query_RecWorks, $connect2data) or die(mysql_error());
 $row_RecWorks = mysql_fetch_assoc($RecWorks);
 $totalRows_RecWorks = mysql_num_rows($RecWorks);
 ?>
+
+<!-- 圖片另外寫 -->
+<?php while($row_RecTeam = mysql_fetch_assoc($RecTeam)){
+
+    $query_RecTeamPic = sprintf("SELECT * FROM file_set
+        WHERE file_d_id= '%s' AND file_type='image'
+        ORDER BY file_id ASC", $row_RecTeam['d_id']);
+    $RecTeamPic = mysql_query($query_RecTeamPic, $connect2data) or die(mysql_error());
+    $row_RecTeamPic = mysql_fetch_assoc($RecTeamPic);
+?>

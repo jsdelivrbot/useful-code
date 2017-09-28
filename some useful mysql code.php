@@ -3,8 +3,8 @@
 $ryder_y = (isset($_GET['y'])) ? "DATE_FORMAT(d_date, '%Y') = '".$_GET['y']."' AND" : '';
 
 $query_RecWorks = sprintf("SELECT * FROM data_set, file_set, class_set
-  WHERE %s d_class1='news' AND d_id=file_d_id AND file_type='image' AND d_class2=c_id AND c_parent='newsC' AND c_active='1' AND d_active='1'
-  ORDER BY c_sort ASC, d_sort ASC", $ryder_y);
+    WHERE %s d_class1='news' AND d_id=file_d_id AND file_type='image' AND d_class2=c_id AND c_parent='newsC' AND c_active='1' AND d_active='1'
+    ORDER BY c_sort ASC, d_sort ASC", $ryder_y);
 $RecWorks = mysql_query($query_RecWorks, $connect2data) or die(mysql_error());
 // $row_RecWorks = mysql_fetch_assoc($RecWorks);
 $totalRows_RecWorks = mysql_num_rows($RecWorks);
@@ -14,8 +14,8 @@ $totalRows_RecWorks = mysql_num_rows($RecWorks);
 <?php
 // CONCAT_WS(',',address_id,%s)  一是用什麼來分隔  二是原本的值  三是要新增的值
 $updateSQL = sprintf("UPDATE client SET address_id=CONCAT_WS(',',address_id,%s) WHERE client_id=%s",
-                     GetSQLValueString(mysql_insert_id(), "text"),
-                     GetSQLValueString($_SESSION['client_id'], "int"));
+    GetSQLValueString(mysql_insert_id(), "text"),
+    GetSQLValueString($_SESSION['client_id'], "int"));
 
 $Result2 = mysql_query($updateSQL, $connect2data) or die(mysql_error());
 ?>
@@ -23,7 +23,7 @@ $Result2 = mysql_query($updateSQL, $connect2data) or die(mysql_error());
 <!-- 轉json -->
 <?php
 $query_RecWorks = sprintf("SELECT * FROM ask
-  ORDER BY ask_date DESC", $_SESSION['client_id']);
+    ORDER BY ask_date DESC", $_SESSION['client_id']);
 $RecWorks = mysql_query($query_RecWorks, $connect2data) or die(mysql_error());
 // $row_RecWorks = mysql_fetch_assoc($RecWorks);
 $totalRows_RecWorks = mysql_num_rows($RecWorks);
@@ -71,10 +71,10 @@ while ($row = mysql_fetch_array($RecProjects)) {
 <!-- 取得最後一次的id 用mysql_insert_id() -->
 <?php
 $insertSQL_client = sprintf("INSERT INTO client (address_id, name, phone, address, client_created_date, client_date) VALUES (%s, %s, %s, %s, NOW(), NOW())",
-      GetSQLValueString(mysql_insert_id(), "int"),
-      GetSQLValueString($_POST['name'], "text"),
-      GetSQLValueString($_POST['phone'], "text"),
-      GetSQLValueString($_POST['address'], "text"));
+    GetSQLValueString(mysql_insert_id(), "int"),
+    GetSQLValueString($_POST['name'], "text"),
+    GetSQLValueString($_POST['phone'], "text"),
+    GetSQLValueString($_POST['address'], "text"));
 ?>
 
 <!-- mysql_fetch_array   mysql_fetch_assoc   mysql_fetch_row 分別 -->
@@ -152,16 +152,16 @@ while (list($key) = each($ryder_d_class3)) {
 <?php
 $colname_Recclass = "";
 if (isset($_GET['class'])) {
-  $colname_Recclass = "d_class".$_GET['class']." LIKE '%".$_GET['cat']."%' AND";
+    $colname_Recclass = "d_class".$_GET['class']." LIKE '%".$_GET['cat']."%' AND";
 }
 ?>
 
 <!-- 兩個%讓%跳脫自己 -->
 <?php
 $query_RecProjects = sprintf("SELECT * FROM class_set, data_set
-  LEFT JOIN file_set ON d_id=file_d_id AND file_type='image'
-  WHERE d_class2=c_id AND (d_title LIKE '%%%s%%' OR d_content LIKE '%%%s%%' OR c_title LIKE '%%%s%%') AND c_active='1' AND d_active='1'
-  ORDER BY d_date DESC", $ryder_s, $ryder_s, $ryder_s);
+    LEFT JOIN file_set ON d_id=file_d_id AND file_type='image'
+    WHERE d_class2=c_id AND (d_title LIKE '%%%s%%' OR d_content LIKE '%%%s%%' OR c_title LIKE '%%%s%%') AND c_active='1' AND d_active='1'
+    ORDER BY d_date DESC", $ryder_s, $ryder_s, $ryder_s);
 $RecProjects = mysql_query($query_RecProjects, $connect2data) or die(mysql_error());
 // $row_RecProjects = mysql_fetch_assoc($RecProjects);
 $totalRows_RecProjects = mysql_num_rows($RecProjects);
@@ -172,9 +172,9 @@ $totalRows_RecProjects = mysql_num_rows($RecProjects);
 <!-- ps. on 是left join的條件 取出來的資料才會進入where -->
 <?php
 $query_RecNews = sprintf("SELECT * FROM class_set, data_set
-  LEFT JOIN file_set ON d_id=file_d_id
-  WHERE d_class1='news' AND d_class2=c_id AND d_active='1'
-  ORDER BY d_sort ASC");
+    LEFT JOIN file_set ON d_id=file_d_id
+    WHERE d_class1='news' AND d_class2=c_id AND d_active='1'
+    ORDER BY d_sort ASC");
 $RecNews = mysql_query($query_RecNews, $connect2data) or die(mysql_error());
 // $row_RecNews = mysql_fetch_assoc($RecNews);
 $totalRows_RecNews = mysql_num_rows($RecNews);
@@ -194,8 +194,8 @@ if (isset($_GET['cat'])) {
 
 // sprintf帶字串參數用法(用%s)
 $query_RecWorks = sprintf("SELECT * FROM data_set, file_set
-  WHERE %s d_class1='works' AND d_id=file_d_id AND file_type='image' AND d_active='1'
-  ORDER BY d_sort ASC", $colname_Reccat);
+    WHERE %s d_class1='works' AND d_id=file_d_id AND file_type='image' AND d_active='1'
+    ORDER BY d_sort ASC", $colname_Reccat);
 
 $ryder_cat = (isset($_GET['cat'])) ? $_GET['cat'] : 0;
 $ryder_url = (isset($_GET['cat'])) ? "&cat=".$_GET['cat'] : '';
@@ -206,8 +206,8 @@ if (isset($_GET['d_id'])) {
 }
 
 $query_RecWorks = sprintf("SELECT * FROM data_set
-  WHERE d_id= '".$colname_Recworks."'
-  ORDER BY d_sort ASC");
+    WHERE d_id= '".$colname_Recworks."'
+    ORDER BY d_sort ASC");
 $RecWorks = mysql_query($query_RecWorks, $connect2data) or die(mysql_error());
 $row_RecWorks = mysql_fetch_assoc($RecWorks);
 $totalRows_RecWorks = mysql_num_rows($RecWorks);

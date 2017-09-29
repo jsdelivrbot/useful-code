@@ -58,6 +58,7 @@ gulp.task('sass', function() {
 gulp.task('copy', function() {
     gulp.src([
             'css/**',
+            'fonts/**',
             'images/**',
             'js/**',
             'mobile/**',

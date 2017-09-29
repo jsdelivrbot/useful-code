@@ -1,3 +1,12 @@
+<!--===============================================
+=            use requestAnimationFrame            =
+================================================-->
+https://github.com/alumbo/jquery.parallax-scroll
+
+<script src="js/jquery.parallax-scroll.js"></script>
+
+<div class="deco" data-parallax='{"y" : 230}'><img src="images/tortelloni-pic.png"></div>
+
 <!--===================================
 =            scss parallax            =
 ====================================-->

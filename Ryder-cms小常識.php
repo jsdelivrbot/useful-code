@@ -185,6 +185,12 @@ php_value upload_max_filesize 5M
 error_reporting(E_ALL ^ E_DEPRECATED);
 ?>
 
+or
+
+<?php
+error_reporting(0);
+?>
+
 <!--=============================================
 =            list頁 網頁是否顯示失敗            =
 ==============================================-->

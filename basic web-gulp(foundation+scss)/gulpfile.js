@@ -9,6 +9,7 @@ var gulpSvgSprite = require('gulp-svg-sprite');
 
 gulp.task('browser-sync', function() {
     gulpBrowserSync.init({
+        reloadDelay: 200,
         proxy: "127.0.0.1/qwe123"
     });
 

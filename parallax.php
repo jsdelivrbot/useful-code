@@ -7,6 +7,7 @@ https://github.com/alumbo/jquery.parallax-scroll
 
 <div class="deco" data-parallax='{"y" : 230}'><img src="images/tortelloni-pic.png"></div>
 
+
 <!--===================================
 =            scss parallax            =
 ====================================-->

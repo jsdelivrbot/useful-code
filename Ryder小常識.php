@@ -1,3 +1,13 @@
+<!--===============================================
+=            sublime 使用regex各種匹配            =
+================================================-->
+1、在javascript下正確的\x4e00-\x9fa5並不完全適合php中文正則表達式；
+2、匹配中文全角字符的正則:   ^[\x80-\xff]*^/  ；
+3、GB2312、漢字、字母、數字、下劃線正則表達式：[".chr(0xa1)."-".chr(0xff)."A-Za-z0-9_]+；
+4、UTF-8漢字、字母、數字、下劃線、正則表達式：[\x{4e00}-\x{9fa5}A-Za-z0-9_]+/u，注意x4e00與x9fa5需要用{}把x後面的字符包括起來！
+5、使用鍵盤上的特殊符號（包括空格）、字母、數字： /[a-z0-9\x00-\x2F\x3A-\x40\x5B-\x60\x7B-\xFF]{6,15}/iu，注意u。在javascript上也可以，在頁面上charset=utf-8。 /[a-z0-9\x00-\x2F\x3A-\x40\x5B-\x60\x7B-\xFF]{6,15}/ig
+實在記不起這些特殊符號的八進制\x表示：/[a-z0-9~`!@#$%^&*()_\\+=\/\.,<>?;\'\-\"|\[\]{}\s\:]{6,15}/iu
+
 <!-- lock scrollbar -->
 <script>
 	function fancy_open() {
@@ -99,9 +109,9 @@ https://developers.facebook.com/tools/debug/sharing/
 弧度：radians = degreens * Math.PI / 180
 角度：degrees = radians * 180 / Math.PI
 
-<!--==============================
-=            改變this            =
-===============================-->
+<!--=========================================
+=            改變this or $.proxy()          =
+==========================================-->
 http://andyyou.logdown.com/posts/233010-understanding-javascript-functionprototypebind
 
 <script>

@@ -18,6 +18,43 @@
 </script>
 
 
+<!-- requestanimationframe ease -->
+<script>
+    var _from = 0;
+    var _to = 500;
+
+    // 從 js/jquery.easing.1.3.js 偷來的
+    function easeOutQuad(t, b, c, d) {
+        return -c *(t/=d)*(t-2) + b;
+    };
+
+    function Move(duration, timestamp) {
+
+        timestamp = timestamp || 0;
+
+        var step = easeOutQuad(timestamp, _from, _to, duration);
+
+        var move_path = [
+            ['M', 0, step],
+            ['s', _w / 4, 30, _w / 2, -20],
+            ['s', _w / 4, 20, _w / 2, 30],
+            ['V', _h],
+            ['H', 0],
+        ];
+
+        path.plot(move_path)
+
+        if (timestamp <= duration) {
+            requestAnimationFrame(Move.bind(null, duration));
+        }else{
+            cancelAnimationFrame(Move);
+        }
+    }
+
+    new Move('3000');
+</script>
+
+
 使用方法：
 
 1.記錄當前時間startTime，作為動畫開始的時間。
@@ -54,5 +91,6 @@
 
         requestAnimationFrame(go);
     }
+
     animate(document.getElementById('demo'), 'left', 0, 400, 1000);
 </script>

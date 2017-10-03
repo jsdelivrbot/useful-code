@@ -1,6 +1,5 @@
 <script type="text/javascript">
 
-
 	$("#clear").click(function  () {
 
 		$(".leave").find(":text,textarea").each(function() {
@@ -11,7 +10,6 @@
 		});
 
 	})
-
 
 	//參考
 	/**
@@ -26,7 +24,6 @@
 		</select>
 
 	 */
-
 
 	$(".leave").find(":input").each(function() {
 		switch ($(this).attr('type')) {

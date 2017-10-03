@@ -4,44 +4,70 @@
     window.cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame;
 </script>
 
+<!-- 對於不兼容的瀏覽器，可以使用兼容寫法： -->
 <script>
-    // 下面是由Paul Irish及其他贡献者放在GitHub Gist上的代码片段，用于在浏览器不支持requestAnimationFrame情况下的回退，回退到使用setTmeout的情况。当然，如果你确定代码是工作在现代浏览器中，下面的代码是不必的
-    (function() {
-        var lastTime = 0;
-        var vendors = ['ms', 'moz', 'webkit', 'o'];
-        for (var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-            window.requestAnimationFrame = window[vendors[x] + 'RequestAnimationFrame'];
-            window.cancelAnimationFrame = window[vendors[x] + 'CancelAnimationFrame'] || window[vendors[x] + 'CancelRequestAnimationFrame'];
+    window.requestAnimFrame = (function() {
+        return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(calback) {
+                window.setTimeout(callback, 1000 / 60);
+            }
+    })();
+
+    window.cancelAnimFrame = (function() {
+        return window.cancelAnimationFrame || window.webkitCancelAnimationFrame || window.mozCancelAnimationFrame || window.oCancelAnimationFrame || window.msCancelAnimationFrame || window.clearTimeout;
+    })();
+</script>
+
+
+<!-- requestanimationframe ease -->
+<script>
+    var _from = 0;
+    var _to = 500;
+
+    // 從 js/jquery.easing.1.3.js 偷來的
+    function easeOutQuad(t, b, c, d) {
+        return -c *(t/=d)*(t-2) + b;
+    };
+
+    function Move(duration, timestamp) {
+
+        timestamp = timestamp || 0;
+
+        var step = easeOutQuad(timestamp, _from, _to, duration);
+
+        var move_path = [
+            ['M', 0, step],
+            ['s', _w / 4, 30, _w / 2, -20],
+            ['s', _w / 4, 20, _w / 2, 30],
+            ['V', _h],
+            ['H', 0],
+        ];
+
+        path.plot(move_path)
+
+        if (timestamp <= duration) {
+            requestAnimationFrame(Move.bind(null, duration));
+        }else{
+            cancelAnimationFrame(Move);
         }
-        if (!window.requestAnimationFrame) window.requestAnimationFrame = function(callback, element) {
-            var currTime = new Date().getTime();
-            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-            var id = window.setTimeout(function() {
-                callback(currTime + timeToCall);
-            }, timeToCall);
-            lastTime = currTime + timeToCall;
-            return id;
-        };
-        if (!window.cancelAnimationFrame) window.cancelAnimationFrame = function(id) {
-            clearTimeout(id);
-        };
-    }());
+    }
+
+    new Move('3000');
 </script>
 
 
 使用方法：
 
-1.记录当前时间startTime，作为动画开始的时间。
-2.请求下一帧，带上回调函数。
-3.下一帧触发时，回调函数的第一个参数为当前的时间，再与startTime进行比较，确定时间间隔ellapseTime。
-4.判断ellapseTime是否已经超过事先设定的动画时间time，如果超过，则结束动画。
-5.计算动画属性变化的差值differ = to – from，再确定在ellapseTime的时候应该变化多少step = differ / time * ellapseTime。
-6.计算出现在应该变化到的位置Math.round(from + step)，并重新对样式赋值。
-7.继续请求下一帧。
+1.記錄當前時間startTime，作為動畫開始的時間。
+2.請求下一幀，帶上回調函數。
+3.下一幀觸發時，回調函數的第一個參數為當前的時間，再與startTime進行比較，確定時間間隔ellapseTime。
+4.判斷ellapseTime是否已經超過事先設定的動畫時間time，如果超過，則結束動畫。
+5.計算動畫屬性變化的差值differ = to – from，再確定在ellapseTime的時候應該變化多少step = differ / time * ellapseTime。
+6.計算出現在應該變化到的位置Math.round(from + step)，並重新對樣式賦值。
+7.繼續請求下一幀。
 
 <script>
     function animate(element, name, from, to, time) {
-        time = time || 800; // 默认0.8秒
+        time = time || 800; // 默認0.8秒
         var style = element.style,
             startTime;
 
@@ -65,5 +91,6 @@
 
         requestAnimationFrame(go);
     }
+
     animate(document.getElementById('demo'), 'left', 0, 400, 1000);
 </script>

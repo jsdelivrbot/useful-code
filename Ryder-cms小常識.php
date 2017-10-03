@@ -181,8 +181,10 @@ php_value upload_max_filesize 5M
 <!--================================================
 =            解決connect2data.php 連接資料庫時的The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead in            =
 =================================================-->
+https://read01.com/N6KeoO.html#.Wc4J1FuCyUl
+
 <?php
-error_reporting(E_ALL ^ E_DEPRECATED);
+error_reporting(E_ERROR); // 只報告致命錯誤
 ?>
 
 <!--=============================================

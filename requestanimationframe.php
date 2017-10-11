@@ -20,6 +20,7 @@
 
 <!-- requestanimationframe ease -->
 <script>
+    var startTime = null;
     var _from = 0;
     var _to = 500;
 
@@ -30,9 +31,13 @@
 
     function Move(duration, timestamp) {
 
-        timestamp = timestamp || 0;
+        var timestamp = timestamp || 0;
 
-        var step = easeOutQuad(timestamp, _from, _to, duration);
+        if(!startTime) startTime = timestamp;
+
+        var _curr = timestamp - startTime;
+
+        var step = easeOutQuad(_curr, _from, _to, duration);
 
         var move_path = [
             ['M', 0, step],
@@ -44,7 +49,7 @@
 
         path.plot(move_path)
 
-        if (timestamp <= duration) {
+        if (_curr <= duration) {
             requestAnimationFrame(Move.bind(null, duration));
         }else{
             cancelAnimationFrame(Move);

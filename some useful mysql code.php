@@ -187,9 +187,9 @@ require_once 'Connections/connect2data.php';
 // require_once('js/fun_changeStr.php');
 mysql_select_db($database_connect2data, $connect2data);
 
-$colname_Reccat = "";
+$colname_RecCat = "";
 if (isset($_GET['cat'])) {
-    $colname_Reccat = "TR.term_taxonomy_id =" . $_GET['cat'] . " AND";
+    $colname_RecCat = "TR.term_taxonomy_id =" . $_GET['cat'] . " AND";
 }
 
 // sprintf帶字串參數用法(用%s)
@@ -200,13 +200,13 @@ $query_RecWorks = sprintf("SELECT * FROM data_set, file_set
 $ryder_cat = (isset($_GET['cat'])) ? $_GET['cat'] : 0;
 $ryder_url = (isset($_GET['cat'])) ? "&cat=".$_GET['cat'] : '';
 
-$colname_Recworks = "-1";
+$colname_RecWorks = "-1";
 if (isset($_GET['d_id'])) {
-    $colname_Recworks = $_GET['d_id'];
+    $colname_RecWorks = $_GET['d_id'];
 }
 
 $query_RecWorks = sprintf("SELECT * FROM data_set
-    WHERE d_id= '".$colname_Recworks."'
+    WHERE d_id= '".$colname_RecWorks."'
     ORDER BY d_sort ASC");
 $RecWorks = mysql_query($query_RecWorks, $connect2data) or die(mysql_error());
 $row_RecWorks = mysql_fetch_assoc($RecWorks);

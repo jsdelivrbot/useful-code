@@ -2,7 +2,6 @@
 # FileName="Connection_php_mysql.htm"
 # Type="MYSQL"
 # HTTP="true"
-error_reporting(E_ALL ^ E_DEPRECATED);
 
 $hostname_connect2data = "localhost";
 $database_connect2data = "sino";

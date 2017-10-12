@@ -184,7 +184,11 @@ php_value upload_max_filesize 5M
 https://read01.com/N6KeoO.html#.Wc4J1FuCyUl
 
 <?php
-error_reporting(E_ERROR); // 只報告致命錯誤
+// 平常用這個
+error_reporting(E_ALL ^ E_DEPRECATED);
+
+// 尻大絕->只報告致命錯誤
+error_reporting(E_ERROR);
 ?>
 
 <!--=============================================

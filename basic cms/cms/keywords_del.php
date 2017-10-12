@@ -141,10 +141,17 @@ $menu_is="keywords";?>
                     </tr>
 
                     <tr>
-                     <td align="center" bgcolor="#e5ecf6" class="table_col_title">內容</td>
-                     <td class="table_data"><?php echo $row_Reckeywords['d_content']; ?></td>
+                     <td align="center" bgcolor="#e5ecf6" class="table_col_title">關鍵字</td>
+                     <td class="table_data"><?php echo $row_Reckeywords['d_class2']; ?></td>
                      <td bgcolor="#e5ecf6">&nbsp;</td>
                    </tr>
+
+                   <tr>
+                     <td align="center" bgcolor="#e5ecf6" class="table_col_title">描述</td>
+                     <td class="table_data"><?php echo $row_Reckeywords['d_class3']; ?></td>
+                     <td bgcolor="#e5ecf6">&nbsp;</td>
+                   </tr>
+
                    <tr>
                      <td width="200" align="center" bgcolor="#e5ecf6" class="table_col_title">日期</td>
                      <td width="532" class="table_data"><?php echo $row_Reckeywords['d_date']; ?></td>

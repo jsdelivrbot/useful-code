@@ -26,11 +26,11 @@ $().ready(function() {
 
         //base_url: "http://localhost/",
         //指向網址後需改成 external_filemanager_path:"/filemanager/",
-        external_filemanager_path: "/lionsport/filemanager/",
+        external_filemanager_path: "/filemanager/",
         filemanager_title: "Filemanager",
         //指向網址後需改成 external_plugins: { "filemanager" : "/filemanager/plugin.min.js"},
         external_plugins: {
-            "filemanager": "/lionsport/filemanager/plugin.min.js"
+            "filemanager": "/filemanager/plugin.min.js"
         },
 
         style_formats: [{

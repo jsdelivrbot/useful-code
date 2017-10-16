@@ -11,3 +11,11 @@ Connections
 filemanager
 .rar
 .zip
+Connections
+upload_image
+upload_file
+thumbs
+source
+.cache
+.sass-cache
+public

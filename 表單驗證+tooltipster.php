@@ -94,7 +94,6 @@
 
 </script>
 
-
 <style>
 	.ryderisgood {
 		border-radius: 5px;
@@ -109,5 +108,50 @@
 		letter-spacing: 1px;
 		padding: 8px 10px;
 		overflow: hidden;
+	}
+</style>
+
+<!-- 自訂 error style -->
+<script>
+	$(".contact-form").validate({
+		ignore:[],
+		rules:{
+			email: {
+				required: true,
+				email: true
+			},
+			name: {
+				required: true,
+			},
+			title: {
+				required: true,
+			}
+		},
+		messages: {
+			m_name: {
+				required: "必填欄位"
+			},
+		},
+		errorPlacement: function(label, element) {
+	        label.addClass('contact-form-error');
+	        label.insertAfter(element);
+	    },
+	    wrapper: 'div'
+	})
+</script>
+
+<style>
+	form{
+		.contact-form-error{
+			position: absolute;
+			top: 0;
+			right: 0;
+			.error{
+				font-style: italic;
+				font-size: 12px;
+				letter-spacing: 1px;
+				color: red;
+			}
+		}
 	}
 </style>

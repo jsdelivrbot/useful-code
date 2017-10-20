@@ -1,97 +1,143 @@
 <?php
-define('lang_Select','انتخاب');
-define('lang_Erase','حذف');
-define('lang_Open','بازگشایی');
-define('lang_Confirm_del','میخواهید این فایل را حذف کنید؟');
-define('lang_All','همه');
-define('lang_Files','فایلها');
-define('lang_Images','تصاویر');
-define('lang_Archives','آرشیو');
-define('lang_Error_Upload','فایل آپلود شده بیش از حداکثر اندازه مجاز است.');
-define('lang_Error_extension','نوع فایل مجاز نیست.');
-define('lang_Upload_file','آپلود');
-define('lang_Filters','فیلترها');
-define('lang_Videos','ویدئوها');
-define('lang_Music','موزیک');
-define('lang_New_Folder','فولدر جدید');
-define('lang_Folder_Created','پوشه به درستی ایجاد شد');
-define('lang_Existing_Folder','پوشه های موجود');
-define('lang_Confirm_Folder_del','آیا میخواهید این فولدر را با تمام محتوایش حذف کنید؟');
-define('lang_Return_Files_List','برگشت به لیست فایلها');
-define('lang_Preview','پیش نمایش');
-define('lang_Download','دانلود');
-define('lang_Insert_Folder_Name','نام فولدر:');
-define('lang_Root','شاخه اصلی');
-define('lang_Rename','تغییر نام');
-define('lang_Back','برگشت');
-define('lang_View','نمایش');
-define('lang_View_list','نمایش لیست');
-define('lang_View_columns_list','نمایش لیست ستونی');
-define('lang_View_boxes','نمایش باکسها');
-define('lang_Toolbar','نوار ابزار');
-define('lang_Actions','عملیات');
-define('lang_Rename_existing_file','فایل از قبل موجود است');
-define('lang_Rename_existing_folder','فولدر از قبل موجود است');
-define('lang_Empty_name','نام خالی است');
-define('lang_Text_filter','فیلتر نوشته');
-define('lang_Swipe_help','Swipe the name of file/folder to show options');
-define('lang_Upload_base','آپلودر اصلی');
-define('lang_Upload_java','آپلودر جاوا (فایلهای حجیم)');
-define('lang_Upload_java_help',"If the Java Applet doesn't load, 1. make sure you have Java installed, otherwise <a href='http://java.com/en/download/'>[download link]</a>   2. make sure nothing is blocked by your firewall");
-define('lang_Upload_base_help',"فایلها را از سیستم خود بکشید و اینجا رها کنید یا اینجا کلیک کنید و فایل انتخاب کنید و هنگامی که آپلود تمام شد، روی کلید \"برگشت به لیست فایلها\" کلیک کنید.");
-define('lang_Type_dir','مسیر');
-define('lang_Type','نوع');
-define('lang_Dimension','بعد');
-define('lang_Size','اندازه');
-define('lang_Date','تاریخ');
-define('lang_Filename','نام فایل');
-define('lang_Operations','عملیات');
-define('lang_Date_type','y-m-d');
-define('lang_OK','باشه');
-define('lang_Cancel','لغو');
-define('lang_Sorting','مرتب سازی');
-define('lang_Show_url','نمایش آدرس');
-define('lang_Extract','استخراج در اینجا');
-define('lang_File_info','اطلاعات فایل');
-define('lang_Edit_image','ویرایش تصویر');
-define('lang_Duplicate','Duplicate');
-define('lang_Folders', 'Folders');
-define('lang_Copy','Copy');
-define('lang_Cut','Cut');
-define('lang_Paste','Paste');
-define('lang_CB', 'CB'); // clipboard
-define('lang_Paste_Here','Paste to this directory');
-define('lang_Paste_Confirm','Are you sure you want to paste to this directory? This will overwrite existing files/folders if encountered any.');
-define('lang_Paste_Failed','Failed to paste file(s)');
-define('lang_Clear_Clipboard','Clear clipboard');
-define('lang_Clear_Clipboard_Confirm','Are you sure you want to clear the clipboard?');
-define('lang_Files_ON_Clipboard','There are files on the clipboard.');
-define('lang_Copy_Cut_Size_Limit','The selected files/folders are too big to %s. Limit: %d MB/operation'); // %s = cut or copy
-define('lang_Copy_Cut_Count_Limit','You selected too many files/folders to %s. Limit: %d files/operation'); // %s = cut or copy
-define('lang_Copy_Cut_Not_Allowed','You are not allowed to %s files.'); // %s(1) = cut or copy, %s(2) = files or folders
-define('lang_Aviary_No_Save', 'Could not save image');
-define('lang_Zip_No_Extract', 'Could not extract. File might be corrupt.');
-define('lang_Zip_Invalid', 'This extension is not supported. Valid: zip, gz, tar.');
-define('lang_Dir_No_Write', 'The directory you selected is not writable.');
-define('lang_Function_Disabled', 'The %s function has been disabled by the server.'); // %s = cut or copy
-define('lang_File_Permission', 'File permission');
-define('lang_File_Permission_Not_Allowed', 'Changing %s permissions are not allowed.'); // %s = files or folders
-define('lang_File_Permission_Recursive', 'Apply recursively?');
-define('lang_File_Permission_Wrong_Mode', "The supplied permission mode is incorrect.");
-define('lang_User', 'User');
-define('lang_Group', 'Group');
-define('lang_Yes', 'Yes');
-define('lang_No', 'No');
-define('lang_Lang_Not_Found', 'Could not find language.');
-define('lang_Lang_Change', 'Change the language');
-define('lang_File_Not_Found', 'Could not find the file.');
-define('lang_File_Open_Edit_Not_Allowed', 'You are not allowed to %s this file.'); // %s = open or edit
-define('lang_Edit', 'Edit');
-define('lang_Edit_File', "Edit file's content");
-define('lang_File_Save_OK', "File successfully saved.");
-define('lang_File_Save_Error', "There was an error while saving the file.");
-define('lang_New_File','New File');
-define('lang_No_Extension','You have to add a file extension.'); 
-define('lang_Valid_Extensions','Valid extensions: %s'); // %s = txt,log etc.
 
-?>
+return array(
+
+	'Select' => 'انتخاب',
+	'Erase' => 'حذف',
+	'Open' => 'بازگشایی',
+	'Confirm_del' => 'میخواهید این فایل را حذف کنید؟',
+	'All' => 'همه',
+	'Files' => 'فایلها',
+	'Images' => 'تصاویر',
+	'Archives' => 'آرشیو',
+	'Error_Upload' => 'فایل آپلود شده بیش از حداکثر اندازه مجاز است.',
+	'Error_extension' => 'نوع فایل مجاز نیست.',
+	'Upload_file' => 'آپلود',
+	'Filters' => 'فیلترها',
+	'Videos' => 'ویدئوها',
+	'Music' => 'موزیک',
+	'New_Folder' => 'پوشه جدید',
+	'Folder_Created' => 'پوشه به درستی ایجاد شد',
+	'Existing_Folder' => 'پوشه های موجود',
+	'Confirm_Folder_del' => 'آیا میخواهید این پوشه را با تمام محتوایش حذف کنید؟',
+	'Return_Files_List' => 'برگشت به لیست فایلها',
+	'Preview' => 'پیش نمایش',
+	'Download' => 'دانلود',
+	'Insert_Folder_Name' => 'نام پوشه:',
+	'Root' => 'شاخه اصلی',
+	'Rename' => 'تغییر نام',
+	'Back' => 'برگشت',
+	'View' => 'نمایش',
+	'View_list' => 'نمایش لیست',
+	'View_columns_list' => 'نمایش لیست ستونی',
+	'View_boxes' => 'نمایش باکسها',
+	'Toolbar' => 'نوار ابزار',
+	'Actions' => 'عملیات',
+	'Rename_existing_file' => 'فایل از قبل موجود است',
+	'Rename_existing_folder' => 'پوشه از قبل موجود است',
+	'Empty_name' => 'نام خالی است',
+	'Text_filter' => 'فیلتر نوشته',
+	'Swipe_help' => 'روی نام فایل/پوشه بروید تا گزینه های بیشتری نمایش داده شوند . ',
+	'Upload_base' => 'آپلودر اصلی',
+	'Upload_base_help' => "Drag & Drop files(modern browsers) or click in upper button to Add the file(s) and click on Start upload. When the upload is complete, click the 'Return to files list' button.",
+	'Upload_add_files' => 'Add file(s)',
+	'Upload_start' => 'Start upload',
+	'Upload_error_messages' =>array(
+		1 => 'The uploaded file exceeds the upload_max_filesize directive in php.ini',
+		2 => 'The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the HTML form',
+		3 => 'The uploaded file was only partially uploaded',
+		4 => 'No file was uploaded',
+		6 => 'Missing a temporary folder',
+		7 => 'Failed to write file to disk',
+		8 => 'A PHP extension stopped the file upload',
+		'post_max_size' => 'The uploaded file exceeds the post_max_size directive in php.ini',
+		'max_file_size' => 'File is too big',
+		'min_file_size' => 'File is too small',
+		'accept_file_types' => 'Filetype not allowed',
+		'max_number_of_files' => 'Maximum number of files exceeded',
+		'max_width' => 'Image exceeds maximum width',
+		'min_width' => 'Image requires a minimum width',
+		'max_height' => 'Image exceeds maximum height',
+		'min_height' => 'Image requires a minimum height',
+		'abort' => 'File upload aborted',
+		'image_resize' => 'Failed to resize image'
+	),
+	'Upload_url' => 'From url',
+	'Type_dir' => 'مسیر',
+	'Type' => 'نوع',
+	'Dimension' => 'بعد',
+	'Size' => 'اندازه',
+	'Date' => 'تاریخ',
+	'Filename' => 'نام فایل',
+	'Operations' => 'عملیات',
+	'Date_type' => 'y-m-d',
+	'OK' => 'باشه',
+	'Cancel' => 'لغو',
+	'Sorting' => 'مرتب سازی',
+	'Show_url' => 'نمایش آدرس',
+	'Extract' => 'استخراج در اینجا',
+	'File_info' => 'اطلاعات فایل',
+	'Edit_image' => 'ویرایش تصویر',
+	'Duplicate' => 'تکرار',
+	'Folders' => 'پوشه ها',
+	'Copy' => 'کپی',
+	'Cut' => 'بریدن',
+	'Paste' => 'درج',
+	'CB' => 'کلیپ برد', // clipboard
+	'Paste_Here' => 'درج در این مسیر',
+	'Paste_Confirm' => 'آیا ممئن هستید که میخواهید در این مسیر درج کنید ؟  اگر فایل همنام وجود داشته باشد فایل جدید روی فایل قبلی OverWrite خواهد شد .',
+	'Paste_Failed' => 'خطا در درج فایل (ها) ! ',
+	'Clear_Clipboard' => 'پاک کردن کلیپ برد',
+	'Clear_Clipboard_Confirm' => 'مطمئنید که می خواهید کلیپ برد را خالی کنید ؟',
+	'Files_ON_Clipboard' => 'کلیپ برد حاوی فایل است .',
+	'Copy_Cut_Size_Limit' => 'فایل/پوشه انتخابی از حداکثر حجم مجاز برای %s بزرگتر هستند. محدودیت: %d MB/عملیات', // %s = cut or copy
+	'Copy_Cut_Count_Limit' => 'تعداد فایل/پوشه های انتخابی برای %s بسیار زیاد است . محدودیت: %d فایل/عملیات', // %s = cut or copy
+	'Copy_Cut_Not_Allowed' => 'شما اجازه %s این فایل را ندارید .', // %s(1) = cut or copy, %s(2) = files or folders
+	'Aviary_No_Save' => 'نتوانست تصویر را ذخیره کند .',
+	'Zip_No_Extract' => 'خطا در فرآیند Unzip . ممکن است فایل آسیب دیده باشد .',
+	'Zip_Invalid' => 'پسوند مورد نظر پشیبانی نمیشود ، مجاز : zip, gz, tar.',
+	'Dir_No_Write' => 'مسیر انتخابی قابل نوشتن نیست .',
+	'Function_Disabled' => 'تابع %s از سمت سرور غیر فعال شده است .', // %s = cut or copy
+	'File_Permission' => 'دسترسی فایل',
+	'File_Permission_Not_Allowed' => 'تغییر دسترسی %s مجاز نمی باشد .', // %s = files or folders
+	'File_Permission_Recursive' => 'اعمال بازگشتی بودن؟',
+	'File_Permission_Wrong_Mode' => "دسترسی اعمال شده اشتباه است .",
+	'User' => 'کاربر',
+	'Group' => 'گروه',
+	'Yes' => 'بله',
+	'No' => 'خبر',
+	'Lang_Not_Found' => 'زبان مورد نظر یافت نشد .',
+	'Lang_Change' => 'تغییر زبان',
+	'File_Not_Found' => 'نتوانست فایل را پیدا کند .',
+	'File_Open_Edit_Not_Allowed' => 'شما نمیتوانید این فایل را %s کنید.', // %s = open or edit
+	'Edit' => 'ویرایش',
+	'Edit_File' => "ویرایش محتوای فایل",
+	'File_Save_OK' => "فایل با موفقیت ذخیره شد .",
+	'File_Save_Error' => "خطایی در هنگام ذخیره فایل رخ داده است .",
+	'New_File' => 'فایل جدید',
+	'No_Extension' => 'شما باید پسوند وارد کنید .',
+	'Valid_Extensions' => 'پسوند های مجاز : %s', // %s = txt,log etc.
+	'Upload_message' => "فایل ها را اینجا بکشید تا آپلود شوند ",
+
+	'SERVER ERROR' => "خطای سرور",
+	'forbiden' => "ممنوع",
+	'wrong path' => "مسیر اشتباه",
+	'wrong name' => "نام غیر مجاز",
+	'wrong extension' => "پسوند غیر مجاز",
+	'wrong option' => "گزینه های غیر مجاز",
+	'wrong data' => "دیتا اشتباه",
+	'wrong action' => "عمل اشتباه",
+	'wrong sub-action' => "خطای زیر دستور",
+	'no action passed' => "بدون دستور",
+	'no path' => "بدون مسیر",
+	'no file' => "بدون فایل",
+	'view type number missing' => "نمایش تعداد نوع های غیر مجاز",
+	'Not enough Memory' => "نبود فضای کافی",
+	'max_size_reached' => "پوشه تصویر شما به حداکثر اندازه خود [%d MB] رسیده است .", //%d = max overall size
+	'B' => "B",
+	'KB' => "KB",
+	'MB' => "MB",
+	'GB' => "GB",
+	'TB' => "TB",
+	'total size' => "حجم کلی",
+);

@@ -25,10 +25,10 @@
 				        saturation: -100
 				    }]
 				}],
-				center: {
-					lat: 23.790390,
-					lng: 121.003835
-				}
+				// center: {
+				// 	lat: 23.790390,
+				// 	lng: 121.003835
+				// }
 			});
 
 			var infoWindowContent = [
@@ -94,6 +94,9 @@
 							cat: cat,
 							position: results[0].geometry.location
 						});
+
+						// set map center
+						resultsMap.setCenter(results[0].geometry.location);
 
 						// marker 另存一個陣列
 						markers.push(marker);

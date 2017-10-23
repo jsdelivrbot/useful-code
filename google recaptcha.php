@@ -1,3 +1,35 @@
+<!--===========================
+=            basic            =
+============================-->
+
+<div class="g-recaptcha"
+	data-sitekey="6Lf2eTUUAAAAAA2C6bGhcsp6tTt96UunVj-BeUy_"
+	data-callback="onSubmit"
+	data-size="invisible">
+</div>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script>
+	window.onSubmit = () => {
+		$(".contact-form").submit();
+	}
+
+	$("#send").click(function () {
+		if($(".contact-form").valid() == true){
+			var answer = confirm("您確認要送出您所填寫的資訊嗎？");
+			if (answer){
+				grecaptcha.execute();
+			}
+		}
+	})
+</script>
+
+
+<!--========================================
+=            multiple recaptcha            =
+=========================================-->
+
 <!-- invisible recaptcha -->
 <div id='recaptcha' class="g-recaptcha" style="display: none;"></div>
 

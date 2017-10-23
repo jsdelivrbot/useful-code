@@ -3,8 +3,8 @@ require_once 'Connections/connect2data.php';
 mysql_select_db($database_connect2data, $connect2data);
 
 $query_RecKeywords = sprintf("SELECT * FROM data_set
-  WHERE d_class1='keywords' AND d_active='1'
-  ORDER BY d_sort ASC");
+	WHERE d_class1='keywords' AND d_active='1'
+	ORDER BY d_sort ASC");
 $RecKeywords = mysql_query($query_RecKeywords, $connect2data) or die(mysql_error());
 $row_RecKeywords = mysql_fetch_assoc($RecKeywords);
 $totalrows_RecKeywords = mysql_num_rows($RecKeywords);

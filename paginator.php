@@ -1,11 +1,11 @@
 <?php
-require_once('paginator.class.php');
+require_once 'paginator.class.php';
 mysql_select_db($database_connect2data, $connect2data);
 
 //page start
-$page=(isset($_GET['page'])) ? $_GET['page']:1;
-$page_count=9;
-$init_count=($page-1)*$page_count;
+$page = (isset($_GET['page'])) ? $_GET['page'] : 1;
+$page_count = 9;
+$init_count = ($page - 1) * $page_count;
 
 //使用
 $query_RecProjects = "SELECT * FROM data_set, file_set
@@ -23,7 +23,7 @@ $RecProjects_count = mysql_query($query_RecProjects_count, $connect2data) or die
 $row_RecProjects_count = mysql_fetch_assoc($RecProjects_count);
 $totalRows_RecProjects_count = mysql_num_rows($RecProjects_count);
 
-$totalpage=ceil($totalRows_RecProjects_count/9);
+$totalpage = ceil($totalRows_RecProjects_count / 9);
 
 $pages = new Paginator;
 $pages->items_total = $totalRows_RecProjects_count;

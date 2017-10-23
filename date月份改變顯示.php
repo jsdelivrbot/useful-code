@@ -1,7 +1,7 @@
 <!-- 數字變英文 JUL-->
 <?php
 require_once('js/fun_changeStr.php');
- ?>
+?>
 
 <?php echo substr($row_Recwork['d_date'],0,4); ?>
 <?php echo Month2SortEng(substr($row_Recwork['d_date'],5,2)); ?>

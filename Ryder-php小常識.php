@@ -1,6 +1,27 @@
-<!--===========================
+<!--==============================
+=            兩天相差            =
+===============================-->
+<?php
+$today = date("Y-m-d H:i:s");
+
+function daysBetween($start, $end) {
+    $date = floor((strtotime($end) - strtotime($start)) / 86400);
+    return "相差天數：" . $date . "天<br/><br/>";
+
+    // $hour = floor((strtotime($enddate) - strtotime($startdate)) % 86400 / 3600);
+    // return "相差小時數：" . $hour . "小時<br/><br/>";
+
+    // $minute = floor((strtotime($enddate) - strtotime($startdate)) % 86400 / 60);
+    // return "相差分鐘數：" . $minute . "分鐘<br/><br/>";
+
+    // $second = floor((strtotime($enddate) - strtotime($startdate)) % 86400 % 60);
+    // return "相差秒數：" . $second . "秒";
+}
+?>
+
+<!--================================
 =            星期幾轉換            =
-============================-->
+=================================-->
 <?php
 function get_chinese_weekday($datetime) {
     $weekday  = date('w', strtotime($datetime));

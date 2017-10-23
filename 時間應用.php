@@ -20,8 +20,7 @@
 	}
 
 	// 求兩個時間的天數差 日期格式為 YYYY-MM-dd
-	function daysBetween(DateOne,DateTwo)
-	{
+	function daysBetween(DateOne,DateTwo) {
 		var OneMonth = DateOne.substring(5,DateOne.lastIndexOf ('-'));
 		var OneDay = DateOne.substring(DateOne.length,DateOne.lastIndexOf ('-')+1);
 		var OneYear = DateOne.substring(0,DateOne.indexOf ('-'));

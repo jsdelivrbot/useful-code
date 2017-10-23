@@ -1,3 +1,16 @@
+<!--===========================
+=            星期幾轉換            =
+============================-->
+<?php
+function get_chinese_weekday($datetime) {
+    $weekday  = date('w', strtotime($datetime));
+    $weeklist = array('SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT');
+    return $weeklist[$weekday];
+}
+?>
+
+<?= get_chinese_weekday($row_RecNews['d_date']) ?>
+
 <!--================================================
 =            header already send 的錯誤            =
 =================================================-->

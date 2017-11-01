@@ -1,62 +1,29 @@
-<!-- 自製 -->
-<style>
-    .m-fancyWrap{
-        width: calc(100% + 19px);
-        height: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
-        padding: 120px 0;
-    }
-</style>
+http://fancyapps.com/fancybox/3/docs/#options
+
+<ul class="ryder-selectList">
+    <li>
+        <a href="images/select-01.jpg" data-fancybox="images">
+            <div class="pic" style="background-image: url(images/select-01.jpg);"></div>
+        </a>
+    </li>
+    <li>
+        <a href="images/select-02.jpg" data-fancybox="images">
+            <div class="pic" style="background-image: url(images/select-02.jpg);"></div>
+        </a>
+    </li>
+</ul>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
 
 <script>
-    $(".videoList li").on("click", function() {
-        $("body").css({
-            position: 'fixed',
-            top: _scrollTop * -1,
-            'overflow-y': 'scroll'
-        });
-    })
-
-    $("#videoClose").on("click", function() {
-        $("body").css('position', 'static').scrollTop(parseInt($("body").css("top"), 10) * -1);
-    })
-</script>
-
-
-<!-- ================================================================== -->
-
-<script>
-    $(document).ready(function() {
-        $(".fancybox").click(function() {
-            $.fancybox.open({
-                href : '<?php echo $row_RecImage['file_link1'];?>',
-                padding : 0
-            });
-        });
-    });
-</script>
-
-<!-- 全畫面 -->
-<script src="js/fancyapps-fancyBox/source/jquery.fancybox.js"></script>
-<link rel="stylesheet" href="js/fancyapps-fancyBox/source/jquery.fancybox.css">
-
-<a class="various" data-fancybox-type="iframe" href="engineer2.php"><div class="btn">information</div></a>
-
-<script>
-    $(document).ready(function() {
-        $(".various").fancybox({
-            padding: 0,
-            margin: 0,
-            width: '100%',
-            height: '100%',
-            'closeBtn': false, //hide close btn
-
-            helpers: {
-                overlay: null, //取消 overlay
-                locked: false, //鎖住bg
-            }
-
-        });
+    $("[data-fancybox]").fancybox({
+        loop : true,
+        infobar : true,
+        animationEffect : "zoom",
+        animationDuration : 400,
+        transitionEffect : "slide",
+        transitionDuration : 400,
+        protect : true,
     });
 </script>

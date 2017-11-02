@@ -199,7 +199,7 @@ $message = "";
 			} else {
 
 				echo "<div class='succ'>我們已經將您的訊息送出嘍！</div>";
-				//$message = "<div class='succ'>我們已經將您的訊息送出嘍！</div>";
+				//$message = "<div class='succ'>COMPANY已經收到您的訊息囉！我們將會儘快回覆您。<br>We already get your message, and we'll reply you ASAP.</div>";
 			  //return 'ok';
 			  //echo 1;
 			 /* $insertGoTo = "driveraddsuccess_mailok.php";

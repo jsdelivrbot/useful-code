@@ -31,6 +31,7 @@ http://www.swiper.com.cn/api/index.html
 	var swiper = new Swiper('.swiper-container', {
         loop: true,
         slidesPerView: 3,
+        slidesPerGroup: 3,
         spaceBetween: 0,
         grabCursor: true,
         keyboard: true,
@@ -56,6 +57,7 @@ http://www.swiper.com.cn/api/index.html
 
     // fancybox trick
     $("#diyFancy").fadeIn(500, function () {
+        // $swiper.initialized = false;     // multiple maybe need it
         $cat_swiper.init();
         $products_swiper.init();
     });

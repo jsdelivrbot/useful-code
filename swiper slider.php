@@ -1,5 +1,8 @@
 http://idangero.us/swiper/api/#.WdoAmVuCyUk
 
+<!-- 中文 -->
+http://www.swiper.com.cn/api/index.html
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.5/js/swiper.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.5/css/swiper.min.css">
 
@@ -12,6 +15,7 @@ http://idangero.us/swiper/api/#.WdoAmVuCyUk
         <div class="swiper-slide">Slide 2</div>
         <div class="swiper-slide">Slide 3</div>
     </div>
+
     <!-- If we need pagination -->
     <div class="swiper-pagination"></div>
 
@@ -28,14 +32,20 @@ http://idangero.us/swiper/api/#.WdoAmVuCyUk
         loop: true,
         slidesPerView: 3,
         spaceBetween: 0,
+        grabCursor: true,
+        keyboard: true,
         // centeredSlides:true,
         // slidesOffsetBefore: 25,
         // slidesOffsetAfter: 50,
-        grabCursor: true,
-        keyboard: true,
+        // init: false,     // for fancybox
         navigation: {
         	prevEl: '.diy-package-prev',
         	nextEl: '.diy-package-next',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+            // dynamicBullets: true,
         },
         breakpoints: {
             1024: {
@@ -43,4 +53,10 @@ http://idangero.us/swiper/api/#.WdoAmVuCyUk
             },
         }
 	});
+
+    // fancybox trick
+    $("#diyFancy").fadeIn(500, function () {
+        $cat_swiper.init();
+        $products_swiper.init();
+    });
 </script>

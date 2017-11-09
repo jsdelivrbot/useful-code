@@ -37,5 +37,10 @@ http://idangero.us/swiper/api/#.WdoAmVuCyUk
         	prevEl: '.diy-package-prev',
         	nextEl: '.diy-package-next',
         },
+        breakpoints: {
+            1024: {
+                slidesPerView: 1,
+            },
+        }
 	});
 </script>

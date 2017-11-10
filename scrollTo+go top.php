@@ -5,12 +5,11 @@ https://github.com/flesler/jquery.scrollTo
 
 <script>
 	$(".knowmore").mousedown(function() {
-		$.scrollTo( $('.index-area3'), {duration: 1000} );
-	});
-
-	// offset 用法
-	$("#goroom").mousedown(function() {
-		$.scrollTo( $('#room'), {duration: 1000 , offset: -40} );
+		$.scrollTo( $('.index-area3'), {
+			duration: 1000,
+			offset: -40,
+			interrupt: true,
+		});
 	});
 </script>
 

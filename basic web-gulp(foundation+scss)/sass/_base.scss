@@ -38,6 +38,16 @@ img{
 	max-height: 100%;
 }
 
+/* override the default IOS styles */
+input, textarea{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+input[readonly]{
+	pointer-events: none;
+}
 
 
 /*

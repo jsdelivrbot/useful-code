@@ -66,6 +66,21 @@ http://www.oxxostudio.tw/articles/201406/social-meta.html
 <!-- <link rel="stylesheet/less" type="text/css" href="style_ryder.less"> -->
 <!-- <script src="js/less-1.3.0.min.js" type="text/javascript"></script> -->
 
+<!-- ie可能不見得有效 -->
+<meta http-equiv="pragma" content="no-cache">
+<!-- 設定成馬上就過期 -->
+<meta http-equiv="expires" content="0">
+<!-- 與第一行是同樣的作用 -->
+<meta http-equiv="cache-control" content="no-cache">
+# 其參數可以用這些方式設定：
+#http 1.1. allowed values = public | private | no-cache | no-store.
+#public - may be cached in public shared caches
+#private - may only be cached in private cache
+#no-cache - may not be cached
+#no-store - may be cached but not archived
+<!-- 常見此寫法 -->
+<meta http-equiv="expires" content="mon, 22 jul 2002 11:12:01 gmt">
+
 <!-- 關閉滑鼠移到圖片上方，出現儲存圖片的相關控制選單。 -->
 <meta http-equiv="imagetoolbar" content="no" />
 
@@ -75,16 +90,8 @@ http://www.oxxostudio.tw/articles/201406/social-meta.html
 <!-- 轉址服務 -->
 <meta http-equiv="refresh" content="3;url=http://blog.huayuworld.org/hcc928">
 
-<!-- 也就是網頁沒有記憶功能。是用於設定禁止流覽器從本地機的緩存中調閱頁面內容，設定後一旦離開網頁就無法從cache中再調出。 -->
-<meta http-equiv="pragma" content="no_cache">
-
 <!-- 強制頁面在當前視窗中以獨立頁面顯示，可以防止自己的網頁被別人當作一個frame頁調用。 -->
 <meta http-equiv="windows-target" content="_top">
-
-
-<!-- 設為0代表不暫存該網頁  說明：當瀏覽器cache中的網頁過期，才會到伺服器上重新下載，否則會顯示暫存的網頁，expired==>網頁終止期限 -->
-<meta name="expired" content="mon, 01 jan 2010 00:00:00 gmt">
-<meta http-equiv="expires" content="0" />
 
 <!-- 重訪時間： -->
 <meta name="revisit-after" content="1 days" >

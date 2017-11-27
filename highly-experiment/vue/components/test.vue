@@ -31,9 +31,11 @@
 <script>
     export default {
         // Options / Data
-        data () { return {
-            name : 'Tony'
-        } },
+        data() {
+            return {
+                name : 'Tony'
+            }
+        },
         // props: [],
         // propsData: {},
         // computed: {},

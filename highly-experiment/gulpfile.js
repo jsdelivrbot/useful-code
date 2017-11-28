@@ -76,9 +76,7 @@ gulp.task('pug', function buildHTML() {
         .pipe(gulp.dest('./'))
 });
 
-gulp.task('pug-rebuild', ['pug'], function() {
-    browserSync.reload();
-});
+gulp.task('pug-rebuild', ['pug'], browserSync.reload);
 
 // gulp.task('sass', function() {
 //     gulp.src('sass/*.scss')
@@ -151,9 +149,7 @@ gulp.task('svg', function() {
     .pipe(gulp.dest("./"));
 });
 
-gulp.task('svg-rebuild', ['svg'], function() {
-    browserSync.reload();
-});
+gulp.task('svg-rebuild', ['svg'], browserSync.reload);
 
 // normal
 gulp.task('default', ['svg', 'sass', 'babel', 'browser-sync']);

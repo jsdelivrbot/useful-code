@@ -15,17 +15,20 @@
         return true;
     }
 
-    $(window).load(function  () {
+    $(window).load(function () {
         $(".banner").vegas({
             timer: false,
             delay: 5500,
             transitionDuration: 1800,
-            slides: [
-            { src: "images/slidernew1.jpg" },
-            { src: "images/slidernew2.jpg" },
-            { src: "images/slidernew3.jpg" },
-            { src: "images/slidernew4.jpg" },
-            {
+            slides: [{
+                src: "images/slidernew1.jpg"
+            }, {
+                src: "images/slidernew2.jpg"
+            }, {
+                src: "images/slidernew3.jpg"
+            }, {
+                src: "images/slidernew4.jpg"
+            }, {
                 // src: '/img/slide2.jpg',
                 video: {
                     src: [
@@ -34,8 +37,7 @@
                     loop: false,
                     mute: true
                 }
-            },
-            ]
+            }, ]
         });
     })
 </script>
@@ -44,18 +46,19 @@
 =            pager            =
 =============================-->
 <script type="text/javascript">
-    $(".fish li").click(function  () {
-        var index=$(this).index();
+    $(".fish li").click(function () {
+        var index = $(this).index();
         $(".banner").vegas('jump', index);
         vegaspager();
     })
-    $(".banner").on("vegaswalk",function  () {
+
+    $(".banner").on("vegaswalk",function () {
         vegaspager();
     })
 
     function vegaspager () {
-        var t=$(".banner").vegas('current');
-        $(".fish li).eq(t).addClass("active").siblings().removeClass("active");
+        var t = $(".banner").vegas('current');
+        $(".fish li").eq(t).addClass("active").siblings().removeClass("active");
     }
 </script>
 
@@ -84,20 +87,20 @@
 
 
 <script>
-    $(".vegasNext").click(function  () {
+    $(".vegasNext").click(function () {
         $("body").vegas('next');
         vegascontrols();
     })
-    $(".vegasPrev").click(function  () {
+    $(".vegasPrev").click(function () {
         $("body").vegas('previous');
         vegascontrols();
     })
 
     function vegascontrols () {
-        var t=$("body").vegas('current')+1;
-        var effect=$("#vegasSwitch #switch"+t+"").siblings().fadeOut(200);
+        var t = $("body").vegas('current') + 1;
+        var effect = $("#vegasSwitch #switch"+ t +"").siblings().fadeOut(200);
         $.when(effect).done(function() {
-            $("#vegasSwitch #switch"+t+"").fadeIn(700);
+            $("#vegasSwitch #switch"+ t +"").fadeIn(700);
         });
     }
 </script>

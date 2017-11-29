@@ -1,0 +1,6 @@
+<!-- 判斷class方法 -->
+- var _now = 'news'
+
+li.cell.shrink(class={'current': _now == 'news'}): a(href="news.html") NEWS
+
+li.cell.shrink(class=(_now == 'news') ? 'current' : ''): a(href="news.html") NEWS

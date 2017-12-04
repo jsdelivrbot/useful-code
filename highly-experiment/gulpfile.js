@@ -61,7 +61,7 @@ gulp.task('vue', function() {
 gulp.task('babel', function() {
     return gulp.src('js/*.js')
         .pipe(babel({
-            presets: ['es2015'],
+            presets: ['es2015', 'stage-3'],
         }))
         .pipe(browserify())
         .pipe(gulp.dest('dist'))

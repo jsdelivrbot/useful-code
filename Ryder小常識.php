@@ -1,12 +1,14 @@
 <!--====================================================
-=           Deferred 就類似 jquery 的 promise            =
+=           jquery 的 Deferred 就類似 promise            =
 =====================================================-->
 <script>
 	function runAsync() {
 		let def = $.Deferred();
+
 		setTimeout(function() {
 			def.resolve('111');
 		}, 2000);
+
 		return def;
 	}
 

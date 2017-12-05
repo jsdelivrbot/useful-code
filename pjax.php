@@ -47,10 +47,6 @@ https://codyhouse.co/gem/animated-page-transition/
 			return deferred.promise;
 		},
 		fadeIn() {
-			window.scroll(0, 0);
-
-			this.done();
-
 			TweenMax.to( $("#transformWrap .logo"), 0.5, {
 				opacity: 0,
 				delay: 0.5,
@@ -58,6 +54,9 @@ https://codyhouse.co/gem/animated-page-transition/
 					_transform.reverse();
 				}
 			});
+
+			window.scroll(0, 0);
+			this.done();
 		}
 	})
 

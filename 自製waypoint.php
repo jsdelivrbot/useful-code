@@ -50,7 +50,7 @@
 					windowHeight = $(window).height(),
 					breakPoint = windowHeight * setting.hook;
 
-				if (distance > breakPoint || distance < -$this.height()) {
+				if (distance > breakPoint || distance < breakPoint - $this.height()) {
 					setting.leave($this);
 				}else if (distance < breakPoint) {
 					setting.enter($this);

@@ -7,7 +7,7 @@
 			var deFault = {
 				hook: 0.8,
 				check: 1,
-				enter: function() {}
+				enter() {}
 			};
 
 			var setting = $.extend(deFault, option);
@@ -37,8 +37,8 @@
 
 			var deFault = {
 				hook: 0.9,
-				enter: function() {},
-				leave: function() {}
+				enter() {},
+				leave() {}
 			};
 
 			var setting = $.extend(deFault, option);
@@ -62,8 +62,8 @@
 	};
 
 	$(".detailInfo").ryderCool({
-		enter: function(el) {},
-		leave: function(el) {}
+		enter(el) {},
+		leave(el) {}
 	})
 </script>
 

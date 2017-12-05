@@ -19,8 +19,10 @@ https://codyhouse.co/gem/animated-page-transition/
 		namespace: 'technic',
 		onEnter() {},
 		onEnterCompleted() {
-			$.getScript('dist/technic.js');
-			$.getScript('js/jquery.parallax-scroll.js');
+			setTimeout(function () {
+				$.getScript('dist/technic.js');
+				$.getScript('js/jquery.parallax-scroll.js');
+			}, 1000)
 		},
 		onLeave() {},
 		onLeaveCompleted() {}

@@ -17,16 +17,25 @@ https://codyhouse.co/gem/animated-page-transition/
 
 	const Technic = Barba.BaseView.extend({
 		namespace: 'technic',
-		onEnter: function() {},
-		onEnterCompleted: function() {
+		onEnter() {},
+		onEnterCompleted() {
 			$.getScript('dist/technic.js');
 			$.getScript('js/jquery.parallax-scroll.js');
 		},
-		onLeave: function() {},
-		onLeaveCompleted: function() {}
+		onLeave() {},
+		onLeaveCompleted() {}
 	}).init();
 
 	Barba.Pjax.init();
+
+	Barba.Dispatcher.on('newPageReady', (currentStatus, oldStatus, container) => {
+		$('.lazy').lazy({
+			chainable: false,
+			effect: "fadeIn",
+			effectTime: 1000,
+			// defaultImage: 'images/lazy-default.svg',
+		});
+	});
 
 	const BigFatLp = Barba.BaseTransition.extend({
 		async start() {

@@ -93,4 +93,12 @@ var phone_5 = new TimelineMax().add([
 	})
 ])
 
+// addcallback
+phone_5.addCallback(function () {
+	TweenMax.to( $("#transformWrap .logo"), 0.5, {
+		opacity: 1,
+		onComplete() {}
+	});
+}, "end")
+
 </script>

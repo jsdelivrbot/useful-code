@@ -1,3 +1,34 @@
+<!--====================================================
+=           Deferred 就類似 jquery 的 promise            =
+=====================================================-->
+<script>
+	function runAsync() {
+		let def = $.Deferred();
+		setTimeout(function() {
+			def.resolve('111');
+		}, 2000);
+		return def;
+	}
+
+	function runAsync2() {
+		let def = $.Deferred();
+
+		setTimeout(function() {
+			def.resolve('222');
+		}, 1000);
+
+		return def;
+	}
+
+	runAsync().then(function(val){
+	    console.log(val)
+	    return runAsync2();
+	}).then(function(val){
+	    console.log(val)
+	    console.log('done')
+	})
+</script>
+
 <!--========================================
 =            firefox use filter            =
 =========================================-->

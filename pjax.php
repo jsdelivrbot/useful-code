@@ -47,6 +47,8 @@ https://codyhouse.co/gem/animated-page-transition/
 			return deferred.promise;
 		},
 		fadeIn() {
+			window.scroll(0, 0);
+
 			this.done();
 
 			TweenMax.to( $("#transformWrap .logo"), 0.5, {

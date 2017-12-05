@@ -7,8 +7,24 @@ smoothstate.js
 https://codyhouse.co/gem/animated-page-transition/
 
 <!-- barba.js -->
+<template lang="pug">
+	#barba-wrapper
+		.barba-container(data-namespace="products")
+</template>
+
 <script>
 	import Barba from 'barba.js';
+
+	const Technic = Barba.BaseView.extend({
+		namespace: 'technic',
+		onEnter: function() {},
+		onEnterCompleted: function() {
+			$.getScript('dist/technic.js');
+			$.getScript('js/jquery.parallax-scroll.js');
+		},
+		onLeave: function() {},
+		onLeaveCompleted: function() {}
+	}).init();
 
 	Barba.Pjax.init();
 

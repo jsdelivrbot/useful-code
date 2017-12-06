@@ -18,55 +18,15 @@ gulp.task('browser-sync', function() {
     });
 
     gulp.watch('sass/*.scss', ['sass']);
-
-    gulp.watch('js/*.js', ['js-rebuild']);
-
+    gulp.watch('src/**', ['js-rebuild']);
     gulp.watch('svg/*.svg', ['svg-rebuild']);
-
-    // gulp.watch(['vue/components/*.vue', 'vue/*.js'], ['vue']);
-
-    // gulp.watch('pug/*.pug', ['pug-rebuild']);
-
-    browserSync.watch(['*.html', '*.php']).on('change', browserSync.reload);
-});
-
-// FIXME: 待修改
-// gulp.task('react', function() {
-//     return gulp.src('components/*.jsx', {
-//             read: false
-//         })
-//         .pipe(tap(function(file) {
-//             file.contents = new_browserify(file.path, {
-//                 debug: true
-//             })
-//             .transform('babelify', {
-//                 presets: ['es2015', 'react']
-//             })
-//             // .plugin('css-modulesify')
-//             .bundle()
-//         }))
-//         .pipe(buffer())
-//         .pipe(ext.replace('js'))
-//         .pipe(gulp.dest('dist'))
-//         .pipe(browserSync.stream());
-// });
-
-gulp.task('vue', function() {
-    return gulp.src('vue/*.js')
-        .pipe(webpack(require('./webpack.config.js') ))
-        .pipe(gulp.dest('dist'))
-        .pipe(browserSync.stream());
+    gulp.watch('pug/*.pug', ['pug-rebuild']);
+    // browserSync.watch(['*.html', '*.php']).on('change', browserSync.reload);
 });
 
 gulp.task('babel', function() {
-    return gulp.src('js/*.js')
-        .pipe(babel({
-            presets: ['es2015'],
-            plugins: [
-                'async-to-promises'
-            ]
-        }))
-        .pipe(browserify())
+    return gulp.src('src/*.js')
+        .pipe(webpack(require('./webpack.config.js')))
         .pipe(gulp.dest('dist'));
 });
 
@@ -155,11 +115,4 @@ gulp.task('svg', function() {
 
 gulp.task('svg-rebuild', ['svg'], browserSync.reload);
 
-// normal
-gulp.task('default', ['svg', 'sass', 'babel', 'browser-sync']);
-
-// vue
-// gulp.task('default', ['svg', 'sass', 'babel', 'vue', 'pug', 'browser-sync']);
-
-// react
-// gulp.task('default', ['svg', 'sass', 'babel', 'react', 'pug', 'browser-sync']);
+gulp.task('default', ['svg', 'sass', 'babel', 'pug', 'browser-sync']);

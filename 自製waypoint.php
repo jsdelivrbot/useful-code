@@ -48,9 +48,10 @@
 					elementOffset = $this.offset().top,
 					distance = (elementOffset - scrollTop),
 					windowHeight = $(window).height(),
-					breakPoint = windowHeight * setting.hook;
+					breakPoint = windowHeight * setting.hook,
+					leavePoint = $this.height() - windowHeight * (1 - setting.hook);
 
-				if (distance > breakPoint || distance < breakPoint - $this.height()) {
+				if (distance > breakPoint || distance < -leavePoint) {
 					setting.leave($this);
 				}else if (distance < breakPoint) {
 					setting.enter($this);

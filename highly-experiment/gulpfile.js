@@ -19,7 +19,7 @@ gulp.task('browser-sync', function() {
 
     gulp.watch('sass/*.scss', ['sass']);
 
-    gulp.watch('js/*.js', ['babel']);
+    gulp.watch('js/*.js', ['js-rebuild']);
 
     gulp.watch('svg/*.svg', ['svg-rebuild']);
 
@@ -67,9 +67,10 @@ gulp.task('babel', function() {
             ]
         }))
         .pipe(browserify())
-        .pipe(gulp.dest('dist'))
-        .pipe(browserSync.stream());
+        .pipe(gulp.dest('dist'));
 });
+
+gulp.task('js-rebuild', ['babel'], browserSync.reload);
 
 gulp.task('pug', function buildHTML() {
     return gulp.src('pug/*.pug')

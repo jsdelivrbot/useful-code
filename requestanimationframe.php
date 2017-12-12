@@ -17,6 +17,26 @@
     })();
 </script>
 
+<!-- control fps -->
+<script>
+    let previousDelta = 0;
+    let _sec = 2000;
+
+    function _sewing_sock(currentDelta) {
+
+        requestAnimationFrame(_sewing_sock);
+
+        var delta = currentDelta - previousDelta;
+
+        if (delta < _sec) {
+            return;
+        }
+
+        // code here
+
+        previousDelta = currentDelta;
+    }
+</script>
 
 <!-- requestanimationframe ease -->
 <script>

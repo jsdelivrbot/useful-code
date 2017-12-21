@@ -26,9 +26,8 @@ TweenMax.set(e, {
 TweenMax.to(animated, 2, {
 	right: "-80",
 	ease: Back.easeOut.config(1.7),
-	onComplete: function() {
-		// code
-	}
+	clearProps: 'all',
+	onComplete: function() {}
 });
 
 // 彈跳more
@@ -40,7 +39,7 @@ TweenMax.to($(".brandDown"), 1.5, {
 })
 
 // stagger
-$(".ownerWrap").load(".ownerWrap li",function  () {
+$(".ownerWrap").load(".ownerWrap li", function() {
 	TweenMax.staggerTo($(".ownerWrap li"), 0.5, {
 		opacity:1
 	}, 0.2);
@@ -52,7 +51,7 @@ var c1 = TweenMax.staggerFrom($("#iaw-p2-circle li"), 2, {
 	transformOrigin:'center',
 	repeat: -1,
 	repeatDelay: 4,
-	onUpdate: function () {
+	onUpdate: function() {
 		if (this.progress() == 1) {
 			$(this.target).animate({
 				opacity: 0
@@ -80,16 +79,16 @@ var phone_5 = new TimelineMax().add([
 	TweenMax.to($(".fixphone .item").eq(4), 2, {
 		width: 500,
 		height: 500,
-		onStart: function () {
+		onStart: function() {
 			$(".fixphone .loading").show()
 		},
-		onComplete: function () {}
+		onComplete: function() {}
 	}),
 	TweenMax.to($(".fixphone .loading span"), 2, {
 		width: '100%',
 		delay: 2,
-		onStart: function () {},
-		onComplete: function () {}
+		onStart: function() {},
+		onComplete: function() {}
 	})
 ])
 

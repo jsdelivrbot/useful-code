@@ -1,6 +1,6 @@
 <!-- media query -->
 <style>
-	@media screen and (max-height: 860px), screen and #{breakpoint(xlarge down)}{
+	@media screen and (max-height: 860px), screen and #{breakpoint(xlarge down)} {
 		height: 346px;
 		padding: 33px 0;
 	};

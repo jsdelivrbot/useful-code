@@ -10,8 +10,7 @@
 		format: "yyyy/mm/dd",
 		language: "zh-TW",
 		autoclose: true,
-		todayHighlight: true,
-		enableOnReadonly: false
+		todayHighlight: true
 	});
 
 	// getFormattedDate

@@ -1,3 +1,11 @@
+<!-- media query -->
+<style>
+	@media screen and (max-height: 860px), screen and #{breakpoint(xlarge down)}{
+		height: 346px;
+		padding: 33px 0;
+	};
+</style>
+
 <!-- flex 水平垂直置中的include用法 -->
 <style>
 	@include flex;

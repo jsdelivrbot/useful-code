@@ -390,8 +390,6 @@ e.stopPropagation();
 ================================================================-->
 <style>
 	overflow: hidden;
-	-webkit-backface-visibility: hidden;
-	-moz-backface-visibility: hidden;
 	backface-visibility: hidden;
 </style>
 
@@ -477,9 +475,9 @@ http://tmtheme-editor.herokuapp.com/#!/editor/local/3024%20(Night)
 =============================================================-->
 
 <style type="text/css">
-	.class{
-		transform:translateZ(51px);
-		-webkit-transform:translateZ(51px);
+	.parent{
+		-webkit-font-smoothing: subpixel-antialiased;
+		transform: translateZ(0) scale(1.0, 1.0);
 	}
 </style>
 

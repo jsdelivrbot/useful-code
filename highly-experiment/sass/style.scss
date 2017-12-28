@@ -8,8 +8,9 @@
 // custom faoundation settings here
 $global-margin: 20px;
 $global-padding: 20px;
-$prototype-spacing-breakpoints: true;
+$prototype-overflow-breakpoints: true;
 $prototype-spacers-count: 8;
+$prototype-spacing-breakpoints: true;
 $breakpoint-classes: (small medium large xlarge xxlarge);
 $responsive-embed-margin-bottom: 0;
 $responsive-embed-ratios: (
@@ -34,6 +35,7 @@ $responsive-embed-ratios: (
 // );
 
 @include foundation-xy-grid-classes;
+@include foundation-prototype-overflow;
 @include foundation-prototype-spacing;
 @include foundation-flex-classes;
 @include foundation-responsive-embed;

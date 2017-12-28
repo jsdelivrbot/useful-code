@@ -9,8 +9,14 @@
 $global-margin: 20px;
 $global-padding: 20px;
 $prototype-overflow-breakpoints: true;
-$prototype-spacers-count: 8;
+$prototype-overflow: (
+	visible,
+	hidden,
+	scroll,
+	auto
+);
 $prototype-spacing-breakpoints: true;
+$prototype-spacers-count: 8;
 $breakpoint-classes: (small medium large xlarge xxlarge);
 $responsive-embed-margin-bottom: 0;
 $responsive-embed-ratios: (

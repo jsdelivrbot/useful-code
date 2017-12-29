@@ -7,7 +7,7 @@
 	<?php include('meta.php') ?>
 
 	<link rel="stylesheet/less" type="text/css" href="style_ryder.less">
-	<script src="js/less-1.3.0.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.3/less.min.js"></script>
 </head>
 
 <body>

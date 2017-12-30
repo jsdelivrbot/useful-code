@@ -26,6 +26,9 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule (.*) error404.php [L]
 
+<!-- 這個也可以 -->
+ErrorDocument 404 /search.php
+
 
 <!-- 這個好用 (title(要去空白for好看 去斜線for路徑 去中文for我爽)-id) -->
 <!-- <a href="<?= preg_replace('/[^\w]/', '', $row_RecWorks['d_title']) ?>-<?= $row_RecWorks['d_id'] ?>"> -->

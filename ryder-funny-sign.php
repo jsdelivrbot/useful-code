@@ -1,4 +1,6 @@
 <script>
+  console.log("%c http://ryderisgood.com/ ",'background: #C82623;color: #FFF');
+
   console.style('<img="background:url(http://cultofthepartyparrot.com/parrots/parrot.gif);width:30px;height:21.4px">')
 
   console.log("%c跨殺小 (／‵Д′)／~ ╧╧", "color: #f00; font-size: 50px;");

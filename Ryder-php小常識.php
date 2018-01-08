@@ -1,3 +1,61 @@
+<!--==========================================
+=            ajax objects回傳json            =
+===========================================-->
+<?php
+require_once 'Connections/connect2data.php';
+mysql_select_db($database_connect2data, $connect2data);
+
+$query_RecShop = sprintf("SELECT * FROM store
+    WHERE s_active='1'
+    ORDER BY s_date DESC");
+$RecShop = mysql_query($query_RecShop, $connect2data) or die(mysql_error());
+// $row_RecShop = mysql_fetch_assoc($RecShop);
+$totalRows_RecShop = mysql_num_rows($RecShop);
+
+$query_RecCity = sprintf("SELECT * FROM city
+    WHERE parent_id='0'
+    ORDER BY ID ASC");
+$RecCity = mysql_query($query_RecCity, $connect2data) or die(mysql_error());
+// $row_RecCity = mysql_fetch_assoc($RecCity);
+$totalRows_RecCity = mysql_num_rows($RecCity);
+
+$query_RecArea = sprintf("SELECT * FROM city
+    WHERE parent_id!='0'
+    ORDER BY ID ASC");
+$RecArea = mysql_query($query_RecArea, $connect2data) or die(mysql_error());
+// $row_RecArea = mysql_fetch_assoc($RecArea);
+$totalRows_RecArea = mysql_num_rows($RecArea);
+
+$query_RecType = sprintf("SELECT * FROM store_type
+    WHERE s_active='1'
+    ORDER BY s_type_sort ASC");
+$RecType = mysql_query($query_RecType, $connect2data) or die(mysql_error());
+// $row_RecType = mysql_fetch_assoc($RecType);
+$totalRows_RecType = mysql_num_rows($RecType);
+
+$citys = array();
+$areas = array();
+$types = array();
+$shops = array();
+
+while($r = $row_RecCity = mysql_fetch_assoc($RecCity)) {
+    $citys[] = $r;
+}
+while($r = $row_RecArea = mysql_fetch_assoc($RecArea)) {
+    $areas[] = $r;
+}
+while($r = $row_RecType = mysql_fetch_assoc($RecType)) {
+    $types[] = $r;
+}
+while($r = $row_RecShop = mysql_fetch_assoc($RecShop)) {
+    $shops[] = $r;
+}
+
+$obj = (object) array('citys' => $citys);
+
+echo json_encode(array('citys' => $citys, 'areas' => $areas, 'types' => $types, 'shops' => $shops));
+?>
+
 <!--==============================
 =            兩天相差            =
 ===============================-->

@@ -1,6 +1,13 @@
+<!-- cdn -->
+<script src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>
+
 <script src="js/slick.js"></script>
 <link rel="stylesheet" href="css/slick.css">
+
+<!-- default prev next dot if you want -->
 <link rel="stylesheet" href="css/slick-theme.css">
+
 <!-- option -->
 <script src="js/jquery.easing.1.3.js"></script>
 

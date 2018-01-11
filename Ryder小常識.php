@@ -122,13 +122,6 @@ https://seo.palada.com.tw/15.html
 =============================================================-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
 
-<!--======================================
-=            重整時回到最上面            =
-=======================================-->
-<script>
-	window.onbeforeunload = function() {window.scrollTo(0,0);}
-</script>
-
 
 <!--====================================================
 =            find找不到第一層，用filter即可            =
@@ -429,7 +422,7 @@ http://tmtheme-editor.herokuapp.com/#!/editor/local/3024%20(Night)
 =            取得n以後的字串            =
 ======================================-->
 <script>
-	var_go=$(this).attr("class").slice(3);
+	var _go = $(this).attr("class").slice(3);
 </script>
 
 <!--==========================================
@@ -464,10 +457,10 @@ http://tmtheme-editor.herokuapp.com/#!/editor/local/3024%20(Night)
 ===================================-->
 
 <script type="text/javascript">
-	var openIndex = openingId.replace(/[^0-9]/ig,"");
+	var openIndex = openingId.replace(/[^0-9]/ig, "");
 
 	//取tag內容要先轉數字才可運算
-	var t=parseInt(shadow.text()) + 1;
+	var t = parseInt(shadow.text()) + 1;
 </script>
 
 <!--=============================================================

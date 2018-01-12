@@ -33,12 +33,15 @@ http://www.swiper.com.cn/api/index.html
         slidesPerView: 3,
         slidesPerGroup: 3,
         spaceBetween: 0,
-        grabCursor: true,
         keyboard: true,
         // centeredSlides:true,
         // slidesOffsetBefore: 25,
         // slidesOffsetAfter: 50,
         // init: false,     // for fancybox
+        // effect: 'fade',
+        // fadeEffect: {
+        //     crossFade: true
+        // },
         navigation: {
         	prevEl: '.diy-package-prev',
         	nextEl: '.diy-package-next',

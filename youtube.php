@@ -1,3 +1,16 @@
+<!-- 燈箱 -->
+<script>
+	$(".videoWrap section").on("click", function (){
+		$("#youtube-container").html('<iframe src="http://www.youtube.com/embed/'+ $(this).data("id") +'?autoplay=1" frameborder="0" allowfullscreen></iframe>');
+		$(".videoFancy").fadeIn(500)
+	})
+
+	$(".fancyCloseBlock").on("click", function (){
+		$("#youtube-container").html("");
+		$(".videoFancy").fadeOut(500)
+	})
+</script>
+
 <!-- youtube api -->
 https://developers.google.com/youtube/player_parameters#start
 
@@ -130,18 +143,4 @@ https://developers.google.com/youtube/player_parameters#start
 			$(".ytplayer").eq(_nowPlayer).hide()
 		});
 	})
-</script>
-
-
-<!-- 不知啥時用的 -->
-<li onclick="youtube_play(this);" data-youtube="<?= $row_Recvideoimage['d_class4'] ?>"><img src="<?php echo $row_Recvideoimage['file_link1'] ; ?>"><img src="img/videoplay.png" width="80" class="videoplay"></li>
-
-<script>
-	function youtube_play(e) {
-		var $this = $(e);
-		var _src = $this.data("youtube");
-		var _w = $this.width() + "px";
-		var _h = $this.height() + "px";
-		$this.html('<iframe src="http://www.youtube.com/embed/' + _src + '?autoplay=1" frameborder="0" allowfullscreen width="' + _w + '" height="' + _h + '"></iframe>');
-	}
 </script>

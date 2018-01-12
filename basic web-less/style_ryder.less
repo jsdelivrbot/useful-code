@@ -1,53 +1,69 @@
-@import "css/reset.css";
-// @import "ryder970cm.css" screen and (max-width: 970px);
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
-@ch-family: "メイリオ",Meiryo,"STXihei", HEITI TC, "HEITI TC", "黑體-繁", "微軟正黑體", "黑體", sans-serif;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+@ch-family:"文鼎中特明",'cwTeXHei', "STXihei", HEITI TC, "HEITI TC", "黑體-繁", "微軟正黑體", "黑體", sans-serif;
 @content-family: "STXihei", HEITI TC, "HEITI TC", "黑體-繁", "微軟正黑體", "黑體", sans-serif;
-@en-family: Arial, Helvetica, sans-serif;
-@foot-family: "Gill Sans MT", Arial, Helvetica, sans-serif;
-@jpch: "Hiragino Mincho Pro", "ヒラギノ明朝 Pro W3", "小塚明朝 Pro EL", "Kozuka Mincho Pro", Georgia, Century, "Times New Roman", Times, "ＭＳ 明朝", serif;
-@jpen: "Times New Roman", Times;
-@trajan: 'Trajan pro', Cinzel, Arial, Helvetica, sans-serif;
-@qqen: DINNextRoundedLTW01-Lig, 'Helvetica Neue', 'Helvetica, Arial', sans-serif;
+@en-family: "Adobe Garamond Pro",Garamond, Georgia, tmmf-n4 , serif;
 
-// 好神奇之這樣就可以抓到 height:100%
 html,body{
-	margin:0;
-	height:100%;
-	width:100%;
 	-webkit-text-size-adjust:100%;   // for mobile fontsize
 }
-
-.flexbox{
-	display: flex;
-	display: -ms-flexbox;
-}
-.flexCenter{
-	display: -webkit-box;
-	display: -moz-box;
-	display: -moz-flex;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	justify-content:center;
-	align-items:center;
-	-webkit-justify-content:center;
-	-webkit-align-items:center;
-	-ms-flex-align:center;
-	-ms-flex-pack:center;
-}
-.autoright{margin-right: auto;}
-.clearfix{clear: both;}
-
 a{
 	text-decoration: none;
 	color: inherit;
 	img{border: 0;}
 }
 
-input:focus , select:focus , textarea:focus, button:focus{
+:focus{
 	outline: 0;
 }
+
 button{
 	background-color: transparent;
 	border: 0;
@@ -58,27 +74,30 @@ button{
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
+
 img{
-	display: inline-block;
+	display: inline-block;	//remove bottom space
 	vertical-align: middle;
 	max-width: 100%;
-	height: auto;
+	max-height: 100%;
 }
 
-/* 侯留肯！阿噠噠噠噠～*/
-.css_mover{
-	cursor: pointer;
-	img:nth-child(1){display:inline; }
-	img:nth-child(2){display:none; }
-	&.current img:nth-child(1){display:none; }
-	&.current img:nth-child(2){display:inline; }
+/* override the default IOS styles */
+input, textarea{
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
 }
-.css_active , .css_mover:hover{
-	img:nth-child(1){display:none; }
-	img:nth-child(2){display:inline; }
-	&.current img:nth-child(1){display:none; }
-	&.current img:nth-child(2){display:inline; }
+
+.image-2x {
+    img:nth-child(1) {display: inline;}
+    img:nth-child(2) {display: none;}
+    @media (-webkit-min-device-pixel-ratio: 2),(min-resolution: 2dppx) {
+        img:nth-child(1) {display: none;}
+        img:nth-child(2) {display: inline;}
+    }
 }
+
 .mr (@marginR){
 	margin-right: @marginR;
 	&:last-child{margin-right: 0;}
@@ -88,4 +107,4 @@ img{
 	&:last-child{margin-bottom: 0;}
 }
 //--------------------------- 我是分隔線 ------------------------------------
-
+@xlargeDown: ~"screen and (max-width: 1440px)";

@@ -47,13 +47,27 @@ http://www.swiper.com.cn/api/index.html
         	nextEl: '.diy-package-next',
         },
         pagination: {
-            el: '.swiper-pagination',
+            el: '.activityPager',
             clickable: true,
-            // dynamicBullets: true,
+            bulletClass: 'activity-bullet',
+            bulletActiveClass: 'activity-bullet-active',
+            renderBullet: function (index, className) {
+                return `
+                    <a href="javascript:;" class="${className}">${index + 1}</a>
+                `;
+            },
         },
         breakpoints: {
             1024: {
                 slidesPerView: 1,
+            },
+        },
+        on: {
+            click() {
+                let _goto = parseInt(this.clickedSlide.dataset.swiperSlideIndex) + 1;
+
+                // slick slider
+                activity.slideTo(_goto, 500, false)
             },
         }
 	});

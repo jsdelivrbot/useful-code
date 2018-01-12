@@ -29,15 +29,12 @@ http://www.swiper.com.cn/api/index.html
 
 <script>
 	var swiper = new Swiper('.swiper-container', {
+        // init: false,     // for fancybox
         loop: true,
         slidesPerView: 3,
         slidesPerGroup: 3,
         spaceBetween: 0,
         keyboard: true,
-        // centeredSlides:true,
-        // slidesOffsetBefore: 25,
-        // slidesOffsetAfter: 50,
-        // init: false,     // for fancybox
         // effect: 'fade',
         // fadeEffect: {
         //     crossFade: true

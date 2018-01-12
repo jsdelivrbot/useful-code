@@ -1,7 +1,7 @@
 <script>
   console.log("%c http://ryderisgood.com/ ",'background: #C82623;color: #FFF');
 
-  console.style('<img="background:url(http://cultofthepartyparrot.com/parrots/parrot.gif);width:30px;height:21.4px">')
+  console.log("%c 我是保羅，我有30cm %c", 'background: #C82623;color: #FFF', "background:url('http://cultofthepartyparrot.com/parrots/parrot.gif') 10px 40px no-repeat;padding:50px;");
 
   console.log("%c跨殺小 (／‵Д′)／~ ╧╧", "color: #f00; font-size: 50px;");
 </script>

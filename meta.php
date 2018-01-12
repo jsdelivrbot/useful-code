@@ -50,12 +50,11 @@ http://www.oxxostudio.tw/articles/201406/social-meta.html
 <meta name="distribution" content="網站發佈地">
 <meta name="url" content="http://injerry.pixnet.net">
 
-<meta name="og:title" content="網頁工程師與設計師的溝通">
-<meta name="og:site_name" content="網頁工程師與設計師的溝通">
-<meta name="og:url" content="http://likmeetup.goods-design.com.tw/">
-<meta name="og:image" content="http://likmeetup.goods-design.com.tw/fbshare.jpg">
-<meta name="og:description" content="很好設計於likmeetup2016.5.15講述網頁工程師與設計師的溝通以及設計師注重的細節">
-<meta name="og:type" content="website">
+<meta property="og:title" content="::: PIPILOLO ::::"></meta>
+<meta property="og:type" content="website"></meta>
+<meta property="og:description" content="::: PIPILOLO ::::"></meta>
+<meta property="og:image" content="http://paul.ryderisgood.com/images/fav.png"></meta>
+<meta property="og:url" content="http://paul.ryderisgood.com/"></meta>
 
 <meta name="twitter:card" content="summary">
 <meta name="twitter:url" content="<?= 'http://'.$_SERVER['http_host'].$_SERVER['request_uri'] ?>">

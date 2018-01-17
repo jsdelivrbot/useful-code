@@ -35,6 +35,9 @@ https://github.com/RubaXa/Sortable
 
 		var _sort = Sortable.create($(".dropList").get(0), {
 			animation: 100,
+			ghostClass: "ryder-ghost",
+			// chosenClass: "ryder-chosen",
+			// dragClass: "ryder-drag",
 			group: {
 				name: "drop",
 				pull: true,

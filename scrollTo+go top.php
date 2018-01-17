@@ -22,9 +22,9 @@ https://github.com/flesler/jquery.scrollTo
 	});
 	$(window).scroll(function() {
 		if ( $(this).scrollTop() > 300){
-			$(".backtotop").stop(true).fadeIn("fast");
+			$(".backtotop").fadeIn("fast");
 		} else {
-			$(".backtotop").stop(true).fadeOut("fast");
+			$(".backtotop").fadeOut("fast");
 		}
 	});
 </script>

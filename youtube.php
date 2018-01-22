@@ -1,3 +1,31 @@
+<!-- youtube iframe api (?) -->
+<div id="test">
+	<iframe id="ytplayer" src="https://www.youtube.com/embed/qf09H2xFq2s?playsinline=1&enablejsapi=1" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<script>
+	var tag = document.createElement('script');
+
+	tag.src = "//www.youtube.com/iframe_api";
+	var firstScriptTag = document.getElementsByTagName('script')[0];
+	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+	var player;
+
+	function onYouTubeIframeAPIReady() {
+	   player = new YT.Player('ytplayer', {
+	       events: {
+				onReady() {
+					// autoplay
+					player.playVideo();
+					// mute
+					player.mute();
+				}
+	       }
+	   });
+	}
+</script>
+
 <!-- 燈箱 -->
 <script>
 	$(".videoWrap section").on("click", function (){
@@ -13,7 +41,6 @@
 
 <!-- youtube api -->
 https://developers.google.com/youtube/player_parameters#start
-
 <script src="https://www.youtube.com/player_api"></script>
 
 <!-- basic -->

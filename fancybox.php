@@ -1,5 +1,34 @@
 http://fancyapps.com/fancybox/3/docs/#options
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+
+<!-- ajax setting -->
+<a data-id="1" href="javascript:;">AJAX content</a>
+<a data-id="2" href="javascript:;">AJAX content</a>
+<a data-id="3" href="javascript:;">AJAX content</a>
+<a data-id="4" href="javascript:;">AJAX content</a>
+
+<script>
+    $("a").on("click", function () {
+        $.fancybox.open({
+            src: 'overlay.php',
+            type: 'ajax',
+            opts: {
+                ajax: {
+                    settings: {
+                        type: 'POST',
+                        data: {
+                            test: this.dataset.id
+                        }
+                    }
+                }
+            }
+        });
+    })
+</script>
+
+<!-- image setting -->
 <ul class="ryder-selectList">
     <li>
         <a href="images/select-01.jpg" data-fancybox="images">
@@ -12,9 +41,6 @@ http://fancyapps.com/fancybox/3/docs/#options
         </a>
     </li>
 </ul>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
 
 <script>
     $("[data-fancybox]").fancybox({

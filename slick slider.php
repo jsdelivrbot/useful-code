@@ -1,3 +1,5 @@
+https://github.com/kenwheeler/slick/
+
 <!-- cdn -->
 <script src="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.min.js"></script>
 <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick.css"/>

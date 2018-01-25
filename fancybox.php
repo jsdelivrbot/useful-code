@@ -25,7 +25,7 @@ http://fancyapps.com/fancybox/3/docs/#options
                 }
             }
         }, {
-            afterLoad: function( instance, current ) {
+            afterLoad(instance, current) {
                 lazyload.update();
                 $('.fancy__shop-slick').slick('resize');
             }

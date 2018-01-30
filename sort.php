@@ -1,4 +1,23 @@
-<!-- div專用區 -->
+<!--===============================
+=            div專用區            =
+================================-->
+
+<!-- 用sort來排 -->
+<script>
+	$(".diy-confirm-round[data-layer='"+ _now_square_layer +"']").append(`
+		<li class="cell" data-g='${_now_grid}'>
+			<div class="pic">
+				${_pic}
+			</div>
+			<div class="title"><span>${_size}格</span>${_title}</div>
+		</li>
+	`).find("li").sort(function (a, b) {
+		let _a = parseInt( $(a).data('g'));
+		let _b = parseInt( $(b).data('g'));
+		return _a - _b
+	}).appendTo($(".diy-confirm-round[data-layer='"+ _now_square_layer +"']"))
+</script>
+
 <!-- 反過來排 -->
 <script>
 	function _reverse () {
@@ -42,7 +61,10 @@
 </script>
 
 
-<!-- array專用區 -->
+<!--=================================
+=            array專用區            =
+==================================-->
+
 <!-- 隨機排 -->
 <script>
 	function randomSort(a, b) {

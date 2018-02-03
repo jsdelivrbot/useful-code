@@ -42,6 +42,20 @@
     })
 </script>
 
+<!--=======================================
+=            不同頁用 data 傳 php            =
+========================================-->
+
+<?php
+while ($row_RecIndexVegas = mysql_fetch_assoc($RecIndexVegas)) {
+    $r = new stdClass();
+    $r->src = $row_RecIndexVegas['file_link1'];
+    $response[] = $r;
+}
+?>
+
+<div class="index-vegasWrap" data-src='<?= json_encode($response) ?>'></div>
+
 <!--=============================
 =            pager            =
 =============================-->

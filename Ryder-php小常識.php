@@ -1,3 +1,17 @@
+<!--================================
+=            php object            =
+=================================-->
+
+https://blog.longwin.com.tw/2016/04/php-stdclass-object-json-2016/
+
+<?php
+while ($row_RecIndexVegas = mysql_fetch_assoc($RecIndexVegas)) {
+    $r = new stdClass();
+    $r->src = $row_RecIndexVegas['file_link1'];
+    $response[] = $r;
+}
+?>
+
 <!--==========================================
 =            ajax objects回傳json            =
 ===========================================-->
@@ -38,22 +52,25 @@ $areas = array();
 $types = array();
 $shops = array();
 
-while($r = $row_RecCity = mysql_fetch_assoc($RecCity)) {
-    $citys[] = $r;
+while($row_RecCity = mysql_fetch_assoc($RecCity)) {
+    $citys[] = $row_RecCity;
 }
-while($r = $row_RecArea = mysql_fetch_assoc($RecArea)) {
-    $areas[] = $r;
+while($row_RecArea = mysql_fetch_assoc($RecArea)) {
+    $areas[] = $row_RecArea;
 }
-while($r = $row_RecType = mysql_fetch_assoc($RecType)) {
-    $types[] = $r;
+while($row_RecType = mysql_fetch_assoc($RecType)) {
+    $types[] = $row_RecType;
 }
-while($r = $row_RecShop = mysql_fetch_assoc($RecShop)) {
-    $shops[] = $r;
+while($row_RecShop = mysql_fetch_assoc($RecShop)) {
+    $shops[] = $row_RecShop;
 }
 
-$obj = (object) array('citys' => $citys);
-
-echo json_encode(array('citys' => $citys, 'areas' => $areas, 'types' => $types, 'shops' => $shops));
+echo json_encode(array(
+    'citys' => $citys,
+    'areas' => $areas,
+    'types' => $types,
+    'shops' => $shops
+));
 ?>
 
 <!--==============================

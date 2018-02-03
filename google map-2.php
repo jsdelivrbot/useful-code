@@ -3,7 +3,6 @@
 
 
 <!-- 地址轉經緯度 -->
-
 http://blog.xuite.net/uhoo/dc/65449068-%E8%BC%B8%E5%85%A5%E5%9C%B0%E5%9D%80%E6%89%B9%E6%AC%A1%E8%BD%89%E6%8F%9B%E7%B6%93%E7%B7%AF%E5%BA%A6%E5%B0%8F%E5%B7%A5%E5%85%B7
 
 <script>
@@ -19,7 +18,6 @@ http://blog.xuite.net/uhoo/dc/65449068-%E8%BC%B8%E5%85%A5%E5%9C%B0%E5%9D%80%E6%8
 			}
 		});
 	}
-
 </script>
 
 

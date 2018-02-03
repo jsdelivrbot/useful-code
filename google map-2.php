@@ -1,6 +1,28 @@
 <!-- for MarkerClusterer -->
 <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 
+
+<!-- 地址轉經緯度 -->
+
+http://blog.xuite.net/uhoo/dc/65449068-%E8%BC%B8%E5%85%A5%E5%9C%B0%E5%9D%80%E6%89%B9%E6%AC%A1%E8%BD%89%E6%8F%9B%E7%B6%93%E7%B7%AF%E5%BA%A6%E5%B0%8F%E5%B7%A5%E5%85%B7
+
+<script>
+	function addressToLatLng(addr) {
+		var geocoder = new google.maps.Geocoder();
+		geocoder.geocode({
+			"address": addr
+		}, function (results, status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				console.log(results[0].geometry.location.lat() + "," + results[0].geometry.location.lng())
+			} else {
+				alert("查無經緯度")
+			}
+		});
+	}
+
+</script>
+
+
 <!-- 地址轉經緯度 + 地圖計算這區有幾個marker + marker filter + 自訂點了跳出說明框 -->
 <ul class="store-catList row">
 	<li class="column shrink current" data-cat="-1">全部據點</li>

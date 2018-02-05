@@ -3,47 +3,15 @@
 @import "base";
 @import "public";
 
-// $space: 40px;
-// $spaceMobile: 20px;
-// custom faoundation settings here
+// --------------- custom faoundation settings here --------------------
 $global-margin: 20px;
 $global-padding: 20px;
-$prototype-overflow-breakpoints: true;
-$prototype-overflow: (
-	visible,
-	hidden,
-	scroll,
-	auto
-);
 $prototype-spacing-breakpoints: true;
 $prototype-spacers-count: 8;
 $breakpoint-classes: (small medium large xlarge xxlarge);
-$responsive-embed-margin-bottom: 0;
-$responsive-embed-ratios: (
-	default: 16 by 9,
-	vertical: 9 by 16,
-	panorama: 256 by 81,
-	square: 1 by 1,
-	custom: 16 by 7,
-);
-// $grid-container: 1400px;
-// $grid-margin-gutters: (
-// 	small: $spaceMobile * 2,
-// 	large: $space * 2,
-// );
-// $grid-padding-gutters: (
-// 	small: $spaceMobile * 2,
-// 	large: $space * 2,
-// );
-// $grid-container-padding: (
-// 	small: $spaceMobile * 2,
-// 	large: $space * 2,
-// );
 
 @include foundation-xy-grid-classes;
-@include foundation-prototype-overflow;
 @include foundation-prototype-spacing;
 @include foundation-flex-classes;
-@include foundation-responsive-embed;
 @include foundation-visibility-classes;
 @include foundation-text-alignment;

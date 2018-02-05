@@ -8,6 +8,7 @@ var browserSync = require('browser-sync');
 var changed = require('gulp-changed');
 var svgSprite = require('gulp-svg-sprite');
 var babel = require("gulp-babel");
+var uglify = require('gulp-uglify');
 var browserify = require("gulp-browserify");
 var webpack = require('webpack-stream');
 
@@ -27,6 +28,12 @@ gulp.task('browser-sync', function() {
 gulp.task('babel', function() {
     return gulp.src('src/*.js')
         .pipe(webpack(require('./webpack.config.js')))
+        .pipe(gulp.dest('dist'));
+});
+
+gulp.task('uglify', function() {
+    return gulp.src('dist/*.js')
+        .pipe(uglify())
         .pipe(gulp.dest('dist'));
 });
 
@@ -114,5 +121,7 @@ gulp.task('svg', function() {
 });
 
 gulp.task('svg-rebuild', ['svg'], browserSync.reload);
+
+gulp.task('publish', ['uglify']);
 
 gulp.task('default', ['svg', 'sass', 'babel', 'pug', 'browser-sync']);

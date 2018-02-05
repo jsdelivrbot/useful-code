@@ -1,3 +1,3 @@
-var _child = 'baby suck me';
+var _child = 'baby suck me'
 
-export default _child;
+export default _child

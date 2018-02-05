@@ -1,4 +1,4 @@
-import child from './js/child.js';
+import child from './js/child.js'
 
 console.log(child)
 
@@ -16,4 +16,4 @@ async function _b() {
 	console.log('done123')
 }
 
-_b();
+_b()

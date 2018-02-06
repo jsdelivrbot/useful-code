@@ -130,7 +130,7 @@ https://github.com/kenwheeler/slick/
 				transition: all .5s;
 			}
 		}
-		.active{
+		.slick-active{
 			color: $red;
 			&:after{
 				background-color: $red;

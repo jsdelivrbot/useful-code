@@ -100,6 +100,62 @@ https://github.com/kenwheeler/slick/
 </script>
 
 
+<!-- custom dot -->
+<style>
+	.shop-banner-dotsWrap{
+		position: absolute;
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 27px;
+		li{
+			font-family: $en-family;
+			font-size: 14px;
+			color: #fff;
+			position: relative;
+			transition: all .5s;
+			margin: 0 3px;
+			width: 29px;
+			display: inline-block;
+			vertical-align: middle;
+			text-align: center;
+			cursor: pointer;
+			&:after{
+				content: '';
+				width: 100%;
+				height: 2px;
+				background-color: #fff;
+				position: absolute;
+				left: 0;
+				bottom: -6px;
+				transition: all .5s;
+			}
+		}
+		.active{
+			color: $red;
+			&:after{
+				background-color: $red;
+			}
+		}
+	}
+</style>
+
+<script>
+	$('.shop-banner-slider').slick({
+		autoplay: true,
+		autoplaySpeed: 4000,
+		arrows: false,
+		dots: true,
+		appendDots: '.shop-banner-dotsWrap',
+		customPaging(slick, index) {
+	        return '<a>' + (index + 1) + '</a>';
+	    },
+		infinite: true,
+		speed: 500,
+		easing: 'easeInOutCubic'
+	});
+</script>
+
+
 <!-- custom dots -->
 <style>
 	.mb-dotWrap{

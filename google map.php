@@ -4,7 +4,7 @@ http://api.tgos.nat.gov.tw/TGOS_MAP_API/web/default.aspx?id=MapZoom
 http://www.w3schools.com/googleapi/google_maps_overlays.asp
 
 
-<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="https://maps.google.com/maps/api/js?sensor=false"></script>
 <script>
     function initialize() {
         var myLatLng = new google.maps.LatLng(25.051501, 121.569621);

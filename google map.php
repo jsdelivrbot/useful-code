@@ -3,6 +3,18 @@ http://api.tgos.nat.gov.tw/TGOS_MAP_API/web/default.aspx?id=MapZoom
 
 http://www.w3schools.com/googleapi/google_maps_overlays.asp
 
+<!-- img {max-height: 100%;} 右下角圖片會壞掉 -->
+<style>
+    #googleMap{
+        width: 1110px;
+        height: 436px;
+        margin: 0 auto;
+        img{
+            max-height: initial;
+        }
+    }
+</style>
+
 
 <script src="https://maps.google.com/maps/api/js"></script>
 <script>

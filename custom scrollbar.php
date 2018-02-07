@@ -1,3 +1,13 @@
+<!--================================
+=            nicescroll            =
+=================================-->
+https://github.com/inuyaksa/jquery.nicescroll
+
+
+<!--====================================
+=            CustomScrollbar           =
+=====================================-->
+
 <!-- theme list -->
 http://manos.malihu.gr/repository/custom-scrollbar/demo/examples/scrollbar_themes_demo.html
 

@@ -68,6 +68,9 @@
 	})
 </script>
 
+<!-- onscreen -->
+https://github.com/silvestreh/onScreen
+
 <script>
 	$.fn.inScreen = function(option) {
 		var deFault = {

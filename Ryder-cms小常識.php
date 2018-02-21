@@ -9,6 +9,9 @@ relative_urls : false,
 remove_script_host : false,
 convert_urls : true,
 
+<!-- style_format -->
+http://archive.tinymce.com/wiki.php/Configuration3x:style_formats
+
 <!--========================================
 =            tinymce 自製plugin            =
 =========================================-->

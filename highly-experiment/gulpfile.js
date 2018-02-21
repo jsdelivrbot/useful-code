@@ -11,18 +11,23 @@ var babel = require("gulp-babel");
 var uglify = require('gulp-uglify');
 var browserify = require("gulp-browserify");
 var webpack = require('webpack-stream');
+var nodemon = require('gulp-nodemon');
 
 gulp.task('browser-sync', function() {
     browserSync.init({
         // reloadDelay: 500,
-        proxy: "127.0.0.1/qwe123"
+        proxy: "localhost:3000",
+        port: 5000,
     });
 
     gulp.watch('sass/*.scss', ['sass']);
     gulp.watch('src/**', ['js-rebuild']);
     gulp.watch('svg/*.svg', ['svg-rebuild']);
-    gulp.watch('pug/*.pug', ['pug-rebuild']);
+    // gulp.watch('pug/*.pug', ['pug-rebuild']);
     // browserSync.watch(['*.html', '*.php']).on('change', browserSync.reload);
+
+    gulp.watch('server.js', ['server']);
+    browserSync.watch(['pug/*.pug']).on('change', browserSync.reload);
 });
 
 gulp.task('babel', function() {
@@ -31,13 +36,24 @@ gulp.task('babel', function() {
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('uglify', function() {
-    return gulp.src('dist/*.js')
-        .pipe(uglify())
+gulp.task('js-rebuild', ['babel'], browserSync.reload);
+
+gulp.task('server', function() {
+    return gulp.src('server.js')
+        .pipe(babel({
+            presets: ['es2015', 'react'],
+            plugins: [
+                'async-to-promises'
+            ]
+        }))
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('js-rebuild', ['babel'], browserSync.reload);
+gulp.task('nodemon', function() {
+    nodemon({
+        script: 'dist/server.js',
+    }).on('restart', browserSync.reload)
+});
 
 gulp.task('pug', function buildHTML() {
     return gulp.src('pug/*.pug')
@@ -122,6 +138,14 @@ gulp.task('svg', function() {
 
 gulp.task('svg-rebuild', ['svg'], browserSync.reload);
 
+gulp.task('uglify', function() {
+    return gulp.src('dist/*.js')
+        .pipe(uglify())
+        .pipe(gulp.dest('dist'));
+});
+
 gulp.task('publish', ['uglify']);
 
 gulp.task('default', ['svg', 'sass', 'babel', 'pug', 'browser-sync']);
+
+gulp.task('node', ['svg', 'sass', 'babel', 'server', 'nodemon', 'browser-sync']);

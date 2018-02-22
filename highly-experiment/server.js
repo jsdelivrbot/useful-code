@@ -10,10 +10,13 @@ app.set('views', './pug')
 app.get('/', function (req, res) {
     res.render('index', {
     	title: 'Hey Hey Hey!',
-    	message: 'Yo Yodd'
+    	message: 'Yo Yo'
     })
 })
 
-app.listen(process.env.PORT || 3000, () => {
-    console.log('server running http://localhost:3000');
-})
+app.use(function(req, res, next) {
+    res.status(404);
+    res.send('Oops Oh No!');
+});
+
+app.listen(process.env.PORT || 3000)

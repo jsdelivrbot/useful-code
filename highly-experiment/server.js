@@ -1,11 +1,13 @@
 import express from 'express'
+import path from 'path'
 
 const app = express()
+const _ROOT = './'
 
-app.use(express.static('./'));
+app.use(express.static(path.join(_ROOT)));
 
 app.set('view engine', 'pug')
-app.set('views', './pug')
+app.set('views', path.join(_ROOT, 'pug'))
 
 app.get('/', function (req, res) {
     res.render('index', {

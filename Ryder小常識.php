@@ -139,6 +139,9 @@ https://seo.palada.com.tw/15.html
 
 ,"/Connections/","/upload_image/","/upload_file/","/thumbs/","/source/"
 
+<!-- linode -->
+,"\\.cache","\\.css.map","/.sass-cache/","/node_modules/","\\.zip","\\.rar","/public/","\\.rb","\\.config"
+
 <!--=============================================
 =            iphone 選單滿版需要空間            =
 ==============================================-->

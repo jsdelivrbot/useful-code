@@ -1,4 +1,4 @@
-# 改這個 /etc/nginx/sites-enabled/default
+<!-- 改這個 /etc/nginx/sites-enabled/default -->
 
 upstream kichi{
     server 127.0.0.1:3000;

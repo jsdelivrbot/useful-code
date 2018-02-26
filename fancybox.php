@@ -58,3 +58,16 @@ http://fancyapps.com/fancybox/3/docs/#options
         protect : true,
     });
 </script>
+
+<!-- inline -->
+<script>
+    $(".about-anime").on("click", function () {
+        $.fancybox.open({
+            src  : '.fancyWrap',
+            type : 'inline',
+            opts : {
+                animationDuration : 1200,
+            }
+        });
+    })
+</script>

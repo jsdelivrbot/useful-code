@@ -1,3 +1,37 @@
+<!--==================================
+=            資料夾不見了            =
+===================================-->
+RFM filter按一下x看看
+
+<!--================================
+=            增加安全性            =
+=================================-->
+<!-- filemanager/config/config.php -->
+<?php
+
+define('USE_ACCESS_KEYS', true); // TRUE or FALSE
+
+'access_keys' => array(md5('ryderawesome')),
+
+// 只給你上傳圖片
+'ext'=> array_merge(
+    $config['ext_img']
+    // $config['ext_file'],
+    // $config['ext_misc'],
+    // $config['ext_video'],
+    // $config['ext_music']
+),
+
+?>
+
+<!-- cms\tinymce.php -->
+<script>
+    $('textarea.tiny').tinymce({
+
+        filemanager_access_key: '<?= md5('ryderawesome') ?>',
+    })
+</script>
+
 <!--==============================================
 =            好用的config, 視情況設定            =
 ===============================================-->

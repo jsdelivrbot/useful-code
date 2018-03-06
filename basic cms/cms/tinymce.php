@@ -30,7 +30,10 @@ $(function () {
         // NOTE: 上線要改成 /filemanager/plugin.min.js
         external_plugins: {
             "filemanager": "/dynamic5/filemanager/plugin.min.js"
-        }
+        },
+
+        // http://archive.tinymce.com/wiki.php/Configuration3x:style_formats
+        // style_formats: []
     });
 });
 </script>

@@ -1,13 +1,12 @@
 <!--===========================================
-=            delay mouseover enevt            =
+=            delay mouseenter enevt            =
 ============================================-->
 <script>
 	var delay = 500;
 	var timer;
 
-	$(".regist-nav li").on("mouseover", function () {
+	$(".regist-nav li").on("mouseenter", function () {
 		clearTimeout(timer)
-		$(this).addClass("current").siblings().removeClass("current")
 		timer = setTimeout(() => {
 			$('.registSlider').slick('slickGoTo', $(this).index())
 		}, delay);

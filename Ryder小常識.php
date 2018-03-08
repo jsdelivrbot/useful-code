@@ -215,8 +215,9 @@ http://www.w3cschool.cn/jquerygroup/qty419wl.html
 =            bg image and color both (要用gradient)            =
 =============================================================-->
 <style>
+	/*逗號很重要*/
 	.element{
-		background: linear-gradient(rgba(#3e3a39, 0.4), rgba(#3e3a39, 0.4)), url(../images/projects/self-bg-1.jpg) no-repeat;
+		background: linear-gradient(rgba(170,154,123,.6), rgba(170,154,123,.6)), url(images/newindex/regist-slider-1.jpg) center center / cover no-repeat;
 	}
 </style>
 

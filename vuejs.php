@@ -1,6 +1,9 @@
 <!-- cheetsheet -->
 https://vuejs-tips.github.io/cheatsheet/
 
+<!-- 操作data沒有更新 -->
+https://pjchender.blogspot.tw/2017/05/vue-vue-reactivity.html
+
 <!-- component -->
 <ul class="cartList" id="cart">
     <cart-item inline-template price="498">

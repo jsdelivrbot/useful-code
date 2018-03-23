@@ -66,6 +66,7 @@ http://fancyapps.com/fancybox/3/docs/#options
             src  : '.fancyWrap',
             type : 'inline',
             opts : {
+                smallBtn : false,
                 animationDuration : 1200,
             }
         });

@@ -23,11 +23,10 @@ gulp.task('browser-sync', function() {
     gulp.watch('sass/*.scss', ['sass']);
     gulp.watch('src/**', ['js-rebuild']);
     gulp.watch('svg/*.svg', ['svg-rebuild']);
-    // gulp.watch('pug/*.pug', ['pug-rebuild']);
+    gulp.watch('pug/*.pug', ['pug-rebuild']);
     // browserSync.watch(['*.html', '*.php']).on('change', browserSync.reload);
 
     gulp.watch('server.js', ['server']);
-    browserSync.watch(['pug/*.pug']).on('change', browserSync.reload);
 });
 
 gulp.task('babel', function() {

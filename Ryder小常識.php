@@ -1,3 +1,15 @@
+<!--=======================================================
+=            iphone make overscroll area white            =
+========================================================-->
+<style>
+	@include breakpoint(medium down){
+		html,body {
+		    overflow: auto;
+		    -webkit-overflow-scrolling: touch;
+		}
+	};
+</style>
+
 <!--=============================================
 =            windows install mongoDB            =
 ==============================================-->

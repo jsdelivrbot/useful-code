@@ -1,11 +1,14 @@
 <!--=======================================================
 =            iphone make overscroll area white            =
 ========================================================-->
+<!-- 燈箱會影響 用一個class比較好控制 -->
 <style>
 	@include breakpoint(medium down){
 		html,body {
-		    overflow: auto;
-		    -webkit-overflow-scrolling: touch;
+		    &.is-overscroll{
+		    	overflow: auto;
+		    	-webkit-overflow-scrolling: touch;
+		    }
 		}
 	};
 </style>

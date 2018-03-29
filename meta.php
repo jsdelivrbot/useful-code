@@ -66,7 +66,7 @@ http://www.oxxostudio.tw/articles/201406/social-meta.html
 <!-- <script src="js/less-1.3.0.min.js" type="text/javascript"></script> -->
 
 <!-- 手機禁縮放 -->
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <!-- ie可能不見得有效 -->
 <meta http-equiv="pragma" content="no-cache">
 <!-- 設定成馬上就過期 -->

@@ -1,3 +1,6 @@
+<!-- value給預設值 -->
+.newsPagerWrap(data-page= (page) ? page:1)
+
 <!-- 判斷class方法 -->
 - var _now = 'news'
 

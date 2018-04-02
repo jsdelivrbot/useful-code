@@ -25,20 +25,32 @@ https://pjchender.blogspot.tw/2017/05/vue-vue-reactivity.html
 			    // pagination
 			    let _total = data.length
 			    let _limit = 1
-			    let _nowPage = $(".newsPagerWrap").data("page") - 1 || 0
+			    let _nowPage = $(".newsPagerWrap").data("page")
+
 			    if ($(".newsPagerWrap").data("page") >= 2) {
-			    	this.posts = data.slice(_nowPage, _nowPage + _limit)
+			    	this.posts = data.slice(_nowPage - 1, _nowPage - 1 + _limit)
 			    }else{
 			    	this.posts = data.slice(0, _limit)
 			    }
 
 			    // creat page
-			    let _p = Math.ceil(_total / _limit)
-			    for (var i = 1; i <= _p; i++) {
+			    let _totalPage = Math.ceil(_total / _limit)
+
+			    for (var i = 1; i <= _totalPage; i++) {
 			    	$('<a href="/news/'+ i +'")>'+ padLeft(i, 2) +'</a>').appendTo($(".newsPager"))
 			    }
 
-			    $(".newsPager a").eq(_nowPage).addClass("active")
+			    $(".newsPager a").eq(_nowPage - 1).addClass("active")
+
+			    $(".newsPager-controls .prev").attr("href", "/news/" + (_nowPage - 1))
+			    $(".newsPager-controls .next").attr("href", "/news/" + (_nowPage + 1))
+
+			    if (_nowPage < 2) {
+			    	$(".newsPager-controls .prev").hide()
+			    }
+			    if (_nowPage >= _totalPage) {
+			    	$(".newsPager-controls .next").hide()
+			    }
 			})
 		},
 		updated() {}

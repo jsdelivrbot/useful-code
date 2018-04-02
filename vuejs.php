@@ -154,4 +154,54 @@ https://pjchender.blogspot.tw/2017/05/vue-vue-reactivity.html
 			}
 		}
 	})
+
+	const regist = new Vue({
+		el: '#regist',
+		data: {
+			infos: []
+		},
+		methods: {
+			gotoDetail(cla, cat, id) {
+				if (cla == 'domestic') {
+					location.href = `../domestic_detail.php?cat=${cat}&id=${id}`
+				}
+				if (cla == 'international') {
+					location.href = `../international_detail.php?cat=${cat}&id=${id}`
+				}
+			}
+		},
+		created() {
+			$.get("../jsonData.php", {
+				 action: "registrationInfo"
+			}, (v) => {
+				this.infos = v['registrationInfo']
+			})
+		},
+		updated() {
+			$('.registSlider').slick({
+				dots: false,
+				infinite: true,
+				draggable: false,
+				speed: 500,
+				arrows: false,
+				focusOnSelect: false,
+				easing: 'easeInOutCubic',
+				responsive: [{
+					breakpoint: 1024,
+					settings: {
+						dots: true,
+						dotsClass: 'regist-dots',
+						appendDots: '.regist-dotWrap',
+					}
+				}]
+			});
+
+			$(".regist-nav li").eq(0).addClass("current")
+
+			$(".regist-nav li").on("click", function () {
+				$(this).addClass("current").siblings().removeClass("current")
+				$('.registSlider').slick('slickGoTo', $(this).index())
+			})
+		}
+	})
 </script>

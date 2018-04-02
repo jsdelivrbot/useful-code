@@ -178,6 +178,12 @@ https://pjchender.blogspot.tw/2017/05/vue-vue-reactivity.html
 				return (v.slice(0, 10)).replace(/-/g, '')
 			}
 		},
+		computed: {
+			content() {
+				// nl2br
+				return (this.article.content + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ '<br>' +'$2');
+			}
+		},
 		created() {
 			$.get("../jsonData.php", {
 				 action: "registrationInfo"

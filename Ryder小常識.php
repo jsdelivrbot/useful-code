@@ -1,3 +1,20 @@
+<!--==================================================
+=            javascript use array join 補0            =
+===================================================-->
+<script>
+	// 左邊補0
+	function padLeft(str, len) {
+	    str = '' + str;
+	    return str.length >= len ? str : new Array(len - str.length + 1).join("0") + str;
+	}
+
+	// 右邊補0
+	function padRight(str, len) {
+	    str = '' + str;
+	    return str.length >= len ? str : str + new Array(len - str.length + 1).join("0");
+	}
+</script>
+
 <!--=======================================================
 =            iphone make overscroll area white            =
 ========================================================-->

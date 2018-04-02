@@ -4,6 +4,8 @@ https://vuejs-tips.github.io/cheatsheet/
 <!-- 操作data沒有更新 -->
 https://pjchender.blogspot.tw/2017/05/vue-vue-reactivity.html
 
+<script src="https://unpkg.com/vue"></script>
+
 <!-- component -->
 <ul class="cartList" id="cart">
     <cart-item inline-template price="498">
@@ -126,7 +128,8 @@ https://pjchender.blogspot.tw/2017/05/vue-vue-reactivity.html
 	</div>
 </li>
 
-<script src="https://unpkg.com/vue"></script>
+<!-- filter example -->
+<div class="date">{{post.updatedAt | dateFormat}}</div>
 
 <script>
 	var bigdog = new Vue({
@@ -168,6 +171,11 @@ https://pjchender.blogspot.tw/2017/05/vue-vue-reactivity.html
 				if (cla == 'international') {
 					location.href = `../international_detail.php?cat=${cat}&id=${id}`
 				}
+			}
+		},
+		filters: {
+			dateFormat(v) {
+				return (v.slice(0, 10)).replace(/-/g, '')
 			}
 		},
 		created() {

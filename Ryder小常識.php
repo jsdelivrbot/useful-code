@@ -311,6 +311,10 @@ http://youmightnotneedjquery.com/
 [i18n]
 	logoutputencoding = utf-8
 
+<!-- 忽然 could not read Username 可以加這個試試 -->
+[credential]
+	helper = wincred
+
 <!--=============================================
 =            find jquery plugin here            =
 ==============================================-->

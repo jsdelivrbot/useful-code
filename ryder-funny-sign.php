@@ -1,4 +1,6 @@
 <script>
+  var bigAss=[];document.addEventListener("keydown",function(a){bigAss.push(a.keyCode);-1!=(bigAss+"").indexOf("38,38,40,40,37,39,37,39,66,65")&&(console.log(111111),bigAss.length=0)});
+
   console.log("%c http://ryderisgood.com/ ",'background: #C82623;color: #FFF');
 
   console.log("%c 我是保羅，我有30cm %c", 'background: #C82623;color: #FFF', "background:url('http://cultofthepartyparrot.com/parrots/parrot.gif') 10px 40px no-repeat;padding:50px;");

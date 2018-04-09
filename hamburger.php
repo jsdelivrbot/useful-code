@@ -29,28 +29,23 @@
 			position: absolute;
 			top: 0;
 			transition:transform 0.4s ,top 0.4s 0.4s;
-			-webkit-transition:transform 0.4s ,top 0.4s 0.4s;
 		}
 		.item2{
 			position: absolute;
 			top: 50%;
-			transition: all 0.8s;
-			-webkit-transition: all 0.8s;
+			transition: opacity 0.8s;
 		}
 		.item3{
 			position: absolute;
 			top: 100%;
 			transition:transform 0.4s ,top 0.4s 0.4s;
-			-webkit-transition:transform 0.4s ,top 0.4s 0.4s;
 		}
 	}
 	.hamburger-show{
 		.item1{
 			top: 50%;
 			transform: rotate(45deg);
-			-webkit-transform: rotate(45deg);
 			transition: top 0.4s ,transform 0.4s 0.4s;
-			-webkit-transition: top 0.4s ,transform 0.4s 0.4s;
 		}
 		.item2{
 			opacity: 0;
@@ -58,9 +53,7 @@
 		.item3{
 			top: 50%;
 			transform: rotate(-45deg);
-			-webkit-transform: rotate(-45deg);
 			transition: top 0.4s ,transform 0.4s 0.4s;
-			-webkit-transition: top 0.4s ,transform 0.4s 0.4s;
 		}
 	}
 </style>
@@ -78,17 +71,13 @@
 		width: 46px;
 		height: 30px;
 		position: relative;
-
 		span{
 			display: block;
 			height: 2px;
 			background-color: #e25423;
 			position: absolute;
 			right: 0;
-
 			transition: all 0.7s;
-			-webkit-transition: all 0.7s;
-
 			&:nth-child(1){
 				top: 0;
 				width: 33%;
@@ -102,7 +91,6 @@
 				top: 100%;
 			}
 		}
-
 		&:hover{
 			span{
 				&:nth-child(1){

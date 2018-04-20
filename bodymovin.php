@@ -67,3 +67,23 @@
 		stop.disabled = true
 	})
 </script>
+
+<!-- playSegments 一些操作  -->
+<script>
+	// 先播三分之二並repeat第二段
+	anim.playSegments([[0, 300], [301, 420]], true)
+
+	// 之後播最後三分之三段
+	$("#app").on("click", function () {
+		anim.loop = false
+
+		var _s = anim.currentFrame + anim.firstFrame
+		var _e = anim.timeCompleted
+
+		anim.playSegments([_s, _e], true)
+
+		$("#app").animate({
+			opacity: 0
+		}, 1000)
+	})
+</script>

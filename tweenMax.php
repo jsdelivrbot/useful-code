@@ -100,4 +100,16 @@ phone_5.addCallback(function () {
 	});
 }, "end")
 
+// counter
+var pos = {p: 212}
+
+TweenMax.to(pos, 3, {
+	p: 0,
+	roundProps: "p",
+	repeat: 3,
+	ease: Power0.easeNone,
+	onUpdate() {
+		console.log(pos.p)
+	}
+})
 </script>

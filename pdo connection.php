@@ -1,6 +1,6 @@
 <?php
 try {
-	$dsn  = "mysql:host=localhost;dbname=molino;charset=utf8";
+	$dsn = "mysql:host=localhost;dbname=molino;charset=utf8";
 	$connection = new PDO($dsn, 'root' , '');
 }catch (PDOException $e){
 	die("Error: " . $e->getMessage() . "\n");

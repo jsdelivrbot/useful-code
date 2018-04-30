@@ -17,16 +17,17 @@ https://github.com/flesler/jquery.scrollTo
 <!-- window內建 -->
 <!-- go top -->
 <script>
-	$(".backtotop").click(function(){
+	$(".backtotop").on("click", function () {
 		$("html,body").animate({scrollTop: 0 },1000);
-	});
-	$(window).scroll(function() {
+	})
+
+	$(window).on("scroll", function () {
 		if ( $(this).scrollTop() > 300){
 			$(".backtotop").fadeIn("fast");
 		} else {
 			$(".backtotop").fadeOut("fast");
 		}
-	});
+	})
 </script>
 
 

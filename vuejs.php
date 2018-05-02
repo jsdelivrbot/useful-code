@@ -7,6 +7,7 @@ https://pjchender.blogspot.tw/2017/05/vue-vue-reactivity.html
 <script src="https://unpkg.com/vue"></script>
 
 <!-- pagination -->
+<!-- page是網址的query (這裡用的是node + express) -->
 .newsPagerWrap(data-page= (page) ? page:1)
 
 <script>

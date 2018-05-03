@@ -113,3 +113,75 @@ TweenMax.to(pos, 3, {
 	}
 })
 </script>
+
+
+<!-- Draggable -->
+https://codepen.io/MAW/pen/aOzeNR
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/utils/Draggable.min.js"></script>
+
+<svg width="320px" height="150px" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <path id="path1" d="M10 80 Q 150 0 300 80" stroke="gray" stroke-dasharray="5,5" fill="transparent"/>
+    <path id="path2" d="M10 80 Q 150 0 300 80" stroke-width="7" stroke="#7CFC00" fill="transparent" stroke-linecap="round"/>
+    <circle class="knob" r="25" fill="#88CE02" stroke-width="4" stroke="#111"/>
+</svg>
+
+<script>
+	TweenMax.set('svg', {
+	    overflow: "visible"
+	})
+	TweenMax.set('.knob', {
+	    x: 10,
+	    y: 80
+	})
+
+	// drawSVG要錢
+	var tl = new TimelineMax({
+        paused: true
+    })
+    .to("#path2", 1, {
+        drawSVG: "0%",
+        stroke: 'orange',
+        ease: Linear.easeNone
+    })
+    .to('.knob', 1, {
+        bezier: {
+            type: "quadratic",
+            values: [{
+                x: 10,
+                y: 80
+            }, {
+                x: 150,
+                y: 0
+            }, {
+                x: 300,
+                y: 80
+            }]
+        },
+        ease: Linear.easeNone
+    }, 0);
+
+    var D = document.createElement('div');
+
+	Draggable.create(D, {
+	    trigger: ".knob",
+	    type: 'x',
+	    throwProps: true,
+	    bounds: {
+	        minX: 0,
+	        maxX: 300
+	    },
+	    onDrag: Update,
+	    onThrowUpdate: Update
+	});
+
+	function Update() {
+	    tl.progress(Math.abs(this.x / 300))
+	};
+
+	TweenMax.to('#path1', 0.5, {
+	    strokeDashoffset: -10,
+	    repeat: -1,
+	    ease: Linear.easeNone
+	})
+</script>

@@ -116,6 +116,7 @@ TweenMax.to(pos, 3, {
 
 
 <!-- Draggable -->
+https://greensock.com/docs/Utilities/Draggable
 https://codepen.io/MAW/pen/aOzeNR
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/utils/Draggable.min.js"></script>
@@ -184,4 +185,40 @@ https://codepen.io/MAW/pen/aOzeNR
 	    repeat: -1,
 	    ease: Linear.easeNone
 	})
+</script>
+
+<!-- Draggable rotation -->
+<script>
+	var t2 = new TimelineMax({
+        paused: true
+    })
+    .to($(".waterbot .bottle"), 5, {
+	    rotation: 180,
+	    ease: Power0.easeNone,
+	})
+	.to($(".waterbot .bottle .lid"), 1, {
+	    rotation: 70,
+	    x: 15,
+	    y: -30,
+	    opacity: 0,
+	    transformOrigin:'bottom right',
+	    ease: Power1.easeOut
+	})
+	.to($(".watersplash"), 2, {
+	    height: 255,
+	    opacity: 0.8,
+	    ease: Power1.easeOut
+	})
+
+	Draggable.create("#mobileCircle", {
+		type:"rotation",
+		throwProps:true,
+		bounds: {
+		    minX: 0,
+		    maxX: 180
+		},
+		onDrag() {
+			t2.progress(Math.abs(this.rotation / 180))
+		}
+	});
 </script>

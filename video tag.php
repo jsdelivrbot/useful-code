@@ -1,41 +1,45 @@
-<li data-src="images/video/video-5.mp4"></li>
-
+<!-- 置中 -->
 <style>
-	/*置中*/
-	.ps3-videoWrap{
-		position: relative;
-		width: 100%;
-		height: 585px;
-		.video-container{
-			position: absolute;
-			top: -50%;
-			left: -50%;
-			width: 200%;
-			height: 200%;
-		}
-		#video{
-			position: absolute;
-			top: 0;
-			bottom: 0;
-			right: 0;
-			left: 0;
-			margin: auto;
-			min-height: 50%;
-			min-width: 50%;
-		}
+	.video-container{
+		position: absolute;
+		top: 25%;
+		left: 25%;
+		width: 50%;
+		height: 50%;
 	}
-
-	/*video tag 滿版*/
 	#video{
 		position: absolute;
-		top: 0;
-		left: 0;
-		min-width: 100%;
-		min-height: 100%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%,-50%);
 	}
 </style>
 
+<video id="video" autoplay loop playsinline preload="auto" src="http://aqua.mounts-studio.com/images/index.mp4"></video>
+
+<script>
+	if (device == 'mobile') {
+		$("#video").prop("muted", true)
+	}
+
+	$(window).on("resize", function () {
+		if ($(this).width() > $(this).height()) {
+			$("#video").css({
+				width: '200%',
+				height: 'auto'
+			})
+		}else{
+			$("#video").css({
+				height: '200%',
+				width: 'auto'
+			})
+		}
+	}).trigger("resize")
+</script>
+
 <!-- fancy -->
+<li data-src="images/video/video-5.mp4"></li>
+
 <div class="videoFancy m-fancyWrap">
 	<video id="video">
 		<source src="" type="video/mp4">

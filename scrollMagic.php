@@ -43,3 +43,7 @@ https://ihatetomatoes.net/wp-content/uploads/2016/07/ScrollMagic-CheatsheetV1.pd
 		});
 	}
 </script>
+
+
+<!-- note -->
+set pin 圖片壞掉可以試試改 z-index 或小位移一下

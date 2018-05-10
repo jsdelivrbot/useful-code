@@ -1,3 +1,43 @@
+<!-- chrome 66版本電腦也不能自動播放除了靜音 然後手機停止 autoplay 因為 android 很廢 -->
+<video id="video" autoplay muted loop preload="auto" src="images/index.mp4"></video>
+
+<script>
+	$(".video-volume").on("click", function () {
+		$(this).toggleClass("has-volume")
+		$("#video").prop("muted", !$("#video").prop("muted"))
+	})
+
+	// for mobile
+	var _video = document.getElementById('video')
+	_video.muted = false
+	_video.fullscreen = true
+
+	// for android
+	$('#video').bind('webkitfullscreenchange mozfullscreenchange fullscreenchange', function(e) {
+	    var state = document.fullScreen || document.mozFullScreen || document.webkitIsFullScreen;
+	    var event = state ? 'FullscreenOn' : 'FullscreenOff';
+
+	    if (event == 'FullscreenOff') {
+	    	_video.pause()
+	    }
+	});
+
+	$(".video-playBlock").show().on("click", function () {
+		// for android
+		if (_video.requestFullscreen) {
+			_video.requestFullscreen();
+		} else if (_video.msRequestFullscreen) {
+			_video.msRequestFullscreen();
+		} else if (_video.mozRequestFullScreen) {
+			_video.mozRequestFullScreen();
+		} else if (_video.webkitRequestFullscreen) {
+			_video.webkitRequestFullscreen();
+		}
+
+		_video.play()
+	})
+</script>
+
 <!-- 置中 -->
 <style>
 	.video-container{

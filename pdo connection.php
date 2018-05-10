@@ -1,3 +1,7 @@
+<!-- 另一個 DBI -->
+https://github.com/jpfuentes2/php-activerecord
+
+
 <?php
 try {
 	$dsn = "mysql:host=localhost;dbname=molino;charset=utf8";

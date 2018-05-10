@@ -1,5 +1,15 @@
+<!-- 生出 a 用 li 包住再 append 去 ul -->
+<script>
+	for(let e of this.nav['owner']){
+		$("<a>", {
+			href: 'owner.php?cat=' + e.cat,
+			text: e.navName
+		}).wrap("<li>").parent().appendTo($("#dynamic-sitemap-owner"))
+	}
+</script>
+
 <!-- wrap 4 elements -->
-<script type="text/javascript">
+<script>
 	$('div.test div').each(function(i) {
 		if( i % 4 == 0 ) {
 			$(this).nextAll().andSelf().slice(0,4).wrapAll('<div class="slide"></div>');

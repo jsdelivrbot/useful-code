@@ -22,7 +22,7 @@ https://github.com/flesler/jquery.scrollTo
 	})
 
 	$(window).on("scroll", function () {
-		if ( $(this).scrollTop() > 300){
+		if ($(this).scrollTop() > 300){
 			$(".backtotop").fadeIn("fast");
 		} else {
 			$(".backtotop").fadeOut("fast");

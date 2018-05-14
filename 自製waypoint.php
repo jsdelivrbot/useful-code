@@ -1,49 +1,3 @@
-<!-- waypoint -->
-https://github.com/imakewebthings/waypoints
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
-
-<script>
-	$("article[data-month]").waypoint(function(dir) {
-		var _eq = this.element.dataset.month - 1
-		if (dir == 'down') {
-			$(".giftmonthlink a").eq(_eq).addClass("current")
-		}else{
-			$(".giftmonthlink a").eq(_eq).removeClass("current")
-		}
-	}, {
-		offset: $(window).height() * 0.6
-	})
-</script>
-
-<!-- in-viewport (只會觸發一次) -->
-https://github.com/vvo/in-viewport
-
-<script src="src/js/in-viewport.min.js"></script>
-
-<script>
-	$(".giftWrap section").each((i, el) => {
-		inViewport(el, (el) => {
-			$(".ani-flypath", el)[0].beginElement()
-			$(".ani-bee", el)[0].beginElement()
-			$(".ani-flybee", el)[0].beginElement()
-		})
-	})
-</script>
-
-<!-- in-viewport (重覆觸發) -->
-<script src="src/js/jquery.inViewport.js"></script>
-
-<script>
-	$("article[data-month]").inViewport(function(){
-		var _eq = this.dataset.month - 1
-		$(".giftmonthlink a").eq(_eq).addClass("current")
-	}, function(){
-		var _eq = this.dataset.month - 1
-		$(".giftmonthlink a").eq(_eq).removeClass("current")
-	})
-</script>
-
 <!-- 只觸發一次 -->
 <script>
 	$.fn.ryderWaypoint = function(option) {
@@ -114,24 +68,20 @@ https://github.com/vvo/in-viewport
 	})
 </script>
 
-<!-- onscreen -->
-https://github.com/silvestreh/onScreen
+<!-- waypoint -->
+https://github.com/imakewebthings/waypoints
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
 
 <script>
-	$.fn.inScreen = function(option) {
-		var deFault = {
-			offset: 150
-		};
-
-		var setting = $.extend(deFault, option);
-
-		var $t = $(this),
-			$w = $(window),
-			viewTop = $w.scrollTop(),
-			viewBottom = viewTop + $w.height(),
-			_top = $t.offset().top + setting.offset,
-			_bottom = _top + $t.height() + setting.offset
-
-		return ((_top <= viewBottom) && (_bottom >= viewTop));
-	};
+	$("article[data-month]").waypoint(function(dir) {
+		var _eq = this.element.dataset.month - 1
+		if (dir == 'down') {
+			$(".giftmonthlink a").eq(_eq).addClass("current")
+		}else{
+			$(".giftmonthlink a").eq(_eq).removeClass("current")
+		}
+	}, {
+		offset: $(window).height() * 0.6
+	})
 </script>

@@ -1,3 +1,21 @@
+<!-- waypoint -->
+https://github.com/imakewebthings/waypoints
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+
+<script>
+	$("article[data-month]").waypoint(function(dir) {
+		var _eq = this.element.dataset.month - 1
+		if (dir == 'down') {
+			$(".giftmonthlink a").eq(_eq).addClass("current")
+		}else{
+			$(".giftmonthlink a").eq(_eq).removeClass("current")
+		}
+	}, {
+		offset: $(window).height() * 0.6
+	})
+</script>
+
 <!-- in-viewport (只會觸發一次) -->
 https://github.com/vvo/in-viewport
 
@@ -13,7 +31,7 @@ https://github.com/vvo/in-viewport
 	})
 </script>
 
-<!-- 重覆觸發 -->
+<!-- in-viewport (重覆觸發) -->
 <script src="src/js/jquery.inViewport.js"></script>
 
 <script>

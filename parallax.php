@@ -1,4 +1,13 @@
 <!--===============================================
+=            background image parallax            =
+================================================-->
+https://github.com/pixelcog/parallax.js/
+
+<script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+
+<section class="contact-banner" data-parallax="scroll" data-image-src="images/index-banner.jpg"></section>
+
+<!--===============================================
 =            use requestAnimationFrame            =
 ================================================-->
 https://github.com/alumbo/jquery.parallax-scroll

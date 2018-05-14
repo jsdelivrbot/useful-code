@@ -1,3 +1,19 @@
+<!-- in-viewport -->
+https://github.com/vvo/in-viewport
+
+<script src="src/js/in-viewport.min.js"></script>
+
+<script>
+	// 這樣只會觸發一次  要多次好像有 watcher 可以用
+	$(".giftWrap section").each((i, el) => {
+		inViewport(el, (el) => {
+			$(".ani-flypath", el)[0].beginElement()
+			$(".ani-bee", el)[0].beginElement()
+			$(".ani-flybee", el)[0].beginElement()
+		})
+	})
+</script>
+
 <!-- 只觸發一次 -->
 <script>
 	$.fn.ryderWaypoint = function(option) {

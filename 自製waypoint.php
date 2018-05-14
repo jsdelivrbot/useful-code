@@ -1,16 +1,28 @@
-<!-- in-viewport -->
+<!-- in-viewport (只會觸發一次) -->
 https://github.com/vvo/in-viewport
 
 <script src="src/js/in-viewport.min.js"></script>
 
 <script>
-	// 這樣只會觸發一次  要多次好像有 watcher 可以用
 	$(".giftWrap section").each((i, el) => {
 		inViewport(el, (el) => {
 			$(".ani-flypath", el)[0].beginElement()
 			$(".ani-bee", el)[0].beginElement()
 			$(".ani-flybee", el)[0].beginElement()
 		})
+	})
+</script>
+
+<!-- 重覆觸發 -->
+<script src="src/js/jquery.inViewport.js"></script>
+
+<script>
+	$("article[data-month]").inViewport(function(){
+		var _eq = this.dataset.month - 1
+		$(".giftmonthlink a").eq(_eq).addClass("current")
+	}, function(){
+		var _eq = this.dataset.month - 1
+		$(".giftmonthlink a").eq(_eq).removeClass("current")
 	})
 </script>
 

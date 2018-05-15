@@ -1,3 +1,40 @@
+<!-- 整合一下下面那兩個傻逼 -->
+<script>
+	$.fn.ryderCool = function(option) {
+		return this.each(function() {
+			var $this = $(this);
+
+			var deFault = {
+				hook: 0.9,
+				repeat: false,
+				check: true,
+				enter() {},
+				leave() {}
+			};
+
+			var setting = $.extend(deFault, option);
+
+			function ryderScrolling() {
+				var scrollTop = $(window).scrollTop(),
+					elementOffset = $this.offset().top,
+					distance = (elementOffset - scrollTop),
+					windowHeight = $(window).height(),
+					breakPoint = windowHeight * setting.hook,
+					leavePoint = $this.height() - windowHeight * (1 - setting.hook);
+
+				if (distance > breakPoint || distance < -leavePoint) {
+					setting.check && setting.leave($this);
+				}else if (distance < breakPoint) {
+					setting.check && setting.enter($this);
+					setting.check = setting.repeat;
+				}
+			}
+
+			$(window).on("scroll", ryderScrolling).trigger("scroll");
+		});
+	};
+</script>
+
 <!-- 只觸發一次 -->
 <script>
 	$.fn.ryderWaypoint = function(option) {
@@ -30,6 +67,7 @@
 	};
 </script>
 
+<!-- 重覆觸發 -->
 <script>
 	$.fn.ryderCool = function(option) {
 		return this.each(function() {

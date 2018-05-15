@@ -67,4 +67,8 @@ while ($row = $resultCat->fetch()) {
     echo $row['c_title'];
     echo '<br>';
 }
+
+// 這樣應該也可以
+foreach ($resultCat as $row_RecWorks){}
+foreach ($resultCat->fetchAll(PDO::FETCH_ASSOC) as $row_RecWorks){}
 ?>

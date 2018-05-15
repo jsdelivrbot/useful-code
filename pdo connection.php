@@ -1,7 +1,34 @@
 <!-- 另一個 DBI -->
 https://github.com/jpfuentes2/php-activerecord
 
+<!-- 比較 PDO bindParam 和 bindValue 的不同 -->
+http://ps.hsuweni.idv.tw/?p=5006
 
+<!-- 常用type -->
+http://php.net/manual/zh/pdo.constants.php
+
+<!-- 指定變數型態 -->
+<?php
+// PDO::PARAM_BOOL
+// PDO::PARAM_NULL
+// PDO::PARAM_INT
+// PDO::PARAM_STR
+
+$result = $connection->prepare($sql);
+
+$name = '王小明';
+$mail = 'aaa@gmail.com';
+$home = '台南縣新化區中正路1號';
+$message = '第 1 筆資料';
+
+$result->bindParam(':name', $name, PDO::PARAM_STR);
+$result->bindParam(':mail', $mail, PDO::PARAM_STR);
+$result->bindParam(':home', $home, PDO::PARAM_STR);
+$result->bindParam(':message', $message, PDO::PARAM_STR);
+$result->execute();
+?>
+
+<!-- 基本用法 -->
 <?php
 try {
 	$dsn = "mysql:host=localhost;dbname=molino;charset=utf8";

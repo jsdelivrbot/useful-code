@@ -14,25 +14,25 @@ http://php.net/manual/zh/pdo.constants.php
 // PDO::PARAM_INT
 // PDO::PARAM_STR
 
-$result = $connection->prepare($sql);
+$stat = $conn->prepare($sql);
 
 $name = '王小明';
 $mail = 'aaa@gmail.com';
 $home = '台南縣新化區中正路1號';
 $message = '第 1 筆資料';
 
-$result->bindParam(':name', $name, PDO::PARAM_STR);
-$result->bindParam(':mail', $mail, PDO::PARAM_STR);
-$result->bindParam(':home', $home, PDO::PARAM_STR);
-$result->bindParam(':message', $message, PDO::PARAM_STR);
-$result->execute();
+$stat->bindParam(':name', $name, PDO::PARAM_STR);
+$stat->bindParam(':mail', $mail, PDO::PARAM_STR);
+$stat->bindParam(':home', $home, PDO::PARAM_STR);
+$stat->bindParam(':message', $message, PDO::PARAM_STR);
+$stat->execute();
 ?>
 
 <!-- 基本用法 -->
 <?php
 try {
 	$dsn = "mysql:host=localhost;dbname=molino;charset=utf8";
-	$connection = new PDO($dsn, 'root' , '');
+	$conn = new PDO($dsn, 'root' , '');
 }catch (PDOException $e){
 	die("Error: " . $e->getMessage() . "\n");
 }
@@ -46,20 +46,20 @@ $argCat = [
 	'some' => "%{$temp}%"
 ];
 
-$resultCat = $connection->prepare($sqlCat);
-$resultCat->execute($argCat);
+$statCat = $conn->prepare($sqlCat);
+$statCat->execute($argCat);
 
-// echo $resultCat->rowCount();
+// echo $statCat->rowCount();
 
-while ($row = $resultCat->fetch()) {
+while ($row = $statCat->fetch()) {
 	$sqlData = "SELECT * FROM data_set WHERE d_class2=:class2";
 	$argData = [
 		'class2' => $row['c_id']
 	];
-	$resultData = $connection->prepare($sqlData);
-	$resultData->execute($argData);
+	$statData = $conn->prepare($sqlData);
+	$statData->execute($argData);
 
-	while ($row2 = $resultData->fetch()) {
+	while ($row2 = $statData->fetch()) {
 	    echo $row2['d_title'];
 	    echo '<br>';
 	}
@@ -69,6 +69,6 @@ while ($row = $resultCat->fetch()) {
 }
 
 // 這樣應該也可以
-foreach ($resultCat as $row_RecWorks){}
-foreach ($resultCat->fetchAll(PDO::FETCH_ASSOC) as $row_RecWorks){}
+foreach ($statCat as $row_RecWorks){}
+foreach ($statCat->fetchAll(PDO::FETCH_ASSOC) as $row_RecWorks){}
 ?>

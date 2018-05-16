@@ -151,7 +151,7 @@ mysql_select_db\(\$database_connect2data, \$connect2data\);
 
 $1 = $con->query($2);
 -------------------------------------------------------
-while \([$](.+) = mysql_fetch_assoc\([$](\w+)\)\);
+while.*\([$](.+) = mysql_fetch_assoc\([$](\w+)\)\);
 
 while (\$$1 = \$$2->fetch());
 -------------------------------------------------------

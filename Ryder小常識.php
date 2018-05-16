@@ -114,6 +114,9 @@ https://dotblogs.com.tw/explooosion/2018/01/21/040728
 5、使用鍵盤上的特殊符號（包括空格）、字母、數字： /[a-z0-9\x00-\x2F\x3A-\x40\x5B-\x60\x7B-\xFF]{6,15}/iu，注意u。在javascript上也可以，在頁面上charset=utf-8。 /[a-z0-9\x00-\x2F\x3A-\x40\x5B-\x60\x7B-\xFF]{6,15}/ig
 實在記不起這些特殊符號的八進制\x表示：/[a-z0-9~`!@#$%^&*()_\\+=\/\.,<>?;\'\-\"|\[\]{}\s\:]{6,15}/iu
 
+找多行  前面加(?s)
+(?s)if[^{]+[^}]+}
+
 <!-- lock scrollbar -->
 <script>
 	function fancy_open() {

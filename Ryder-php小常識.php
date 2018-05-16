@@ -132,3 +132,33 @@ php_flag output_buffering on
 =============================-->
 
 <?= preg_replace("/\s/","",trim($row_RecWorks['d_content'])) ?>
+
+<!--==================================
+=            mysql to pdo            =
+===================================-->
+mysql_select_db
+mysql_query
+mysql_fetch_assoc
+mysql_num_rows
+mysql_data_seek
+
+-------------------------------------------------------
+(?s)if \(!function_exists\("GetSQLValueString"\)\).+return.*\$theValue;\s+}\s+}
+-------------------------------------------------------
+mysql_select_db\(\$database_connect2data, \$connect2data\);
+-------------------------------------------------------
+(.+) = mysql_query\((.+), \$connect2data\) or die\(mysql_error\(\)\);
+
+$1 = $con->query($2);
+-------------------------------------------------------
+while \([$](.+) = mysql_fetch_assoc\([$](\w+)\)\);
+
+while (\$$1 = \$$2->fetch());
+-------------------------------------------------------
+(.+) = mysql_fetch_assoc\((.+)\);
+
+$1 = $2->fetch();
+-------------------------------------------------------
+(.+) = mysql_num_rows\((.+)\);
+
+$1 = $2->rowCount();

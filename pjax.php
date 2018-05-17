@@ -6,6 +6,9 @@ smoothstate.js
 
 https://codyhouse.co/gem/animated-page-transition/
 
+<!-- a simple and easy jQuery plugin for CSS animated page transitions -->
+https://github.com/blivesta/animsition
+
 <!-- barba.js -->
 <template lang="pug">
 	#barba-wrapper

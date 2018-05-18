@@ -7,7 +7,7 @@
 		$("#video").prop("muted", !$("#video").prop("muted"))
 	})
 
-	// for mobile
+	// for mobile 好像不能有 playsinline
 	var _video = document.getElementById('video')
 	_video.muted = false
 	_video.fullscreen = true
@@ -35,6 +35,7 @@
 		}
 
 		_video.play()
+		// $("#video").trigger("play")
 	})
 </script>
 

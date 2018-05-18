@@ -1,3 +1,6 @@
+<!-- 讓你知道圖片載完了沒 -->
+https://github.com/desandro/imagesloaded
+
 <!-- 模糊到清楚式 好像很厲害 -->
 https://github.com/zafree/pilpil
 

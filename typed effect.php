@@ -46,8 +46,8 @@ https://github.com/mattboldt/typed.js
 		fadeOut: false,
 		typeSpeed: 100,
 		backSpeed: 50,
-		backDelay: 500,
-		startDelay: 1000,
+		backDelay: 4000,
+		startDelay: 2000,
 		cursorChar: '_',
 	});
 </script>

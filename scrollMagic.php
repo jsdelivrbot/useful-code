@@ -1,4 +1,12 @@
-<!-- example -->
+<!--=============================
+=            skrollr            =
+==============================-->
+https://github.com/Prinzhorn/skrollr
+
+
+<!--=================================
+=            ScrollMagic            =
+==================================-->
 http://scrollmagic.io/examples/index.html
 
 <!-- cheatsheet -->
@@ -12,7 +20,6 @@ https://ihatetomatoes.net/wp-content/uploads/2016/07/ScrollMagic-CheatsheetV1.pd
 
 <!-- dubug用 (加在後面) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
-
 
 <!-- for preload  延時觸發  重點要加 controller.update(true); -->
 <script>
@@ -43,7 +50,6 @@ https://ihatetomatoes.net/wp-content/uploads/2016/07/ScrollMagic-CheatsheetV1.pd
 		});
 	}
 </script>
-
 
 <!-- note -->
 set pin 圖片壞掉可以試試改 z-index 或小位移一下

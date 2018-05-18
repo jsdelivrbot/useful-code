@@ -7,6 +7,10 @@
 <link rel="apple-touch-icon" sizes="120x120" href="images/fav.ico">
 <link rel="apple-touch-icon" sizes="152x152" href="images/fav.ico">
 
+<link rel="author" href="mailto:ts01173166@gmail.com">
+<link rel="author" href="tel:+886987710168">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta name="keywords" Content="關鍵詞1,關鍵詞2,關鍵詞3">
 <meta name="description" content="網站簡述">

@@ -12,6 +12,7 @@ var uglify = require('gulp-uglify');
 var browserify = require("gulp-browserify");
 var webpack = require('webpack-stream');
 var nodemon = require('gulp-nodemon');
+var named = require('vinyl-named');
 
 gulp.task('browser-sync', function() {
     browserSync.init({
@@ -31,6 +32,7 @@ gulp.task('browser-sync', function() {
 
 gulp.task('babel', function() {
     return gulp.src('src/*.js')
+        .pipe(named())
         .pipe(webpack(require('./webpack.config.js')))
         .pipe(gulp.dest('dist'));
 });

@@ -197,7 +197,7 @@ https://seo.palada.com.tw/15.html
 <!--=================================
 =            sftp ignore            =
 ==================================-->
-,"\\.cache","/sass/","/jade/","/pug/","/vue/","/react/","\\.css.map","/.sass-cache/","/node_modules/","\\.zip","\\.rar","/public/","\\.rb","\\.config"
+,"\\.cache","/sass/","/jade/","/pug/","/vue/","/react/","\\.map","/.sass-cache/","/node_modules/","\\.zip","\\.rar","/public/","\\.rb","\\.config"
 
 ,"/Connections/","/upload_image/","/upload_file/","/thumbs/","/source/"
 

@@ -3,11 +3,11 @@ var entries = require('webpack-entries');
 var autoprefixer = require('autoprefixer');
 
 module.exports = {
-    entry: entries('./src/*.js', true),
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js'
-    },
+    // entry: entries('./src/*.js', true),
+    // output: {
+    //     path: path.resolve(__dirname, 'dist'),
+    //     filename: '[name].js'
+    // },
     module: {
         rules: [{
             test: /\.(js|jsx)$/,

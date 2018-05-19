@@ -300,6 +300,8 @@ http://www.w3cschool.cn/jquerygroup/qty419wl.html
 http://techbrood.com/h5b2a?p=html-canvas-drawimage
 <!-- 各種公式 -->
 https://segmentfault.com/a/1190000006192477
+<!-- 文字粒子 -->
+https://segmentfault.com/a/1190000005704935#articleHeader0
 
 <!--===========================================================
 =            jquery some way instead of javascript            =

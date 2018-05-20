@@ -1,6 +1,13 @@
-https://www.zhihu.com/question/20129430
+<!--========================================
+=            新增文章分類 (待研究)           =
+=========================================-->
+pods framework
 
-<!-- 自製模版 -->
+
+<!--=============================
+=            自製模版            =
+==============================-->
+https://www.zhihu.com/question/20129430
 <?php
 /*
 名字改成 page-template-xx.php
@@ -13,7 +20,10 @@ Template Name: xx 模板
 <script src="<?php echo get_theme_file_uri( 'sample.js' ); ?>" type="text/javascript"></script>
 <img src="<?php echo get_theme_file_uri( 'sample.jpg' ); ?>" />
 
-<!-- 轉址到子目錄 -->
+
+<!--=================================
+=            轉址到子目錄            =
+==================================-->
 wp 設定 一般 網站位址（URL）也要改
 <IfModule mod_rewrite.c>
 RewriteEngine on

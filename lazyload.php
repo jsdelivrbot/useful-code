@@ -1,3 +1,41 @@
+<!-- Ryder 自製 -->
+<script>
+	var fetchImage = (url) => {
+	    return new Promise((resolve, reject) => {
+	        var image = new Image();
+	        image.src = url;
+	        image.onload = resolve;
+	        image.onerror = reject;
+	    });
+	}
+
+	var callback = (entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting){
+				var $el = entry.target
+				var src = $el.dataset.src;
+				fetchImage(src).then(() => {
+				    $el.src = src;
+				    $el.classList.add('is-load');
+				})
+				io.unobserve($el)
+			}
+		})
+	}
+
+	var io = new IntersectionObserver(callback, {
+	    root: null,
+	    // rootMargin: '0px',
+	    threshold: 0.1
+	})
+
+	var images = document.querySelectorAll('img[data-src]');
+
+	images.forEach((img) => {
+	    io.observe(img);
+	})
+</script>
+
 <!-- 模糊到清楚式 好像很厲害 -->
 https://github.com/zafree/pilpil
 

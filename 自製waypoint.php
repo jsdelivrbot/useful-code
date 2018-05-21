@@ -1,3 +1,30 @@
+<!-- 用新的api -->
+<script>
+	var callback = (entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting){
+				// enter
+				var $el = entry.target
+
+				// if not repeat
+				io.unobserve($el)
+			}else{
+				// leave
+			}
+		})
+	}
+
+	var io = new IntersectionObserver(callback, {
+	    root: null,
+	    // rootMargin: '0px',
+	    threshold: 0.1
+	})
+
+	$("img").each((i, el) => {
+	    io.observe(el);
+	})
+</script>
+
 <!-- 整合一下下面那兩個傻逼 -->
 <script>
 	$.fn.ryderCool = function(option) {

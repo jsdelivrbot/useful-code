@@ -1,6 +1,26 @@
 https://flickity.metafizzy.co/
 
-<!-- drag 超棒  沒有fade -->
+<!-- fade effect -->
+https://codepen.io/eikeco/pen/MwGRKr
+
+<style>
+	/* Fade CSS */
+	.flickity-slider {
+		transform: none !important;
+	}
+	.gallery-cell {
+		left: 0 !important;
+		opacity: 0;
+		transition: opacity 0.3s ease-in-out;
+		z-index: -1;
+	}
+	.gallery-cell.is-selected {
+		opacity: 1;
+		z-index: 0
+	}
+</style>
+
+<!-- drag 超棒  -->
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 

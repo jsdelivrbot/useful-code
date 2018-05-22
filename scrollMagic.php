@@ -3,6 +3,15 @@
 ==============================-->
 https://github.com/Prinzhorn/skrollr
 
+<!-- cheatsheet -->
+https://ihatetomatoes.net/skrollr-cheatsheet/
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
+
+<script>
+	skrollr.init();
+</script>
+
 
 <!--=================================
 =            ScrollMagic            =

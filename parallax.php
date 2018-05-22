@@ -1,3 +1,19 @@
+<!--===================================
+=            綜合可擴充自訂            =
+====================================-->
+https://github.com/markdalgleish/stellar.js
+
+<script src="https://cdn.jsdelivr.net/npm/jquery.stellar@0.6.2/jquery.stellar.js"></script>
+
+<script>
+	$.stellar({
+		responsive: true,
+		positionProperty: 'transform',
+		showElement(el) {},
+		hideElement(el) {}
+	})
+</script>
+
 <!--===============================================
 =            background image parallax            =
 ================================================-->

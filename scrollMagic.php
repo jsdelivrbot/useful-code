@@ -8,6 +8,12 @@ https://ihatetomatoes.net/skrollr-cheatsheet/
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/skrollr/0.6.30/skrollr.min.js"></script>
 
+<div class="head-area"
+data-anchor-target=".pic-container"
+data-top="top: 3%; opacity: 1;"
+data-center-bottom="top: 92%; opacity: 0;"
+data-smooth-scrolling="off"></div>
+
 <script>
 	skrollr.init();
 </script>

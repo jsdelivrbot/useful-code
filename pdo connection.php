@@ -34,6 +34,8 @@ if (!isset($_SESSION)) {
 	session_start();
 }
 
+ob_start();
+
 ini_set('date.timezone', 'Asia/Taipei');
 
 define("HOSTNAME", "localhost");
@@ -44,7 +46,7 @@ define("PASSWORD", "");
 try {
 	$dsn = "mysql:host=". HOSTNAME .";dbname=". DATABASE .";charset=utf8";
 	$conn = new PDO($dsn, USERNAME , PASSWORD);
-}catch (PDOException $e){
+} catch (PDOException $e){
 	die("Error: " . $e->getMessage() . "\n");
 }
 

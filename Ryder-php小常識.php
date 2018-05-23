@@ -149,7 +149,7 @@ mysql_select_db\(\$database_connect2data, \$connect2data\);
 -------------------------------------------------------
 (.+) = mysql_query\((.+), \$connect2data\) or die\(mysql_error\(\)\);
 
-$1 = $con->query($2);
+$1 = $conn->query($2);
 -------------------------------------------------------
 while.*\([$](.+) = mysql_fetch_assoc\([$](\w+)\)\);
 

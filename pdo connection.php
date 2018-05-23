@@ -30,9 +30,20 @@ $stat->execute();
 
 <!-- 基本用法 -->
 <?php
+if (!isset($_SESSION)) {
+	session_start();
+}
+
+ini_set('date.timezone', 'Asia/Taipei');
+
+define("HOSTNAME", "localhost");
+define("DATABASE", "aqua");
+define("USERNAME", "root");
+define("PASSWORD", "");
+
 try {
-	$dsn = "mysql:host=localhost;dbname=molino;charset=utf8";
-	$conn = new PDO($dsn, 'root' , '');
+	$dsn = "mysql:host=". HOSTNAME .";dbname=". DATABASE .";charset=utf8";
+	$conn = new PDO($dsn, USERNAME , PASSWORD);
 }catch (PDOException $e){
 	die("Error: " . $e->getMessage() . "\n");
 }

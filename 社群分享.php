@@ -1,3 +1,44 @@
+<!-- Ryder 自製版 -->
+<div class="link">
+    <a href="<?= $url ?>" data-share="facebook">
+        <svg x="0px" y="0px" width="33.5px" height="33.5px" viewBox="0 0 33.5 33.5"></svg>
+    </a>
+    <a href="<?= $url ?>" data-share="line">
+        <svg x="0px" y="0px" width="33.5px" height="33.5px" viewBox="0 0 33.5 33.5"></svg>
+    </a>
+</div>
+
+<script>
+	$("[data-share]").each((i, el) => {
+		var type = el.dataset.share
+	    $(el).click(function(e) {
+	        e.preventDefault();
+
+	        var winHeight = 200;
+	        var winWidth = 450;
+	        var winTop = (screen.height / 2) - (winHeight / 2);
+	        var winLeft = (screen.width / 2) - (winWidth / 2);
+	        var url = $(this).attr("href");
+
+	        if(type == "facebook") {
+	            window.open('https://www.facebook.com/sharer/sharer.php?u=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+	        } else if(type == "twitter") {
+	            window.open('https://twitter.com/share?url=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+	        } else if(type == "pinterest") {
+	            window.open('https://www.pinterest.com/pin/create/button/?url=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+	        } else if(type == "googleplus") {
+	            window.open('https://plus.google.com/share?url=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+	        } else if(type == "linkedin") {
+	            window.open('https://www.linkedin.com/cws/share?url=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+	        } else if(type == "weibo") {
+	            window.open('https://service.weibo.com/share/share.php?url=' + url, 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=' + winWidth + ',height=' + winHeight);
+	        } else if(type == "line") {
+	            window.open('https://line.naver.jp/R/msg/text/?' + url);
+	        }
+	    });
+	});
+</script>
+
 <!-- 人工改良版 popup小視窗 -->
 <a href="<?= $url ?>" class="share-to-fb">
 	<div class="fb"><img src="images/fb.png"></div>

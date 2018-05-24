@@ -161,6 +161,7 @@ $ifFile = 0;
                                                         </table>
                                                     </td>
                                                     <td bgcolor="#e5ecf6" class="table_col_title">
+                                                        <p class="red_letter">* 若要上傳多張照片，請於新增完成後，至該筆資料編輯區點選上傳多張圖片。</p>
                                                         <p class="red_letter">*
                                                             <?php echo $imagesSize[$_SESSION['nowMenu']]['note'];?>
                                                         </p>

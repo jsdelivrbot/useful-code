@@ -1,4 +1,3 @@
-<?php require_once('../sstart.php'); ?>
 <?php require_once('../Connections/connect2data.php'); ?>
 <?php require_once('photo_process_banners.php'); ?>
 <?php require_once('file_process.php'); ?>

@@ -1,1 +1,0 @@
-<div class="logo"><a href="index.php"><img src="img/logo-b.png" width="110"></a></div>

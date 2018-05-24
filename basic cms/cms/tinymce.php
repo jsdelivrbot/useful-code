@@ -1,9 +1,8 @@
 <script type="text/javascript" src="tinymce/jquery.tinymce.min.js"></script>
 <script type="text/javascript">
-//var $ = jQuery.noConflict();
+
 $(function () {
     $('textarea.tiny').tinymce({
-        // Location of TinyMCE script
         script_url: 'tinymce/tinymce.min.js',
         // language: "zh_TW", // change language here
         relative_urls : false,
@@ -25,11 +24,11 @@ $(function () {
         toolbar3: "undo redo | cut copy paste | print fullscreen | preview code | image responsivefilemanager",
 
         // NOTE: 上線要改成 /filemanager/
-        external_filemanager_path: "/dynamic5/filemanager/",
+        external_filemanager_path: "/aqua/filemanager/",
         filemanager_title: "Filemanager",
         // NOTE: 上線要改成 /filemanager/plugin.min.js
         external_plugins: {
-            "filemanager": "/dynamic5/filemanager/plugin.min.js"
+            "filemanager": "/aqua/filemanager/plugin.min.js"
         },
 
         // http://archive.tinymce.com/wiki.php/Configuration3x:style_formats
@@ -37,4 +36,3 @@ $(function () {
     });
 });
 </script>
-<!-- /TinyMCE -->

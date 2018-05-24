@@ -34,20 +34,20 @@ function creatTablBottom(){
 		<?php } ?>
 
 		<?php if($row_RecLevelAuthority['a_3']=='1'){// ?>
-		<li id="main_menu_3" class="main_menu <?php if ($menu_is=='rooms'): ?>main_menu_now<?php endif ?>">
-			<a href="javascript:adminSiteLink(3)"><div>rooms</div></a>
+		<li id="main_menu_3" class="main_men">
+			<a href="javascript:adminSiteLink(3)"><div>media</div></a>
 		</li>
 		<?php } ?>
 
 		<?php if($row_RecLevelAuthority['a_4']=='1'){// ?>
-		<!-- <li id="main_menu_4" class="main_menu">
-			<a href="javascript:adminSiteLink(4)"><div>房間介紹</div></a>
-		</li> -->
+		<li id="main_menu_4" class="main_menu">
+			<a href="javascript:adminSiteLink(4)"><div>store</div></a>
+		</li>
 		<?php } ?>
 
 		<?php if($row_RecLevelAuthority['a_5']=='1'){// ?>
 		<!-- <li id="main_menu_5" class="main_menu">
-			<a href="javascript:adminSiteLink(5)"><div>享受當下</div></a>
+			<a href="javascript:adminSiteLink(5)"><div>menu</div></a>
 		</li> -->
 		<?php } ?>
 		<?php if($row_RecLevelAuthority['a_8']=='1'){// ?>
@@ -71,9 +71,9 @@ function creatTablBottom(){
      	</li>
      	<?php } ?>
      	<?php if($row_RecLevelAuthority['a_1']=='1'){//權限管理?>
-        <!-- <li id="main_menu_1" class="main_menu">
+        <li id="main_menu_1" class="main_menu">
         	<a href="javascript:adminSiteLink(1)"><div>權限管理</div></a>
-        </li> -->
+        </li>
         <?php } ?>
     </ul>
 </div>
@@ -85,25 +85,26 @@ if($menu_is=="news"){//news
 	if($row_RecLevelAuthority['a_2']=='0'){header("Location:first.php");}
 	creatTablBottom();
 
-}else if($menu_is=="rooms"){//event
+}else if($menu_is=="media"){//event
 
 	creatTableTop();
-	creatAll('rooms', 'rooms');
+	creatAll('media', 'media');
 	if($row_RecLevelAuthority['a_3']=='0'){header("Location:first.php");}
 	creatTablBottom();
 
-}else if($menu_is=="rooms"){//rooms
+}else if($menu_is=="store"){
 
 	creatTableTop();
-	creatAll('房間介紹', 'rooms');
-	creatAll('房間種類', 'roomsT');
+	creatAll('商店', 'store');
+	creatAll('商店', 'storeC');
 	if($row_RecLevelAuthority['a_4']=='0'){header("Location:first.php");}
 	creatTablBottom();
 
-}else if($menu_is=="enjoy"){
+}else if($menu_is=="menu"){
 
 	creatTableTop();
-	creatAll('享受當下', 'enjoy');
+	creatAll('菜單', 'menu');
+	creatAll('菜單', 'menuC');
 	if($row_RecLevelAuthority['a_5']=='0'){header("Location:first.php");}
 	creatTablBottom();
 

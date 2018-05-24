@@ -76,7 +76,7 @@ $config = array(
 	NOTE: 上線要改成 ../source/
 	|
 	*/
-	'upload_dir' => '/dynamic5/source/',
+	'upload_dir' => '/aqua/source/',
 	/*
 	|--------------------------------------------------------------------------
 	| relative path from filemanager folder to upload folder

@@ -1,5 +1,5 @@
 <span class="cms-art-logo-name"><img src="../images/logo.png" width="50"></span>
-<span class="cms-art-logo-text">唐獎</span>
+<span class="cms-art-logo-text">天泉溫泉水</span>
 <!-- <a href="../en/cms/login.php"><span style="font-size: 12px;
 float: right;
 padding-top: 15px;

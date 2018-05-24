@@ -1,4 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<info>
-	<infoitem key="UD_RecAllSet" value="name:c_id;datatype:int,name:c_title;datatype:blob,name:c_class;datatype:blob,name:c_active;datatype:int" />
-</info>

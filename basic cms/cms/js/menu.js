@@ -11,13 +11,13 @@ function adminSiteLink(x){
 		location.href="news_list.php";
 		break;
 		case 3:
-		location.href="rooms_list.php";
+		location.href="media_list.php";
 		break;
 		case 4:
-		location.href="rooms_list.php";
+		location.href="store_list.php";
 		break;
 		case 5:
-		location.href="enjoy_list.php";
+		location.href="menu_list.php";
 		break;
 		case 6:
 		location.href="award_list.php";

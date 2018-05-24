@@ -1,38 +1,8 @@
-<?php require_once('../sstart.php'); ?>
 <?php require_once('../Connections/connect2data.php'); ?>
+
 <?php
-if (!function_exists("GetSQLValueString")) {
-function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "")
-{
-  if (PHP_VERSION < 6) {
-    $theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
-  }
-
-  $theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
-
-  switch ($theType) {
-    case "text":
-      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;
-    case "long":
-    case "int":
-      $theValue = ($theValue != "") ? intval($theValue) : "NULL";
-      break;
-    case "double":
-      $theValue = ($theValue != "") ? doubleval($theValue) : "NULL";
-      break;
-    case "date":
-      $theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-      break;
-    case "defined":
-      $theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
-      break;
-  }
-  return $theValue;
-}
-}
-
 $editFormAction = $_SERVER['PHP_SELF'];
+
 if (isset($_SERVER['QUERY_STRING'])) {
   $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
 }
@@ -42,8 +12,8 @@ $fileType = "file_type='image' AND";
 if (isset($_REQUEST['type']) && $_REQUEST['type']=='newsVideoCover'){
 	$fileType 	= "file_type='newsVideoCover' AND";
 }
-if (isset($_REQUEST['type']) && $_REQUEST['type']=='internationalVideoCover'){
-	$fileType 	= "file_type='internationalVideoCover' AND";
+if (isset($_REQUEST['type']) && $_REQUEST['type']=='storeCover'){
+	$fileType 	= "file_type='storeCover' AND";
 }
 if (isset($_REQUEST['type']) && ($_REQUEST['type']=="personal")){
 	$fileType = "file_type='imageP' AND";
@@ -63,46 +33,26 @@ if (isset($_REQUEST['type']) && ($_REQUEST['type']=="menuC_mobile")){
 if (isset($_REQUEST['type']) && ($_REQUEST['type']=="newsCover")){
 	$fileType = "file_type='newsCover' AND";
 }
-//
-//echo $fileType;
-/*if($_SESSION['nowMenu']=='brands'){
-	$fileType = "file_type='brandImage' AND";
-}elseif($_SESSION['nowMenu']=='brandSeries'){
-	$fileType = "file_type='brandSeries' AND";
-}else{
-	$fileType = "file_type='image' AND";
-}*/
-//$fileType = "file_type='image' AND";
 
 $colname_RecImage = "-1";
 if (isset($_GET['file_id'])) {
   $colname_RecImage = $_GET['file_id'];
 }
-mysql_select_db($database_connect2data, $connect2data);
-$query_RecImage = sprintf("SELECT * FROM file_set WHERE ".$fileType." file_id = %s", GetSQLValueString($colname_RecImage, "int"));
-$RecImage = mysql_query($query_RecImage, $connect2data) or die(mysql_error());
-$row_RecImage = mysql_fetch_assoc($RecImage);
-$totalRows_RecImage = mysql_num_rows($RecImage);
-?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+$query_RecImage = "SELECT * FROM file_set WHERE $fileType file_id = :file_id";
+$RecImage = $conn->prepare($query_RecImage);
+$RecImage->bindParam(':file_id', $colname_RecImage, PDO::PARAM_INT);
+$RecImage->execute();
+$row_RecImage = $RecImage->fetch();
+$totalRows_RecImage = $RecImage->rowCount();
+
+?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>刪除圖片</title>
-<script type="text/javascript" src="jquery/jquery-1.6.4.min.js"></script>
-<script type="text/javascript">
-
-$(document).ready(function() {
-
-	$(".btnType").hover(function(){
-		$(this).addClass('btnTypeClass');
-		$(this).css('cursor', 'pointer');
-	}, function(){
-		$(this).removeClass('btnTypeClass');
-	});
-
-});
-
-</script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>刪除圖片</title>
 </head>
 
 <body>
@@ -157,104 +107,66 @@ $(document).ready(function() {
             <td>&nbsp;</td>
         </tr>
     </table>
-
 </body>
 </html>
-<?php
 
+<script type="text/javascript" src="jquery/jquery-1.7.2.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".btnType").hover(function() {
+            $(this).addClass('btnTypeClass');
+            $(this).css('cursor', 'pointer');
+        }, function() {
+            $(this).removeClass('btnTypeClass');
+        });
+    });
+</script>
+
+<?php
 if ((isset($_POST['file_id'])) && ($_POST['file_id'] != "") && (isset($_POST['delsure']))) {
 
-		//刪除圖片真實檔案begin----
+    //刪除圖片真實檔案begin----
 
-	$sql="SELECT file_link1 FROM file_set WHERE ".$fileType	." file_id='".$_POST['file_id']."'";
-	//echo $sql.'<br>';
-	$result = mysql_query($sql)or die("無法送出".mysql_error( ));
-	while ( $row = mysql_fetch_array($result))
-	{
-		//echo $row[0]."<BR>";
-		if ( (isset($row[0])) && file_exists("../".$row[0]) ) {
-			unlink("../".$row[0]);//刪除檔案
-		}
-	}
+    $sql = "SELECT * FROM file_set WHERE $fileType file_id=:file_id";
+    $sth = $conn->prepare($sql);
+    $sth->bindParam(':file_id', $_POST['file_id'], PDO::PARAM_INT);
+    $sth->execute();
 
-	$sql="SELECT file_link2 FROM file_set WHERE ".$fileType." file_id='".$_POST['file_id']."'";
-	//echo $sql.'<br>';
-	$result = mysql_query($sql)or die("無法送出".mysql_error( ));
-	while ( $row = mysql_fetch_array($result))
-	{
-		//echo $row[0]."<BR>";
-		if ( (isset($row[0])) && file_exists("../".$row[0]) ) {
-			unlink("../".$row[0]);//刪除檔案
-		}
-	}
+    while ($row = $sth->fetch()) {
+        if ((isset($row['file_link1'])) && file_exists("../" . $row['file_link1'])) {
+            unlink("../" . $row['file_link1']); //刪除檔案
+        }
+        if ((isset($row['file_link2'])) && file_exists("../" . $row['file_link2'])) {
+            unlink("../" . $row['file_link2']); //刪除檔案
+        }
+        if ((isset($row['file_link3'])) && file_exists("../" . $row['file_link3'])) {
+            unlink("../" . $row['file_link3']); //刪除檔案
+        }
+        if ((isset($row['file_link4'])) && file_exists("../" . $row['file_link4'])) {
+            unlink("../" . $row['file_link4']); //刪除檔案
+        }
+        if ((isset($row['file_link5'])) && file_exists("../" . $row['file_link5'])) {
+            unlink("../" . $row['file_link5']); //刪除檔案
+        }
+    }
 
-	$sql="SELECT file_link3 FROM file_set WHERE ".$fileType." file_id='".$_POST['file_id']."'";
-	//echo $sql.'<br>';
-	$result = mysql_query($sql)or die("無法送出".mysql_error( ));
-	while ( $row = mysql_fetch_array($result))
-	{
-		//echo $row[0]."<BR>";
-		if ( (isset($row[0])) && file_exists("../".$row[0]) ) {
-			unlink("../".$row[0]);//刪除檔案
-		}
-	}
+    //刪除圖片真實檔案end----
 
-	$sql="SELECT file_link4 FROM file_set WHERE ".$fileType." file_id='".$_POST['file_id']."'";
-	//echo $sql.'<br>';
-	$result = mysql_query($sql)or die("無法送出".mysql_error( ));
-	while ( $row = mysql_fetch_array($result))
-	{
-		//echo $row[0]."<BR>";
-		if ( (isset($row[0])) && file_exists("../".$row[0]) ) {
-			unlink("../".$row[0]);//刪除檔案
-		}
-	}
+    $deleteSQL = "DELETE FROM file_set WHERE $fileType file_id=:file_id";
 
-	$sql="SELECT file_link5 FROM file_set WHERE ".$fileType." file_id='".$_POST['file_id']."'";
-	//echo $sql.'<br>';
-	$result = mysql_query($sql)or die("無法送出".mysql_error( ));
-	while ( $row = mysql_fetch_array($result))
-	{
-		//echo $row[0]."<BR>";
-		if ( (isset($row[0])) && file_exists("../".$row[0]) ) {
-			unlink("../".$row[0]);//刪除檔案
-		}
-	}
+    $sth = $conn->prepare($deleteSQL);
+    $sth->bindParam(':file_id', $_POST['file_id'], PDO::PARAM_INT);
+    $sth->execute();
 
-		//刪除圖片真實檔案end----
+    if ($_REQUEST['type'] == "menuC" || $_REQUEST['type'] == 'menuC_mobile') {
+        $deleteGoTo = $_SESSION['nowPage'] . "?c_id=" . $row_RecImage['file_d_id'] . "#imageEdit";
+    } else {
+        $deleteGoTo = $_SESSION['nowPage'] . "?d_id=" . $row_RecImage['file_d_id'] . "#imageEdit";
+    }
+    if ($_SESSION['nowMenu'] == "farmerterm") {
+        $deleteGoTo = $_SESSION['nowPage'] . "?term_id=" . $row_RecImage['file_d_id'] . "#imageEdit";
+    }
 
-
-  $deleteSQL = sprintf("DELETE FROM file_set WHERE ".$fileType." file_id=%s",
-                       GetSQLValueString($_POST['file_id'], "int"));
-
-
-  mysql_select_db($database_connect2data, $connect2data);
-  $Result1 = mysql_query($deleteSQL, $connect2data) or die(mysql_error());
-
-  /*if($_SESSION['nowMenu']=='brands'){
-		$deleteGoTo = $_SESSION['nowPage']."?c_id=" . $row_RecImage['file_d_id'] . "";
-	}elseif($_SESSION['nowMenu']=='brandSeries'){
-		$deleteGoTo = $_SESSION['nowPage']."?c_id=" . $row_RecImage['file_d_id'] . "";
-	}else{
-		$deleteGoTo = $_SESSION['nowPage']."?d_id=" . $row_RecImage['file_d_id'] . "";
-	}*/
-
-	if($_REQUEST['type']=="menuC" || $_REQUEST['type']=='menuC_mobile'){
-		$deleteGoTo = $_SESSION['nowPage']."?c_id=" . $row_RecImage['file_d_id'] . "";
-	}else{
-		$deleteGoTo = $_SESSION['nowPage']."?d_id=" . $row_RecImage['file_d_id'] . "";
-	}
-	if($_SESSION['nowMenu']=="farmerterm"){
-		$deleteGoTo = $_SESSION['nowPage']."?term_id=" . $row_RecImage['file_d_id'] . "";
-	}
-
-  /*if (isset($_SERVER['QUERY_STRING'])) {
-    $deleteGoTo .= (strpos($deleteGoTo, '?')) ? "&" : "?";
-    $deleteGoTo .= $_SERVER['QUERY_STRING'];
-  }*/
- header(sprintf("Location: %s", $deleteGoTo));
+    header(sprintf("Location: %s", $deleteGoTo));
 }
-?>
-<?php
-mysql_free_result($RecImage);
 ?>

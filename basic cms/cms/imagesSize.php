@@ -1,9 +1,8 @@
 <?php
+include '../Connections/ini_set.php';
+
 $uploadFileSize = "每次上傳之檔案大小總計請勿超過".ini_get("upload_max_filesize")."。";
 $maxFileSize = "<br />$uploadFileSize";
-ini_set('memory_limit', '16M');
-
-
 
 $imagesSize = array(
 	"banners"	=>	array(
@@ -16,11 +15,6 @@ $imagesSize = array(
 		'IH'	=> 800,
 		'note'	=> "圖片請上傳寬不大於716 pixel 72dpi之圖檔。 $maxFileSize"
 		),
-	"awardTIndex"	=>	array(
-		'IW'	=> 200,
-		'IH'	=> 200,
-		'note'	=> "200*200 $maxFileSize"
-		),
 	"news"	=>	array(
 		'IW'	=> 800,
 		'IH'	=> 530,
@@ -31,15 +25,25 @@ $imagesSize = array(
 		'IH'	=> 195,
 		'note'	=> "圖片請上傳寬 300pixel、高 195pixel之圖檔。 $maxFileSize"
 		),
-	"rooms"	=>	array(
+	"store"	=>	array(
 		'IW'	=> 800,
 		'IH'	=> 530,
 		'note'	=> "圖片請上傳寬 800pixel、高 530pixel之圖檔。 $maxFileSize"
 		),
-	"roomsCover"	=>	array(
-		'IW'	=> 600,
-		'IH'	=> 220,
-		'note'	=> "圖片請上傳寬 600pixel、高 220pixel之圖檔。 $maxFileSize"
+	"storeCover"	=>	array(
+		'IW'	=> 300,
+		'IH'	=> 195,
+		'note'	=> "圖片請上傳寬 300pixel、高 195pixel之圖檔。 $maxFileSize"
+		),
+	"media"	=>	array(
+		'IW'	=> 800,
+		'IH'	=> 530,
+		'note'	=> "圖片請上傳寬 800pixel、高 530pixel之圖檔。 $maxFileSize"
+		),
+	"mediaCover"	=>	array(
+		'IW'	=> 300,
+		'IH'	=> 195,
+		'note'	=> "圖片請上傳寬 300pixel、高 195pixel之圖檔。 $maxFileSize"
 		),
 	"other"		=>	array(
 		'IW'	=> 700,

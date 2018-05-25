@@ -822,3 +822,6 @@ a.note_letter {
 	line-height: 1.5;
 	color: red;
 }
+.chosen-container{
+	font-family: "STXihei", HEITI TC, "HEITI TC", "黑體-繁", "微軟正黑體", "黑體", Arial, Helvetica, sans-serif;
+}

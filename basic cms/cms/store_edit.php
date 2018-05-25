@@ -70,6 +70,9 @@ $ifFile = 1;
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><?php require_once('cmsTitle.php'); ?></title>
 
+    <link rel="stylesheet" type="text/css" href="jquery/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+    <link rel="stylesheet" href="jquery/chosen_v1.8.5/chosen.css">
+
     <?php require_once('script.php'); ?>
     <?php require_once('head.php');?>
 </head>
@@ -125,7 +128,7 @@ $ifFile = 1;
                                                 <tr>
                                                     <td align="center" bgcolor="#e5ecf6" class="table_col_title">分類</td>
                                                     <td>
-                                                        <select name="d_class2" id="d_class2">
+                                                        <select name="d_class2" id="d_class2" class="chosen-select">
                                                             <?php do { ?>
                                                                 <option value="<?php echo $row_RecstoreC['c_id']?>" <?php if (!(strcmp($row_RecstoreC[ 'c_id'], $row_Recstore[ 'd_class2']))) {echo "selected";} ?>>
                                                                     <?php echo $row_RecstoreC['c_title']?>
@@ -459,9 +462,15 @@ $ifFile = 1;
 
 <script type="text/javascript" src="jquery/jquery.fancybox-1.3.4/fancybox/jquery.mousewheel-3.0.4.pack.js"></script>
 <script type="text/javascript" src="jquery/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
-<link rel="stylesheet" type="text/css" href="jquery/jquery.fancybox-1.3.4/fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+<script src="jquery/chosen_v1.8.5/chosen.jquery.js"></script>
 
 <script type="text/javascript">
+    $(".chosen-select").chosen({
+        disable_search_threshold: 6,
+        no_results_text: "找不到資料。 目前輸入的是:",
+        width: "345px"
+    });
+
     function updateData() {
         var d_id = $('#d_id').val();
         $.ajax({

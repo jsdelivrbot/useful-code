@@ -225,7 +225,7 @@ $ifFile = 1;
                                                 </tr>
                                                 <?php if ($totalRows_RecCover > 0) { // Show if recordset not empty ?>
                                                 <tr>
-                                                    <td align="center" bgcolor="#e5ecf6" class="table_col_title">目前上方banner<a name="imageEdit" id="imageEdit"></a></td>
+                                                    <td align="center" bgcolor="#e5ecf6" class="table_col_title">目前封面圖片<a name="imageEdit" id="imageEdit"></a></td>
                                                     <td>
                                                         <?php do { ?>
                                                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -255,16 +255,16 @@ $ifFile = 1;
                                                 <?php if ($totalRows_RecCover == 0) { // Show if recordset not empty ?>
                                                 <tr>
                                                     <td align="center" bgcolor="#e5ecf6" class="table_col_title">
-                                                        <p>上傳上方banner</p>
+                                                        <p>上傳封面圖片</p>
                                                     </td>
                                                     <td>
                                                         <table width="100%" border="0" cellpadding="2" cellspacing="2" bordercolor="#CCCCCC" class="data">
                                                             <tr>
                                                                 <td> <span class="table_data">選擇圖片：</span>
-                                                                    <input name="imageBanner[]" type="file" class="table_data" id="imageBanner1" />
+                                                                    <input name="imageCover[]" type="file" class="table_data" id="imageCover1" />
                                                                     <br>
                                                                     <span class="table_data">圖片說明：</span>
-                                                                    <input name="imageBanner_title[]" type="text" class="table_data" id="imageBanner_title1"> </td>
+                                                                    <input name="imageCover_title[]" type="text" class="table_data" id="imageCover_title1"> </td>
                                                             </tr>
                                                         </table>
                                                     </td>
@@ -600,7 +600,7 @@ if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
     }
 
     // Cover
-    $image_result = image_process($conn, $_FILES['imageCover'], $_REQUEST['image_titleCover'], $menu_is, "add", $imagesSize['storeCover']['IW'], $imagesSize['storeCover']['IH']);
+    $image_result = image_process($conn, $_FILES['imageCover'], $_REQUEST['imageCover_title'], $menu_is, "add", $imagesSize['storeCover']['IW'], $imagesSize['storeCover']['IH']);
 
     for ($j = 1; $j < count($image_result); $j++) {
         $insertSQL = "INSERT INTO file_set (file_name, file_link1, file_link2, file_link3, file_type, file_d_id, file_title, file_show_type) VALUES (:file_name, :file_link1, :file_link2, :file_link3, :file_type, :file_d_id, :file_title, :file_show_type)";

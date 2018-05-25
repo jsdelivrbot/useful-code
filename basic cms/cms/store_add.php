@@ -193,7 +193,7 @@ $ifFile = 1;
                                                 </tr>
                                                 <tr>
                                                     <td align="center" bgcolor="#e5ecf6" class="table_col_title">
-                                                        <p>上傳上方banner</p>
+                                                        <p>上傳封面圖片</p>
                                                     </td>
                                                     <td>
                                                         <table width="100%" border="0" cellpadding="2" cellspacing="2" bordercolor="#CCCCCC" class="data">

@@ -168,9 +168,7 @@ $ifFile = 0;
                                                         <?php } while ($row_RecCover = $RecCover->fetch()); ?>
                                                     </td>
                                                     <td bgcolor="#e5ecf6" class="table_col_title">
-                                                        <p class="red_letter">*
-                                                            <?php echo $imagesSize['newsCover']['note'];?>
-                                                        </p>
+                                                        <p class="red_letter"></p>
                                                     </td>
                                                 </tr>
                                                 <?php } // Show if recordset not empty ?>
@@ -219,9 +217,7 @@ $ifFile = 0;
                                                         <?php } while ($row_RecImage = $RecImage->fetch()); ?>
                                                     </td>
                                                     <td bgcolor="#e5ecf6" class="table_col_title">
-                                                        <p class="red_letter">*
-                                                            <?php echo $imagesSize[$_SESSION['nowMenu']]['note'];?>
-                                                        </p>
+                                                        <p class="red_letter"></p>
                                                     </td>
                                                 </tr>
                                                 <?php } // Show if recordset not empty ?>

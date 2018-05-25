@@ -203,7 +203,7 @@ $ifFile = 1;
                                                 <!-- <tr>
                                                     <td align="center" bgcolor="#e5ecf6" class="table_col_title">內容</td>
                                                     <td class="table_data"><textarea name="d_content" cols="100" rows="20" class="table_data tiny" id="d_content"><?php echo $row_Recstore['d_content']; ?></textarea></td>
-                                                    <td bgcolor="#e5ecf6"><p class="red_letter">*小斷行請按Shift+Enter。<br />
+                                                    <td bgcolor="#e5ecf6" class="table_col_title"><p class="red_letter">*小斷行請按Shift+Enter。<br />
                                                     輸入區域的右下角可以調整輸入空間的大小。</p></td>
                                                 </tr> -->
                                                 <tr>
@@ -246,9 +246,7 @@ $ifFile = 1;
                                                         <?php } while ($row_RecCover = $RecCover->fetch()); ?>
                                                     </td>
                                                     <td bgcolor="#e5ecf6" class="table_col_title">
-                                                        <p class="red_letter">*
-                                                            <?php echo $imagesSize['storeCover']['note'];?>
-                                                        </p>
+                                                        <p class="red_letter"></p>
                                                     </td>
                                                 </tr>
                                                 <?php } // Show if recordset not empty ?>
@@ -298,9 +296,7 @@ $ifFile = 1;
                                                         <?php } while ($row_RecImage = $RecImage->fetch()); ?>
                                                     </td>
                                                     <td bgcolor="#e5ecf6" class="table_col_title">
-                                                        <p class="red_letter">*
-                                                            <?php echo $imagesSize[$_SESSION['nowMenu']]['note'];?>
-                                                        </p>
+                                                        <p class="red_letter"></p>
                                                     </td>
                                                 </tr>
                                                 <?php } // Show if recordset not empty ?>

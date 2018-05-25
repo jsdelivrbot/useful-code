@@ -35,13 +35,7 @@ $menu_is = "contact";
     <table width="1280" border="0" align="center" cellpadding="0" cellspacing="0">
         <tr>
             <td align="center">
-                <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                    <tr>
-                        <td rowspan="2" align="left">
-                            <?php require_once('cmsHeader.php');?>
-                        </td>
-                    </tr>
-                </table>
+                <?php require_once('cmsHeader.php'); ?>
                 <?php require_once('top.php'); ?>
                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>

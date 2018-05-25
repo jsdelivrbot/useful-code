@@ -34,9 +34,9 @@ function creatTablBottom(){
 		<?php } ?>
 
 		<?php if($row_RecLevelAuthority['a_3']=='1'){// ?>
-		<li id="main_menu_3" class="main_men">
+		<!-- <li id="main_menu_3" class="main_menu">
 			<a href="javascript:adminSiteLink(3)"><div>media</div></a>
-		</li>
+		</li> -->
 		<?php } ?>
 
 		<?php if($row_RecLevelAuthority['a_4']=='1'){// ?>
@@ -50,26 +50,25 @@ function creatTablBottom(){
 			<a href="javascript:adminSiteLink(5)"><div>menu</div></a>
 		</li> -->
 		<?php } ?>
-		<?php if($row_RecLevelAuthority['a_8']=='1'){// ?>
-     	<!-- <li id="main_menu_8" class="main_menu">
-     		<a href="javascript:adminSiteLink(8)"><div>媒體報導</div></a>
-     	</li> -->
-     	<?php } ?>
+
      	<?php if($row_RecLevelAuthority['a_6']=='1'){//  ?>
      	<!-- <li id="main_menu_6" class="main_menu">
      		<a href="javascript:adminSiteLink(6)"><div>獲獎記錄</div></a>
      	</li> -->
      	<?php } ?>
+
      	<?php if($row_RecLevelAuthority['a_7']=='1'){?>
      	<!-- <li id="main_menu_7" class="main_menu">
      		<a href="javascript:adminSiteLink(7)"><div>作品</div></a>
      	</li> -->
      	<?php } ?>
+
      	<?php if($row_RecLevelAuthority['a_10']=='1'){//  ?>
      	<li id="main_menu_10" class="main_menu <?php if ($menu_is=='keywords'): ?>main_menu_now<?php endif ?>">
      		<a href="javascript:adminSiteLink(10)"><div>關鍵字seo</div></a>
      	</li>
      	<?php } ?>
+
      	<?php if($row_RecLevelAuthority['a_1']=='1'){//權限管理?>
         <li id="main_menu_1" class="main_menu">
         	<a href="javascript:adminSiteLink(1)"><div>權限管理</div></a>

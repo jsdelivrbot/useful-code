@@ -27,31 +27,31 @@ function creatTablBottom(){
 <script src="js/menu.js"></script>
 <div id="cmsMenu">
 	<ul>
-		<?php if($row_RecLevelAuthority['a_2']=='1'){// ?>
+		<?php if($row_RecLevelAuthority['a_2']=='1'){ ?>
 		<li id="main_menu_2" class="main_menu <?php if ($menu_is=='news'): ?>main_menu_now<?php endif ?>">
 			<a href="javascript:adminSiteLink(2)"><div>news</div></a>
 		</li>
 		<?php } ?>
 
-		<?php if($row_RecLevelAuthority['a_3']=='1'){// ?>
+		<?php if($row_RecLevelAuthority['a_3']=='1'){ ?>
 		<!-- <li id="main_menu_3" class="main_menu">
 			<a href="javascript:adminSiteLink(3)"><div>media</div></a>
 		</li> -->
 		<?php } ?>
 
-		<?php if($row_RecLevelAuthority['a_4']=='1'){// ?>
+		<?php if($row_RecLevelAuthority['a_4']=='1'){ ?>
 		<li id="main_menu_4" class="main_menu">
 			<a href="javascript:adminSiteLink(4)"><div>store</div></a>
 		</li>
 		<?php } ?>
 
-		<?php if($row_RecLevelAuthority['a_5']=='1'){// ?>
+		<?php if($row_RecLevelAuthority['a_5']=='1'){ ?>
 		<!-- <li id="main_menu_5" class="main_menu">
 			<a href="javascript:adminSiteLink(5)"><div>menu</div></a>
 		</li> -->
 		<?php } ?>
 
-     	<?php if($row_RecLevelAuthority['a_6']=='1'){//  ?>
+     	<?php if($row_RecLevelAuthority['a_6']=='1'){ ?>
      	<!-- <li id="main_menu_6" class="main_menu">
      		<a href="javascript:adminSiteLink(6)"><div>獲獎記錄</div></a>
      	</li> -->
@@ -63,13 +63,13 @@ function creatTablBottom(){
      	</li> -->
      	<?php } ?>
 
-     	<?php if($row_RecLevelAuthority['a_10']=='1'){//  ?>
+     	<?php if($row_RecLevelAuthority['a_10']=='1'){ ?>
      	<li id="main_menu_10" class="main_menu <?php if ($menu_is=='keywords'): ?>main_menu_now<?php endif ?>">
      		<a href="javascript:adminSiteLink(10)"><div>關鍵字SEO</div></a>
      	</li>
      	<?php } ?>
 
-     	<?php if($row_RecLevelAuthority['a_1']=='1'){//權限管理?>
+     	<?php if($row_RecLevelAuthority['a_1']=='1'){ ?>
         <li id="main_menu_1" class="main_menu">
         	<a href="javascript:adminSiteLink(1)"><div>權限管理</div></a>
         </li>
@@ -77,14 +77,14 @@ function creatTablBottom(){
     </ul>
 </div>
 <?php
-if($menu_is=="news"){//news
+if($menu_is=="news"){
 
 	creatTableTop();
 	creatAll('news', 'news');
 	if($row_RecLevelAuthority['a_2']=='0'){header("Location:first.php");}
 	creatTablBottom();
 
-}else if($menu_is=="media"){//event
+}else if($menu_is=="media"){
 
 	creatTableTop();
 	creatAll('media', 'media');
@@ -107,7 +107,7 @@ if($menu_is=="news"){//news
 	if($row_RecLevelAuthority['a_5']=='0'){header("Location:first.php");}
 	creatTablBottom();
 
-}else if($menu_is=="keywords"){//keywords
+}else if($menu_is=="keywords"){
 
 	creatTableTop();
 	creatList('關鍵字SEO', 'keywords');

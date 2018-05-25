@@ -88,5 +88,13 @@ if (isset($outTypeA[1])) {
         }, function() {
             $(this).find('img').attr('src', 'image/go1.gif');
         });
+
+        // enter trigger submit
+        $(document).keypress(function(e) {
+            var keycode = (e.keyCode ? e.keyCode : e.which);
+            if (keycode == '13') {
+                document.forms[0].submit();
+            }
+        });
     });
 </script>

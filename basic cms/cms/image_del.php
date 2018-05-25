@@ -7,31 +7,12 @@ if (isset($_SERVER['QUERY_STRING'])) {
   $editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
 }
 
-$fileType = "file_type='image' AND";
-
-if (isset($_REQUEST['type']) && $_REQUEST['type']=='newsVideoCover'){
-	$fileType 	= "file_type='newsVideoCover' AND";
-}
 if (isset($_REQUEST['type']) && $_REQUEST['type']=='storeCover'){
-	$fileType 	= "file_type='storeCover' AND";
-}
-if (isset($_REQUEST['type']) && ($_REQUEST['type']=="personal")){
-	$fileType = "file_type='imageP' AND";
-}
-if (isset($_REQUEST['type']) && ($_REQUEST['type']=="teamMemberList")){
-	$fileType = "file_type='teamMemberListImage' AND";
-}
-if (isset($_REQUEST['type']) && ($_REQUEST['type']=="roomsCover")){
-	$fileType = "file_type='roomsCover' AND";
-}
-if (isset($_REQUEST['type']) && ($_REQUEST['type']=="menuC")){
-	$fileType = "file_type='menuC' AND";
-}
-if (isset($_REQUEST['type']) && ($_REQUEST['type']=="menuC_mobile")){
-	$fileType = "file_type='menuC_mobile' AND";
-}
-if (isset($_REQUEST['type']) && ($_REQUEST['type']=="newsCover")){
-	$fileType = "file_type='newsCover' AND";
+    $fileType   = "file_type='bannerCover' AND";
+} else if (isset($_REQUEST['type']) && ($_REQUEST['type']=="newsCover")){
+    $fileType = "file_type='newsCover' AND";
+} else {
+    $fileType = "file_type='image' AND";
 }
 
 $colname_RecImage = "-1";
@@ -56,12 +37,12 @@ $totalRows_RecImage = $RecImage->rowCount();
 </head>
 
 <body>
-	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td width="18%" class="list_title">刪除圖片</td>
             <td width="82%"><span class="no_data">您確定要刪除此筆圖片?</span></td>
         </tr>
-	</table>
+    </table>
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
             <td><img src="image/spacer.gif" width="1" height="1"></td>
@@ -69,38 +50,38 @@ $totalRows_RecImage = $RecImage->rowCount();
     </table>
     <form action="<?php echo $editFormAction; ?>" method="POST" enctype="multipart/form-data" name="form1" id="form1">
     <table width="100%" border="0" cellspacing="0" cellpadding="0">
-  		<tr>
-   			<td>
-            <table width="100%" border="0" cellspacing="3" cellpadding="5">
-            	<tr>
-                	<td width="200" align="center" bgcolor="#e5ecf6" class="table_col_title">圖片說明</td>
-          	    	<td width="532" class="table_data"><?php echo $row_RecImage['file_title']; ?></td>
-          	    	<td width="250" bgcolor="#e5ecf6">&nbsp;</td>
-      	    	</tr>
-                <?php if($_SESSION['nowMenu']=='collection'){ ?>
-            	<tr>
-            	  <td align="center" bgcolor="#e5ecf6" class="table_col_title"><span class="table_data">圖片說明</span></td>
-            	  <td class="table_data"><?php echo nl2br($row_RecImage['file_content']); ?></td>
-            	  <td bgcolor="#e5ecf6"></td>
-          	  </tr>
-              <?php } ?>
-     	      	<tr>
-                	<td align="center" bgcolor="#e5ecf6" class="table_col_title">目前圖片</td>
-                	<td><img src="../<?php echo $row_RecImage['file_link2'].'?'.(mt_rand(1,100000)/100000); ?>" alt="" class="image_frame" /></td>
-                	<td bgcolor="#e5ecf6" class="table_col_title"><p>&nbsp;</p></td>
-      		    </tr>
-			</table>
-            </td>
-		</tr>
         <tr>
-        	<td>&nbsp;</td>
+            <td>
+            <table width="100%" border="0" cellspacing="3" cellpadding="5">
+                <tr>
+                    <td width="200" align="center" bgcolor="#e5ecf6" class="table_col_title">圖片說明</td>
+                    <td width="532" class="table_data"><?php echo $row_RecImage['file_title']; ?></td>
+                    <td width="250" bgcolor="#e5ecf6">&nbsp;</td>
+                </tr>
+                <?php if($_SESSION['nowMenu']=='collection'){ ?>
+                <tr>
+                  <td align="center" bgcolor="#e5ecf6" class="table_col_title"><span class="table_data">圖片說明</span></td>
+                  <td class="table_data"><?php echo nl2br($row_RecImage['file_content']); ?></td>
+                  <td bgcolor="#e5ecf6"></td>
+              </tr>
+              <?php } ?>
+                <tr>
+                    <td align="center" bgcolor="#e5ecf6" class="table_col_title">目前圖片</td>
+                    <td><img src="../<?php echo $row_RecImage['file_link2'].'?'.(mt_rand(1,100000)/100000); ?>" alt="" class="image_frame" /></td>
+                    <td bgcolor="#e5ecf6" class="table_col_title"><p>&nbsp;</p></td>
+                </tr>
+            </table>
+            </td>
+        </tr>
+        <tr>
+            <td>&nbsp;</td>
         </tr>
          <tr>
-         	<td align="center"><input name="file_id" type="hidden" id="file_id" value="<?php echo $row_RecImage['file_id']; ?>" />
-         	<input name="delsure" type="hidden" id="delsure" value="1" />
-         	<input name="submitBtn" type="submit" class="btnType" id="submitBtn" value="送出" /></td>
+            <td align="center"><input name="file_id" type="hidden" id="file_id" value="<?php echo $row_RecImage['file_id']; ?>" />
+            <input name="delsure" type="hidden" id="delsure" value="1" />
+            <input name="submitBtn" type="submit" class="btnType" id="submitBtn" value="送出" /></td>
          </tr>
-	</table>
+    </table>
     </form>
     <table width="100%" height="1" border="0" align="center" cellpadding="0" cellspacing="0" class="buttom_dot_line">
         <tr>

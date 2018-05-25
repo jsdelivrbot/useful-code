@@ -10,8 +10,11 @@ function image_process(PDO $pdo, $FILES_A, $file_title, $file_name, $deal_type, 
 
     //******如果是插入記錄的上傳圖片begin*******/
     if ($deal_type == "add") {
-        //找到insert ID
-        $new_pic_num = $pdo->lastInsertId();
+
+        // pdo 已經是不同的了所以 lastInsertId 不能用只好用這樣
+        $sql_max_pic = "SELECT MAX(file_id) FROM file_set";
+        $sth = $pdo->query($sql_max_pic)->fetch();
+        $new_pic_num = $sth[0] + 1;
 
     }
     //******如果是插入記錄的上傳圖片end*******/
@@ -32,7 +35,7 @@ function image_process(PDO $pdo, $FILES_A, $file_title, $file_name, $deal_type, 
         // pdo 已經是不同的了所以 lastInsertId 不能用只好用這樣
         $sql_max_pic = "SELECT MAX(file_id) FROM file_set";
         $sth = $pdo->query($sql_max_pic)->fetch();
-        $new_pic_num = $sth[0];
+        $new_pic_num = $sth[0] + 1;
 
     }
     //******如果是更新記錄的上傳圖片end*******/

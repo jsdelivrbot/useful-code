@@ -469,7 +469,7 @@ $ifFile = 1;
         disable_search_threshold: 6,
         no_results_text: "找不到資料。 目前輸入的是:",
         placeholder_text_single: "尚未新增分類",
-        width: "345px"
+        width: "auto"
     });
 
     function updateData() {

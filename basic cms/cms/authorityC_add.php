@@ -167,7 +167,7 @@ $menu_is = "authority";
                                                     <td width="250" bgcolor="#e5ecf6">&nbsp;</td>
                                                 </tr>
                                                 <tr>
-                                                    <td width="200" align="center" bgcolor="#e5ecf6" class="table_col_title">keywords</td>
+                                                    <td width="200" align="center" bgcolor="#e5ecf6" class="table_col_title">關鍵字SEO</td>
                                                     <td width="532">
                                                         <select name="a_10" class="table_data" id="a_10">
                                                             <option value="1">允許</option>

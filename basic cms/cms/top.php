@@ -65,7 +65,7 @@ function creatTablBottom(){
 
      	<?php if($row_RecLevelAuthority['a_10']=='1'){//  ?>
      	<li id="main_menu_10" class="main_menu <?php if ($menu_is=='keywords'): ?>main_menu_now<?php endif ?>">
-     		<a href="javascript:adminSiteLink(10)"><div>關鍵字seo</div></a>
+     		<a href="javascript:adminSiteLink(10)"><div>關鍵字SEO</div></a>
      	</li>
      	<?php } ?>
 
@@ -110,7 +110,7 @@ if($menu_is=="news"){//news
 }else if($menu_is=="keywords"){//keywords
 
 	creatTableTop();
-	creatList('關鍵字seo', 'keywords');
+	creatList('關鍵字SEO', 'keywords');
 	if($row_RecLevelAuthority['a_10']=='0'){header("Location:first.php");}
 	creatTablBottom();
 

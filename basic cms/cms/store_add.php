@@ -42,8 +42,6 @@ $ifFile = 1;
 
     <?php require_once('script.php'); ?>
     <?php require_once('head.php');?>
-
-    <link rel="stylesheet" href="jquery/chosen_v1.0.0/chosen.css">
 </head>
 <body>
     <table width="1280" border="0" align="center" cellpadding="0" cellspacing="0">

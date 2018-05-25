@@ -164,41 +164,6 @@ require_once 'display_page.php';
 
     <?php require_once('script.php'); ?>
     <?php require_once('head.php');?>
-
-    <style>
-	    .chosen-choices {
-	        position: relative;
-	        /*overflow: hidden;*/
-	        -webkit-box-sizing: border-box;
-	        -moz-box-sizing: border-box;
-	        box-sizing: border-box;
-	        margin: 0;
-	        padding: 0;
-	        width: 100%;
-	        height: auto !important;
-	        height: 1%;
-	    }
-	    .chosen-choices li.search-choice {
-	        position: relative;
-	        margin: 3px 5px 3px 0px;
-	        padding: 3px 5px;
-	        border: 1px solid #aaa;
-	        border-radius: 3px;
-	        background-color: #e4e4e4;
-	        background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(20%, #f4f4f4), color-stop(50%, #f0f0f0), color-stop(52%, #e8e8e8), color-stop(100%, #eeeeee));
-	        background-image: -webkit-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-	        background-image: -moz-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-	        background-image: -o-linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-	        background-image: linear-gradient(#f4f4f4 20%, #f0f0f0 50%, #e8e8e8 52%, #eeeeee 100%);
-	        background-clip: padding-box;
-	        box-shadow: 0 0 2px white inset, 0 1px 0 rgba(0, 0, 0, 0.05);
-	        color: #333;
-	        line-height: 13px;
-	    }
-	    .chosen-choices li {
-	        list-style: none;
-	    }
-    </style>
 </head>
 <body>
     <table width="1280" border="0" align="center" cellpadding="0" cellspacing="0">

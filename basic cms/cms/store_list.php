@@ -162,6 +162,15 @@ require_once 'display_page.php';
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title><?php require_once('cmsTitle.php'); ?></title>
 
+    <link rel="stylesheet" href="jquery/chosen_v1.8.5/chosen.css">
+
+    <style>
+        .chosen-container{
+            position: relative;
+            top: -3px;
+        }
+    </style>
+
     <?php require_once('script.php'); ?>
     <?php require_once('head.php');?>
 </head>
@@ -202,7 +211,7 @@ require_once 'display_page.php';
                                 <tr>
                                     <td width="150" class="list_title">列表</td>
                                     <td width="874"><span class="table_data">分類：
-                                        <select name="select1" id="select1">
+                                        <select name="select1" id="select1" class="chosen-select">
                                             <?php do {?>
                                                 <option value="<?php echo $row_RecstoreC['c_id']?>"<?php if (!(strcmp($row_RecstoreC['c_id'], $G_selected1))) {echo "selected=\"selected\"";} ?>><?php echo $row_RecstoreC['c_title']?><?php //echo $row_RecstoreC['c_id']?></option>
                                                 <?php
@@ -349,7 +358,15 @@ require_once 'display_page.php';
 </body>
 </html>
 
+<script src="jquery/chosen_v1.8.5/chosen.jquery.js"></script>
+
 <script type="text/javascript">
+    $(".chosen-select").chosen({
+        disable_search_threshold: 6,
+        no_results_text: "找不到資料。 目前輸入的是:",
+        width: "auto"
+    });
+
 	function changeSort(pageNum, totalRows, now_d_id, change_num, selected1) {
 	    window.location.href = "store_list.php?selected1=" + selected1 + "&changeSort=1" + "&now_d_id=" + now_d_id + "&change_num=" + change_num + "&pageNum=" + pageNum + "&totalRows=" + totalRows;
 	}

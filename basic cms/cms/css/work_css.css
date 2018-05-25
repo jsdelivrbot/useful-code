@@ -170,18 +170,18 @@ table tr td .font_b {
 	color: #666666;
 	text-decoration: none;
 }
-.table_data a:hover {
-	font-family: "Gill Sans MT", "STXihei", HEITI TC, "HEITI TC", "黑體-繁", "微軟正黑體", "黑體", Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	color: #CC6666;
-	text-decoration: none;
-}
-.table_data a:active {
-	font-family: "Gill Sans MT", "STXihei", HEITI TC, "HEITI TC", "黑體-繁", "微軟正黑體", "黑體", Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	color: #666666;
-	text-decoration: none;
-}
+// .table_data a:hover {
+// 	font-family: "Gill Sans MT", "STXihei", HEITI TC, "HEITI TC", "黑體-繁", "微軟正黑體", "黑體", Arial, Helvetica, sans-serif;
+// 	font-size: 12px;
+// 	color: #CC6666;
+// 	text-decoration: none;
+// }
+// .table_data a:active {
+// 	font-family: "Gill Sans MT", "STXihei", HEITI TC, "HEITI TC", "黑體-繁", "微軟正黑體", "黑體", Arial, Helvetica, sans-serif;
+// 	font-size: 12px;
+// 	color: #666666;
+// 	text-decoration: none;
+// }
 .table_data14 {
 	font-family: "Gill Sans MT", "STXihei", HEITI TC, "HEITI TC", "黑體-繁", "微軟正黑體", "黑體", Arial, Helvetica, sans-serif;
 	font-size: 16px;

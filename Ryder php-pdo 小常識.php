@@ -139,18 +139,11 @@ $sth->execute();
 <?php
 require_once 'Connections/connect2data.php';
 
-$sqlBanner = "SELECT * FROM data_set, file_set WHERE d_class1='banner' AND d_title='news' AND d_id=file_d_id AND file_type='bannerCover' AND d_active=1 ORDER BY d_sort ASC";
-$sthBanner = $conn->prepare($sqlBanner);
-$sthBanner->execute();
-$banner = $sthBanner->fetch();
+$banner = $conn->query("SELECT * FROM data_set, file_set WHERE d_class1='banner' AND d_title='news' AND d_id=file_d_id AND file_type='bannerCover' AND d_active=1 ORDER BY d_sort ASC")->fetch();
 
 $ryder_cat = (isset($_GET['c'])) ? $_GET['c'] : 0;
 
-if ($ryder_cat != 0) {
-    $sql = "SELECT * FROM data_set, file_set, class_set WHERE d_class1='news' AND d_class2=:d_class2 AND d_id=file_d_id AND file_type='newsCover' AND d_class2=c_id AND c_parent='newsC' AND d_active=1 ORDER BY d_sort ASC";
-}else{
-    $sql = "SELECT * FROM data_set, file_set, class_set WHERE d_class1='news' AND d_id=file_d_id AND file_type='newsCover' AND d_class2=c_id AND c_parent='newsC' AND d_active=1 ORDER BY d_sort ASC";
-}
+$sql = "SELECT * FROM data_set, file_set, class_set WHERE d_class1='news' AND (d_class2 = :d_class2 || :d_class2 = 0) AND d_id=file_d_id AND file_type='newsCover' AND d_class2=c_id AND c_parent='newsC' AND d_active=1 ORDER BY d_sort ASC";
 $work = $conn->prepare($sql);
 $work->bindParam(':d_class2', $ryder_cat, PDO::PARAM_INT);
 $work->execute();

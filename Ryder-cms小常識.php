@@ -1,3 +1,49 @@
+<!--=============================
+=            簡易Tag            =
+==============================-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/css/selectize.default.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/js/standalone/selectize.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.4/js/selectize.js"></script>
+
+<?php
+$query_RecnewsTags = "SELECT d_data1 FROM data_set WHERE d_class1 = 'news' AND d_active='1' ORDER BY d_sort ASC";
+$RecnewsTags = $conn->query($query_RecnewsTags);
+$row_RecnewsTags = $RecnewsTags->fetchAll(PDO::FETCH_NUM);
+$totalRows_RecnewsTags = $RecnewsTags->rowCount();
+
+$tagsAll = [];
+foreach ($row_RecnewsTags as $value) {
+    $tagsAll = array_merge_recursive($value, $tagsAll);
+}
+$tagsAll = implode(",", $tagsAll);
+?>
+
+<input name="d_data1" type="text" class="table_data" id="d_data1" data-tag="<?php echo $tagsAll; ?>" value="<?php echo $row_Recnews['d_data1']; ?>" size="80" />
+
+<script>
+    var tag = $('#d_data1').data("tag").split(",")
+    var tagObj = []
+
+    for(t of tag){
+        var obj = {
+            text: t, value: t
+        }
+        tagObj.push(obj)
+    }
+
+    var $data1 = $('#d_data1').selectize({
+        delimiter: ',',
+        persist: false,
+        options: tagObj,
+        create: function(input) {
+            return {
+                value: input,
+                text: input
+            }
+        }
+    });
+</script>
+
 <!--==================================
 =            資料夾不見了            =
 ===================================-->

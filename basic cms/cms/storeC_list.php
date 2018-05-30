@@ -229,9 +229,9 @@ require_once('display_page.php');
                                             <td align="center" class="table_data">
                                                 <?php  //list使用
                                                 if($row_RecstoreC['c_active']) {
-                                                    echo "<a href='".$row_RecstoreC['c_active']."' rel='".$row_RecstoreC['c_id']."' class='activeCh'><img src=\"image/accept.png\" width=\"16\" height=\"16\"  ></a>";
+                                                    echo "<a href='".$row_RecstoreC['c_active']."' rel='".$row_RecstoreC['c_id']."' class='activeChC'><img src=\"image/accept.png\" width=\"16\" height=\"16\"  ></a>";
                                                 } else {
-                                                    echo "<a href='".$row_RecstoreC['c_active']."' rel='".$row_RecstoreC['c_id']."' class='activeCh'><img src=\"image/delete.png\" width=\"16\" height=\"16\"  ></a>";
+                                                    echo "<a href='".$row_RecstoreC['c_active']."' rel='".$row_RecstoreC['c_id']."' class='activeChC'><img src=\"image/delete.png\" width=\"16\" height=\"16\"  ></a>";
                                                 }
                                                 ?>
                                             </td>

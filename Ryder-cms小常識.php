@@ -279,3 +279,9 @@ error_reporting(E_ERROR);
 ==============================================-->
 <!-- html後面引入即可 -->
 <script src="jquery/changActive.js"></script>
+
+<!--===================================
+=            list頁狀態切換            =
+====================================-->
+cms/jquery/changActive.js
+改 a 的 calss 去觸發 ajax (active_process 啥小的)

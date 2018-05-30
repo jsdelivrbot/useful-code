@@ -1,309 +1,189 @@
 <?php
-if(!isset($_SESSION)){
-	session_start();
-}
-?>
-<?php require_once('Connections/connect2data.php'); ?>
-<?php
-if (!function_exists("GetSQLValueString")) {
-	function GetSQLValueString($theValue, $theType, $theDefinedValue = "", $theNotDefinedValue = "")
-	{
-		$theValue = get_magic_quotes_gpc() ? stripslashes($theValue) : $theValue;
-
-		$theValue = function_exists("mysql_real_escape_string") ? mysql_real_escape_string($theValue) : mysql_escape_string($theValue);
-
-		switch ($theType) {
-			case "text":
-			$theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-			break;
-			case "long":
-			case "int":
-			$theValue = ($theValue != "") ? intval($theValue) : "NULL";
-			break;
-			case "double":
-			$theValue = ($theValue != "") ? "'" . doubleval($theValue) . "'" : "NULL";
-			break;
-			case "date":
-			$theValue = ($theValue != "") ? "'" . $theValue . "'" : "NULL";
-			break;
-			case "defined":
-			$theValue = ($theValue != "") ? $theDefinedValue : $theNotDefinedValue;
-			break;
-		}
-		return $theValue;
-	}
-}
-
-
-$editFormAction = $_SERVER['PHP_SELF'];
-if (isset($_SERVER['QUERY_STRING'])) {
-	$editFormAction .= "?" . htmlentities($_SERVER['QUERY_STRING']);
-}
-
-/*if (!isset($_SESSION['checkPost'])) {
-	$_SESSION['checkPost'] = 0;
-}*/
+require_once 'Connections/connect2data.php';
 
 $_SESSION['checkPost'] = 0;
-
-$err = "";
-$message = "";
-
-
-
-
-/*if ((!empty($_SESSION['check_word'])) && (!empty($_POST['m_checkword']))) {
-	if($_SESSION['check_word'] == $_POST['m_checkword']){
-		echo '<script> alert("表單已送出。"); </script>';
-	}else{
-		echo '<script type="text/javascript"> alert("驗證碼有分大小寫。"); </script>';
-	}
-}*/
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>六角國際事業股份有限公司</title>
-
-	<?php include('meta.php') ?>
-
-	<script src="js/jquery/1.11.1/jquery.min.js"></script>
-
-	<script src="js/jquery.validate.min.js"></script>
-	<script src="js/jquery.tooltipster.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/tooltipster.css">
-
-
-	<script src='https://www.google.com/recaptcha/api.js?hl=zh-TW&onload=onloadCallback&render=explicit' async defer></script>
-
-	<link rel="stylesheet/less" type="text/css" href="style_ryder.less">
-	<script src="js/less-1.3.0.min.js"></script>
-
-	<style type="text/css">
-		.googleCaptchaWrap{position: relative;}
-		#g-recaptcha{margin-top: 30px;}
-		#hiddenRecaptcha{	/* 調位置for必填提示 */
-			position: absolute;
-			top: 0;
-			left: 0;
-			visibility: hidden;
-		}
-
-		.err, .succ{
-			font-family: MHeiHK, "STXihei", HEITI TC, "HEITI TC", "黑體-繁", "微軟正黑體", "黑體", sans-serif;
-			font-size: 15px;
-			letter-spacing: 1px;
-			line-height: 24px;
-		}
-		.err{
-			color: #CB583D;
-		}
-		.succ{
-			color: #8c189b;
-		}
-	</style>
+    <?php include 'html_title.php'; ?>
+    <?php include 'meta.php'; ?>
+    <link rel="stylesheet" href="stylesheets/style.css">
 </head>
 <body>
-	<?php $now="contact"; ?>
-	<?php include 'topmenu.php'; ?>
-	<?php include 'socialicon.php'; ?>
+    <?php $now = 'contact' ?>
+    <?php include 'topmenu.php'; ?>
 
-	<div class="newsWrap">
-		<div class="titlePic">
-			<img src="images/contact-titlepic.png" width="189">
-		</div>
+    <div class="news-banner wow fadeIn" data-wow-duration="2s" style="background: url(images/contact-banner.jpg) center center /cover no-repeat;">
+        <div class="slogan-container">
+            <div class="title">CONTACT</div>
+            <div class="note">Contact Us</div>
+            <div class="slogan">美好體驗現在實踐</div>
+        </div>
 
-		<form action="contact_finish.php" method="POST" id="form1">
-			<div class="formWrap">
-				<div class="form-titlepic"><img alt="" src="images/nesonsary.png" width="208"></div>
+        <div class="scroll-line"></div>
 
-				<div class="item">
-					<span class="textWrap"><span class="title">公司名稱</span><input type="text" class="contactText" name="m_company"></span>
-					<span class="textWrap"><span class="title">姓名</span><input type="text" class="contactText" name="m_name"></span>
-				</div>
-				<div class="item">
-					<span class="textWrap"><span class="title">電話</span><input type="text" class="contactText" name="m_phone"></span>
-					<span class="textWrap"><span class="title" style="color: #3c3c3d;">傳真</span><input type="text" class="contactText" name="m_fax"></span>
-				</div>
-				<div class="item">
-					<span class="textWrap"><span class="title">電子郵件</span><input type="text" class="contactText" style="width: 552px;" name="m_mail"></span>
-				</div>
-				<div class="item">
-					<span class="textWrap"><span class="title">地址</span><input type="text" class="contactText" style="width: 552px;" name="m_address"></span>
-				</div>
-				<div class="item">
-					<span class="textWrap">
-						<span class="title">類別</span>
-						<select class="news-select" style="margin-left: -3px;" name="m_type">
-							<option value="客服">客服</option>
-						</select>
+        <div class="news-copyright">© 2018 AQUA FORMOSA  ALL RIGHT SERVED</div>
+    </div>
 
-					</span>
-				</div>
-				<div class="item">
-					<span class="textWrap"><span class="title">主旨</span><input type="text" class="contactText" name="m_title"></span>
-				</div>
-				<div class="item">
-					<span class="textWrap"><span class="title" style="vertical-align: top;">訊息</span><textarea class="contactTextarea" name="m_content"></textarea></span>
-				</div>
-				<div class="item">
-					<span class="textWrap" style="position: relative;">
-						<span class="title" style="vertical-align: top;">驗證</span>
+    <section class="contactWrap">
+        <div class="companyInfo grid-x align-center-middle">
+            <div class="pic cell shrink"><img src="images/contact-pic.png"></div>
+            <div class="article cell shrink">
+                <div class="title">天泉温泉水</div>
+                <div class="address">
+                    <div class="ch">台中市西屯區天水西街2號</div>
+                    <div class="en">No.2, Tianshui W. St., Xitun Dist., Taichung City 407, Taiwan (R.O.C.)</div>
+                </div>
+                <ul class="phone">
+                    <li>
+                        <span class="sign">T</span>
+                        <span class="text">0800 055 009</span>
+                    </li>
+                    <li>
+                        <span class="sign">M</span>
+                        <span class="text">service@aquaformosa.com</span>
+                    </li>
+                    <li>
+                        <span class="sign">F</span>
+                        <span class="text">@aquaformosa921</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-						<div class="googleCaptchaWrap">
-							<div class="g-recaptcha" id="g-recaptcha"></div>
-							<input type="text" class="hiddenRecaptcha" name="hiddenRecaptcha" id="hiddenRecaptcha">
-						</div>
-						<!-- recaptcha-anchor -->
+        <form class="contactForm" action="contact_finish.php#contactFinish" method="POST">
+            <div class="head-en">CONTACT</div>
+            <div class="head-ch">如有問題請填寫下列表格我們會盡快聯絡您</div>
 
-						<!-- <img id="imgcode" src="captcha.php" onclick="refresh_code()" /><span class="ryder-form-note">點擊圖片可以更換驗證碼</span>
-						<input type="text" class="contactText" name="m_checkword" style="width: 67px;"> -->
-					</span>
+            <div class="typein grid-x align-top">
+                <div class="name cell shrink">NAME</div>
+                <div class="col cell auto">
+                    <input type="text" name="name" id="name" placeholder="您的姓名">
+                </div>
+            </div>
+            <div class="typein grid-x align-top">
+                <div class="name cell shrink">CELLPHONE</div>
+                <div class="col cell auto">
+                    <input type="text" name="phone" id="phone" placeholder="聯絡電話">
+                </div>
+            </div>
+            <div class="typein grid-x align-top">
+                <div class="name cell shrink">COMPANY NAME</div>
+                <div class="col cell auto">
+                    <input type="text" name="company" id="company" placeholder="企業名稱">
+                </div>
+            </div>
+            <div class="typein grid-x align-top">
+                <div class="name cell shrink">ADDRESS</div>
+                <div class="col cell auto">
+                    <input type="text" name="address" id="address" placeholder="聯絡地址">
+                </div>
+            </div>
+            <div class="typein grid-x align-top">
+                <div class="name cell shrink">E-MAIL</div>
+                <div class="col cell auto">
+                    <input type="text" name="email" id="email" placeholder="聯絡信箱">
+                </div>
+            </div>
+            <div class="typein grid-x align-top">
+                <div class="name cell shrink">TYPE</div>
+                <div class="col cell auto grid-x">
+                    <div class="cell large-shrink">
+                        <input type="radio" name="type" id="r1" value="1">
+                        <label for="r1">商品問題</label>
+                    </div>
+                    <div class="cell large-shrink">
+                        <input type="radio" name="type" id="r2" value="2">
+                        <label for="r2">寄送方式</label>
+                    </div>
+                    <div class="cell large-shrink">
+                        <input type="radio" name="type" id="r3" value="3">
+                        <label for="r3">匯款方式</label>
+                    </div>
+                    <div class="cell large-shrink">
+                        <input type="radio" name="type" id="r4" value="4">
+                        <label for="r4">其他</label>
+                    </div>
+                </div>
+            </div>
+            <div class="typein grid-x align-top">
+                <div class="name cell shrink">QUESTION</div>
+                <div class="col cell auto">
+                    <textarea name="message" placeholder="您的問題與意見"></textarea>
+                </div>
+            </div>
 
+            <input type="hidden" id="MM_insert" name="MM_insert" value="form1" />
 
-				</div>
+            <div class="g-recaptcha" style="display: none;"
+                data-sitekey="6LfXQFwUAAAAADsvjjfcJBYI4s7zyW7dUxS7DLpq"
+                data-callback="onSubmit"
+                data-size="invisible">
+            </div>
 
-				<div class="item">
-					<span class="textWrap">
-						<span class="title"></span>
-						<a href="javascript:;" class="btn" id="submit">確定送出</a>
-						<a href="javascript:;" class="btn" id="clear">清除全部</a>
-					</span>
+            <div class="send"><span>送出</span></div>
+        </form>
+    </section>
 
-				</div>
-
-			</div><!-- formWrap end -->
-			<input type="hidden" id="MM_insert" name="MM_insert" value="form1" />
-		</form>
-
-	</div><!-- newsWrap end -->
+    <?php include 'footer.php'; ?>
 </body>
+
+<?php include 'script.php'; ?>
 </html>
 
 <script>
+    $(function () {
+        $(".contactForm").validate({
+            rules:{
+                name: {
+                    required: true,
+                },
+                email: {
+                    required: true,
+                },
+                message: {
+                    required: true,
+                }
+            },
+            messages: {
+                name: {
+                    required: "必填欄位"
+                },
+                email: {
+                    required: "必填欄位"
+                },
+                message: {
+                    required: "必填欄位"
+                },
+            },
+            errorPlacement: function(label, element) {
+                label.addClass('contact-form-error');
+                label.insertAfter(element);
+            },
+            wrapper: 'div'
+        })
 
-
-	$("#clear").click(function  () {
-		$("#form1").find(":text,textarea").each(function() {
-			$(this).val("");
-		});
-	})
-
-	$('#form1 input[type="text"], #form1 textarea').tooltipster({
-	       trigger: 'custom', // default is 'hover' which is no good here
-	       onlyOne: false,    // allow multiple tips to be open at a time
-	       position: 'top',  // display the tips to the right of the element
-	   });
-
-	// google captcha
-	var verifyCallback = function(response) {
-	    $("#hiddenRecaptcha").val(response);
-	    validator.element("#hiddenRecaptcha");
-	};
-
-	onloadCallback = function() {
-	    grecaptcha.render('g-recaptcha', {
-	        'sitekey': '6LfPkSgTAAAAAMOM9QDqggcR-EbrdpbggxkLr8bU',
-	        'callback' : verifyCallback,
-	    });
-	};
-
-	var validator = $("#form1").validate({
-		ignore:[],
-		rules:{
-			m_company	: {
-				required: true,
-				minlength: 2
-			},
-			m_name	: {
-				required: true,
-				minlength: 2
-			},
-			m_phone	: {
-				required: true,
-				minlength: 2
-			},
-			m_mail	: {
-				required: true,
-				email: true
-			},
-			m_address	: {
-				required: true,
-				minlength: 2
-			},
-			m_title	: {
-				required: true,
-				minlength: 2
-			},
-			m_content : {
-				required: true,
-				minlength: 2
-			},
-			hiddenRecaptcha: {
-				required: true,
+        $(".send").on("click", function () {
+            if($(".contactForm").valid() == true){
+                var answer = confirm("您確認要送出您所填寫的資訊嗎？");
+                if (answer){
+                    if($("#MM_insert").val()=='form1'){
+                        $("#MM_insert").attr("value", "subscription");
+                    }
+                    grecaptcha.execute();
+                }
             }
-        },
-        messages: {
-        	m_company: {
-        		required: "必填欄位",
-        		minlength: "您填寫的資料的是否太短了呢"
-        	},
-        	m_name: {
-        		required: "必填欄位",
-        		minlength: "您填寫的資料的是否太短了呢"
-        	},
-        	m_phone: {
-        		required: "必填欄位",
-        		minlength: "您填寫的資料的是否太短了呢"
-        	},
-        	m_mail: {
-        		required: "必填欄位",
-        		email: "請檢查EMAIL格式"
-        	},
-        	m_address: {
-        		required: "必填欄位",
-        		minlength: "您填寫的資料的是否太短了呢"
-        	},
-        	m_title: {
-        		required: "必填欄位",
-        		minlength: "您填寫的資料的是否太短了呢"
-        	},
-        	m_content: {
-        		required: "必填欄位",
-        		minlength: "您填寫的資料的是否太短了呢"
-        	},
-        	hiddenRecaptcha: {
-        		required: "請確認你不是機器人"
-        	}
-        },
-        errorPlacement: function (error, element) {
-        	$(element).tooltipster('update', $(error).text());
-        	$(element).tooltipster('show');
-        },
-        success: function (label, element) {
-        	$(element).tooltipster('hide');
+        })
+
+        window.onSubmit = () => $(".contactForm").submit()
+
+        if (device == 'mobile') {
+            $(".news-banner").css({
+                background: 'url(images/contact-banner-mobile.jpg) center center /cover no-repeat'
+            })
         }
     })
-
-	$("#submit").click(function () {
-		if($("#form1").valid()==true){
-			var answer = confirm("您確認要送出您所填寫的資訊嗎？");
-			if (answer){
-
-				if($("#MM_insert").val()=='form1'){
-					$("#MM_insert").attr("value", "subscription");
-				}
-
-				$("#form1").submit();
-			}
-
-		}
-	})
-
-	// function refresh_code(){
-	// 	document.getElementById("imgcode").src="captcha.php";
-	// }
 </script>

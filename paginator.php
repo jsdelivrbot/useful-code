@@ -64,7 +64,7 @@ $RecProjects_count = mysql_query($query_RecProjects_count, $connect2data) or die
 $row_RecProjects_count = mysql_fetch_assoc($RecProjects_count);
 $totalRows_RecProjects_count = mysql_num_rows($RecProjects_count);
 
-$totalpage = ceil($totalRows_RecProjects_count / 9);
+$totalpage = ceil($totalRows_RecProjects_count / $page_count);
 
 $pages = new Paginator;
 $pages->items_total = $totalRows_RecProjects_count;
@@ -85,6 +85,6 @@ $pages->paginate();
 <!-- 增加錨點 -->
 <script>
 	$('.m-pager a').each(function(i,a){
-		$(a).attr('href',$(a).attr('href')+'#newsAnchor')
+		$(a).attr('href', $(a).attr('href') + '#newsAnchor')
 	});
 </script>

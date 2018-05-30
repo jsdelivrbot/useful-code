@@ -106,7 +106,7 @@ if($_SESSION['checkPost'] == 1 ){
 
                 $phpmailer->SingleTo = true; //will send mail to each email address individually
 
-                $phpmailer->From = 'cp23.g-dns.com'; //設定寄件者信箱
+                $phpmailer->From = 'mail.alogotype.net'; //設定寄件者信箱
                 $phpmailer->FromName = "天泉温泉水"; //設定寄件者姓名
 
                 $phpmailer->AddAddress('ts01173166@gmail.com', "天泉温泉水-聯絡我們通知");
@@ -132,7 +132,7 @@ if($_SESSION['checkPost'] == 1 ){
                     ."<div style='color: red;'>此為系統發信，請勿直接回覆。</div>"
                 );
 
-                $phpmailer->Body=$mailContent;
+                $phpmailer->Body = $mailContent;
 
                 if(!$phpmailer->Send()) {
                     echo "<div class='err'>傳送時失敗，請稍後再試，或連絡客服！<br>錯誤訊息如下" . $phpmailer->ErrorInfo . "</div>";

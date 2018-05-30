@@ -1,3 +1,44 @@
+<!-- pdo -->
+<?php
+require_once 'Connections/connect2data.php';
+require_once 'paginator.class.php';
+
+$ryder_cat = (isset($_GET['c'])) ? $_GET['c'] : 0;
+
+//page start
+$page = (isset($_GET['page'])) ? $_GET['page'] : 1;
+$maxItem = 6;
+$limit = ($page - 1) * $maxItem;
+
+// 拿來計算全部有幾則
+$sql = "SELECT * FROM data_set
+WHERE d_class1 = 'competitionIntro'
+AND (d_id >= :d_id || :d_id = 0)
+AND d_active = 1
+ORDER BY d_sort ASC";
+$pageTotal = $conn->prepare($sql);
+$pageTotal->bindParam(':d_id', $ryder_cat, PDO::PARAM_INT);
+$pageTotal->execute();
+$pageTotalCount = $pageTotal->rowCount();
+$totalpage = ceil($pageTotalCount / $maxItem);
+
+//使用
+$sql .= " LIMIT :init_count, :page_count";
+$work = $conn->prepare($sql);
+$work->bindParam(':d_id', $ryder_cat, PDO::PARAM_INT);
+$work->bindParam(':init_count', $limit, PDO::PARAM_INT);
+$work->bindParam(':page_count', $maxItem, PDO::PARAM_INT);
+$work->execute();
+$count = $work->rowCount();
+
+$pages = new Paginator;
+$pages->items_total = $pageTotalCount;
+$pages->items_per_page = $maxItem;
+$pages->paginate();
+//page end
+?>
+
+<!-- mysql_query -->
 <?php
 require_once 'paginator.class.php';
 mysql_select_db($database_connect2data, $connect2data);

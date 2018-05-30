@@ -191,12 +191,8 @@ require_once('display_page.php');
                                         <td width="100" align="center" class="table_title">排序</td>
                                         <td align="center" class="table_title">名稱</td>
                                         <td width="40" align="center" class="table_title">狀態</td>
-                                        <?php if(1){ ?>
                                         <td width="40" align="center" class="table_title">編輯</td>
-                                        <?php } ?>
-                                        <?php if(1){ ?>
                                         <td width="40" align="center" class="table_title">刪除</td>
-                                        <?php } ?>
                                     </tr>
                                     <?php
                                     $i=0;

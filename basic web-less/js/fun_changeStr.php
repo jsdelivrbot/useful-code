@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 function changeStr( $chageS ){
 
@@ -49,56 +49,56 @@ function Month2SortEng($m){
 		case "01":
 			$sortName = "JAN ";
 			break;
-			
+
 		case "02":
 			$sortName = "FEB ";
 			break;
-			
+
 		case "03":
 			$sortName = "MAR ";
 			break;
-			
+
 		case "04":
 			$sortName = "APR ";
 			break;
-			
+
 		case "05":
 			$sortName = "MAY ";
 			break;
-			
+
 		case "06":
 			$sortName = "JUN ";
 			break;
-			
+
 		case "07":
 			$sortName = "JUL ";
 			break;
-			
+
 		case "08":
 			$sortName = "AUG ";
 			break;
-			
+
 		case "09":
 			$sortName = "SEP ";
 			break;
-			
+
 		case "10":
 			$sortName = "OCT ";
 			break;
-			
+
 		case "11":
 			$sortName = "NOV ";
 			break;
-			
+
 		case "12":
 			$sortName = "DEC";
 			break;
-		
+
 		default:
-		  $sortName = "JAN";
-		}
-		
-		return $sortName;
+			$sortName = "JAN";
+	}
+
+	return $sortName;
 }
 
 function strWhitespace( $str ){
@@ -127,20 +127,20 @@ return $str;
 
 }
 
-function cutstr_html($string, $sublen)    
+function cutstr_html($string, $sublen)
  {
   $string = strip_tags($string);
   $string = preg_replace ('/\n/is', '', $string);
   $string = preg_replace ('/ |　/is', '', $string);
   $string = preg_replace ('/&nbsp;/is', '', $string);
-  
-  preg_match_all("/[\x01-\x7f]|[\xc2-\xdf][\x80-\xbf]|\xe0[\xa0-\xbf][\x80-\xbf]|[\xe1-\xef][\x80-\xbf][\x80-\xbf]|\xf0[\x90-\xbf][\x80-\xbf][\x80-\xbf]|[\xf1-\xf7][\x80-\xbf][\x80-\xbf][\x80-\xbf]/", $string, $t_string);   
-  if(count($t_string[0]) - 0 > $sublen) $string = join('', array_slice($t_string[0], 0, $sublen))."…";   
+
+  preg_match_all("/[\x01-\x7f]|[\xc2-\xdf][\x80-\xbf]|\xe0[\xa0-\xbf][\x80-\xbf]|[\xe1-\xef][\x80-\xbf][\x80-\xbf]|\xf0[\x90-\xbf][\x80-\xbf][\x80-\xbf]|[\xf1-\xf7][\x80-\xbf][\x80-\xbf][\x80-\xbf]/", $string, $t_string);
+  if(count($t_string[0]) - 0 > $sublen) $string = join('', array_slice($t_string[0], 0, $sublen))."…";
   else $string = join('', array_slice($t_string[0], 0, $sublen));
-  
+
   return $string;
  }
- 
+
 function countStr($str) {
 	$str = strip_tags($str,"");
 	$str = strWhitespace( $str );
@@ -288,7 +288,7 @@ function searchReplace($content,$keyword){
 	}else{
 		return $content;
 	}
-	 
+
 }
 
 //擷取字串前幾個字並避免截掉半個中文字，$strlen要擷取的字串長度(以英文字母數計算，中文字需算二個字數)
@@ -439,7 +439,7 @@ function left_string($s,$m,$symbol)
    $s2='';
    for($i=0;$i<$n;$i++)
    {
-      $t=ord(substr($s,$i,1));   
+      $t=ord(substr($s,$i,1));
       if($t>=128)
       {
         $s1=substr($s,$i,3);
@@ -447,7 +447,7 @@ function left_string($s,$m,$symbol)
       }
       else
         $s1=substr($s,$i,1);
-      
+
        $c=$c+1;
        if($c<=$m)
          $s2=$s2.$s1;

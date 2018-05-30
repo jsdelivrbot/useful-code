@@ -97,45 +97,45 @@ if($_SESSION['checkPost'] == 1 ){
                 require_once('PHPMailer/class.phpmailer.php');
                 $phpmailer = new PHPMailer();
                 $phpmailer->SetLanguage('zh', '/PHPMailer/language/');
-                $phpmailer->ContentType="text/html";
+                $phpmailer->ContentType = "text/html";
                 $phpmailer->CharSet = "UTF-8";
-
-                $phpmailer->Encoding = 'base64';
-                $phpmailer->Timeout = 60; // 60 secs
+                $phpmailer->Encoding = "base64";
+                $phpmailer->Timeout = 60;
                 /////////////////////////////////////////////////////////////////
 
                 $phpmailer->SingleTo = true; //will send mail to each email address individually
 
-                $phpmailer->From = 'mail.alogotype.net'; //設定寄件者信箱
-                $phpmailer->FromName = "天泉温泉水"; //設定寄件者姓名
+                $phpmailer->SetFrom('ryderisg@ryderisgood.com', '天泉温泉水');
+                $phpmailer->AddReplyTo('ryderisg@ryderisgood.com', '天泉温泉水');
 
-                $phpmailer->AddAddress('ts01173166@gmail.com', "天泉温泉水-聯絡我們通知");
+                $phpmailer->AddAddress('ts01173166@gmail.com', '天泉温泉水-聯絡我們通知');
 
                 // $phpmailer->AddBCC("williamshsu@gmail.com","天泉温泉水-聯絡我們通知");
 
-                $phpmailer->IsHTML(true);
+                $phpmailer->Subject = "天泉温泉水-聯絡我們通知 - $m_name";
 
-                $phpmailer->Subject = "天泉温泉水-聯絡我們通知-".$m_name;
-
-                $mailContent = nl2br("天泉温泉水官網管理員，您好！<br><br>"
-                    ."下列為客戶 ".$m_name." 所諮詢的相關資料，<br>"
-                    ."<br>==================================================<br>"
-                    ."姓名：". isset($m_name) ? $m_name : "無" ."<br><br>"
-                    ."電話：". isset($m_phone) ? $m_phone : "無" ."<br><br>"
-                    ."公司：". isset($m_company) ? $m_company : "無" ."<br><br>"
-                    ."地址：". isset($m_address) ? $m_address : "無" ."<br><br>"
-                    ."信箱：". isset($m_email) ? $m_email : "無" ."<br><br>"
-                    ."類別：". isset($m_type) ? $m_type : "無" ."<br><br>"
-                    ."訊息：<br>". isset($m_message) ? $m_message : "無" ."<br/>"
-                    ."<br>==================================================<br>"
-                    ."<br>請您盡快回覆客戶，謝謝。"."<br><br>"
-                    ."<div style='color: red;'>此為系統發信，請勿直接回覆。</div>"
-                );
+                $mailContent = "<div style='max-width: 500px; letter-spacing: 1px;'>"
+                ."天泉温泉水官網管理員，您好！<br><br>"
+                ."==================================================<br><br><br>"
+                ."姓名： $m_name <br><br>"
+                ."電話： $m_phone <br><br>"
+                ."公司： $m_company <br><br>"
+                ."地址： $m_address <br><br>"
+                ."信箱： $m_email <br><br>"
+                ."類別： $m_type <br><br>"
+                ."<div style='line-height: 2;'>"
+                ."訊息： $m_message <br><br>"
+                ."</div>"
+                ."==================================================<br><br>"
+                ."請您盡快回覆客戶，謝謝。<br><br><br>"
+                ."<div style='color: red;'>此為系統發信，請勿直接回覆。</div>"
+                ."</div>";
 
                 $phpmailer->Body = $mailContent;
+                $phpmailer->IsHTML(true);
 
                 if(!$phpmailer->Send()) {
-                    echo "<div class='err'>傳送時失敗，請稍後再試，或連絡客服！<br>錯誤訊息如下" . $phpmailer->ErrorInfo . "</div>";
+                    echo "<div class='err'>傳送時失敗，請稍後再試，或連絡客服！</div>";
                 } else {
                     echo "感謝您的來信！我們將會儘快回覆您。<br>Thanks for your message, and we'll contact you ASAP.";
                 }

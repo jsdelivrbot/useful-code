@@ -93,7 +93,7 @@ http://js-socials.com/start-using/
 
 <!-- 人工 old school -->
 <?php
-$url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$url = (isset($_SERVER['HTTPS']) ? "https://" : "http://") . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 ?>
 
 <meta property="og:title" content="<?php echo $row_Recwork['d_title']; ?>" />

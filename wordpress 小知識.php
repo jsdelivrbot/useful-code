@@ -1,4 +1,17 @@
 <!--=============================
+=            分類操作            =
+==============================-->
+<?php
+// cat id
+$cat = get_cat_name( 2 );
+echo '<pre>'; print_r($cat); echo '</pre>';
+
+// post id
+$terms = get_the_category(get_the_id());
+echo '<pre>'; print_r($terms); echo '</pre>';
+?>
+
+<!--=============================
 =            自製內頁            =
 ==============================-->
 名字改成 single-{post_type}.php
@@ -23,9 +36,6 @@ $param = [
 ];
 
 $pods = pods( 'projects', $param );
-
-// $terms = get_cat_name( 2 );
-// echo '<pre>'; print_r($terms); echo '</pre>';
 
 while ($pods->fetch()) {
 	$title = $pods->field('project_title');

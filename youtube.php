@@ -1,3 +1,6 @@
+<!-- loop 要加 playlist=VIDEO_ID  autoplay 要加 mute -->
+<iframe src="https://www.youtube.com/embed/_14E8OtvGTE?autoplay=1&loop=1&controls=0&rel=0&playsinline=1&showinfo=0&mute=1&playlist=_14E8OtvGTE" frameborder="0"></iframe>
+
 <!-- youtube iframe api (?) -->
 <div id="test">
 	<iframe id="ytplayer" src="https://www.youtube.com/embed/qf09H2xFq2s?playsinline=1&enablejsapi=1" frameborder="0" allowfullscreen></iframe>

@@ -90,7 +90,11 @@ if (isset($_POST['use_rname'])) {
                         <li class="loginerror">密碼輸入錯誤 <?= $_SESSION['errorTimes'] ?> 次，請重新輸入。<br>超過5次請通知管理員解鎖。</li>
                         <?php } ?>
                     </ul>
-                    <input name="submitBtn" type="submit" class="btnType" id="submitBtn" value="送出" />
+                    <input name="submitBtn" type="submit" class="btnType g-recaptcha" id="submitBtn" value="送出"
+                        data-sitekey="6Lf2eTUUAAAAAA2C6bGhcsp6tTt96UunVj-BeUy_"
+                        data-callback="onSubmit"
+                        error-callback="onError"
+                        data-size="invisible">
                 </div>
             </form>
         </div>
@@ -99,8 +103,18 @@ if (isset($_POST['use_rname'])) {
 </html>
 
 <script type="text/javascript" src="jquery/jquery-1.7.2.min.js"></script>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 <script type="text/javascript">
     $(document).ready(function() {
+        window.onSubmit = () => {
+            form1.submit();
+        }
+
+        window.onError = () => {
+            alert('發生錯誤，請稍後再試')
+        }
+
         $(".btnType").hover(function() {
             $(this).addClass('btnTypeClass');
             $(this).css('cursor', 'pointer');

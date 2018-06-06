@@ -17,6 +17,10 @@ echo '<pre>'; print_r($terms); echo '</pre>';
 名字改成 single-{post_type}.php
 
 <?php
+$work = get_post_meta(get_the_id());
+?>
+
+<?php
 $pods = pods( 'projects', get_the_id() );
 $title = $pods->field('project_title');
 $title_en = $pods->field('project_title_en');

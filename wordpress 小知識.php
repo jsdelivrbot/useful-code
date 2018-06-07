@@ -38,9 +38,9 @@ function Fanly_remove_recentcomments_style() {
 add_action( 'widgets_init', 'Fanly_remove_recentcomments_style' );
 ?>
 
-<!--=============================
-=            分類操作            =
-==============================-->
+<!--=================================
+=            分類 or 標籤            =
+==================================-->
 <?php
 // cat id
 $cat = get_cat_name( 2 );
@@ -49,6 +49,9 @@ echo '<pre>'; print_r($cat); echo '</pre>';
 // post id
 $terms = get_the_category(get_the_id());
 echo '<pre>'; print_r($terms); echo '</pre>';
+
+// tags
+$tags = get_the_tags(get_the_id());
 ?>
 
 <!--=============================

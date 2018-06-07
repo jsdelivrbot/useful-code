@@ -57,17 +57,15 @@ echo '<pre>'; print_r($terms); echo '</pre>';
 名字改成 single-{post_type}.php
 
 <?php
-$work = get_post_meta(get_the_id());
-?>
-
-<?php
 $pods = pods( 'projects', get_the_id() );
-$title = $pods->field('project_title');
-$title_en = $pods->field('project_title_en');
-$cover = $pods->field('project_cover');
-$row = $pods->row();
-?>
 
+$title_en = $pods->field('project_title_en');
+$title_en = $pods->display('project_title_en');
+$title_en = get_post_meta(get_the_id(), 'project_title_en', true);
+
+$row = $pods->row();
+
+?>
 
 <!--=================================
 =            自製pods首頁            =

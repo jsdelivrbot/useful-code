@@ -6,9 +6,6 @@ smoothstate.js
 
 https://codyhouse.co/gem/animated-page-transition/
 
-<!-- a simple and easy jQuery plugin for CSS animated page transitions -->
-https://github.com/blivesta/animsition
-
 <!-- barba.js -->
 <template lang="pug">
 	#barba-wrapper
@@ -75,4 +72,40 @@ https://github.com/blivesta/animsition
 	})
 
 	Barba.Pjax.getTransition = () => BigFatLp;
+</script>
+
+<!-- a simple and easy jQuery plugin for CSS animated page transitions -->
+https://github.com/blivesta/animsition
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/js/animsition.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animsition/4.0.2/css/animsition.css">
+
+<body class="animsition">
+	<a href="detail.php" class="animsition-link"></a>
+</body>
+
+<script>
+	$(".animsition").animsition({
+		inClass: 'fade-in',
+		outClass: 'fade-out',
+		inDuration: 1500,
+		outDuration: 800,
+		linkElement: '.animsition-link',
+		loading: true,
+		loadingParentElement: 'body', //animsition wrapper element
+		loadingClass: 'animsition-loading',
+		loadingInner: '', // e.g '<img src="loading.svg" />'
+		timeout: false,
+		timeoutCountdown: 5000,
+		onLoadEvent: true,
+		browser: ['animation-duration', '-webkit-animation-duration'],
+		// "browser" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+		// The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+		overlay: false,
+		overlayClass: 'animsition-overlay-slide',
+		overlayParentElement: 'body',
+		transition: function(url) {
+			window.location.href = url;
+		}
+	});
 </script>

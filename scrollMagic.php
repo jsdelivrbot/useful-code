@@ -15,7 +15,9 @@ data-center-bottom="top: 92%; opacity: 0;"
 data-smooth-scrolling="off"></div>
 
 <script>
-	skrollr.init();
+	skrollr.init({
+		forceHeight: false  //不然body會有一個高
+	})
 </script>
 
 

@@ -1,3 +1,24 @@
+<!-- 以下就觸發 定位class好用 -->
+<script>
+	var $where = $("[data-where]").get().reverse()
+
+	$(window).scroll(function() {
+
+		var scrollTop = $(this).scrollTop()
+
+		$($where).each((i, el) => {
+
+			var _index = el.dataset.where
+			var _b = scrollTop + $(window).height() * 0.7
+
+			if (_b > $(el).offset().top) {
+				$(".topmenuList li").eq(_index).addClass("current").siblings().removeClass("current")
+				return false
+			}
+		})
+	}).trigger("scroll")
+</script>
+
 <!-- 用新的api -->
 <script>
 	var callback = (entries) => {

@@ -1,3 +1,9 @@
+<!--=============================
+=            get url            =
+==============================-->
+<a href="<?= get_home_url() ?>">INDEX</a>
+<a href="<?= get_site_url(null, 'contact') ?>">CONTACT</a>
+
 <!--=============================================
 =            賞你一個乾淨的 wp_head()            =
 ==============================================-->
@@ -68,6 +74,11 @@ $title_en = get_post_meta(get_the_id(), 'project_title_en', true);
 
 $row = $pods->row();
 
+?>
+
+<?php
+$prev_id = $pods->prev_id(get_the_id());
+$next_id = $pods->next_id(get_the_id());
 ?>
 
 <!--=================================

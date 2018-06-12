@@ -1,3 +1,6 @@
+<!-- 新招 -->
+<?php mb_strimwidth($str, $start, $width, $trimmarker, $charset); ?>
+
 <!-- 不斷字 -->
 <?= substr($row_RecProjects['d_content'], 0, strrpos(substr($row_RecProjects['d_content'], 0, 150), ' ')); ?>
 

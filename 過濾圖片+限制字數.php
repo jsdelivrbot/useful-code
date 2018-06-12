@@ -1,8 +1,8 @@
 <!-- 新招 -->
-<?php mb_strimwidth($str, $start, $width, $trimmarker, $charset); ?>
+<?php mb_strimwidth(strip_tags($row_RecProjects['d_content']), $start, $width, $trimmarker, $charset); ?>
 
 <!-- 不斷字 -->
-<?= substr($row_RecProjects['d_content'], 0, strrpos(substr($row_RecProjects['d_content'], 0, 150), ' ')); ?>
+<?= substr(strip_tags($row_RecProjects['d_content']), 0, strrpos(substr($row_RecProjects['d_content'], 0, 150), ' ')); ?>
 
 <!-- 這個最簡單好用 -->
 <?= mb_substr(preg_replace("/(\s|\&nbsp\;|　|\xc2\xa0)/", "", strip_tags($row_RecProjects['d_content'])), 0, 90, "utf-8"); ?>

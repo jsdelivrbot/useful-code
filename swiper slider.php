@@ -31,6 +31,7 @@ http://www.swiper.com.cn/api/index.html
 	var swiper = new Swiper('.swiper-container', {
         // init: false,     // for fancybox
         loop: true,
+        speed: 800,
         slidesPerView: 3,
         slidesPerGroup: 3,
         spaceBetween: 0,
@@ -39,6 +40,9 @@ http://www.swiper.com.cn/api/index.html
         // fadeEffect: {
         //     crossFade: true
         // },
+        autoplay: {
+            delay: 4000,
+        },
         navigation: {
         	prevEl: '.diy-package-prev',
         	nextEl: '.diy-package-next',

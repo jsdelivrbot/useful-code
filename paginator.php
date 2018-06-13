@@ -84,7 +84,7 @@ $pages->paginate();
 
 <!-- 增加錨點 -->
 <script>
-	$('.m-pager a').each(function(i,a){
-		$(a).attr('href', $(a).attr('href') + '#newsAnchor')
+	$(".m-pager a").each(function(i, el){
+		$(el).attr('href', $(el).attr('href') + '#newsAnchor')
 	});
 </script>

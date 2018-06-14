@@ -11,6 +11,9 @@ $(function () {
         branding: false,
         skin: 'gray',
 
+        paste_data_images: true,
+        images_upload_url: 'upload.php',
+
         plugins: [
             "advlist autolink link lists charmap print preview hr anchor pagebreak",
             "searchreplace wordcount visualblocks visualchars insertdatetime nonbreaking",

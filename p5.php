@@ -78,3 +78,29 @@ https://p5js.org/reference/
 		resizeCanvas(windowWidth, windowHeight);
 	}
 </script>
+
+
+<!--===============================
+=            用角度畫圓            =
+================================-->
+<script>
+	function setup() {
+		createCanvas(710, 400);
+		frameRate(2);
+	}
+
+	function draw() {
+		background(100);
+		beginShape();
+		noStroke();
+		translate(width/2, height/2);
+		for(var a=0; a<TWO_PI; a+=PI/5){
+			var r = 150;
+			var x = r*cos(a+random(1));
+			var y = r*sin(a);
+			curveVertex(x,y);
+			ellipse(x,y,4,4);
+		}
+		endShape(CLOSE);
+	}
+</script>

@@ -5,7 +5,7 @@ https://github.com/P233/Syntax-highlighting-for-Sass/issues/15
 
 <!-- Packages\User\Syntax Highlighting for Sass\Preferences -->
 
-兩個symbol檔新增
+兩個symbol檔新增 or in projects
 
 <key>showInIndexedSymbolList</key>
 <integer>1</integer>

@@ -28,14 +28,12 @@ https://codepen.io/eikeco/pen/MwGRKr
 <style>
 	.arrival-sliderContainer{
 		section{
+			width: 100%;
 			margin: 0 50px;
 			&.is-selected{
 				.title, .content{
 					opacity: 1;
 				}
-			}
-			img{
-				max-width: initial;
 			}
 		}
 		/* reset */

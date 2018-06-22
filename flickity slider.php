@@ -8,7 +8,7 @@ https://flickity.metafizzy.co/
 https://codepen.io/eikeco/pen/MwGRKr
 
 <style>
-	/* Fade CSS */
+	/* fade css */
 	.flickity-slider {
 		transform: none !important;
 	}
@@ -17,10 +17,10 @@ https://codepen.io/eikeco/pen/MwGRKr
 		opacity: 0;
 		transition: opacity 0.3s ease-in-out;
 		z-index: -1;
-	}
-	.gallery-cell.is-selected {
-		opacity: 1;
-		z-index: 0
+		&.is-selected {
+			opacity: 1;
+			z-index: 0
+		}
 	}
 </style>
 
@@ -38,13 +38,21 @@ https://codepen.io/eikeco/pen/MwGRKr
 		}
 		/* reset */
 		.flickity-button {
-			background: transparent;
-			&:hover{
-				background: transparent;
+			background-color: #fff;
+			&:hover {
+			    background: #fff;
 			}
-			&:focus{
-				outline: none;
+			&:focus {
+			    outline: none;
 	  			box-shadow: none;
+			}
+			&:active {
+			    opacity: 1;
+			}
+			&:disabled {
+			    opacity: .3;
+			    cursor: auto;
+			    pointer-events: none
 			}
 		}
 		/* previous & next buttons */

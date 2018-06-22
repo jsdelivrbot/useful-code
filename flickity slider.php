@@ -1,5 +1,9 @@
 https://flickity.metafizzy.co/
 
+<!-- drag 超棒  -->
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
 <!-- fade effect -->
 https://codepen.io/eikeco/pen/MwGRKr
 
@@ -20,9 +24,56 @@ https://codepen.io/eikeco/pen/MwGRKr
 	}
 </style>
 
-<!-- drag 超棒  -->
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<!-- basic -->
+<style>
+	.arrival-sliderContainer{
+		section{
+			margin: 0 50px;
+			&.is-selected{
+				.title, .content{
+					opacity: 1;
+				}
+			}
+			img{
+				max-width: initial;
+			}
+		}
+		/* reset */
+		.flickity-button {
+			background: transparent;
+			&:hover{
+				background: transparent;
+			}
+			&:focus{
+				outline: none;
+	  			box-shadow: none;
+			}
+		}
+		/* previous & next buttons */
+		.flickity-prev-next-button {
+			width: 40px;
+			height: 40px;
+			top: auto;
+			bottom: -14px;
+			transform: translateY(0);
+			&.previous{
+				left: 204px;
+			}
+			&.next{
+				left: 829px;
+			}
+			/* svg */
+			.flickity-button-icon {
+				fill: #11f291;
+				width: 17px;
+				height: auto;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+		}
+	}
+</style>
 
 <div class="other-sliderContainer" data-flickity='{
 	"prevNextButtons": true,

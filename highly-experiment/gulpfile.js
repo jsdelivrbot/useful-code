@@ -26,6 +26,7 @@ gulp.task('browser-sync', function() {
     gulp.watch('svg/*.svg', ['svg-rebuild']);
     gulp.watch('pug/*.pug', ['pug-rebuild']);
     // browserSync.watch(['*.html', '*.php']).on('change', browserSync.reload);
+    // browserSync.watch('views/**').on('change', browserSync.reload);
 
     gulp.watch('server.js', ['server']);
 });

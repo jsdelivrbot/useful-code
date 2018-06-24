@@ -1,3 +1,17 @@
+<!--====================================
+=            F12 sass 找不到            =
+=====================================-->
+https://github.com/P233/Syntax-highlighting-for-Sass/issues/15
+
+<!-- Packages\User\Syntax Highlighting for Sass\Preferences -->
+
+兩個symbol檔新增 or in projects
+
+<key>showInIndexedSymbolList</key>
+<integer>1</integer>
+<key>symbolIndexTransformation</key>
+<string>/[#.]([A-Za-z0-9_~]+)/$1/;</string>
+
 <!--========================================
 =            讓你知道圖片載完了沒            =
 =========================================-->

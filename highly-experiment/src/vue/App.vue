@@ -10,7 +10,7 @@
 	export default {
 		data() {
 			return {
-				hello: 'im papa'
+				hello: 'hello world'
 			}
 		},
 		components: {

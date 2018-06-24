@@ -1,10 +1,14 @@
 https://flickity.metafizzy.co/
 
+<!-- drag 超棒  -->
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+
 <!-- fade effect -->
 https://codepen.io/eikeco/pen/MwGRKr
 
 <style>
-	/* Fade CSS */
+	/* fade css */
 	.flickity-slider {
 		transform: none !important;
 	}
@@ -13,16 +17,69 @@ https://codepen.io/eikeco/pen/MwGRKr
 		opacity: 0;
 		transition: opacity 0.3s ease-in-out;
 		z-index: -1;
-	}
-	.gallery-cell.is-selected {
-		opacity: 1;
-		z-index: 0
+		&.is-selected {
+			opacity: 1;
+			z-index: 0
+		}
 	}
 </style>
 
-<!-- drag 超棒  -->
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+<!-- basic -->
+<style>
+	.arrival-sliderContainer{
+		section{
+			width: 100%;
+			margin: 0 50px;
+			&.is-selected{
+				.title, .content{
+					opacity: 1;
+				}
+			}
+		}
+		/* reset */
+		.flickity-button {
+			background-color: #fff;
+			&:hover {
+			    background: #fff;
+			}
+			&:focus {
+			    outline: none;
+	  			box-shadow: none;
+			}
+			&:active {
+			    opacity: 1;
+			}
+			&:disabled {
+			    opacity: .3;
+			    cursor: auto;
+			    pointer-events: none
+			}
+		}
+		/* previous & next buttons */
+		.flickity-prev-next-button {
+			width: 40px;
+			height: 40px;
+			top: auto;
+			bottom: -14px;
+			transform: translateY(0);
+			&.previous{
+				left: 204px;
+			}
+			&.next{
+				left: 829px;
+			}
+			/* svg */
+			.flickity-button-icon {
+				fill: #11f291;
+				width: 17px;
+				height: auto;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+			}
+		}
+	}
+</style>
 
 <div class="other-sliderContainer" data-flickity='{
 	"prevNextButtons": true,

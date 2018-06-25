@@ -1,6 +1,17 @@
 <!-- 改這個 /etc/nginx/sites-enabled/default -->
 <!-- 用express router也可以 -->
 
+server {
+    listen 80;
+
+    server_name kichi.mounts-studio.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+    }
+}
+
+<!-- 裝逼版 -->
 upstream kichi{
     server 127.0.0.1:3000;
 }

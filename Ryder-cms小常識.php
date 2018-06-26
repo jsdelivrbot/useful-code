@@ -1,3 +1,30 @@
+<!--==============================================================
+=            編輯器 d_content source image src replace            =
+===============================================================-->
+<?php
+require_once 'Connections/connect2data.php';
+
+$sql = "SELECT d_content, d_id FROM data_set WHERE d_content LIKE :some";
+$temp = 'web';
+$argCat = [
+    'some' => "%{$temp}%",
+];
+$sthWork = $conn->prepare($sql);
+$sthWork->execute($argCat);
+
+while ($row = $sthWork->fetch()) {
+
+    $description = str_replace("/web/", "/", $row['d_content']);
+
+    $updateSQL = "UPDATE data_set SET d_content=:d_content WHERE d_id=:d_id";
+
+    $sth = $conn->prepare($updateSQL);
+    $sth->bindParam(':d_content', $description, PDO::PARAM_STR);
+    $sth->bindParam(':d_id', $row['d_id'], PDO::PARAM_INT);
+    $sth->execute();
+}
+?>
+
 <!--==============================================
 =            ckeditor 自訂事件 (含範本)           =
 ===============================================-->

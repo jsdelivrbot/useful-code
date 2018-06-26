@@ -2,7 +2,7 @@
 <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
 
 
-<!-- 地址轉經緯度 -->
+<!-- 地址轉經緯度 (間隔約1.5s) -->
 http://blog.xuite.net/uhoo/dc/65449068-%E8%BC%B8%E5%85%A5%E5%9C%B0%E5%9D%80%E6%89%B9%E6%AC%A1%E8%BD%89%E6%8F%9B%E7%B6%93%E7%B7%AF%E5%BA%A6%E5%B0%8F%E5%B7%A5%E5%85%B7
 
 <script>
@@ -18,6 +18,107 @@ http://blog.xuite.net/uhoo/dc/65449068-%E8%BC%B8%E5%85%A5%E5%9C%B0%E5%9D%80%E6%8
 			}
 		});
 	}
+</script>
+
+
+<!-- 地址轉經緯度 + vue -->
+<template lang="pug">
+	.mapWrap.m-width.grid-x#shop
+		.cell.large-auto(v-for="shop in shops")
+			.title {{shop.title}}
+			.content {{shop.address}}
+			.phone 電話 &nbsp;&nbsp; {{shop.phone}}
+			.maplink: a(:href="'https://maps.google.com?q=' + shop.address" target="_blank")
+				img(src="/images/topmenu-deco.svg", alt="")
+				| Google Map
+			.googleMap(ref="map")
+</template>
+
+<script>
+	var shop = new Vue({
+		el: '#shop',
+		data: {
+			shops: []
+		},
+		methods: {},
+		filters: {},
+		created() {
+			$.ajax({
+				type: 'GET',
+				url: 'http://kichi-cms.mounts-studio.com/shop'
+			}).done((data) => {
+				this.shops = data
+			})
+		},
+		updated() {
+			$(".mapWrap").ryderWaypoint({
+				enter($e) {
+					$e.addClass("is-show")
+				}
+			})
+
+			var $map = this.$refs.map;
+
+			this.shops.forEach( function(element, index) {
+				function addressToLatLng(addr) {
+					return new Promise((resolve) => {
+						var geocoder = new google.maps.Geocoder();
+						geocoder.geocode({
+							"address": addr
+						}, function (results, status) {
+							if (status == google.maps.GeocoderStatus.OK) {
+								resolve(results[0].geometry.location)
+							} else {
+								alert("查無經緯度")
+							}
+						});
+					});
+				}
+
+				async function initialize() {
+					var myLatLng = await addressToLatLng(element.address);
+				    var mapProp = {
+				        center: myLatLng,
+				        zoom: 20,
+				        scrollwheel: false,
+				        // draggable: false,
+						styles: [{
+							"stylers": [{
+								"hue": "#ff1a00"
+							}, {
+								"invert_lightness": true
+							}, {
+								"saturation": -100
+							}, {
+								"lightness": 33
+							}, {
+								"gamma": 0.5
+							}]
+						}, {
+							"featureType": "water",
+							"elementType": "geometry",
+							"stylers": [{
+								"color": "#2d333c"
+							}]
+						}],
+				        mapTypeId: google.maps.MapTypeId.ROADMAP
+				    }
+
+			    	var map = new google.maps.Map($map[index], mapProp);
+
+				    var svg = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" x="0px" y="0px" width="15px" viewBox="0 0 12 22.2" style="enable-background:new 0 0 12 22.2;" xml:space="preserve"> <g> <path class="st0" fill="#fff" d="M12,6c0,3.3-6,16.2-6,16.2S0,9.3,0,6s2.7-6,6-6S12,2.7,12,6z" /> <circle cx="6" cy="5.5" r="2.6" /> </g> </svg>';
+
+				    var beachMarker = new google.maps.Marker({
+				        position: myLatLng,
+				        map: map,
+				        icon: { url: 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg) }
+				    });
+				}
+
+				google.maps.event.addDomListener(window, 'load', initialize);
+			});
+		}
+	})
 </script>
 
 

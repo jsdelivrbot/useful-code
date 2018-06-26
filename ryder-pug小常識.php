@@ -1,3 +1,6 @@
+<!-- with vue -->
+a(:href="'https://maps.google.com?q=' + shop.address" target="_blank")
+
 <!-- value給預設值 -->
 .newsPagerWrap(data-page= (page) ? page:1)
 

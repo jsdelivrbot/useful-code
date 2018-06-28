@@ -72,9 +72,10 @@
 
 				if (distance > breakPoint || distance < -leavePoint) {
 					setting.check && setting.leave($this);
+					setting.check = setting.repeat;
 				}else if (distance < breakPoint) {
 					setting.check && setting.enter($this);
-					setting.check = setting.repeat;
+					setting.check = false;
 				}
 			}
 

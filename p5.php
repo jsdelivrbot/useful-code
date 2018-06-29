@@ -5,6 +5,13 @@ https://p5js.org/reference/
 <!-- if you use preload -->
 <div id="p5_loading" class="loadingclass"></div>
 
+<!-- retina resolution -->
+<script>
+	var ratio = window.devicePixelRatio;
+	createCanvas(windowWidth * ratio, windowHeight * ratio);
+	resizeCanvas(windowWidth * ratio, windowHeight * ratio);
+</script>
+
 <!--========================================
 =            play images as gif            =
 =========================================-->

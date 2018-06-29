@@ -1,3 +1,25 @@
+<!--===============================================================
+=            copy index to template if post not correct           =
+================================================================-->
+<?php
+
+$args = array(
+	'post_type' => 'post'
+);
+
+$post_query = new WP_Query( $args );
+
+if ( $post_query->have_posts() ) :
+	while ( $post_query->have_posts() ) : $post_query->the_post();
+
+	get_template_part( 'content', get_post_format() );
+
+	endwhile;
+
+endif;
+
+?>
+
 <!--=============================
 =            get url            =
 ==============================-->

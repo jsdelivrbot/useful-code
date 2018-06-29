@@ -3,6 +3,52 @@ https://p5js.org/reference/
 <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.min.js"></script>
 
 
+<!--========================================
+=            play images as gif            =
+=========================================-->
+<script>
+	var maze = (p) => {
+
+		var count = 1;
+		var total = 20;
+		var imgs = [];
+		var w = $("#maze").width();
+		var h = $("#maze").height();
+
+		p.windowResized = () => {
+			w = $("#maze").width();
+			h = $("#maze").height();
+			p.resizeCanvas(w, h);
+		}
+
+		p.preload = () => {
+			for(let i=1; i<=total; i++){
+				imgs[i] = p.loadImage('./images/maze/maze-'+ i +'.jpg');
+			}
+		};
+
+		p.setup = () => {
+			var cnv = p.createCanvas(w, h);
+			cnv.class("m-gif");
+
+			p.frameRate(3);
+		};
+
+		p.draw = () => {
+			imgs[count].resize(p.width, 0);
+			p.image(imgs[count], 0, 0);
+
+			if (count == total) {
+				count = 1;
+			}else{
+				count++;
+			}
+		};
+	};
+
+	new p5(maze, 'maze');
+</script>
+
 <!--================================
 =            自製 gooey            =
 =================================-->

@@ -72,14 +72,16 @@
 					leavePoint = $this.height() - windowHeight * (1 - setting.hook);
 
 				if (distance > breakPoint || distance < -leavePoint) {
-					setting.check && setting.leave($this);
 					if (setting.count < 1) {
+						setting.check = true;
+					}else{
 						setting.check = setting.repeat;
 					}
+					setting.check && setting.leave($this);
 				}else if (distance < breakPoint) {
 					setting.check && setting.enter($this);
+					setting.check && setting.count++;
 					setting.check = false;
-					setting.count++;
 				}
 			}
 

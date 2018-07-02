@@ -56,7 +56,7 @@
 				hook: 0.9,
 				repeat: false,
 				check: true,
-				first: true,
+				count: 0,
 				enter() {},
 				leave() {}
 			};
@@ -73,11 +73,13 @@
 
 				if (distance > breakPoint || distance < -leavePoint) {
 					setting.check && setting.leave($this);
-					setting.check = setting.first;
+					if (setting.count < 1) {
+						setting.check = setting.repeat;
+					}
 				}else if (distance < breakPoint) {
 					setting.check && setting.enter($this);
 					setting.check = false;
-					setting.first = setting.repeat;
+					setting.count++;
 				}
 			}
 

@@ -5,6 +5,9 @@ https://github.com/markdalgleish/stellar.js
 
 <script src="https://cdn.jsdelivr.net/npm/jquery.stellar@0.6.2/jquery.stellar.js"></script>
 
+<div data-stellar-ratio="2"></div>
+<div data-stellar-background-ratio="0.5"></div>
+
 <script>
 	$.stellar({
 		responsive: true,

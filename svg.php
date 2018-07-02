@@ -4,6 +4,9 @@ http://svgjs.com/elements/
 有一些plugin好像不錯 ex: svg.topath.js
 http://svgjs.com/plugins/
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.5/svg.js"></script>
+
+
 
 <!-- How SVG Line Animation Works -->
 https://css-tricks.com/svg-line-animation-works/
@@ -13,6 +16,8 @@ http://wcc723.github.io/svg/2014/06/15/svg-css-stroke-animation/
 
 <!-- SVG Animation 動態描繪 -->
 http://www.chming.tw/blog/2014/09/21/svg-animate-paint/
+
+
 
 <!-- 不錯用plugin -->
 https://github.com/maxwellito/vivus

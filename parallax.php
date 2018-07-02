@@ -9,6 +9,9 @@ https://github.com/markdalgleish/stellar.js
 <div data-stellar-background-ratio="0.5"></div>
 
 <script>
+	// 一開始的位置會怪怪的話....
+	$.stellar().init();
+
 	$.stellar({
 		responsive: true,
 		positionProperty: 'transform',

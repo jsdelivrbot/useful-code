@@ -9,3 +9,24 @@ $("body").on("touchmove , mousewheel",function  (e) {
 $("body").unbind("touchmove , mousewheel");
 
 </script>
+
+
+<!-- 好像很專業 -->
+<script>
+	function descroll() {
+	    $(window).on({
+	        mousewheel: function(e) {
+	            "el" != e.target.id && (e.preventDefault(),
+	                e.stopPropagation())
+	        },
+	        touchmove: function(e) {
+	            "el" != e.target.id && (e.preventDefault(),
+	                e.stopPropagation())
+	        }
+	    })
+	}
+
+	function rescroll() {
+	    $(window).unbind("mousewheel").unbind("touchmove")
+	}
+</script>

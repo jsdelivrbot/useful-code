@@ -93,8 +93,7 @@ https://github.com/blivesta/animsition
 		outDuration: 800,
 		transition(url){
 			window.location.href = url;
-
-			if (url.indexOf("#") != -1) {
+			if (location.href.indexOf(url) != -1 && url.indexOf("#") != -1) {
 				$("body").animsition('in');
 			}
 		}

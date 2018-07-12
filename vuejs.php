@@ -1,3 +1,10 @@
+<!-- nl2br -->
+<style>
+	.content{
+		white-space: pre-wrap;
+	}
+</style>
+
 <!-- cheetsheet -->
 https://vuejs-tips.github.io/cheatsheet/
 

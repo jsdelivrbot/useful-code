@@ -135,3 +135,15 @@ https://github.com/maxwellito/vivus
 	document.getElementById("ani-bee").beginElement()
 	document.getElementById("ani-flybee").beginElement()
 </script>
+
+
+<!-- mouse scroll icon -->
+<svg xmlns="http://www.w3.org/2000/svg" width="24.5" height="42" viewBox="0 0 24.5 42">
+    <title>scrolldown</title>
+    <rect x="1" y="1" width="22.5" height="40" rx="11.25" ry="11.25" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" />
+    <g>
+    	<line x1="12.25" y1="11" x2="12.25" y2="19" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width="2" stroke-dasharray="10" />
+    	<animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite" />
+    	<animateTransform attributeName="transform" type="translate" from="0 0" to="0 3" dur="1s" repeatCount="indefinite" />
+    </g>
+</svg>

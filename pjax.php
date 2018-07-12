@@ -91,5 +91,11 @@ https://github.com/blivesta/animsition
 		outClass: 'fade-out',
 		inDuration: 1500,
 		outDuration: 800,
+		transition(url){
+			window.location.href = url;
+			if (location.href.indexOf(url) != -1 && url.indexOf("#") != -1) {
+				$("body").animsition('in');
+			}
+		}
 	});
 </script>

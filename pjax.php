@@ -91,6 +91,10 @@ https://github.com/blivesta/animsition
 		outClass: 'fade-out',
 		inDuration: 1500,
 		outDuration: 800,
+		loading: true,
+	    loadingParentElement: 'html',
+	    loadingClass: 'animsition-loading',
+        loadingInner: '', // e.g '<img src="loading.svg" />'
 		transition(url){
 			window.location.href = url;
 			if (location.href.indexOf(url) != -1 && url.indexOf("#") != -1) {

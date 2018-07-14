@@ -1,16 +1,16 @@
 <!-- 無後台版 (新增一個 count.txt 裡面寫數字)-->
 <?php require_once 'sstart.php'; ?>
 <?php
-$fo=fopen("count.txt","r");
-$visitors=fgets($fo,20);
+$fo = fopen("count.txt", "r");
+$visitors = fgets($fo, 20);
 fclose($fo);
 
-if(!isset($_SESSION['visted'])){
-	$fo=fopen("count.txt","w");
-	$visitors++;
-	fwrite($fo,$visitors);
-	fclose($fo);
-	$_SESSION['visted']="yes";
+if (!isset($_SESSION['visted'])) {
+    $fo = fopen("count.txt", "w");
+    $visitors++;
+    fwrite($fo, $visitors);
+    fclose($fo);
+    $_SESSION['visted'] = "yes";
 }
 
 // echo $visitors;

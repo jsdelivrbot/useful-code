@@ -1,20 +1,20 @@
 <template lang="pug">
 	#app
 		div {{hello}}
-		myComponent
+		router-link(to="/") goto home
+		router-link(to="/test") goto test
+
+		.margin-top-5
+			router-view
 </template>
 
 <script>
-	import myComponent from './test.vue';
-
 	export default {
 		data() {
 			return {
-				hello: 'hello world'
+				hello: 'hello world123111'
 			}
 		},
-		components: {
-			myComponent
-		},
+		components: {},
 	}
 </script>

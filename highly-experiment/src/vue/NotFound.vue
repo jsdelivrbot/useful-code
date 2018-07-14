@@ -1,13 +1,11 @@
 <template lang="pug">
-    div testtesttesttesttesttesttest
+    div page not found
 </template>
 
 <script>
     export default {
         data() {
-            return {
-                name : 'Tony'
-            }
+            return {}
         },
     }
 </script>

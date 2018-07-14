@@ -1,13 +1,15 @@
 <template lang="html">
-	<div id="app">
-		<Myheader></Myheader>
+	<transition appear appear-class="fade-appear-class" appear-to-class="fade-appear-to-class" appear-active-class="fade-appear-active-class">
+		<div id="app">
+			<Myheader></Myheader>
 
-		<transition name="fade">
-			<router-view :class="{'is-blur': topmenuShow}"></router-view>
-		</transition>
+			<transition name="fade" mode="out-in">
+				<router-view :class="{'is-blur': topmenuShow}"></router-view>
+			</transition>
 
-		<Myfooter :class="{'is-blur': topmenuShow}"></Myfooter>
-	</div>
+			<Myfooter :class="{'is-blur': topmenuShow}"></Myfooter>
+		</div>
+	</transition>
 </template>
 
 <script>

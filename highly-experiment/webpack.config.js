@@ -15,10 +15,10 @@ module.exports = {
             use: [{
                 loader: 'babel-loader',
                 options: {
-                    presets: ['es2015', 'react'],
-                    plugins: [
-                        'async-to-promises'
-                    ]
+                    // presets: ['es2015', 'react'],
+                    // plugins: [
+                    //     'async-to-promises'
+                    // ]
                 }
             }]
         }, {
@@ -31,7 +31,7 @@ module.exports = {
                         browsers: ['last 7 versions']
                     })],
                     loaders: {
-                        'js': 'babel-loader?presets[]=es2015'
+                        'js': 'babel-loader'
                     }
                 }
             }]

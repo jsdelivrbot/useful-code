@@ -1,13 +1,15 @@
-<template lang="pug">
-    div im home
+<template lang="html">
+    <footer>{{message}}</footer>
 </template>
+
 
 <script>
     export default {
         data() {
             return {
-                name : 'Tony'
+                message: 'hello world'
             }
         },
+        methods: {}
     }
 </script>

@@ -1,3 +1,7 @@
+<!-- vue scroll to -->
+https://www.npmjs.com/package/vue-scrollto#easing-detailed
+
+
 <!-- scroll to -->
 https://github.com/flesler/jquery.scrollTo
 

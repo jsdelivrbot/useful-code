@@ -1,5 +1,5 @@
-<template lang="pug">
-    div page not found
+<template lang="html">
+    <div>PAGE NOT FOUND</div>
 </template>
 
 <script>

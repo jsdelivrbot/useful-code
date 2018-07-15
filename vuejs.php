@@ -1,3 +1,35 @@
+<!-- transition mode="out-in" 會導致anchor link 失敗 -->
+<transition @before-enter="beforeEnter" @enter="enter" @before-leave="beforeLeave" @leave="leave" :css="false">
+	<router-view :class="{'is-blur': topmenuShow}"></router-view>
+</transition>
+
+<script>
+	methods: {
+		beforeEnter(el) {
+			TweenMax.set(el, {
+				opacity: 0
+			});
+		},
+		enter(el, done) {
+			TweenMax.to(el, .5, {
+				opacity: 1,
+				onComplete: done
+			});
+		},
+		beforeLeave(el) {
+			TweenMax.set(el, {
+				opacity: 1
+			});
+		},
+		leave(el, done) {
+			TweenMax.to(el, .5, {
+				opacity: 0,
+				onComplete: done
+			});
+		}
+	}
+</script>
+
 <!-- vue transition css -->
 <style>
 	.fade-enter-active, .fade-leave-active{
@@ -183,117 +215,22 @@ https://pjchender.blogspot.tw/2017/05/vue-vue-reactivity.html
 	})
 </script>
 
-<!-- basic -->
-<li id="bigdog">
-	<div class="item">入住犬數:</div>
-	<div class="item"><span>{{ big }}隻大型犬, {{ small }}隻小型犬</span></div>
-	<div class="rws-chooseWrap">
-		<div class="box">
-			<div class="text"><span class="num">{{ big }}</span>隻大型犬<BR>(25kg以上)</div>
-			<div class="btnWrap">
-				<span @click="bigminor" class="btn image-2x"><img src="images/rooms/minor.png"><img src="images/rooms/minor@2x.png" width="13"></span>
-				<span @click="bigadd" class="btn image-2x"><img src="images/rooms/plus.png"><img src="images/rooms/plus@2x.png" width="13"></span>
-			</div>
-		 </div>
-		 <div class="box">
-			<div class="text"><span class="num">{{ small }}</span>隻小型犬<BR>(25kg以下)</div>
-			<div class="btnWrap">
-				<span @click="smallminor" class="btn image-2x"><img src="images/rooms/minor.png"><img src="images/rooms/minor@2x.png" width="13"></span>
-				<span @click="smalladd" class="btn image-2x"><img src="images/rooms/plus.png"><img src="images/rooms/plus@2x.png" width="13"></span>
-			</div>
-		 </div>
-		<div class="box close">關閉</div>
-	</div>
-</li>
 
 <!-- filter example -->
 <div class="date">{{post.updatedAt | dateFormat}}</div>
 
 <script>
-	var bigdog = new Vue({
-		el: '#bigdog',
-		data: {
-			big: 0,
-			small: 0
-		},
-		methods: {
-			bigadd: function () {
-				this.big += 1;
-			},
-			bigminor: function () {
-				if (this.big > 0) {
-					this.big -= 1;
-				}
-			},
-			smalladd: function () {
-				this.small += 1;
-			},
-			smallminor: function () {
-				if (this.small > 0) {
-					this.small -= 1;
-				}
-			}
-		}
-	})
-
 	const regist = new Vue({
 		el: '#regist',
-		data: {
-			infos: []
-		},
-		methods: {
-			gotoDetail(cla, cat, id) {
-				if (cla == 'domestic') {
-					location.href = `../domestic_detail.php?cat=${cat}&id=${id}`
-				}
-				if (cla == 'international') {
-					location.href = `../international_detail.php?cat=${cat}&id=${id}`
-				}
-			}
-		},
+		data: {},
+		methods: {},
 		filters: {
 			dateFormat(v) {
 				return (v.slice(0, 10)).replace(/-/g, '')
 			}
 		},
-		computed: {
-			content() {
-				// nl2br
-				return (this.article.content + '').replace(/([^>\r\n]?)(\r\n|\n\r|\r|\n)/g, '$1'+ '<br>' +'$2');
-			}
-		},
-		created() {
-			$.get("../jsonData.php", {
-				 action: "registrationInfo"
-			}, (v) => {
-				this.infos = v['registrationInfo']
-			})
-		},
-		updated() {
-			$('.registSlider').slick({
-				dots: false,
-				infinite: true,
-				draggable: false,
-				speed: 500,
-				arrows: false,
-				focusOnSelect: false,
-				easing: 'easeInOutCubic',
-				responsive: [{
-					breakpoint: 1024,
-					settings: {
-						dots: true,
-						dotsClass: 'regist-dots',
-						appendDots: '.regist-dotWrap',
-					}
-				}]
-			});
-
-			$(".regist-nav li").eq(0).addClass("current")
-
-			$(".regist-nav li").on("click", function () {
-				$(this).addClass("current").siblings().removeClass("current")
-				$('.registSlider').slick('slickGoTo', $(this).index())
-			})
-		}
+		computed: {},
+		created() {},
+		updated() {}
 	})
 </script>

@@ -46,7 +46,15 @@ const router = new VueRouter({
 	}, {
 		path : "*",
 		component: NotFound
-	}]
+	}],
+	scrollBehavior(to, from, savedPosition) {
+		if (to.hash) {
+			return { selector: to.hash }
+		} else {
+			// return savedPosition || { x: 0, y: 0 }
+			return savedPosition || VueScrollTo.scrollTo("#app", 1000)
+		}
+	}
 })
 
 
@@ -62,8 +70,6 @@ router.beforeEach((to, from, next) => {
 	}else{
 		document.body.classList.add("is-gray")
 	}
-
-	VueScrollTo.scrollTo("#app", 1000)
 
 	next()
 })

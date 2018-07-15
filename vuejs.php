@@ -1,4 +1,25 @@
+<script src="https://unpkg.com/vue"></script>
+
+<!-- cheetsheet -->
+https://vuejs-tips.github.io/cheatsheet/
+
+
+
+
 <!-- transition mode="out-in" 會導致anchor link 失敗 -->
+<!-- 人工out-in -->
+<style>
+	.fade-delay-enter-active, .fade-delay-leave-active{
+		transition: all .5s;
+	}
+	.fade-delay-enter-active{
+		transition-delay: .5s;
+	}
+	.fade-delay-enter, .fade-delay-leave-to{
+		opacity: 0;
+	}
+</style>
+<!-- 不然就用js -->
 <transition @before-enter="beforeEnter" @enter="enter" @before-leave="beforeLeave" @leave="leave" :css="false">
 	<router-view :class="{'is-blur': topmenuShow}"></router-view>
 </transition>
@@ -30,6 +51,10 @@
 	}
 </script>
 
+
+
+
+
 <!-- vue transition css -->
 <style>
 	.fade-enter-active, .fade-leave-active{
@@ -49,6 +74,9 @@
 	}
 </style>
 
+
+
+
 <!-- nl2br -->
 <style>
 	.content{
@@ -56,13 +84,16 @@
 	}
 </style>
 
-<!-- cheetsheet -->
-https://vuejs-tips.github.io/cheatsheet/
+
+
+
 
 <!-- 操作data沒有更新 -->
 https://pjchender.blogspot.tw/2017/05/vue-vue-reactivity.html
 
-<script src="https://unpkg.com/vue"></script>
+
+
+
 
 <!-- pagination -->
 <!-- page是網址的query (這裡用的是node + express) -->
@@ -115,6 +146,11 @@ https://pjchender.blogspot.tw/2017/05/vue-vue-reactivity.html
 		updated() {}
 	})
 </script>
+
+
+
+
+
 
 <!-- component -->
 <ul class="cartList" id="cart">
@@ -214,6 +250,10 @@ https://pjchender.blogspot.tw/2017/05/vue-vue-reactivity.html
 		}
 	})
 </script>
+
+
+
+
 
 
 <!-- filter example -->

@@ -1,3 +1,22 @@
+<!-- vue transition css -->
+<style>
+	.fade-enter-active, .fade-leave-active{
+		transition: all .5s;
+	}
+	.fade-enter, .fade-leave-to{
+		opacity: 0;
+		min-height: 100%;
+	}
+
+	.fade-appear-class{
+		opacity: 0;
+	}
+	.fade-appear-to-class{}
+	.fade-appear-active-class{
+		transition: all 1s;
+	}
+</style>
+
 <!-- nl2br -->
 <style>
 	.content{

@@ -101,5 +101,9 @@ https://github.com/blivesta/animsition
 				$("body").animsition('in');
 			}
 		}
+	}).on('animsition.outStart', function() {
+		$(".hamburger").removeClass("is-open");
+		$(".topmenuWrap").fadeOut(500);
+		$(".topmenuFixed, #mainWrap").removeClass("is-blur");
 	});
 </script>

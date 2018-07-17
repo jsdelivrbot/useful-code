@@ -5,6 +5,7 @@
 
 // 簡易版
 query_posts( 'post_type=post' );
+query_posts( 'post_type=post&cat=8&posts_per_page=-1' );
 
 // 這樣好像很專業
 $args = array(

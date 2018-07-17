@@ -1,3 +1,12 @@
+<!-- deploy nuxt.js -->
+https://segmentfault.com/a/1190000012774650
+1. npm run build
+2. upload .nuxt, .package.json, nuxt.config.js
+3. pm2 start npm --name "my-nuxt" -- run start
+
+
+
+
 <!-- 改這個 /etc/nginx/sites-enabled/default -->
 <!-- 用express router也可以 -->
 

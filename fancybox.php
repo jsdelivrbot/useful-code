@@ -81,10 +81,11 @@ http://fancyapps.com/fancybox/3/docs/#options
             src  : '.fancyWrap',
             type : 'inline',
             opts : {
-                smallBtn : false,  //裡面的小x
-                trapFocus : false,
+                smallBtn: false,  //裡面的小x
+                trapFocus: false,
                 toolbar: false,  //右上角那些按鈕
-                animationDuration : 1200,
+                touch: false,  //往下拖曳關掉
+                animationDuration: 1200,
             }
         });
     })

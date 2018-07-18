@@ -60,14 +60,30 @@ http://fancyapps.com/fancybox/3/docs/#options
 </script>
 
 <!-- inline -->
+<style>
+    body{
+        /* reset fancybox css */
+        .fancybox-is-open .fancybox-bg{
+            background-color: rgba(#000, .9);
+            opacity: 1;
+        }
+        .fancybox-slide>div{
+            background-color: transparent;
+            padding: 0;
+            margin: 70px 0;
+        }
+    }
+</style>
+
 <script>
     $(".about-anime").on("click", function () {
         $.fancybox.open({
             src  : '.fancyWrap',
             type : 'inline',
             opts : {
-                smallBtn : false,
+                smallBtn : false,  //裡面的小x
                 trapFocus : false,
+                toolbar: false,  //右上角那些按鈕
                 animationDuration : 1200,
             }
         });

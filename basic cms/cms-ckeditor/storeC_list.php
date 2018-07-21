@@ -208,35 +208,35 @@ require_once('display_page.php');
                                         $totalRows_RecImage = $RecImage->rowCount();
                                     ?>
                                     <tr <?php if ($i%2==0): ?>bgcolor='#E4E4E4'<?php endif ?>>
-                                            <td align="center" class="table_data">
-                                                <select name="c_sort" id="c_sort" onchange="changeSort('<?php echo $pageNum; ?>','<?php echo $totalRows_RecstoreC; ?>','<?php echo $row_RecstoreC['c_id']; ?>',this.options[this.selectedIndex].value)">
-                                                    <option value="0" <?php if (!(strcmp(0, $row_RecstoreC[ 'c_sort']))) {echo "selected";} ?>>至頂</option>
-                                                    <?php
-                                                    for ($j = 1; $j <= ($totalRows_RecstoreC); $j++) {
-                                                        echo "<option value=\"" . $j . "\" ";
-                                                        if (!(strcmp($j, $row_RecstoreC['c_sort']))) {echo "selected=\"selected\"";}
-                                                        echo ">" . $j . "</option>";
-                                                    }
-                                                    ?>
-                                                </select>
-                                                <?php $_SESSION['totalRows']=$totalRows_RecstoreC; ?>
-                                            </td>
-                                            <td align="center" class="table_data">
-                                                <a href="storeC_edit.php?c_id=<?php echo $row_RecstoreC['c_id']; ?>">
-                                                    <?php echo $row_RecstoreC['c_title']; ?>
-                                                </a>
-                                            </td>
-                                            <td align="center" class="table_data">
-                                                <?php  //list使用
-                                                if($row_RecstoreC['c_active']) {
-                                                    echo "<a href='".$row_RecstoreC['c_active']."' rel='".$row_RecstoreC['c_id']."' class='activeChC'><img src=\"image/accept.png\" width=\"16\" height=\"16\"  ></a>";
-                                                } else {
-                                                    echo "<a href='".$row_RecstoreC['c_active']."' rel='".$row_RecstoreC['c_id']."' class='activeChC'><img src=\"image/delete.png\" width=\"16\" height=\"16\"  ></a>";
+                                        <td align="center" class="table_data">
+                                            <select name="c_sort" id="c_sort" onchange="changeSort('<?php echo $pageNum; ?>','<?php echo $totalRows_RecstoreC; ?>','<?php echo $row_RecstoreC['c_id']; ?>',this.options[this.selectedIndex].value)">
+                                                <option value="0" <?php if (!(strcmp(0, $row_RecstoreC[ 'c_sort']))) {echo "selected";} ?>>至頂</option>
+                                                <?php
+                                                for ($j = 1; $j <= ($totalRows_RecstoreC); $j++) {
+                                                    echo "<option value=\"" . $j . "\" ";
+                                                    if (!(strcmp($j, $row_RecstoreC['c_sort']))) {echo "selected=\"selected\"";}
+                                                    echo ">" . $j . "</option>";
                                                 }
                                                 ?>
-                                            </td>
-                                            <td align="center" class="table_data"><a href="storeC_edit.php?c_id=<?php echo $row_RecstoreC['c_id']; ?>"><img src="image/pencil.png" width="16" height="16" /></a></td>
-                                            <td align="center" class="table_data"><a href="storeC_del.php?c_id=<?php echo $row_RecstoreC['c_id']; ?>"><img src="image/cross.png" width="16" height="16" /></a></td>
+                                            </select>
+                                            <?php $_SESSION['totalRows']=$totalRows_RecstoreC; ?>
+                                        </td>
+                                        <td align="center" class="table_data">
+                                            <a href="storeC_edit.php?c_id=<?php echo $row_RecstoreC['c_id']; ?>">
+                                                <?php echo $row_RecstoreC['c_title']; ?>
+                                            </a>
+                                        </td>
+                                        <td align="center" class="table_data">
+                                            <?php  //list使用
+                                            if($row_RecstoreC['c_active']) {
+                                                echo "<a href='".$row_RecstoreC['c_active']."' rel='".$row_RecstoreC['c_id']."' class='activeChC'><img src=\"image/accept.png\" width=\"16\" height=\"16\"  ></a>";
+                                            } else {
+                                                echo "<a href='".$row_RecstoreC['c_active']."' rel='".$row_RecstoreC['c_id']."' class='activeChC'><img src=\"image/delete.png\" width=\"16\" height=\"16\"  ></a>";
+                                            }
+                                            ?>
+                                        </td>
+                                        <td align="center" class="table_data"><a href="storeC_edit.php?c_id=<?php echo $row_RecstoreC['c_id']; ?>"><img src="image/pencil.png" width="16" height="16" /></a></td>
+                                        <td align="center" class="table_data"><a href="storeC_del.php?c_id=<?php echo $row_RecstoreC['c_id']; ?>"><img src="image/cross.png" width="16" height="16" /></a></td>
                                     </tr>
                                     <?php } while ($row_RecstoreC = $RecstoreC->fetch()); ?>
                                 </table>

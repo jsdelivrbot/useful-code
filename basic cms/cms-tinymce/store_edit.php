@@ -1,6 +1,7 @@
 <?php require_once('../Connections/connect2data.php'); ?>
 <?php require_once('photo_process.php'); ?>
 <?php require_once('file_process.php'); ?>
+<?php require_once('imagesSize.php'); ?>
 
 <?php
 $editFormAction = $_SERVER['PHP_SELF'];
@@ -63,7 +64,6 @@ $ifFile = 1;
 
 ?>
 
-<?php require_once('imagesSize.php'); ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><!-- InstanceBegin template="/Templates/template.dwt.php" codeOutsideHTMLIsLocked="false" -->
 <head>

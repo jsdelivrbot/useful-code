@@ -23,7 +23,7 @@ if (isset($_GET['selected1']) && $_GET['selected1'] != '') {
 
     if ($_GET['selected1'] != 0) {
         $_SESSION['selected_roomsT'] = $G_selected1 = $_GET['selected1'];
-        $SDSQL = " AND T.term_id='$G_selected1'";
+        $SDSQL = " AND term_id='$G_selected1'";
     } else {
         $_SESSION['selected_roomsT'] = $G_selected1 = $_GET['selected1'];
         $SDSQL = '';
@@ -31,7 +31,7 @@ if (isset($_GET['selected1']) && $_GET['selected1'] != '') {
 
 }
 
-$query_Recrooms = "SELECT * FROM term_relationships AS TR, data_set AS D, terms AS T WHERE TR.term_taxonomy_id = T.term_id AND D_class1 = 'rooms' AND D.d_id = TR.object_id $SDSQL ORDER BY term_order ASC, d_date DESC";
+$query_Recrooms = "SELECT * FROM term_relationships, data_set, terms WHERE term_taxonomy_id = term_id AND d_class1 = 'rooms' AND d_id = object_id $SDSQL ORDER BY term_order ASC, d_date DESC";
 $query_limit_Recrooms = sprintf("%s LIMIT %d, %d", $query_Recrooms, $startRow_Recrooms, $maxRows_Recrooms);
 $Recrooms = $conn->query($query_limit_Recrooms);
 $row_Recrooms = $Recrooms->fetch();

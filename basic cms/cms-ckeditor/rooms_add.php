@@ -99,7 +99,7 @@ $_SESSION['nowMenu']= $menu_is;
                                                     <td bgcolor="#e5ecf6">&nbsp;</td>
                                                 </tr>
                                                 <tr>
-                                                    <td align="center" bgcolor="#e5ecf6" class="table_col_title">說明</td>
+                                                    <td align="center" bgcolor="#e5ecf6" class="table_col_title">內容</td>
                                                     <td>
                                                         <textarea name="d_content" cols="50" rows="30" class="table_data tiny" id="d_content"></textarea>
                                                     </td>

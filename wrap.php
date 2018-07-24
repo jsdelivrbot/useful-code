@@ -1,3 +1,14 @@
+<!-- 新行各別wrap -->
+<script>
+	$(".index-newsList li").each(function (i, el) {
+		var _html = $(".content", this).html();
+		_html = _html.replace(/(.+)(?:\r\n|\r|\n)/g, "<span>$1</span>");
+		_html = _html.trim();
+		$(".content", this).html(_html);
+	})
+</script>
+
+
 <!-- 生出 a 用 li 包住再 append 去 ul -->
 <script>
 	for(let e of this.nav['owner']){

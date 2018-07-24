@@ -1,3 +1,11 @@
+<!--==============================================
+=            mysql 5.7 group by error            =
+===============================================-->
+https://stackoverflow.com/questions/23921117/disable-only-full-group-by
+
+phpmyadmin(上方選單列)->variables->sql mode->only_full_group_by 移除
+
+
 <!--==============================================================
 =            編輯器 d_content source image src replace            =
 ===============================================================-->

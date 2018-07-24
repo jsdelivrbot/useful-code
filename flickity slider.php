@@ -78,6 +78,28 @@ https://codepen.io/eikeco/pen/MwGRKr
 				transform: translate(-50%,-50%);
 			}
 		}
+
+		/* pager dot -----------------------------------------------------------------------------------------*/
+		/* position dots in carousel */
+		.flickity-page-dots {
+			bottom: -70px;
+		}
+		/* white circles */
+		.flickity-page-dots .dot {
+			display: inline-block;
+			vertical-align: middle;
+			width: 15px;
+			height: 15px;
+			background-color: #fff;
+			border-radius: 50%;
+			opacity: .4;
+			transition: all .5s;
+			@include mr(14px);
+		}
+		/* fill-in selected dot */
+		.flickity-page-dots .dot.is-selected {
+			opacity: .8;
+		}
 	}
 </style>
 

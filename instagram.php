@@ -13,8 +13,8 @@ http://www.uptsi.com/tools/widgets
 
 <script>
 	$('p').each(function () {
-	    searchText = $(this).text();
-	    matches = searchText.match(/(?:(?:http|https):\/\/)?(?:www.)?(?:instagram.com|instagr.am)\/[p]\/([A-Za-z0-9-_]*)\//g);
+	    var searchText = $(this).text();
+	    var matches = searchText.match(/(?:(?:http|https):\/\/)?(?:www.)?(?:instagram.com|instagr.am)\/[p]\/([A-Za-z0-9-_]*)\//g);
 	    if ( matches != null && searchText === matches[0] ) {
 	        $.ajax({
 	            context: this,

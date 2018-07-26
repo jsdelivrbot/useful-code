@@ -68,5 +68,34 @@ https://ihatetomatoes.net/wp-content/uploads/2016/07/ScrollMagic-CheatsheetV1.pd
 	}
 </script>
 
+<!-- 滾動換圖 -->
+<script>
+	var rolling = {p: 0}
+
+	var tween = TweenMax.to(rolling, 3, {
+		p: 11,
+		roundProps: "p",
+		ease: Power0.easeNone,
+		onUpdate() {
+			$("#rolling li").eq(rolling.p).show().siblings().hide();
+		}
+	})
+
+	var oy = $(".products-info-area.is-wedding").offset().top - $(window).height();
+
+	var controller = new ScrollMagic.Controller();
+	var myScene = new ScrollMagic.Scene({
+		duration: 1000,
+		triggerElement: '.productsDetailWrap',
+		offset: oy,
+		triggerHook: 0.3,
+	}).addTo(controller)
+	.setPin('.productsDetailWrap')
+	.setTween(tween)
+	// .addIndicators({
+	// 	name: 'wedding',
+	// });
+</script>
+
 <!-- note -->
 set pin 圖片壞掉可以試試改 z-index 或小位移一下

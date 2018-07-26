@@ -86,6 +86,22 @@ https://github.com/maxwellito/vivus
 </script>
 
 <!-- animate 用法 -->
+<!-- basic -->
+<svg xmlns="http://www.w3.org/2000/svg" width="550.41" height="193.63" viewBox="0 0 550.41 193.63">
+    <title>this is cloud</title>
+    <g>
+    	<path d="M550.41,86.23V177H166a45.37,45.37,0,0,1,0-90.73Z" fill="#f7f7f1" />
+    	<animateTransform id="a1" attributeName="transform" type="translate" from="0 0" to="60 0" begin="0;a2.end" dur="7s" />
+        <animateTransform id="a2" attributeName="transform" type="translate" from="60 0" to="0 0" begin="a1.end" dur="6s" />
+    </g>
+    <g>
+    	<path d="M550.41,139v54.61H295.89a27.31,27.31,0,0,1,0-54.61Z" fill="#efede0" />
+    	<animateTransform id="b1" attributeName="transform" type="translate" from="0 0" to="-40 0" begin="0;b2.end" dur="5s" />
+        <animateTransform id="b2" attributeName="transform" type="translate" from="-40 0" to="0 0" begin="b1.end" dur="4s" />
+    </g>
+    <path d="M349.13,56.5H304.41a10.34,10.34,0,0,1-10.33-10.33h0a10.34,10.34,0,0,1,10.33-10.34h10a5,5,0,0,0,5-5h0a5,5,0,0,0-5-5H225.37a6,6,0,0,1-6-6V18.5a6,6,0,0,1,6-6h7.31a6,6,0,0,0,6-6h0a6,6,0,0,0-6-6H0" fill="none" stroke="#fff" stroke-miterlimit="10" />
+</svg>
+
 <!-- patternTransform -->
 <svg width="0" height="0" style="position: absolute;">
 	<defs>
@@ -135,6 +151,11 @@ https://github.com/maxwellito/vivus
 	document.getElementById("ani-bee").beginElement()
 	document.getElementById("ani-flybee").beginElement()
 </script>
+
+
+
+
+
 
 
 <!-- mouse scroll icon -->

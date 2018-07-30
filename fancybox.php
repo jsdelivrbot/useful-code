@@ -89,4 +89,8 @@ http://fancyapps.com/fancybox/3/docs/#options
             }
         });
     })
+
+    $(".index-fancyClose").on("click", function () {
+        $.fancybox.close();
+    })
 </script>

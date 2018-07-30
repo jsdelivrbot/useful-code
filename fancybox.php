@@ -63,6 +63,9 @@ http://fancyapps.com/fancybox/3/docs/#options
 <style>
     body{
         /* reset fancybox css */
+        .fancybox-bg{
+            background-color: rgba(#231815, .75);
+        }
         .fancybox-is-open .fancybox-bg{
             background-color: rgba(#000, .9);
             opacity: 1;

@@ -1,3 +1,179 @@
+<!-- p5js -->
+<script>
+	// firework
+	var firework = (p) => {
+
+		var w = $("#firework").width();
+		var h = $("#firework").height();
+		var fireworks = [];
+		var gravity;
+
+		p.windowResized = () => {
+			w = $("#firework").width();
+			h = $("#firework").height();
+			p.resizeCanvas(w, h);
+		}
+
+		p.setup = () => {
+			var cnv = p.createCanvas(w, h);
+			p.colorMode(p.RGB);
+			gravity = p.createVector(0, 0.2);
+			p.background(182, 56, 48);
+		};
+
+		p.draw = () => {
+			p.background(182, 56, 48, 150);
+
+			if (p.random() < 0.01) {
+				fireworks.push(new Firework());
+			}
+
+			for (var i = fireworks.length - 1; i >= 0; i--) {
+				fireworks[i].update();
+				fireworks[i].show();
+				if (fireworks[i].done()) {
+					fireworks.splice(i, 1);
+				}
+			}
+		};
+
+		function Particle(x, y, r, g, b, firework, lifespan, velX, velY) {
+
+		    this.firework = firework;
+		    this.lifespan = lifespan;
+
+		    if (this.firework) {
+		        this.vel = p.createVector(p.random(1, 2), p.random(-15, -20));
+		    } else {
+		        this.vel = p.createVector(velX, velY);
+
+		    }
+
+		    this.pos = p.createVector(x, y);
+		    this.acc = p.createVector(0, 0);
+
+		    this.applyForce = function(force) {
+		        this.acc.add(force);
+		    }
+
+		    this.done = function() {
+		        return this.lifespan <= 0;
+		    }
+
+		    this.update = function() {
+		        if (!this.firework) {
+		            this.vel.mult(p.random(0.95, 0.97));
+		            this.lifespan -= 4;
+		        }
+		        this.vel.add(this.acc);
+		        this.pos.add(this.vel);
+		        this.acc.mult(0);
+		    }
+
+		    this.show = function() {
+
+		        if (!this.firework) {
+		            p.strokeWeight(3);
+		            p.stroke(r, g, b, this.lifespan);
+		        } else {
+		            p.strokeWeight(5);
+		            p.stroke(r, g, b);
+		        }
+
+		        p.point(this.pos.x, this.pos.y);
+		    }
+		}
+
+		function Shapes() {
+
+		    this.getRandomShape = function() {
+		        var index = p.random(0, 2);
+		        if (index < 1) {
+		            return this.circle();
+		        } else if (index < 2) {
+		            return this.completelyRandom();
+		        }
+		    }
+
+		    this.circle = function() {
+		        var vectors = [];
+		        for (var i = 0; i < 50; i++) {
+		            var vec = p5.Vector.random2D();
+		            vec = vec.mult(10);
+		            vectors.push(vec);
+		        }
+		        return vectors;
+		    }
+
+		    this.completelyRandom = function() {
+		        var vectors = [];
+		        for (var i = 0; i < 50; i++) {
+		            var vec = p5.Vector.random2D();
+		            vec = vec.mult(p.random(1, 10));
+		            vectors.push(vec);
+		        }
+		        return vectors;
+		    }
+		}
+
+		function Firework() {
+
+		    this.r = 193;
+		    this.g = 153;
+		    this.b = 107;
+
+		    this.firework = new Particle(p.random(p.width), p.height, this.r, this.g, this.b, true);
+		    this.exploded = false;
+		    this.particles = [];
+
+		    this.done = function() {
+		        return this.exploded && this.particles.length == 0;
+		    }
+
+		    this.update = function() {
+		        if (!this.exploded) {
+		            this.firework.applyForce(gravity);
+		            this.firework.update();
+		            if (this.firework.vel.y >= 0) {
+		                this.exploded = true;
+		                this.explode();
+		            }
+		        }
+		        for (var i = this.particles.length - 1; i >= 0; i--) {
+		            this.particles[i].applyForce(gravity);
+		            this.particles[i].update();
+		            this.particles[i].show();
+		            if (this.particles[i].done()) {
+		                this.particles.splice(i, 1);
+		            }
+		        }
+
+		    }
+
+		    this.explode = function() {
+		        var shapes = new Shapes().getRandomShape();
+		        for (var i = 0; i < shapes.length; i++) {
+		            var dot = new Particle(this.firework.pos.x, this.firework.pos.y, 193, 153, 107, false, p.random(350, 550), shapes[i].x, shapes[i].y);
+		            this.particles.push(dot);
+		        }
+		    }
+
+		    this.show = function() {
+		        if (!this.exploded) {
+		            this.firework.show();
+		        }
+		    }
+		}
+	};
+
+	new p5(firework, 'firework');
+</script>
+
+
+
+
+
+
 <!-- 只會在 #fireworkWrap 這個div範圍放 -->
 
 <style>

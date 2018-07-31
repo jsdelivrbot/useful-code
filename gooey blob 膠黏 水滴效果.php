@@ -37,7 +37,7 @@ http://paulbourke.net/geometry/blobbie/
 
 		p.setup = () => {
 			var cnv = p.createCanvas(w, h);
-			while(total--){
+			while (total--) {
 				bubbles.push(new Bubble());
 			}
 		};
@@ -45,7 +45,7 @@ http://paulbourke.net/geometry/blobbie/
 		p.draw = () => {
 			p.clear();
 
-			for (bubble of bubbles) {
+			for (let bubble of bubbles) {
 				bubble.update();
 				bubble.show();
 			}
@@ -57,9 +57,9 @@ http://paulbourke.net/geometry/blobbie/
 			this.radius = p.random(100, 200);
 			this.x = p.random(p.width);
 			this.y = p.random(p.height);
-			this.offsetA = p.random(0.1, 0.4);
-			this.offsetB = p.random(0.1, 0.4);
-			this.rotate = p.random(-0.002, 0.002);
+			this.offsetA = p.random(0.3, 0.4);
+			this.offsetB = p.random(0.1, 0.2);
+			this.rotate = p.random(-0.02, 0.02);
 			this.offsetFps = p.random(0.001, 0.01);
 			this.vx = p.random(-1, 1);
 			this.vy = p.random(-1, 1);
@@ -84,13 +84,12 @@ http://paulbourke.net/geometry/blobbie/
 			this.show = function() {
 				p.push();
 				p.translate(this.x, this.y);
-				p.rotate(p.frameCount * this.rotate);
 				p.fill('rgba(203,223,225,0.2)');
 				p.stroke(255, 100);
 
 				p.beginShape();
 				for (var angle = 0; angle < p.TWO_PI; angle += 0.01) {
-					var r = superShape(angle, this.a, this.b, 1);
+					var r = superShape(angle, this.a, this.b, 1, this.rotate);
 					var x = r * p.cos(angle) * this.radius;
 					var y = r * p.sin(angle) * this.radius;
 					p.vertex(x, y);
@@ -100,8 +99,8 @@ http://paulbourke.net/geometry/blobbie/
 			}
 		}
 
-		function superShape(angle, a, b, R) {
-			return R * (1 + a * p.cos(2 * angle) + b * p.cos(3 * angle));
+		function superShape(angle, a, b, R, rotate) {
+			return R * (1 + a * p.cos(2 * angle + p.frameCount * rotate) + b * p.cos(3 * angle));
 		}
 	};
 

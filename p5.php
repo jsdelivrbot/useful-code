@@ -10,6 +10,10 @@ https://p5js.org/reference/
 	var ratio = window.devicePixelRatio;
 	createCanvas(windowWidth * ratio, windowHeight * ratio);
 	resizeCanvas(windowWidth * ratio, windowHeight * ratio);
+
+	function draw() {
+		scale(1/ratio, 1/ratio);
+	}
 </script>
 
 <!--========================================

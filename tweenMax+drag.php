@@ -140,6 +140,46 @@ https://codepen.io/MAW/pen/aOzeNR
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/utils/Draggable.min.js"></script>
 
+
+<!-- drag 換圖 -->
+<script>
+	var startScore_m = {score: 1}
+	var imgs_m = []
+	var imgsArray = ['01','02','03','04','05','06','07','08','09','10','11','12']
+
+	for(let i = 0; i < imgsArray.length; i++){
+		var temp = new Image()
+		temp.src = 'images/rolling/rolling'+ imgsArray[i] +'.jpg'
+		imgs_m.push(temp)
+	}
+
+	var t2 = new TimelineMax({
+        paused: true
+    })
+    .to(startScore_m, 5, {
+	    score: imgsArray.length,
+		roundProps: "score",
+		ease: Power0.easeNone,
+		onUpdate() {
+			$(".mobile-rolling .container img").replaceWith(imgs_m[startScore_m.score])
+		}
+	})
+
+	Draggable.create("#mobile-rolling-hand", {
+		type: 'x',
+		throwProps: true,
+		bounds: {
+		    minX: 0,
+		    maxX: 230
+		},
+		onDrag() {
+			t2.progress(Math.abs(this.x / 230))
+		}
+	});
+</script>
+
+
+<!-- 曲線 -->
 <svg width="320px" height="150px" version="1.1" xmlns="http://www.w3.org/2000/svg">
     <path id="path1" d="M10 80 Q 150 0 300 80" stroke="gray" stroke-dasharray="5,5" fill="transparent"/>
     <path id="path2" d="M10 80 Q 150 0 300 80" stroke-width="7" stroke="#7CFC00" fill="transparent" stroke-linecap="round"/>
@@ -205,6 +245,7 @@ https://codepen.io/MAW/pen/aOzeNR
 	    ease: Linear.easeNone
 	})
 </script>
+
 
 <!-- Draggable rotation -->
 <script>

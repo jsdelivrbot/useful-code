@@ -143,7 +143,7 @@ https://codepen.io/MAW/pen/aOzeNR
 
 <!-- drag 換圖 -->
 <script>
-	var startScore_m = {score: 1}
+	var startScore_m = {score: 0}
 	var imgs_m = []
 	var imgsArray = ['01','02','03','04','05','06','07','08','09','10','11','12']
 

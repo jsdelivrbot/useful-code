@@ -16,7 +16,11 @@ data-smooth-scrolling="off"></div>
 
 <script>
 	skrollr.init({
-		forceHeight: false  //不然body會有一個高
+		forceHeight: false,  //不然body會有一個高
+		mobileCheck: function() {
+			//hack - forces mobile version to be off
+			return false;
+		}
 	})
 </script>
 

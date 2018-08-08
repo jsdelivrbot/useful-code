@@ -157,7 +157,7 @@ https://codepen.io/MAW/pen/aOzeNR
         paused: true
     })
     .to(startScore_m, 5, {
-	    score: imgsArray.length,
+	    score: imgsArray.length - 1,
 		roundProps: "score",
 		ease: Power0.easeNone,
 		onUpdate() {

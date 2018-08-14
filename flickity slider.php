@@ -122,3 +122,9 @@ https://codepen.io/eikeco/pen/MwGRKr
 		<div class="price">NT $600</div>
 	</a></div>
 </div>
+
+<script>
+	$('.about-gift-sliderList').on( 'change.flickity', function( event, index ) {
+		console.log( 'Slide changed to ' + index )
+	});
+</script>

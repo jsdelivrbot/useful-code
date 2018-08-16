@@ -84,3 +84,31 @@
 		}
 	})
 </script>
+
+
+
+<!--=============================
+=           use ajax            =
+==============================-->
+
+<script>
+	window.onSubmit = () => {
+		$.ajax({
+			type: "POST",
+			url: "./contactMail.php",
+			data: $(".index-contactForm").serialize(),
+			success: function(data) {
+				$(".index-contactWrap").html( $("<div>").addClass("contactFinish").text(data) );
+			}
+		});
+	}
+
+	$("#send").click(function () {
+		if($(".index-contactForm").valid() == true){
+			var answer = confirm("您確認要送出您所填寫的資訊嗎？");
+			if (answer){
+				grecaptcha.execute();
+			}
+		}
+	})
+</script>

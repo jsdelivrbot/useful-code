@@ -8,6 +8,34 @@ https://p5js.org/reference/
 <!-- retina resolution -->
 <script>
 	var ratio = window.devicePixelRatio;
+	var maze = (p) => {
+		var w = $("#maze").width() * ratio;
+		var h = $("#maze").height() * ratio;
+
+		// 用這個手機滑一下好像容易變形(待測)
+		// p.windowResized = () => {
+		// 	w = $("#maze").width()*ratio;
+		// 	h = $("#maze").height()*ratio;
+		// 	p.resizeCanvas(w, h);
+		// }
+
+		p.setup = () => {
+			var cnv = p.createCanvas(w, h);
+			cnv.class("m-gif");
+			p.frameRate(3);
+
+			p.pixelDensity(1);
+			cnv.canvas.style.width = w/ratio + "px";
+			cnv.canvas.style.height = h/ratio + "px";
+		};
+	};
+
+	new p5(maze, 'maze');
+</script>
+
+<!-- 這個怪怪的 整個變4倍 這樣canvas會兩倍 然後再縮小 -->
+<script>
+	var ratio = window.devicePixelRatio;
 	createCanvas(windowWidth * ratio, windowHeight * ratio);
 	resizeCanvas(windowWidth * ratio, windowHeight * ratio);
 

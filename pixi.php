@@ -2,7 +2,40 @@
 https://supermrji.gitbooks.io/pixi-js/content/create_render_and_stage.html
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.2.3/pixi.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.8.1/pixi.min.js"></script>
+
+
+
+<!-- img to gif -->
+<script>
+	var app = new PIXI.Application(1332, 750);
+
+	$("#main").append(app.view);
+
+	PIXI.loader
+	    .load(onAssetsLoaded);
+
+	function onAssetsLoaded() {
+	    let textureArray = []; // 素材的陣列
+	    let total = 20;
+
+		for (let i = 1; i <= total; i++) {
+	    	let texture = PIXI.Texture.fromImage("./images/maze/maze-"+ i +".jpg");
+	    	textureArray.push(texture); // 把素材放進素材陣列裡
+	    };
+
+	    var anim = new PIXI.extras.AnimatedSprite(textureArray);
+
+		anim.width = 1332;
+		anim.height = 750;
+	    anim.animationSpeed = 0.05;
+	    anim.play();
+
+	    app.stage.addChild(anim);
+	}
+</script>
+
+
 
 <script>
 	var renderer = PIXI.autoDetectRenderer(800, 600, {

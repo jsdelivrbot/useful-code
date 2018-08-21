@@ -1,3 +1,17 @@
+http://spritely.net/documentation/
+
+<script src="js/jquery.spritely.js"></script>
+
+<script>
+	$('#fancy-gif-one').sprite({fps: 3, no_of_frames: 8});
+</script>
+
+
+
+<!--=================================
+=            use compass            =
+==================================-->
+
 <!-- retina -->
 <style>
 	@import "compass/utilities/sprites";

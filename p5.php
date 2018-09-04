@@ -44,6 +44,42 @@ https://p5js.org/reference/
 	}
 </script>
 
+
+<!--===============================
+=            mouseover            =
+================================-->
+<script>
+	var signal = (p) => {
+		var w = $("#signal").width() * ratio;
+		var h = $("#signal").height() * ratio;
+
+		var hover = 1;
+
+		p.setup = () => {
+			var cnv = p.createCanvas(w, h);
+			p.frameRate(10);
+
+			p.pixelDensity(1);
+			cnv.canvas.style.width = w/ratio + "px";
+			cnv.canvas.style.height = h/ratio + "px";
+
+			cnv.mouseOver(_enter);
+			cnv.mouseOut(_leave);
+		};
+
+		function _enter() {
+			hover = 10;
+		};
+
+		function _leave() {
+			hover = 1;
+		};
+
+		p.draw = () => {};
+	};
+</script>
+
+
 <!--========================================
 =            play images as gif            =
 =========================================-->
@@ -89,6 +125,7 @@ https://p5js.org/reference/
 
 	new p5(maze, 'maze');
 </script>
+
 
 <!--================================
 =            自製 gooey            =

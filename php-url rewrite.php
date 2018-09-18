@@ -15,6 +15,14 @@ RewriteCond %{REQUEST_URI} !^.*(.css|.js|.gif|.png|.jpg|.jpeg)$
 RewriteRule (.*) $1.php
 
 
+<!-- 去掉.php -->
+RewriteEngine On
+#RewriteBase /
+
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [NC,L]
+
+
 <!-- 自訂404 -->
 RewriteEngine On
 #RewriteBase /

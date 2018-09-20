@@ -66,7 +66,7 @@ https://github.com/eisbehr-/jquery.lazy/tree/master/plugins
 		chainable: false,
 		effect: "fadeIn",
 		effectTime: 1000,
-		defaultImage: 'images/lazy-default.svg',
+		defaultImage: 'images/blank.gif',
 	});
 
 	// 開燈箱load不到時用

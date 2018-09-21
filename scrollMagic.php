@@ -1,6 +1,6 @@
-<!--========================================
-=            skrollr (手機版超廢)           =
-=========================================-->
+<!--=============================
+=            skrollr            =
+==============================-->
 https://github.com/Prinzhorn/skrollr
 
 <!-- cheatsheet -->
@@ -34,13 +34,13 @@ http://scrollmagic.io/examples/index.html
 https://ihatetomatoes.net/wp-content/uploads/2016/07/ScrollMagic-CheatsheetV1.pdf
 
 
-<!-- 基本引用(順序很講究低) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.3/ScrollMagic.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.0/TweenMax.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
+<!-- 基本引用 -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/ScrollMagic.min.js"></script>
+<!-- gsap -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.min.js"></script>
+<!-- dubug -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
 
-<!-- dubug用 (加在後面) -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.min.js"></script>
 
 <!-- for preload  延時觸發  重點要加 controller.update(true); -->
 <script>
@@ -72,6 +72,7 @@ https://ihatetomatoes.net/wp-content/uploads/2016/07/ScrollMagic-CheatsheetV1.pd
 	}
 </script>
 
+
 <!-- 滾動換圖 -->
 <script>
 	var rolling = {p: 0}
@@ -100,6 +101,7 @@ https://ihatetomatoes.net/wp-content/uploads/2016/07/ScrollMagic-CheatsheetV1.pd
 	// 	name: 'wedding',
 	// });
 </script>
+
 
 <!-- note -->
 set pin 圖片壞掉可以試試改 z-index 或小位移一下

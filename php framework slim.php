@@ -24,6 +24,14 @@ $app->get('/', function () use ($app) {
 });
 
 $app->get('/hello/:id', function ($id) use ($app) {
+
+	$baseurl = "//localhost/mounts";
+    $app->view()->appendData(array('baseurl' => $baseurl));
+
+    /*
+    <link rel="stylesheet" href="<?= $baseurl ?>/stylesheets/style.css">
+    */
+
     $app->render('html.php', [
     	'id' => $id
     ]);

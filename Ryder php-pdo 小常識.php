@@ -148,3 +148,14 @@ $work = $conn->prepare($sql);
 $work->bindParam(':d_class2', $ryder_cat, PDO::PARAM_INT);
 $work->execute();
 ?>
+
+
+<!-- if you use pdo class -->
+https://github.com/lincanbin/PHP-PDO-MySQL-Class
+
+<?php
+$work = $DB->query("SELECT * FROM data_set WHERE d_class1=? AND d_active=1", ['products']);
+
+$DB->lastInsertId();
+$DB->querycount;
+?>

@@ -1,7 +1,4 @@
 <?php
-# FileName="Connection_php_mysql.htm"
-# Type="MYSQL"
-# HTTP="true"
 
 if (!isset($_SESSION)) {
 	session_start();
@@ -9,15 +6,12 @@ if (!isset($_SESSION)) {
 
 ob_start();
 
+
+// 後台懶得改成用class的方式
 define("HOSTNAME", "localhost");
-define("DATABASE", "aqua");
+define("DATABASE", "mounts");
 define("USERNAME", "root");
 define("PASSWORD", "");
-
-$hostname_connect2data = HOSTNAME;
-$database_connect2data = DATABASE;
-$username_connect2data = USERNAME;
-$password_connect2data = PASSWORD;
 
 try {
     $dsn = "mysql:host=". HOSTNAME .";dbname=". DATABASE .";charset=utf8";
@@ -26,6 +20,13 @@ try {
     die("Error: " . $e->getMessage() . "\n");
 }
 
+
+// 前台用包好的class比較方便 (可能吧....)
+require(__DIR__ . "/PDO.class.php");
+$DB = new Db(HOSTNAME, DATABASE, USERNAME, PASSWORD);
+
+
+// 後台有些地方會用到
 $selfPage = basename($_SERVER['PHP_SELF']);
 
 function checkV($d) {
@@ -48,4 +49,5 @@ function moneyFormat($data, $n = 0) {
     }
     return $data1;
 }
+
 ?>

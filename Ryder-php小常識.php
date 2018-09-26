@@ -1,7 +1,38 @@
+<!--===============================================================
+=            php replace html tag (內頁用lazyload時可用)           =
+================================================================-->
+https://github.com/dneustadt/html-tag-replace
+
+composer require dneustadt/html-tag-replace
+
+<?php
+$replacer = new \HtmlTagReplace\HtmlTagReplace($row['d_content']);
+
+$newcontact = $replacer->replaceTag(
+        'img',
+        'img',
+        false,
+        ['src' => 'data-src'],
+        'class="lazy"'
+    )->compress()->getMarkup();
+?>
+
+<?= $newcontact ?>
+
+
+<!-- if you need -->
+<script>
+    $(function () {
+        $(".detail-content p img").each(function () {
+            $(this).unwrap().wrap("<div class='lazywrap'>");
+        })
+    })
+</script>
+
+
 <!--================================
 =            php object            =
 =================================-->
-
 https://blog.longwin.com.tw/2016/04/php-stdclass-object-json-2016/
 
 <?php
@@ -11,6 +42,7 @@ while ($row_RecIndexVegas = mysql_fetch_assoc($RecIndexVegas)) {
     $response[] = $r;
 }
 ?>
+
 
 <!--==========================================
 =            ajax objects回傳json            =
@@ -73,6 +105,7 @@ echo json_encode(array(
 ));
 ?>
 
+
 <!--==============================
 =            兩天相差            =
 ===============================-->
@@ -94,6 +127,7 @@ function daysBetween($start, $end) {
 }
 ?>
 
+
 <!--================================
 =            星期幾轉換            =
 =================================-->
@@ -107,6 +141,7 @@ function get_chinese_weekday($datetime) {
 
 <?= get_chinese_weekday($row_RecNews['d_date']) ?>
 
+
 <!--================================================
 =            header already send 的錯誤            =
 =================================================-->
@@ -114,11 +149,13 @@ function get_chinese_weekday($datetime) {
 新增一個 .htaccess 開啟下面這個即可
 php_flag output_buffering on
 
+
 <!--============================================
 =            判斷字元有沒有在字串中            =
 =============================================-->
 
 <?php if (strpos($row_Recmenu['d_data1'], '1') !== false): ?>checked<?php endif ?>
+
 
 <!--=============================
 =            自動補0            =
@@ -127,11 +164,13 @@ php_flag output_buffering on
 <!-- 1,2,3 變 01,02,03 -->
 <?php str_pad($row_RecWorks['d_sort'], 2, "0", STR_PAD_LEFT) ?>
 
+
 <!--============================
 =            瀘空白            =
 =============================-->
 
 <?= preg_replace("/\s/","",trim($row_RecWorks['d_content'])) ?>
+
 
 <!--==================================
 =            mysql to pdo            =

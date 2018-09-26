@@ -156,6 +156,9 @@ https://github.com/lincanbin/PHP-PDO-MySQL-Class
 <?php
 $work = $DB->query("SELECT * FROM data_set WHERE d_class1=? AND d_active=1", ['products']);
 
+// detail 只load一筆
+$row = $DB->row("SELECT * FROM data_set WHERE d_id=? AND d_active=1", [$id]);
+
 $DB->lastInsertId();
 $DB->querycount;
 ?>

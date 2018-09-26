@@ -25,7 +25,13 @@ $app->get('/', function () use ($app) {
 
 $app->get('/hello/:id', function ($id) use ($app) {
 
-	$baseurl = "//localhost/mounts";
+    $req = $app->request;
+
+    $host = $req->getHost();
+    $root = $req->getRootUri();
+
+    $baseurl = (isset($_SERVER['HTTPS']) ? "https://" : "http://") . $host . $root;
+
     $app->view()->appendData(array('baseurl' => $baseurl));
 
     /*
@@ -35,6 +41,7 @@ $app->get('/hello/:id', function ($id) use ($app) {
     $app->render('html.php', [
     	'id' => $id
     ]);
+
 });
 
 $app->run();

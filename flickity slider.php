@@ -7,6 +7,11 @@ https://flickity.metafizzy.co/
 <!-- fade effect -->
 https://codepen.io/eikeco/pen/MwGRKr
 
+
+<!-- if asNavFor not work -->
+https://github.com/metafizzy/flickity-sync
+
+
 <style>
 	/* fade css */
 	.flickity-slider {

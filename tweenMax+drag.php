@@ -39,11 +39,9 @@ TweenMax.to($(".brandDown"), 1.5, {
 })
 
 // stagger
-$(".ownerWrap").load(".ownerWrap li", function() {
-	TweenMax.staggerTo($(".ownerWrap li"), 0.5, {
-		opacity:1
-	}, 0.2);
-})
+TweenMax.staggerTo($(".ownerWrap li"), 0.5, {
+	opacity: 1
+}, 0.2);
 
 var c1 = TweenMax.staggerFrom($("#iaw-p2-circle li"), 2, {
 	opacity: 0,

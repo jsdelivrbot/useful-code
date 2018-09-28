@@ -75,6 +75,7 @@ TweenMax.fromTo($(".test"), 1.5, {
 });
 
 // multiple tween
+// 用delay可控制播放時間
 var phone_5 = new TimelineMax().add([
 	TweenMax.to($(".fixphone .item").eq(4), 2, {
 		width: 500,
@@ -91,6 +92,17 @@ var phone_5 = new TimelineMax().add([
 		onComplete: function() {}
 	})
 ])
+
+
+// 可在to後面控制播放時間
+var app_home_1 = new TimelineMax({
+	paused: true
+}).to($("#index-app-home .one .st1"), 1.5, {
+	"stroke-dashoffset": 0,
+}).to($("#index-app-home-stripe"), .5, {
+	opacity: 1
+}, 0.5)
+
 
 // addcallback
 phone_5.addCallback(function () {

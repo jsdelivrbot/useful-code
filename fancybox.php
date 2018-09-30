@@ -1,7 +1,11 @@
 http://fancyapps.com/fancybox/3/docs/#options
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.1/dist/jquery.fancybox.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.1/dist/jquery.fancybox.min.js"></script>
+
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.1.25/jquery.fancybox.min.css"> -->
+
 
 <!-- ajax setting -->
 <a data-id="1" href="javascript:;">AJAX content</a>
@@ -33,21 +37,29 @@ http://fancyapps.com/fancybox/3/docs/#options
     })
 </script>
 
+
 <!-- image setting -->
-<ul class="ryder-selectList">
-    <li>
-        <a href="images/select-01.jpg" data-fancybox="images">
-            <div class="pic" style="background-image: url(images/select-01.jpg);"></div>
-        </a>
-    </li>
-    <li>
-        <a href="images/select-02.jpg" data-fancybox="images">
-            <div class="pic" style="background-image: url(images/select-02.jpg);"></div>
-        </a>
-    </li>
-</ul>
+<a href="https://fakeimg.pl/2000x1000/" data-fancybox="images" data-width="2000" data-height="1000">
+    <img class="lazy" src="images/blank.gif" data-src="https://fakeimg.pl/1100x600/" width="1100" height="600">
+</a>
 
 <script>
+    // basic
+    $('[data-fancybox="images"]').fancybox({
+        loop: true,
+        protect: true,
+        buttons: [
+            "zoom",
+            // "share",
+            "slideShow",
+            // "fullScreen",
+            //"download",
+            // "thumbs",
+            "close"
+          ],
+    });
+
+
     $("[data-fancybox]").fancybox({
         loop : true,
         infobar : true,
@@ -58,6 +70,7 @@ http://fancyapps.com/fancybox/3/docs/#options
         protect : true,
     });
 </script>
+
 
 <!-- inline -->
 <style>

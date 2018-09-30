@@ -1,8 +1,16 @@
 <!-- mixItUp -->
-https://mixitup.kunkalabs.com/learn/tutorial/get-started/
+https://github.com/patrickkunka/mixitup
 
-<script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mixitup/3.3.0/mixitup.min.js"></script>
+
+
+<script>
+	var mixer = mixitup('.projectsList', {});
+</script>
+
+
+<!-- es6 -->
 <script>
 	import mixitup from 'mixitup';
 
@@ -16,6 +24,7 @@ https://mixitup.kunkalabs.com/learn/tutorial/get-started/
 		$(this).addClass("current").siblings().removeClass("current");
 	})
 </script>
+
 
 <ul class="productsCatList show-for-large grid-x align-center-middle">
 	<li class="cell shrink current" data-filter="all"><a href="javascript:;">ALL</a></li>

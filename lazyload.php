@@ -1,3 +1,71 @@
+<!-- lzayload + stagger + async triggered by IntersectionObserver -->
+<script>
+	var dfdarray = [];
+
+	var callback = (entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting){
+
+				var lazy = $(entry.target);
+				var src = lazy.attr("data-src");
+
+				dfdarray.push({
+					lazy,
+					src
+				});
+
+				asyncWay( dfdarray );
+
+				io.unobserve(lazy.get(0));
+
+			}
+		})
+	}
+
+	var io = new IntersectionObserver(callback, {
+	    root: null,
+	    // rootMargin: '0px',
+	    threshold: 0.1
+	})
+
+
+	$("img[data-src]").each(function (i, el) {
+		io.observe( el );
+	})
+
+
+	async function asyncWay(dataArray) {
+
+		for (var v of dataArray) {
+			await ImageLoader( v );
+		}
+
+		dfdarray = [];
+
+	}
+
+
+	function ImageLoader(data) {
+
+		return new Promise((resolve) => {
+
+			var $el = data.lazy;
+			var url = data.src;
+
+			$el.attr("src", url);
+
+			$el.addClass("is-show");
+
+			TweenMax.delayedCall(0.1, function () {
+				resolve();
+			});
+
+		})
+	}
+</script>
+
+
+
 <!-- Ryder 自製 -->
 <script>
 	var fetchImage = (url) => {

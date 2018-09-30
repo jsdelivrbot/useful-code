@@ -1,3 +1,31 @@
+<!--====================================================
+=            照順序執行 promise (同步的意思啦)           =
+=====================================================-->
+<script>
+	const delayPromise = data =>
+		new Promise((resolve, reject) => {
+			setTimeout(() => {
+				console.log("data: ", data)
+				resolve(data);
+			}, 500);
+		});
+
+
+	[1, 2, 3, 4].reduce(
+		(p, current) => p.then(() => delayPromise(current)),
+		Promise.resolve()
+	)
+
+
+	const asyncWay = async (dataArray) => {
+		for (const i in dataArray) {
+			await delayPromise(dataArray[i]);
+		}
+	}
+	asyncWay([1, 2, 3, 4])
+</script>
+
+
 <!--=================================================
 =            滾一滾鎖住 (目前這個似乎最好用)           =
 ==================================================-->

@@ -79,6 +79,23 @@ https://github.com/eisbehr-/jquery.lazy/tree/master/plugins
 </script>
 
 
+<!-- 加上stagger的類似效果 -->
+<script>
+	var lazyload = $('.lazy').lazy({
+		afterLoad: function (e) {
+			var _delay = $(e).parents("li").index() * 0.078;
+
+			TweenMax.fromTo($(e), .5, {
+				opacity: 0
+			}, {
+				opacity: 1,
+				delay: _delay
+			});
+		}
+	});
+</script>
+
+
 <!--
 jquery lazyload 應用
 還沒讀時有個背景色

@@ -6,7 +6,11 @@ https://github.com/patrickkunka/mixitup
 
 
 <script>
-	var mixer = mixitup('.projectsList', {});
+	var mixer = mixitup('.projectsList', {
+		animation: {
+	        clampHeight: false,  //如果濾的時候高會跳一下
+	    }
+	});
 </script>
 
 

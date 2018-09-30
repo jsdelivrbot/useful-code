@@ -1,4 +1,12 @@
-<!-- lzayload + stagger + async triggered by IntersectionObserver -->
+<!-- lzayload + stagger + async triggered by IntersectionObserver and css -->
+<style>
+	.lazy{
+		opacity: 0;
+		transition: all .5s;
+		&.is-show{opacity: 1;}
+	}
+</style>
+
 <script>
 	var dfdarray = [];
 

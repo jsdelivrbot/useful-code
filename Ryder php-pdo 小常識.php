@@ -154,7 +154,9 @@ $work->execute();
 https://github.com/lincanbin/PHP-PDO-MySQL-Class
 
 <?php
-$work = $DB->query("SELECT * FROM data_set WHERE d_class1=? AND d_active=1", ['products']);
+require_once 'Connections/connect2data.php';
+
+$work = $DB->query("SELECT * FROM data_set WHERE d_class1=? AND d_active=1", ["products"]);
 $total = count($work);
 
 

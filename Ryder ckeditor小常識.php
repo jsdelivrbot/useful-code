@@ -1,3 +1,9 @@
+<!--==============================================
+=            ckeditor 自訂事件 (含範本)           =
+===============================================-->
+http://www.syscom.com.tw/ePaper_New_Content.aspx?id=631&EPID=240&TableName=sgEPArticle
+
+
 <!--=============================
 =            自訂樣版            =
 ==============================-->
@@ -34,4 +40,12 @@ D:\wamp64\www\bear\cms\ckeditor\plugins\templates\templates\default.js
 			html: '\x3ch3\x3e\x3cimg src\x3d" " alt\x3d"" style\x3d"margin-right: 10px" height\x3d"100" width\x3d"100" align\x3d"left" /\x3eType the title here\x3c/h3\x3e\x3cp\x3eType the text here\x3c/p\x3e'
 		}]
 	});
+</script>
+
+
+<!--=================================
+=           some config            =
+==================================-->
+<script>
+	config.autoParagraph = false;  //關掉自動 <p> tag
 </script>

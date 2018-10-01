@@ -34,14 +34,24 @@ $newcontact = $replacer->replaceTag(
             $(this).unwrap().wrap("<div class='lazywrap'>");
         })
 
-        // or
 
+        // use fancybox 的js  (不包括上面的php)
         $(".detail-img-area p").each(function (i, el) {
             $(el).contents().unwrap();
         })
 
         $(".detail-img-area img").each(function (i, el) {
-            $(el).removeAttr("style");
+
+            var _a = $("<a>").attr({
+                'href': el.dataset.src,
+                'data-fancybox': 'images',
+                'data-width': parseInt(el.style.width),
+                'data-height': parseInt(el.style.height),
+            });
+
+            $(el).wrap(_a);
+
+            el.style.height = null;
         })
     })
 </script>

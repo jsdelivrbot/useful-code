@@ -33,6 +33,16 @@ $newcontact = $replacer->replaceTag(
         $(".detail-content p img").each(function () {
             $(this).unwrap().wrap("<div class='lazywrap'>");
         })
+
+        // or
+
+        $(".detail-img-area p").each(function (i, el) {
+            $(el).contents().unwrap();
+        })
+
+        $(".detail-img-area img").each(function (i, el) {
+            $(el).removeAttr("style");
+        })
     })
 </script>
 

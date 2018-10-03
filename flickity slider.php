@@ -168,7 +168,7 @@ https://github.com/metafizzy/flickity-sync
 
 	$carousel = $(".tempWrap .pic-area").flickity(data_flickity);
 
-	var flkty = $(".tempWrap .pic-area").data('flickity');
+	var flkty = $carousel.data('flickity');
 	var $imgs = $('.carousel-cell img');
 
 	$carousel.on( 'scroll.flickity', function( event, progress ) {

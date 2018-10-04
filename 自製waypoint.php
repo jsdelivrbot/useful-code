@@ -76,9 +76,7 @@
 
 				if (distance > breakPoint || distance < -leavePoint) {
 
-					if (setting.count < 1) {
-						setting.enter_check = true;
-					}else{
+					if (setting.count >= 1) {
 						setting.enter_check = setting.repeat;
 					}
 
@@ -87,15 +85,10 @@
 
 				}else if (distance < breakPoint) {
 
-					if (setting.count < 1) {
-						setting.leave_check = true;
-					}else{
-						setting.leave_check = setting.repeat;
-					}
-
 					setting.enter_check && setting.enter($this);
 					setting.enter_check && setting.count++;
 					setting.enter_check = false;
+					setting.leave_check = true;
 				}
 			}
 

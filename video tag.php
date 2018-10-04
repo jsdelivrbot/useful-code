@@ -1,6 +1,15 @@
 <!-- chrome 66版本電腦也不能自動播放除了靜音 然後手機停止 autoplay 因為 android 很廢 -->
-<video id="video" autoplay muted loop preload="auto" src="images/index.mp4"></video>
+<video id="video" autoplay muted playsinline loop src="images/index.mp4"></video>
 
+
+
+<!-- 如果沒有自動播放  一開始會沒有畫面 (因為沒設poster) 所以用#t=1 讓他定在1秒那一幀 -->
+<video playsinline muted loop src="images/about-2.mp4#t=1"></video>
+
+
+
+
+<!-- 這是什麼忘記了  好像是全營幕之類的 -->
 <script>
 	$(".video-volume").on("click", function () {
 		$(this).toggleClass("has-volume")
@@ -39,6 +48,8 @@
 	})
 </script>
 
+
+
 <!-- 置中 -->
 <style>
 	.video-container{
@@ -56,7 +67,7 @@
 	}
 </style>
 
-<video id="video" autoplay loop playsinline preload="auto" src="http://aqua.mounts-studio.com/images/index.mp4"></video>
+<video id="video" autoplay loop playsinline src="http://aqua.mounts-studio.com/images/index.mp4"></video>
 
 <script>
 	if (device == 'mobile') {
@@ -77,6 +88,8 @@
 		}
 	}).trigger("resize")
 </script>
+
+
 
 <!-- fancy -->
 <li data-src="images/video/video-5.mp4"></li>

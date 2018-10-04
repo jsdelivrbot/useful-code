@@ -19,6 +19,7 @@
 	}).trigger("scroll")
 </script>
 
+
 <!-- 用新的api -->
 <script>
 	var callback = (entries) => {
@@ -46,7 +47,8 @@
 	})
 </script>
 
-<!-- 整合一下下面那兩個傻逼 -->
+
+<!-- ryder 持續進化 -->
 <script>
 	$.fn.ryderCool = function(option) {
 		return this.each(function() {
@@ -55,7 +57,8 @@
 			var deFault = {
 				hook: 0.9,
 				repeat: false,
-				check: true,
+				enter_check: true,
+				leave_check: true,
 				count: 0,
 				enter() {},
 				leave() {}
@@ -72,16 +75,27 @@
 					leavePoint = $this.height() - windowHeight * (1 - setting.hook);
 
 				if (distance > breakPoint || distance < -leavePoint) {
+
 					if (setting.count < 1) {
-						setting.check = true;
+						setting.enter_check = true;
 					}else{
-						setting.check = setting.repeat;
+						setting.enter_check = setting.repeat;
 					}
-					setting.check && setting.leave($this);
+
+					setting.leave_check && setting.leave($this);
+					setting.leave_check = false;
+
 				}else if (distance < breakPoint) {
-					setting.check && setting.enter($this);
-					setting.check && setting.count++;
-					setting.check = false;
+
+					if (setting.count < 1) {
+						setting.leave_check = true;
+					}else{
+						setting.leave_check = setting.repeat;
+					}
+
+					setting.enter_check && setting.enter($this);
+					setting.enter_check && setting.count++;
+					setting.enter_check = false;
 				}
 			}
 
@@ -90,76 +104,6 @@
 	};
 </script>
 
-<!-- 只觸發一次 -->
-<script>
-	$.fn.ryderWaypoint = function(option) {
-		return this.each(function() {
-			var $this = $(this);
-
-			var deFault = {
-				hook: 0.8,
-				check: 1,
-				enter() {}
-			};
-
-			var setting = $.extend(deFault, option);
-
-			function ryderScrolling() {
-				var scrollTop = $(window).scrollTop(),
-					elementOffset = $this.offset().top,
-					distance = (elementOffset - scrollTop),
-					windowHeight = $(window).height(),
-					breakPoint = windowHeight * setting.hook;
-
-				if (distance < breakPoint && setting.check) {
-					setting.check = 0;
-					setting.enter($this);
-				}
-			}
-
-			$(window).on("scroll", ryderScrolling).trigger("scroll");
-		});
-	};
-</script>
-
-<!-- 重覆觸發 -->
-<script>
-	$.fn.ryderCool = function(option) {
-		return this.each(function() {
-			var $this = $(this);
-
-			var deFault = {
-				hook: 0.9,
-				enter() {},
-				leave() {}
-			};
-
-			var setting = $.extend(deFault, option);
-
-			function ryderScrolling() {
-				var scrollTop = $(window).scrollTop(),
-					elementOffset = $this.offset().top,
-					distance = (elementOffset - scrollTop),
-					windowHeight = $(window).height(),
-					breakPoint = windowHeight * setting.hook,
-					leavePoint = $this.height() - windowHeight * (1 - setting.hook);
-
-				if (distance > breakPoint || distance < -leavePoint) {
-					setting.leave($this);
-				}else if (distance < breakPoint) {
-					setting.enter($this);
-				}
-			}
-
-			$(window).on("scroll", ryderScrolling).trigger("scroll");
-		});
-	};
-
-	$(".detailInfo").ryderCool({
-		enter(el) {},
-		leave(el) {}
-	})
-</script>
 
 <!-- waypoint -->
 https://github.com/imakewebthings/waypoints

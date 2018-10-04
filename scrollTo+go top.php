@@ -20,6 +20,29 @@ https://github.com/flesler/jquery.scrollTo
 </script>
 
 
+<!-- scroll to + anchor -->
+<li><a href="./#cooperativeAnchor" data-go="#cooperativeAnchor"></a></li>
+<li><a href="./#contactAnchor" data-go="#contactAnchor"></a></li>
+
+<script>
+	$(".topmenuList li a[data-go]").on("click", function (e) {
+
+		e.preventDefault();
+
+		if ($("body").data("now") == 'index') {
+			$.scrollTo( $(this).data("go"), {
+				duration: 1000,
+			});
+
+			$(".menu").trigger("click");
+		}else{
+			location.href = $(this).attr("href");
+		}
+	})
+</script>
+
+
+
 <!-- window內建 -->
 <!-- go top -->
 <script>

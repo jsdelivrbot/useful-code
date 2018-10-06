@@ -91,12 +91,18 @@
 =           use ajax            =
 ==============================-->
 
+<!-- if u need loading -->
+<div class="ajax-loading"><img src="images/ajax-loader.gif"></div>
+
 <script>
 	window.onSubmit = () => {
 		$.ajax({
 			type: "POST",
 			url: "./contactMail.php",
 			data: $(".index-contactForm").serialize(),
+			beforeSend: function () {
+				$(".ajax-loading").show();
+			},
 			success: function(data) {
 				$(".index-contactWrap").html( $("<div>").addClass("contactFinish").text(data) );
 			}

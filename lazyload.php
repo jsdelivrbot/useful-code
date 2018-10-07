@@ -1,4 +1,8 @@
 <!-- lzayload + stagger + async triggered by IntersectionObserver and css -->
+
+<!-- 需要polyfill -->
+<script src="https://cdn.polyfill.io/v2/polyfill.js?features=IntersectionObserver"></script>
+
 <style>
 	.lazy{
 		opacity: 0;

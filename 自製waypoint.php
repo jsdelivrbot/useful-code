@@ -20,7 +20,9 @@
 </script>
 
 
-<!-- 用新的api -->
+<!-- 用新的api (需要polyfill) -->
+<script src="https://cdn.polyfill.io/v2/polyfill.js?features=IntersectionObserver"></script>
+
 <script>
 	var callback = (entries) => {
 		entries.forEach((entry) => {

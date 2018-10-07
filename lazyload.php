@@ -64,13 +64,19 @@
 			var $el = data.lazy;
 			var url = data.src;
 
-			$el.attr("src", url);
+			var image = new Image();
 
-			$el.addClass("is-show");
+			image.onload = function () {
+				$el.attr("src", url);
 
-			TweenMax.delayedCall(0.1, function () {
-				resolve();
-			});
+				$el.addClass("is-show");
+
+				TweenMax.delayedCall(0.1, function () {
+					resolve();
+				});
+			};
+
+			image.src = url;
 
 		})
 	}

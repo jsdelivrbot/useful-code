@@ -2,6 +2,25 @@
 
 
 <!-- ryder fullpage -->
+<style>
+	#fullpage-one{
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+	}
+	/*其他的offset 100%*/
+	#fullpage-three{
+		position: fixed;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		transform: translateY(100%);
+	}
+</style>
+
 <script>
 
 	var isScrolling = true;
@@ -131,6 +150,41 @@
 			}
 
 
+		}
+
+	});
+
+
+	$('#fullpage-four').bind('mousewheel', function(event, delta, deltaX, deltaY) {
+
+
+		if (window.scrollY == 0) {
+			if (deltaY > 0) {
+				if (isScrolling) {
+
+					isScrolling = false;
+
+					_nowDelta = -2;
+
+
+					console.log("_nowDelta: ", _nowDelta)
+
+					$("#fullpage-four").css({
+						position: 'fixed'
+					})
+
+
+					TweenMax.to("#fullpage-four", 1, {
+						y: '100%',
+						ease: Power2.easeOut,
+						onComplete: function() {
+							isScrolling = true;
+						}
+					});
+
+				}
+
+			}
 		}
 
 	});

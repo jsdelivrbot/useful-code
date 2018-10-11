@@ -1,5 +1,142 @@
 <script src="js/jquery.mousewheel.min.js"></script>
 
+
+<!-- ryder fullpage -->
+<script>
+
+	var isScrolling = true;
+
+	var _nowDelta = 0;
+
+
+	$('#fullpage-one, #fullpage-two, #fullpage-three').bind('mousewheel', function(event, delta, deltaX, deltaY) {
+
+
+		event.preventDefault();
+
+
+		if (isScrolling) {
+
+			isScrolling = false;
+
+			_nowDelta += deltaY;
+
+			if (_nowDelta > 0) {
+				_nowDelta = 0;
+			}
+
+			console.log("_nowDelta: ", _nowDelta)
+
+
+			if (deltaY < 0) {
+				// 往下滾
+
+				switch (_nowDelta) {
+					case -1:
+
+						TweenMax.to("#fullpage-one", 1, {
+							opacity: 0,
+							ease: Power2.easeOut,
+							onComplete: function() {
+								isScrolling = true;
+							}
+						});
+
+						TweenMax.to("#fullpage-two", 1, {
+							opacity: 1,
+							ease: Power2.easeOut,
+							onComplete: function() {
+								isScrolling = true;
+							}
+						});
+
+						break;
+
+					case -2:
+
+						TweenMax.to("#fullpage-three", 1, {
+							y: '0%',
+							ease: Power2.easeOut,
+							onComplete: function() {
+								isScrolling = true;
+							}
+						});
+
+						break;
+
+					case -3:
+
+						TweenMax.to("#fullpage-four", 1, {
+							y: '0%',
+							ease: Power2.easeOut,
+							onComplete: function() {
+								$("#fullpage-four").css({
+									position: 'relative'
+								})
+								isScrolling = true;
+							}
+						});
+
+						break;
+
+					default:
+						// statements_def
+						break;
+				}
+
+			}
+
+
+			if (deltaY > 0) {
+				// 往上滾
+
+				switch (_nowDelta) {
+					case 0:
+
+						TweenMax.to("#fullpage-one", 1, {
+							opacity: 1,
+							ease: Power2.easeOut,
+							onComplete: function() {
+								isScrolling = true;
+							}
+						});
+
+						TweenMax.to("#fullpage-two", 1, {
+							opacity: 0,
+							ease: Power2.easeOut,
+							onComplete: function() {
+								isScrolling = true;
+							}
+						});
+
+						break;
+
+					case -1:
+
+						TweenMax.to("#fullpage-three", 1, {
+							y: '100%',
+							ease: Power2.easeOut,
+							onComplete: function() {
+								isScrolling = true;
+							}
+						});
+
+						break;
+
+					default:
+						// statements_def
+						break;
+				}
+
+			}
+
+
+		}
+
+	});
+</script>
+
+
 <script>
 	var _delta=0;
 	var _delta_old=0;

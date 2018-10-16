@@ -179,3 +179,23 @@ https://github.com/metafizzy/flickity-sync
 		});
 	});
 </script>
+
+
+<!-- click -->
+<script>
+	var _option = {
+		"prevNextButtons": false,
+		"pageDots": false,
+		"wrapAround": true,
+		"autoPlay": 4000,
+		"imagesLoaded": true,
+		"arrowShape": ""
+	};
+
+
+	var $carousel = $('#my-slider').flickity(_option);
+
+	$carousel.on( 'staticClick.flickity', function( event, pointer, cellElement, cellIndex ) {
+		$carousel.flickity( 'select', cellIndex );
+	});
+</script>

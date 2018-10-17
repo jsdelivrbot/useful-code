@@ -60,3 +60,28 @@
 		$(this).html(_html);
 	})
 </script>
+
+
+<!-- 每個字各別wrap並保留br -->
+<script>
+	$(".m-banner .head-area .en").each(function () {
+
+		var _text = $(this).html().split("<br>");
+
+		var _html = "";
+
+		for (var i = 0; i < _text.length; i++) {
+
+			for(var c of _text[i]){
+				var a = c.replace(/(\S)/g, '<i>$1</i>')
+				_html += a;
+			}
+
+			if (i != _text.length - 1) {
+				_html += "<br>";
+			}
+		}
+
+		$(this).html(_html);
+	})
+</script>

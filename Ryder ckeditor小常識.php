@@ -1,3 +1,60 @@
+<!--=============================
+=            預覽功能            =
+==============================-->
+<!-- cms\ckeditor\config.js -->
+<script>
+	// 先新增id
+	config.bodyId = 'contents_id';
+</script>
+
+<!-- cms\ckeditor\contents.css -->
+<style>
+	/*cms*/
+	/*#contents_id[contenteditable]*/
+	#contents_id[contenteditable] strong{
+		display: block;
+	    font-weight: 700;
+	    font-size: 15px;
+	    margin-bottom: 11px;
+	}
+	#contents_id[contenteditable] p{
+		/*max-width: 790px;*/
+		margin: 22px 0;
+	}
+	#contents_id[contenteditable] img{
+		margin: 5px 0;
+	}
+
+	/*preview*/
+	/*#contents_id:not([contenteditable])*/
+	#contents_id:not([contenteditable]){
+		max-width: 1120px;
+		margin: 0 auto;
+	}
+	#contents_id:not([contenteditable]) strong{
+		display: block;
+	    font-weight: 700;
+	    font-size: 15px;
+	    margin-bottom: 11px;
+	}
+	#contents_id:not([contenteditable]) p{
+		/*max-width: 790px;*/
+		margin: 22px 0;
+	}
+	#contents_id:not([contenteditable]) img{
+		margin: 5px 0;
+		max-width: 100%;
+		height: auto !important;
+	}
+
+	img{
+		display: inline-block;	/*remove bottom space*/
+		vertical-align: middle;
+	}
+</style>
+
+
+
 <!--==============================================
 =            ckeditor 自訂事件 (含範本)           =
 ===============================================-->

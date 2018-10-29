@@ -7,7 +7,7 @@
 
 <script>
 	$(".hamburger").click(function () {
-		$(this).toggleClass("hamburger-show");
+		$(this).toggleClass("is-show");
 	})
 </script>
 
@@ -19,6 +19,21 @@
 		top: 50%;
 		right: 30px;
 		margin-top: -7px;
+		&.is-show{
+			.item1{
+				top: 50%;
+				transform: rotate(45deg);
+				transition: top 0.4s ,transform 0.4s 0.4s;
+			}
+			.item2{
+				opacity: 0;
+			}
+			.item3{
+				top: 50%;
+				transform: rotate(-45deg);
+				transition: top 0.4s ,transform 0.4s 0.4s;
+			}
+		}
 		span{
 			display: block;
 			width: 100%;
@@ -39,21 +54,6 @@
 			position: absolute;
 			top: 100%;
 			transition:transform 0.4s ,top 0.4s 0.4s;
-		}
-	}
-	.hamburger-show{
-		.item1{
-			top: 50%;
-			transform: rotate(45deg);
-			transition: top 0.4s ,transform 0.4s 0.4s;
-		}
-		.item2{
-			opacity: 0;
-		}
-		.item3{
-			top: 50%;
-			transform: rotate(-45deg);
-			transition: top 0.4s ,transform 0.4s 0.4s;
 		}
 	}
 </style>

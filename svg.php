@@ -1,13 +1,3 @@
-<!-- library -->
-http://svgjs.com/elements/
-
-有一些plugin好像不錯 ex: svg.topath.js
-http://svgjs.com/plugins/
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.5/svg.js"></script>
-
-
-
 <!-- How SVG Line Animation Works -->
 https://css-tricks.com/svg-line-animation-works/
 
@@ -16,6 +6,57 @@ http://wcc723.github.io/svg/2014/06/15/svg-css-stroke-animation/
 
 <!-- SVG Animation 動態描繪 -->
 http://www.chming.tw/blog/2014/09/21/svg-animate-paint/
+
+
+
+<!-- library  svg.js -->
+http://svgjs.com/elements/
+
+有一些plugin好像不錯 ex: svg.topath.js
+http://svgjs.com/plugins/
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/svg.js/2.6.5/svg.js"></script>
+
+<!-- if you want animate path (use plot) -->
+<script src="js/svg.pathmorphing.js"></script>
+
+
+<script>
+	var draw = SVG('app').size($(window).width(), $(window).height());
+
+	var _W = $(window).width();
+	var _H = $(window).height();
+
+	var startPath = [
+		['M', 0, 0],
+		['L', _W + 100, 0],
+		['L', _W + 200, _H * 0.6],
+		['L', _W + 600, _H * -0.5],
+		['L', _W + 600, _H],
+		['L', 0, _H],
+		['Z']
+	];
+
+	var endPath = [
+		['M', 0, 0],
+		['L', _W * 0.15, 0],
+		['L', _W * 0.1, _H * 0.67],
+		['L', _W + 40, _H * 0.76],
+		['L', _W + 40, _H],
+		['L', 0, 900],
+		['Z']
+	];
+
+	var banner_draw = draw.fill('#d8cec8').path(startPath);
+
+	$(window).on("load", function () {
+		banner_draw.animate(2000, '>').plot(endPath);
+	})
+</script>
+
+
+
+
 
 
 
@@ -37,6 +78,10 @@ https://github.com/maxwellito/vivus
 		test.reset();
 	})
 </script>
+
+
+
+
 
 
 <!-- tweenMax -->
@@ -85,6 +130,9 @@ https://github.com/maxwellito/vivus
 	}
 </script>
 
+
+
+
 <!-- animate 用法 -->
 <!-- basic -->
 <svg xmlns="http://www.w3.org/2000/svg" width="550.41" height="193.63" viewBox="0 0 550.41 193.63">
@@ -101,6 +149,8 @@ https://github.com/maxwellito/vivus
     </g>
     <path d="M349.13,56.5H304.41a10.34,10.34,0,0,1-10.33-10.33h0a10.34,10.34,0,0,1,10.33-10.34h10a5,5,0,0,0,5-5h0a5,5,0,0,0-5-5H225.37a6,6,0,0,1-6-6V18.5a6,6,0,0,1,6-6h7.31a6,6,0,0,0,6-6h0a6,6,0,0,0-6-6H0" fill="none" stroke="#fff" stroke-miterlimit="10" />
 </svg>
+
+
 
 <!-- patternTransform -->
 <svg width="0" height="0" style="position: absolute;">
@@ -123,6 +173,9 @@ https://github.com/maxwellito/vivus
     <polygon points="0 199 404 89 149 11 0 199" fill="#ffd217" />
     <polygon points="1055 106.2 1280 162.87 1280 216 0 216 0 215.8 410.14 99.24 620.13 179.29 859 208.2 1055 106.2" fill="#ffc54a" />
 </svg>
+
+
+
 
 <!-- animate stroke-dashoffset animateMotion -->
 <svg xmlns="http://www.w3.org/2000/svg" width="908.18" height="426" viewBox="0 0 908.18 426">

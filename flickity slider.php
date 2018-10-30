@@ -10,6 +10,12 @@ https://codepen.io/eikeco/pen/MwGRKr
 
 <!-- if asNavFor not work -->
 https://github.com/metafizzy/flickity-sync
+<script src="https://unpkg.com/flickity-sync@2.0.0/flickity-sync.js"></script>
+
+<!-- (寫一個就可) -->
+<div data-flickity='{
+	"sync": ".carouselB"
+}'></div>
 
 
 <style>

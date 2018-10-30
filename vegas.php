@@ -9,8 +9,16 @@
     }
 </style>
 
+
+
+<!-- make video work on mobile -->
 <script>
-    // 讓video支援mobile
+    // vegas.js 418行附近 新增
+    $video.attr("playsinline", true);
+</script>
+
+<script>
+    // 讓video支援mobile  (這好像沒啥用  但還是要加的樣子)
     $.vegas.isVideoCompatible = function () {
         return true;
     }

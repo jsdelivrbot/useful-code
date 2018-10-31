@@ -1,3 +1,8 @@
+<!-- 簡單好用 -->
+http://www.wibibi.com/info.php?tid=282
+<?= date("Y.m.d", strtotime($row['d_date'])) ?>
+
+
 <!-- 數字變英文 JUL-->
 <?php
 require_once('js/fun_changeStr.php');

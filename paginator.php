@@ -1,3 +1,33 @@
+<!-- pdo with class -->
+<!-- php 7 不支持class跟function同名 所以class改成RyderPaginator -->
+<?php
+require_once 'Connections/connect2data.php';
+require_once 'paginator.class.php';
+
+$ryder_cat = (isset($_GET['c'])) ? $_GET['c'] : 0;
+
+//page start
+$page = (isset($_GET['page'])) ? $_GET['page'] : 1;
+$maxItem = 4;
+$limit = ($page - 1) * $maxItem;
+
+// 拿來計算全部有幾則
+$workTotal = $DB->query("SELECT * FROM data_set WHERE d_class1='news' AND (d_class2=? || $ryder_cat=0) AND d_active=1 ORDER BY d_sort ASC", [$ryder_cat]);
+$pageTotalCount = count($workTotal);
+$totalpage = ceil($pageTotalCount / $maxItem);
+
+//使用
+$work = $DB->query("SELECT * FROM data_set WHERE d_class1='news' AND (d_class2=? || $ryder_cat=0) AND d_active=1 ORDER BY d_sort ASC LIMIT ?, ?", [$ryder_cat, $limit, $maxItem]);
+
+$pages = new RyderPaginator;
+$pages->items_total = $pageTotalCount;
+$pages->items_per_page = $maxItem;
+$pages->paginate();
+//page end
+?>
+
+
+
 <!-- pdo -->
 <?php
 require_once 'Connections/connect2data.php';
@@ -38,6 +68,8 @@ $pages->paginate();
 //page end
 ?>
 
+
+
 <!-- mysql_query -->
 <?php
 require_once 'paginator.class.php';
@@ -73,7 +105,11 @@ $pages->paginate();
 //page end
 ?>
 
+
+
 <?php echo $pages->display_pages(); ?>
+
+
 
 <!-- page箭頭 -->
 <?php if($page!=1) {?> <a href="<?= $pages->prevpage(); ?>"><img src="images/pager-prev.png"><img src="images/pager-prev@2x.png" width="11"></a> <?php } ?>
@@ -81,6 +117,9 @@ $pages->paginate();
 <?php echo $pages->display_pages(); ?>
 
 <?php if($page!=$totalpage && $totalpage>1) {?> <a href="<?= $pages->nextpage(); ?>"><img src="images/pager-next.png"><img src="images/pager-next@2x.png" width="11"></a> <?php } ?>
+
+
+
 
 <!-- 增加錨點 -->
 <script>

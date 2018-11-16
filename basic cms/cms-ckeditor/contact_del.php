@@ -65,42 +65,30 @@ $menu_is = "contact";
                                     </tr>
                                     <tr>
                                         <td>
-                                            <table width="100%" border="0" cellspacing="3" cellpadding="5">
+                                            <table width="100%" border="0" cellspacing="3" cellpadding="5" id="forcolor">
                                                 <tr>
                                                     <td width="23%" align="center" class="table_title">姓名</td>
-                                                    <td width="78%" bgcolor="#E4E4E4" class="table_data">
-                                                        <?php echo (isset($row_RecData['d_data1'])) ? $row_RecData['d_data1'] : '無'; ?>
-                                                    </td>
+                                                    <td width="78%" class="table_data"><?php echo (isset($row_RecData['d_data1'])) ? $row_RecData['d_data1'] : '無'; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td align="center" class="table_title">電話</td>
-                                                    <td class="table_data">
-                                                        <?php echo (isset($row_RecData['d_data2'])) ? $row_RecData['d_data2'] : '無'; ?>
-                                                    </td>
+                                                    <td class="table_data"><?php echo (isset($row_RecData['d_data2'])) ? $row_RecData['d_data2'] : '無'; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td align="center" class="table_title">信箱</td>
-                                                    <td bgcolor="#E4E4E4" class="table_data">
-                                                        <?php echo (isset($row_RecData['d_data3'])) ? $row_RecData['d_data3'] : '無'; ?>
-                                                    </td>
+                                                    <td class="table_data"><?php echo (isset($row_RecData['d_data3'])) ? $row_RecData['d_data3'] : '無'; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td align="center" class="table_title">主旨</td>
-                                                    <td class="table_data">
-                                                        <?php echo (isset($row_RecData['d_title'])) ? $row_RecData['d_title'] : '無'; ?>
-                                                    </td>
+                                                    <td class="table_data"><?php echo (isset($row_RecData['d_title'])) ? $row_RecData['d_title'] : '無'; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td align="center" class="table_title">訊息</td>
-                                                    <td bgcolor="#E4E4E4" class="table_data">
-                                                        <?php echo (isset($row_RecData['d_content'])) ? nl2br($row_RecData['d_content']) : '無'; ?>
-                                                    </td>
+                                                    <td class="table_data"><?php echo (isset($row_RecData['d_content'])) ? nl2br($row_RecData['d_content']) : '無'; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td align="center" class="table_title">諮詢時間</td>
-                                                    <td class="table_data">
-                                                        <?php echo $row_RecData['d_date']; ?>
-                                                    </td>
+                                                    <td class="table_data"><?php echo $row_RecData['d_date']; ?></td>
                                                 </tr>
                                             </table>
                                         </td>
@@ -131,6 +119,16 @@ $menu_is = "contact";
     </table>
 </body>
 </html>
+
+
+<script>
+    $("#forcolor tr").each(function (i, el) {
+        if (i%2==0) {
+            $("td", el).eq(1).attr("bgcolor", "#E4E4E4");
+        }
+    })
+</script>
+
 
 <?php
 if ((isset($_REQUEST['d_id'])) && ($_REQUEST['d_id'] != "") && (isset($_REQUEST['delsure']))) {

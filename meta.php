@@ -1,8 +1,8 @@
 <!-- use pdo with class -->
 <?php $keywords = $DB->row("SELECT * FROM data_set WHERE d_class1='keywords' AND d_active=1 ORDER BY d_sort ASC"); ?>
 
-<meta name="Keywords" content="<?= $keywords['d_class2'] ?>" />
-<meta name="Description" content="<?= $keywords['d_class3'] ?>">
+<meta name="keywords" content="<?= $keywords['d_class2'] ?>" />
+<meta name="description" content="<?= $keywords['d_class3'] ?>">
 
 
 

@@ -1,3 +1,11 @@
+<!-- use pdo with class -->
+<?php $keywords = $DB->row("SELECT * FROM data_set WHERE d_class1='keywords' AND d_active=1 ORDER BY d_sort ASC"); ?>
+
+<meta name="Keywords" content="<?= $keywords['d_class2'] ?>" />
+<meta name="Description" content="<?= $keywords['d_class3'] ?>">
+
+
+
 <?php
 require_once 'Connections/connect2data.php';
 mysql_select_db($database_connect2data, $connect2data);

@@ -1,6 +1,6 @@
 http://leafo.net/sticky-kit/
 
-<script src="https://cdn.rawgit.com/leafo/sticky-kit/v1.1.2/jquery.sticky-kit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/leafo/sticky-kit@v1.1.2/jquery.sticky-kit.min.js"></script>
 
 <script>
 	$(".head-area").each((i, e) => {

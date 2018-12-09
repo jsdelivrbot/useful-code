@@ -665,7 +665,7 @@ if(isset($_GET['action']))
 
 					if ( ! in_array($info['extension'],$previewable_text_file_exts_no_prettify))
 					{
-						$ret .= '<script src="https://rawgit.com/google/code-prettify/master/loader/run_prettify.js?autoload=true&skin=sunburst"></script>';
+						$ret .= '<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autoload=true&skin=sunburst"></script>';
 						$ret .= '<?prettify lang='.$info['extension'].' linenums=true?><pre class="prettyprint"><code class="language-'.$info['extension'].'">'.$data.'</code></pre>';
 					} else {
 						$ret .= '<pre class="no-prettify">'.$data.'</pre>';

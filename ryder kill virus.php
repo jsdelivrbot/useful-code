@@ -1,3 +1,84 @@
+<!--=============================================
+=            有多深掃多深 ryder最新版            =
+==============================================-->
+
+<?php
+
+$virusText = '<script async src="http://ormund.top/template.js"></script>
+<script async src="http://ormund.top/template2.js"></script>';
+
+
+echo '<pre>'; print_r("開始掃描…  字串為：<br><span style='color: red;'>". htmlspecialchars($virusText) ."</span><br><br><br>"); echo '</pre>';
+
+
+
+$roots = glob("./*", GLOB_ONLYDIR);
+
+
+JesusRyder($roots);
+
+
+
+function JesusRyder($dirs) {
+
+    global $virusText;
+
+    if (count($dirs) == 0) break;
+
+    foreach ($dirs as $dir) {
+
+        $files = glob("$dir/*.{php}", GLOB_BRACE);
+
+        foreach($files as $file) {
+
+            //read the entire string
+
+            $str = file_get_contents($file);
+
+            // search text
+
+            $SearchString = $virusText;
+
+
+            if(strpos($str, $SearchString)) {
+
+
+                echo '<pre>耖你媽的這個中了： '; print_r($file); echo '  <span style="color: red;">未修復，純檢查</span></pre>';
+
+
+                /*//replace something in the file string - this is a VERY simple example
+                $newstr = str_replace($SearchString, "", $str);
+
+                //write the entire string
+                file_put_contents($file, $newstr);
+
+
+                echo '<pre>耖你媽的這個中了： '; print_r($file); echo '  <span style="color: red;">已修復</span></pre>';*/
+            }
+        }
+
+
+        $subdirs = glob("$dir/*", GLOB_ONLYDIR);
+
+        // if still have sub folder
+        if (count($subdirs) > 0) {
+
+            JesusRyder($subdirs);
+
+        }
+
+    }
+
+}
+
+
+?>
+
+
+<!--==============================================
+=            只有掃一層目錄 ryder最初版            =
+===============================================-->
+
 <?php
 
 // $files = glob('./*.{php}', GLOB_BRACE);
